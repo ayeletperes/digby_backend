@@ -53,7 +53,7 @@ sample_name <- opt$sample_name
 html_output <- opt$is_html  # for pdf set "F"
 html_output <- ifelse(html_output == "T", TRUE, FALSE)
 
-haplo_db_J6 <- readHaplotypeDb(file=haplotypes_path)
+haplo_db_J6 <- readHaplotypeDb(file=haplotype_path)
 if (!is.null(opt$samp)) {
   haplo_db_J6$subject <- opt$samp
 }
