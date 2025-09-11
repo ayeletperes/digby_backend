@@ -1,0 +1,9 @@
+rm *.bam
+rm *.faidx
+echo "making bam files"
+for foo in *.sam; do name=${foo%.*}; samtools view -S -b $name.sam > $name.bam; done
+echo "indexing bam files"
+for foo in *.bam; do samtools index $foo; done
+echo "indexing fasta files"
+for foo in *.fasta; do samtools faidx $foo; done
+echo "done"

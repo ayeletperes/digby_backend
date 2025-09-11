@@ -1,0 +1,1801 @@
+{
+    "Info": {
+        "title": "AIRR Data File",
+        "description": "AIRR Data File written by AIRR Standards Python Library",
+        "version": 1.4,
+        "contact": {
+            "name": "AIRR Community",
+            "url": "https://github.com/airr-community"
+        },
+        "license": {
+            "name": "Creative Commons Attribution 4.0 International",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    },
+    "Repertoire": [
+        {
+            "repertoire_id": "M2_cln",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA248475",
+                "study_title": "B cells populating the multiple sclerosis brain mature in the draining cervical lymph nodes",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Multiple sclerosis (MS) is an inflammatory disease of the central nervous system (CNS) characterized by autoimmune-mediated demyelination and neurodegeneration. The CNS of patients with MS harbors expanded clones of antigen-experienced B cells that reside in distinct compartments including the meninges, cerebrospinal fluid (CSF), and parenchyma. It is not understood whether this immune infiltrate initiates its development in the CNS or in peripheral tissues. B cells in the CSF can exchange with those in peripheral blood, implying that CNS B cells may have access to lymphoid tissue that may be the specific compartment(s) in which CNS-resident B cells encounter antigen and experience affinity maturation. Paired tissues were used to determine whether the B cells that populate the CNS mature in the draining cervical lymph nodes (CLNs). High-throughput sequencing of the antibody repertoire demonstrated that clonally expanded B cells were present in both compartments. Founding members of clones were more often found in the draining CLNs. More mature clonal members derived from these founders were observed in the draining CLNs and also in the CNS, including lesions. These data provide new evidence that B cells traffic freely across the tissue barrier, with the majority of B cell maturation occurring outside of the CNS in the secondary lymphoid tissue. Our study may aid in further defining the mechanisms of immunomodulatory therapies that either deplete circulating B cells or affect the intrathecal B cell compartment by inhibiting lymphocyte transmigration into the CNS.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Steven H. Kleinstein",
+                "lab_address": "Yale University",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu",
+                "pub_ids": "PMID:25100741",
+                "keywords_study": [],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "M2",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": "DOID:0050783",
+                            "label": "secondary progressive multiple sclerosis"
+                        },
+                        "disease_length": null,
+                        "disease_stage": "null",
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "M2_cln",
+                    "sample_type": "Tissue sample",
+                    "tissue": {
+                        "id": "UBERON:0002429",
+                        "label": "cervical lymph node"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "Secondary progressive",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR1383472_2.fastq",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": "forward",
+                        "read_length": 250,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 250,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "combine_repertoire": "M2_cln"
+        },
+        {
+            "repertoire_id": "M2_lesion",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA248475",
+                "study_title": "B cells populating the multiple sclerosis brain mature in the draining cervical lymph nodes",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Multiple sclerosis (MS) is an inflammatory disease of the central nervous system (CNS) characterized by autoimmune-mediated demyelination and neurodegeneration. The CNS of patients with MS harbors expanded clones of antigen-experienced B cells that reside in distinct compartments including the meninges, cerebrospinal fluid (CSF), and parenchyma. It is not understood whether this immune infiltrate initiates its development in the CNS or in peripheral tissues. B cells in the CSF can exchange with those in peripheral blood, implying that CNS B cells may have access to lymphoid tissue that may be the specific compartment(s) in which CNS-resident B cells encounter antigen and experience affinity maturation. Paired tissues were used to determine whether the B cells that populate the CNS mature in the draining cervical lymph nodes (CLNs). High-throughput sequencing of the antibody repertoire demonstrated that clonally expanded B cells were present in both compartments. Founding members of clones were more often found in the draining CLNs. More mature clonal members derived from these founders were observed in the draining CLNs and also in the CNS, including lesions. These data provide new evidence that B cells traffic freely across the tissue barrier, with the majority of B cell maturation occurring outside of the CNS in the secondary lymphoid tissue. Our study may aid in further defining the mechanisms of immunomodulatory therapies that either deplete circulating B cells or affect the intrathecal B cell compartment by inhibiting lymphocyte transmigration into the CNS.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Steven H. Kleinstein",
+                "lab_address": "Yale University",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu",
+                "pub_ids": "PMID:25100741",
+                "keywords_study": [],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "M2",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": "DOID:0050783",
+                            "label": "secondary progressive multiple sclerosis"
+                        },
+                        "disease_length": null,
+                        "disease_stage": "null",
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "M2_lesion",
+                    "sample_type": "Lesion sample",
+                    "tissue": {
+                        "id": "UBERON:0003544",
+                        "label": "brain white matter"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "Secondary progressive",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR1383475_2.fastq",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": "forward",
+                        "read_length": 250,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 250,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "combine_repertoire": "M2_lesion"
+        },
+        {
+            "repertoire_id": "M3_cln",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA248475",
+                "study_title": "B cells populating the multiple sclerosis brain mature in the draining cervical lymph nodes",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Multiple sclerosis (MS) is an inflammatory disease of the central nervous system (CNS) characterized by autoimmune-mediated demyelination and neurodegeneration. The CNS of patients with MS harbors expanded clones of antigen-experienced B cells that reside in distinct compartments including the meninges, cerebrospinal fluid (CSF), and parenchyma. It is not understood whether this immune infiltrate initiates its development in the CNS or in peripheral tissues. B cells in the CSF can exchange with those in peripheral blood, implying that CNS B cells may have access to lymphoid tissue that may be the specific compartment(s) in which CNS-resident B cells encounter antigen and experience affinity maturation. Paired tissues were used to determine whether the B cells that populate the CNS mature in the draining cervical lymph nodes (CLNs). High-throughput sequencing of the antibody repertoire demonstrated that clonally expanded B cells were present in both compartments. Founding members of clones were more often found in the draining CLNs. More mature clonal members derived from these founders were observed in the draining CLNs and also in the CNS, including lesions. These data provide new evidence that B cells traffic freely across the tissue barrier, with the majority of B cell maturation occurring outside of the CNS in the secondary lymphoid tissue. Our study may aid in further defining the mechanisms of immunomodulatory therapies that either deplete circulating B cells or affect the intrathecal B cell compartment by inhibiting lymphocyte transmigration into the CNS.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Steven H. Kleinstein",
+                "lab_address": "Yale University",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu",
+                "pub_ids": "PMID:25100741",
+                "keywords_study": [],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "M3",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": "DOID:0050784",
+                            "label": "primary progressive multiple sclerosis"
+                        },
+                        "disease_length": null,
+                        "disease_stage": "null",
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "M3_cln",
+                    "sample_type": "Tissue sample",
+                    "tissue": {
+                        "id": "UBERON:0002429",
+                        "label": "cervical lymph node"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "Primary progressive",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR1383326_2.fastq",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": "forward",
+                        "read_length": 250,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 250,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "combine_repertoire": "M3_cln"
+        },
+        {
+            "repertoire_id": "M3_lesion",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA248475",
+                "study_title": "B cells populating the multiple sclerosis brain mature in the draining cervical lymph nodes",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Multiple sclerosis (MS) is an inflammatory disease of the central nervous system (CNS) characterized by autoimmune-mediated demyelination and neurodegeneration. The CNS of patients with MS harbors expanded clones of antigen-experienced B cells that reside in distinct compartments including the meninges, cerebrospinal fluid (CSF), and parenchyma. It is not understood whether this immune infiltrate initiates its development in the CNS or in peripheral tissues. B cells in the CSF can exchange with those in peripheral blood, implying that CNS B cells may have access to lymphoid tissue that may be the specific compartment(s) in which CNS-resident B cells encounter antigen and experience affinity maturation. Paired tissues were used to determine whether the B cells that populate the CNS mature in the draining cervical lymph nodes (CLNs). High-throughput sequencing of the antibody repertoire demonstrated that clonally expanded B cells were present in both compartments. Founding members of clones were more often found in the draining CLNs. More mature clonal members derived from these founders were observed in the draining CLNs and also in the CNS, including lesions. These data provide new evidence that B cells traffic freely across the tissue barrier, with the majority of B cell maturation occurring outside of the CNS in the secondary lymphoid tissue. Our study may aid in further defining the mechanisms of immunomodulatory therapies that either deplete circulating B cells or affect the intrathecal B cell compartment by inhibiting lymphocyte transmigration into the CNS.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Steven H. Kleinstein",
+                "lab_address": "Yale University",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu",
+                "pub_ids": "PMID:25100741",
+                "keywords_study": [],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "M3",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": "DOID:0050784",
+                            "label": "primary progressive multiple sclerosis"
+                        },
+                        "disease_length": null,
+                        "disease_stage": "null",
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "M3_lesion",
+                    "sample_type": "Tissue sample",
+                    "tissue": {
+                        "id": "UBERON:0003544",
+                        "label": "brain white matter"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "Primary progressive",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR1383449_2.fastq",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": "forward",
+                        "read_length": 250,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 250,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "combine_repertoire": "M3_lesion"
+        },
+        {
+            "repertoire_id": "M4_cln",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA248475",
+                "study_title": "B cells populating the multiple sclerosis brain mature in the draining cervical lymph nodes",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Multiple sclerosis (MS) is an inflammatory disease of the central nervous system (CNS) characterized by autoimmune-mediated demyelination and neurodegeneration. The CNS of patients with MS harbors expanded clones of antigen-experienced B cells that reside in distinct compartments including the meninges, cerebrospinal fluid (CSF), and parenchyma. It is not understood whether this immune infiltrate initiates its development in the CNS or in peripheral tissues. B cells in the CSF can exchange with those in peripheral blood, implying that CNS B cells may have access to lymphoid tissue that may be the specific compartment(s) in which CNS-resident B cells encounter antigen and experience affinity maturation. Paired tissues were used to determine whether the B cells that populate the CNS mature in the draining cervical lymph nodes (CLNs). High-throughput sequencing of the antibody repertoire demonstrated that clonally expanded B cells were present in both compartments. Founding members of clones were more often found in the draining CLNs. More mature clonal members derived from these founders were observed in the draining CLNs and also in the CNS, including lesions. These data provide new evidence that B cells traffic freely across the tissue barrier, with the majority of B cell maturation occurring outside of the CNS in the secondary lymphoid tissue. Our study may aid in further defining the mechanisms of immunomodulatory therapies that either deplete circulating B cells or affect the intrathecal B cell compartment by inhibiting lymphocyte transmigration into the CNS.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Steven H. Kleinstein",
+                "lab_address": "Yale University",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu",
+                "pub_ids": "PMID:25100741",
+                "keywords_study": [],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "M4",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": "DOID:2377",
+                            "label": "multiple sclerosis"
+                        },
+                        "disease_length": null,
+                        "disease_stage": "chronic progressive",
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "M4_cln",
+                    "sample_type": "Tissue sample",
+                    "tissue": {
+                        "id": "UBERON:0002429",
+                        "label": "cervical lymph node"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "Chronic progressive",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR1383453_2.fastq",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": "forward",
+                        "read_length": 250,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 250,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "combine_repertoire": "M4_cln"
+        },
+        {
+            "repertoire_id": "M4_lesion",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA248475",
+                "study_title": "B cells populating the multiple sclerosis brain mature in the draining cervical lymph nodes",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Multiple sclerosis (MS) is an inflammatory disease of the central nervous system (CNS) characterized by autoimmune-mediated demyelination and neurodegeneration. The CNS of patients with MS harbors expanded clones of antigen-experienced B cells that reside in distinct compartments including the meninges, cerebrospinal fluid (CSF), and parenchyma. It is not understood whether this immune infiltrate initiates its development in the CNS or in peripheral tissues. B cells in the CSF can exchange with those in peripheral blood, implying that CNS B cells may have access to lymphoid tissue that may be the specific compartment(s) in which CNS-resident B cells encounter antigen and experience affinity maturation. Paired tissues were used to determine whether the B cells that populate the CNS mature in the draining cervical lymph nodes (CLNs). High-throughput sequencing of the antibody repertoire demonstrated that clonally expanded B cells were present in both compartments. Founding members of clones were more often found in the draining CLNs. More mature clonal members derived from these founders were observed in the draining CLNs and also in the CNS, including lesions. These data provide new evidence that B cells traffic freely across the tissue barrier, with the majority of B cell maturation occurring outside of the CNS in the secondary lymphoid tissue. Our study may aid in further defining the mechanisms of immunomodulatory therapies that either deplete circulating B cells or affect the intrathecal B cell compartment by inhibiting lymphocyte transmigration into the CNS.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Steven H. Kleinstein",
+                "lab_address": "Yale University",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu",
+                "pub_ids": "PMID:25100741",
+                "keywords_study": [],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "M4",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": "DOID:2377",
+                            "label": "multiple sclerosis"
+                        },
+                        "disease_length": null,
+                        "disease_stage": "chronic progressive",
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "M4_lesion",
+                    "sample_type": "Lesion sample",
+                    "tissue": {
+                        "id": "UBERON:0003544",
+                        "label": "brain white matter"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "Chronic progressive",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR1383454_2.fastq",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": "forward",
+                        "read_length": 250,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 250,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "combine_repertoire": "M4_lesion"
+        },
+        {
+            "repertoire_id": "M5_cln",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA248475",
+                "study_title": "B cells populating the multiple sclerosis brain mature in the draining cervical lymph nodes",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Multiple sclerosis (MS) is an inflammatory disease of the central nervous system (CNS) characterized by autoimmune-mediated demyelination and neurodegeneration. The CNS of patients with MS harbors expanded clones of antigen-experienced B cells that reside in distinct compartments including the meninges, cerebrospinal fluid (CSF), and parenchyma. It is not understood whether this immune infiltrate initiates its development in the CNS or in peripheral tissues. B cells in the CSF can exchange with those in peripheral blood, implying that CNS B cells may have access to lymphoid tissue that may be the specific compartment(s) in which CNS-resident B cells encounter antigen and experience affinity maturation. Paired tissues were used to determine whether the B cells that populate the CNS mature in the draining cervical lymph nodes (CLNs). High-throughput sequencing of the antibody repertoire demonstrated that clonally expanded B cells were present in both compartments. Founding members of clones were more often found in the draining CLNs. More mature clonal members derived from these founders were observed in the draining CLNs and also in the CNS, including lesions. These data provide new evidence that B cells traffic freely across the tissue barrier, with the majority of B cell maturation occurring outside of the CNS in the secondary lymphoid tissue. Our study may aid in further defining the mechanisms of immunomodulatory therapies that either deplete circulating B cells or affect the intrathecal B cell compartment by inhibiting lymphocyte transmigration into the CNS.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Steven H. Kleinstein",
+                "lab_address": "Yale University",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu",
+                "pub_ids": "PMID:25100741",
+                "keywords_study": [],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "M5",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": "DOID:2377",
+                            "label": "multiple sclerosis"
+                        },
+                        "disease_length": null,
+                        "disease_stage": "chronic",
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "M5_cln",
+                    "sample_type": "Tissue sample",
+                    "tissue": {
+                        "id": "UBERON:0002429",
+                        "label": "cervical lymph node"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "Chronic",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR1383460_2.fastq",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": "forward",
+                        "read_length": 250,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 250,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "combine_repertoire": "M5_cln"
+        },
+        {
+            "repertoire_id": "M5_lesion",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA248475",
+                "study_title": "B cells populating the multiple sclerosis brain mature in the draining cervical lymph nodes",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Multiple sclerosis (MS) is an inflammatory disease of the central nervous system (CNS) characterized by autoimmune-mediated demyelination and neurodegeneration. The CNS of patients with MS harbors expanded clones of antigen-experienced B cells that reside in distinct compartments including the meninges, cerebrospinal fluid (CSF), and parenchyma. It is not understood whether this immune infiltrate initiates its development in the CNS or in peripheral tissues. B cells in the CSF can exchange with those in peripheral blood, implying that CNS B cells may have access to lymphoid tissue that may be the specific compartment(s) in which CNS-resident B cells encounter antigen and experience affinity maturation. Paired tissues were used to determine whether the B cells that populate the CNS mature in the draining cervical lymph nodes (CLNs). High-throughput sequencing of the antibody repertoire demonstrated that clonally expanded B cells were present in both compartments. Founding members of clones were more often found in the draining CLNs. More mature clonal members derived from these founders were observed in the draining CLNs and also in the CNS, including lesions. These data provide new evidence that B cells traffic freely across the tissue barrier, with the majority of B cell maturation occurring outside of the CNS in the secondary lymphoid tissue. Our study may aid in further defining the mechanisms of immunomodulatory therapies that either deplete circulating B cells or affect the intrathecal B cell compartment by inhibiting lymphocyte transmigration into the CNS.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Steven H. Kleinstein",
+                "lab_address": "Yale University",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu",
+                "pub_ids": "PMID:25100741",
+                "keywords_study": [],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "M5",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": "DOID:2377",
+                            "label": "multiple sclerosis"
+                        },
+                        "disease_length": null,
+                        "disease_stage": "chronic",
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "M5_lesion",
+                    "sample_type": "Lesion sample",
+                    "tissue": {
+                        "id": "UBERON:0003544",
+                        "label": "brain white matter"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "Chronic",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR1383468_2.fastq",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": "forward",
+                        "read_length": 250,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 250,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "combine_repertoire": "M5_lesion"
+        }
+    ]
+}

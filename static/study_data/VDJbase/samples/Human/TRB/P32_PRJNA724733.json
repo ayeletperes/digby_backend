@@ -1,0 +1,1857 @@
+{
+    "Info": {
+        "title": "AIRR Data File",
+        "description": "AIRR Data File written by AIRR Standards Python Library",
+        "version": 1.5,
+        "contact": {
+            "name": "AIRR Community",
+            "url": "https://github.com/airr-community"
+        },
+        "license": {
+            "name": "Creative Commons Attribution 4.0 International",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    },
+    "Repertoire": [
+        {
+            "repertoire_id": "P1_PRJNA724733_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA724733",
+                "study_title": "Distinct populations of antigen-specific tissue-resident CD8+ T cells in human cervix mucosa",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The ectocervix is part of the lower female reproductive tract (FRT), which is susceptible to sexually transmitted infections (STIs). Comprehensive knowledge of the phenotypes and T cell receptor (TCR) repertoire of tissue-resident memory T cells (TRMs) in the human FRT is lacking. We took single-cell RNA-Seq approaches to simultaneously define gene expression and TCR clonotypes of the human ectocervix. There were significantly more CD8+ than CD4+ T cells. Unsupervised clustering and trajectory analysis identified distinct populations of CD8+ T cells with IFNGhiGZMBloCD69hiCD103lo or IFNGloGZMBhiCD69medCD103hi phenotypes. Little overlap was seen between their TCR repertoires. Immunofluorescence staining showed that CD103+CD8+ TRMs were preferentially localized in the epithelium, whereas CD69+CD8+ TRMs were distributed evenly in the epithelium and stroma. Ex vivo assays indicated that up to 14% of cervical CD8+ TRM clonotypes were HSV-2 reactive in HSV-2-seropositive persons, reflecting physiologically relevant localization. Our studies identified subgroups of CD8+ TRMs in the human ectocervix that exhibited distinct expression of antiviral defense and tissue residency markers, anatomic locations, and TCR repertoires that target anatomically relevant viral antigens. Optimization of the location, number, and function of FRT TRMs is an important approach for improving host defenses to STIs.",
+                "inclusion_exclusion_criteria": "Female adults were recruited at the University of Washington Virology Research Clinic in Seattle, Washington. The biopsy protocol was approved by University of Washington IRB committee (STUDY00004709), and all participants provided written consent. All participants were HSV-2 seropositive and HIV seronegative.",
+                "grants": "This work was supported by grants from NIH (R01 AI134878 and R01 AI111780). This work was also supported by NIH contract 75N93019C00063 (DMK).",
+                "study_contact": null,
+                "collected_by": "Tao Peng, tpeng@uw.edu, Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "lab_name": "Jia Zhu",
+                "lab_address": "Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34156975",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "P1",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": "54.6",
+                "age_unit": {
+                    "id": "UO:0000036",
+                    "label": "year"
+                },
+                "age_event": "sampling",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "healthy",
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "CX1_CX1_2",
+                    "sample_type": "biopsy",
+                    "tissue": {
+                        "id": "UBERON:0012249",
+                        "label": "ectocervix"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "EasySep Human CD8 T Cell Isolation Kit (STEMCELL, 17953)",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": "17000",
+                    "cells_per_reaction": "1",
+                    "cell_storage": "False",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR14312112_SRR14312113",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 2500",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR14312112_2.fastq.gz_SRR14312113_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR14312112_3.fastq.gz_SRR14312113_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "P1"
+        },
+        {
+            "repertoire_id": "P2_PRJNA724733_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA724733",
+                "study_title": "Distinct populations of antigen-specific tissue-resident CD8+ T cells in human cervix mucosa",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The ectocervix is part of the lower female reproductive tract (FRT), which is susceptible to sexually transmitted infections (STIs). Comprehensive knowledge of the phenotypes and T cell receptor (TCR) repertoire of tissue-resident memory T cells (TRMs) in the human FRT is lacking. We took single-cell RNA-Seq approaches to simultaneously define gene expression and TCR clonotypes of the human ectocervix. There were significantly more CD8+ than CD4+ T cells. Unsupervised clustering and trajectory analysis identified distinct populations of CD8+ T cells with IFNGhiGZMBloCD69hiCD103lo or IFNGloGZMBhiCD69medCD103hi phenotypes. Little overlap was seen between their TCR repertoires. Immunofluorescence staining showed that CD103+CD8+ TRMs were preferentially localized in the epithelium, whereas CD69+CD8+ TRMs were distributed evenly in the epithelium and stroma. Ex vivo assays indicated that up to 14% of cervical CD8+ TRM clonotypes were HSV-2 reactive in HSV-2-seropositive persons, reflecting physiologically relevant localization. Our studies identified subgroups of CD8+ TRMs in the human ectocervix that exhibited distinct expression of antiviral defense and tissue residency markers, anatomic locations, and TCR repertoires that target anatomically relevant viral antigens. Optimization of the location, number, and function of FRT TRMs is an important approach for improving host defenses to STIs.",
+                "inclusion_exclusion_criteria": "Female adults were recruited at the University of Washington Virology Research Clinic in Seattle, Washington. The biopsy protocol was approved by University of Washington IRB committee (STUDY00004709), and all participants provided written consent. All participants were HSV-2 seropositive and HIV seronegative.",
+                "grants": "This work was supported by grants from NIH (R01 AI134878 and R01 AI111780). This work was also supported by NIH contract 75N93019C00063 (DMK).",
+                "study_contact": null,
+                "collected_by": "Tao Peng, tpeng@uw.edu, Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "lab_name": "Jia Zhu",
+                "lab_address": "Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34156975",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "P2",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": "55.0",
+                "age_unit": {
+                    "id": "UO:0000036",
+                    "label": "year"
+                },
+                "age_event": "sampling",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "healthy",
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "CX2_2_CX2",
+                    "sample_type": "biopsy",
+                    "tissue": {
+                        "id": "UBERON:0012249",
+                        "label": "ectocervix"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "EasySep Human CD8 T Cell Isolation Kit (STEMCELL, 17953)",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": "17000",
+                    "cells_per_reaction": "1",
+                    "cell_storage": "False",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR14312116_SRR14312115",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 2500",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR14312116_2.fastq.gz_SRR14312115_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR14312116_3.fastq.gz_SRR14312115_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "P2"
+        },
+        {
+            "repertoire_id": "P3_PRJNA724733_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA724733",
+                "study_title": "Distinct populations of antigen-specific tissue-resident CD8+ T cells in human cervix mucosa",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The ectocervix is part of the lower female reproductive tract (FRT), which is susceptible to sexually transmitted infections (STIs). Comprehensive knowledge of the phenotypes and T cell receptor (TCR) repertoire of tissue-resident memory T cells (TRMs) in the human FRT is lacking. We took single-cell RNA-Seq approaches to simultaneously define gene expression and TCR clonotypes of the human ectocervix. There were significantly more CD8+ than CD4+ T cells. Unsupervised clustering and trajectory analysis identified distinct populations of CD8+ T cells with IFNGhiGZMBloCD69hiCD103lo or IFNGloGZMBhiCD69medCD103hi phenotypes. Little overlap was seen between their TCR repertoires. Immunofluorescence staining showed that CD103+CD8+ TRMs were preferentially localized in the epithelium, whereas CD69+CD8+ TRMs were distributed evenly in the epithelium and stroma. Ex vivo assays indicated that up to 14% of cervical CD8+ TRM clonotypes were HSV-2 reactive in HSV-2-seropositive persons, reflecting physiologically relevant localization. Our studies identified subgroups of CD8+ TRMs in the human ectocervix that exhibited distinct expression of antiviral defense and tissue residency markers, anatomic locations, and TCR repertoires that target anatomically relevant viral antigens. Optimization of the location, number, and function of FRT TRMs is an important approach for improving host defenses to STIs.",
+                "inclusion_exclusion_criteria": "Female adults were recruited at the University of Washington Virology Research Clinic in Seattle, Washington. The biopsy protocol was approved by University of Washington IRB committee (STUDY00004709), and all participants provided written consent. All participants were HSV-2 seropositive and HIV seronegative.",
+                "grants": "This work was supported by grants from NIH (R01 AI134878 and R01 AI111780). This work was also supported by NIH contract 75N93019C00063 (DMK).",
+                "study_contact": null,
+                "collected_by": "Tao Peng, tpeng@uw.edu, Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "lab_name": "Jia Zhu",
+                "lab_address": "Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34156975",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "P3",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": "35.7",
+                "age_unit": {
+                    "id": "UO:0000036",
+                    "label": "year"
+                },
+                "age_event": "sampling",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "healthy",
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "CX3_2_CX3",
+                    "sample_type": "biopsy",
+                    "tissue": {
+                        "id": "UBERON:0012249",
+                        "label": "ectocervix"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "EasySep Human CD8 T Cell Isolation Kit (STEMCELL, 17953)",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": "17000",
+                    "cells_per_reaction": "1",
+                    "cell_storage": "False",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR14312119_SRR14312118",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 2500",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR14312119_2.fastq.gz_SRR14312118_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR14312119_3.fastq.gz_SRR14312118_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "P3"
+        },
+        {
+            "repertoire_id": "P4_PRJNA724733_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA724733",
+                "study_title": "Distinct populations of antigen-specific tissue-resident CD8+ T cells in human cervix mucosa",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The ectocervix is part of the lower female reproductive tract (FRT), which is susceptible to sexually transmitted infections (STIs). Comprehensive knowledge of the phenotypes and T cell receptor (TCR) repertoire of tissue-resident memory T cells (TRMs) in the human FRT is lacking. We took single-cell RNA-Seq approaches to simultaneously define gene expression and TCR clonotypes of the human ectocervix. There were significantly more CD8+ than CD4+ T cells. Unsupervised clustering and trajectory analysis identified distinct populations of CD8+ T cells with IFNGhiGZMBloCD69hiCD103lo or IFNGloGZMBhiCD69medCD103hi phenotypes. Little overlap was seen between their TCR repertoires. Immunofluorescence staining showed that CD103+CD8+ TRMs were preferentially localized in the epithelium, whereas CD69+CD8+ TRMs were distributed evenly in the epithelium and stroma. Ex vivo assays indicated that up to 14% of cervical CD8+ TRM clonotypes were HSV-2 reactive in HSV-2-seropositive persons, reflecting physiologically relevant localization. Our studies identified subgroups of CD8+ TRMs in the human ectocervix that exhibited distinct expression of antiviral defense and tissue residency markers, anatomic locations, and TCR repertoires that target anatomically relevant viral antigens. Optimization of the location, number, and function of FRT TRMs is an important approach for improving host defenses to STIs.",
+                "inclusion_exclusion_criteria": "Female adults were recruited at the University of Washington Virology Research Clinic in Seattle, Washington. The biopsy protocol was approved by University of Washington IRB committee (STUDY00004709), and all participants provided written consent. All participants were HSV-2 seropositive and HIV seronegative.",
+                "grants": "This work was supported by grants from NIH (R01 AI134878 and R01 AI111780). This work was also supported by NIH contract 75N93019C00063 (DMK).",
+                "study_contact": null,
+                "collected_by": "Tao Peng, tpeng@uw.edu, Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "lab_name": "Jia Zhu",
+                "lab_address": "Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34156975",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "P4",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": "25.8",
+                "age_unit": {
+                    "id": "UO:0000036",
+                    "label": "year"
+                },
+                "age_event": "sampling",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "healthy",
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "CX4_2_CX4",
+                    "sample_type": "biopsy",
+                    "tissue": {
+                        "id": "UBERON:0012249",
+                        "label": "ectocervix"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "EasySep Human CD8 T Cell Isolation Kit (STEMCELL, 17953)",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": "17000",
+                    "cells_per_reaction": "1",
+                    "cell_storage": "False",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR14312122_SRR14312121",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 2500",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR14312122_2.fastq.gz_SRR14312121_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR14312122_3.fastq.gz_SRR14312121_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "P4"
+        },
+        {
+            "repertoire_id": "P5_PRJNA724733_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA724733",
+                "study_title": "Distinct populations of antigen-specific tissue-resident CD8+ T cells in human cervix mucosa",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The ectocervix is part of the lower female reproductive tract (FRT), which is susceptible to sexually transmitted infections (STIs). Comprehensive knowledge of the phenotypes and T cell receptor (TCR) repertoire of tissue-resident memory T cells (TRMs) in the human FRT is lacking. We took single-cell RNA-Seq approaches to simultaneously define gene expression and TCR clonotypes of the human ectocervix. There were significantly more CD8+ than CD4+ T cells. Unsupervised clustering and trajectory analysis identified distinct populations of CD8+ T cells with IFNGhiGZMBloCD69hiCD103lo or IFNGloGZMBhiCD69medCD103hi phenotypes. Little overlap was seen between their TCR repertoires. Immunofluorescence staining showed that CD103+CD8+ TRMs were preferentially localized in the epithelium, whereas CD69+CD8+ TRMs were distributed evenly in the epithelium and stroma. Ex vivo assays indicated that up to 14% of cervical CD8+ TRM clonotypes were HSV-2 reactive in HSV-2-seropositive persons, reflecting physiologically relevant localization. Our studies identified subgroups of CD8+ TRMs in the human ectocervix that exhibited distinct expression of antiviral defense and tissue residency markers, anatomic locations, and TCR repertoires that target anatomically relevant viral antigens. Optimization of the location, number, and function of FRT TRMs is an important approach for improving host defenses to STIs.",
+                "inclusion_exclusion_criteria": "Female adults were recruited at the University of Washington Virology Research Clinic in Seattle, Washington. The biopsy protocol was approved by University of Washington IRB committee (STUDY00004709), and all participants provided written consent. All participants were HSV-2 seropositive and HIV seronegative.",
+                "grants": "This work was supported by grants from NIH (R01 AI134878 and R01 AI111780). This work was also supported by NIH contract 75N93019C00063 (DMK).",
+                "study_contact": null,
+                "collected_by": "Tao Peng, tpeng@uw.edu, Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "lab_name": "Jia Zhu",
+                "lab_address": "Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34156975",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "P5",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": "55.7",
+                "age_unit": {
+                    "id": "UO:0000036",
+                    "label": "year"
+                },
+                "age_event": "sampling",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "healthy",
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "CX5_2_CX5",
+                    "sample_type": "biopsy",
+                    "tissue": {
+                        "id": "UBERON:0012249",
+                        "label": "ectocervix"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "EasySep Human CD8 T Cell Isolation Kit (STEMCELL, 17953)",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": "17000",
+                    "cells_per_reaction": "1",
+                    "cell_storage": "False",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR14312125_SRR14312124",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 2500",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR14312125_2.fastq.gz_SRR14312124_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR14312125_3.fastq.gz_SRR14312124_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "P5"
+        },
+        {
+            "repertoire_id": "P6_PRJNA724733_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA724733",
+                "study_title": "Distinct populations of antigen-specific tissue-resident CD8+ T cells in human cervix mucosa",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The ectocervix is part of the lower female reproductive tract (FRT), which is susceptible to sexually transmitted infections (STIs). Comprehensive knowledge of the phenotypes and T cell receptor (TCR) repertoire of tissue-resident memory T cells (TRMs) in the human FRT is lacking. We took single-cell RNA-Seq approaches to simultaneously define gene expression and TCR clonotypes of the human ectocervix. There were significantly more CD8+ than CD4+ T cells. Unsupervised clustering and trajectory analysis identified distinct populations of CD8+ T cells with IFNGhiGZMBloCD69hiCD103lo or IFNGloGZMBhiCD69medCD103hi phenotypes. Little overlap was seen between their TCR repertoires. Immunofluorescence staining showed that CD103+CD8+ TRMs were preferentially localized in the epithelium, whereas CD69+CD8+ TRMs were distributed evenly in the epithelium and stroma. Ex vivo assays indicated that up to 14% of cervical CD8+ TRM clonotypes were HSV-2 reactive in HSV-2-seropositive persons, reflecting physiologically relevant localization. Our studies identified subgroups of CD8+ TRMs in the human ectocervix that exhibited distinct expression of antiviral defense and tissue residency markers, anatomic locations, and TCR repertoires that target anatomically relevant viral antigens. Optimization of the location, number, and function of FRT TRMs is an important approach for improving host defenses to STIs.",
+                "inclusion_exclusion_criteria": "Female adults were recruited at the University of Washington Virology Research Clinic in Seattle, Washington. The biopsy protocol was approved by University of Washington IRB committee (STUDY00004709), and all participants provided written consent. All participants were HSV-2 seropositive and HIV seronegative.",
+                "grants": "This work was supported by grants from NIH (R01 AI134878 and R01 AI111780). This work was also supported by NIH contract 75N93019C00063 (DMK).",
+                "study_contact": null,
+                "collected_by": "Tao Peng, tpeng@uw.edu, Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "lab_name": "Jia Zhu",
+                "lab_address": "Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34156975",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "P6",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": "57.3",
+                "age_unit": {
+                    "id": "UO:0000036",
+                    "label": "year"
+                },
+                "age_event": "sampling",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "healthy",
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "CX6B_CX6A_CX6B_2_CX6A_2",
+                    "sample_type": "biopsy",
+                    "tissue": {
+                        "id": "UBERON:0012249",
+                        "label": "ectocervix"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "EasySep Human CD8 T Cell Isolation Kit (STEMCELL, 17953)",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": "17000",
+                    "cells_per_reaction": "1",
+                    "cell_storage": "False",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR14312130_SRR14312127_SRR14312131_SRR14312128",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 2500",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR14312130_2.fastq.gz_SRR14312127_2.fastq.gz_SRR14312131_2.fastq.gz_SRR14312128_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR14312130_3.fastq.gz_SRR14312127_3.fastq.gz_SRR14312131_3.fastq.gz_SRR14312128_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "P6"
+        },
+        {
+            "repertoire_id": "P7_PRJNA724733_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA724733",
+                "study_title": "Distinct populations of antigen-specific tissue-resident CD8+ T cells in human cervix mucosa",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The ectocervix is part of the lower female reproductive tract (FRT), which is susceptible to sexually transmitted infections (STIs). Comprehensive knowledge of the phenotypes and T cell receptor (TCR) repertoire of tissue-resident memory T cells (TRMs) in the human FRT is lacking. We took single-cell RNA-Seq approaches to simultaneously define gene expression and TCR clonotypes of the human ectocervix. There were significantly more CD8+ than CD4+ T cells. Unsupervised clustering and trajectory analysis identified distinct populations of CD8+ T cells with IFNGhiGZMBloCD69hiCD103lo or IFNGloGZMBhiCD69medCD103hi phenotypes. Little overlap was seen between their TCR repertoires. Immunofluorescence staining showed that CD103+CD8+ TRMs were preferentially localized in the epithelium, whereas CD69+CD8+ TRMs were distributed evenly in the epithelium and stroma. Ex vivo assays indicated that up to 14% of cervical CD8+ TRM clonotypes were HSV-2 reactive in HSV-2-seropositive persons, reflecting physiologically relevant localization. Our studies identified subgroups of CD8+ TRMs in the human ectocervix that exhibited distinct expression of antiviral defense and tissue residency markers, anatomic locations, and TCR repertoires that target anatomically relevant viral antigens. Optimization of the location, number, and function of FRT TRMs is an important approach for improving host defenses to STIs.",
+                "inclusion_exclusion_criteria": "Female adults were recruited at the University of Washington Virology Research Clinic in Seattle, Washington. The biopsy protocol was approved by University of Washington IRB committee (STUDY00004709), and all participants provided written consent. All participants were HSV-2 seropositive and HIV seronegative.",
+                "grants": "This work was supported by grants from NIH (R01 AI134878 and R01 AI111780). This work was also supported by NIH contract 75N93019C00063 (DMK).",
+                "study_contact": null,
+                "collected_by": "Tao Peng, tpeng@uw.edu, Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "lab_name": "Jia Zhu",
+                "lab_address": "Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34156975",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "P7",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": "43.0",
+                "age_unit": {
+                    "id": "UO:0000036",
+                    "label": "year"
+                },
+                "age_event": "sampling",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "healthy",
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "CX7A_CX7B_CX7B_2_CX7A_2",
+                    "sample_type": "biopsy",
+                    "tissue": {
+                        "id": "UBERON:0012249",
+                        "label": "ectocervix"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "EasySep Human CD8 T Cell Isolation Kit (STEMCELL, 17953)",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": "17000",
+                    "cells_per_reaction": "1",
+                    "cell_storage": "False",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR14312133_SRR14312136_SRR14312137_SRR14312134",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 2500",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR14312133_2.fastq.gz_SRR14312136_2.fastq.gz_SRR14312137_2.fastq.gz_SRR14312134_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR14312133_3.fastq.gz_SRR14312136_3.fastq.gz_SRR14312137_3.fastq.gz_SRR14312134_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "P7"
+        },
+        {
+            "repertoire_id": "P8_PRJNA724733_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA724733",
+                "study_title": "Distinct populations of antigen-specific tissue-resident CD8+ T cells in human cervix mucosa",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The ectocervix is part of the lower female reproductive tract (FRT), which is susceptible to sexually transmitted infections (STIs). Comprehensive knowledge of the phenotypes and T cell receptor (TCR) repertoire of tissue-resident memory T cells (TRMs) in the human FRT is lacking. We took single-cell RNA-Seq approaches to simultaneously define gene expression and TCR clonotypes of the human ectocervix. There were significantly more CD8+ than CD4+ T cells. Unsupervised clustering and trajectory analysis identified distinct populations of CD8+ T cells with IFNGhiGZMBloCD69hiCD103lo or IFNGloGZMBhiCD69medCD103hi phenotypes. Little overlap was seen between their TCR repertoires. Immunofluorescence staining showed that CD103+CD8+ TRMs were preferentially localized in the epithelium, whereas CD69+CD8+ TRMs were distributed evenly in the epithelium and stroma. Ex vivo assays indicated that up to 14% of cervical CD8+ TRM clonotypes were HSV-2 reactive in HSV-2-seropositive persons, reflecting physiologically relevant localization. Our studies identified subgroups of CD8+ TRMs in the human ectocervix that exhibited distinct expression of antiviral defense and tissue residency markers, anatomic locations, and TCR repertoires that target anatomically relevant viral antigens. Optimization of the location, number, and function of FRT TRMs is an important approach for improving host defenses to STIs.",
+                "inclusion_exclusion_criteria": "Female adults were recruited at the University of Washington Virology Research Clinic in Seattle, Washington. The biopsy protocol was approved by University of Washington IRB committee (STUDY00004709), and all participants provided written consent. All participants were HSV-2 seropositive and HIV seronegative.",
+                "grants": "This work was supported by grants from NIH (R01 AI134878 and R01 AI111780). This work was also supported by NIH contract 75N93019C00063 (DMK).",
+                "study_contact": null,
+                "collected_by": "Tao Peng, tpeng@uw.edu, Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "lab_name": "Jia Zhu",
+                "lab_address": "Box 358080, Department of Laboratory Medicine and Pathology, University of Washington, Seattle, Washington 98195, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34156975",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "P8",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": "57.8",
+                "age_unit": {
+                    "id": "UO:0000036",
+                    "label": "year"
+                },
+                "age_event": "sampling",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "healthy",
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "CX8_CX8_2",
+                    "sample_type": "biopsy",
+                    "tissue": {
+                        "id": "UBERON:0012249",
+                        "label": "ectocervix"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "EasySep Human CD8 T Cell Isolation Kit (STEMCELL, 17953)",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": "17000",
+                    "cells_per_reaction": "1",
+                    "cell_storage": "False",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR14312139_SRR14312140",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 2500",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR14312139_2.fastq.gz_SRR14312140_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR14312139_3.fastq.gz_SRR14312140_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "P8"
+        }
+    ]
+}

@@ -1,0 +1,707 @@
+{
+    "Info": {
+        "title": "AIRR Data File",
+        "description": "AIRR Data File written by AIRR Standards Python Library",
+        "version": 1.5,
+        "contact": {
+            "name": "AIRR Community",
+            "url": "https://github.com/airr-community"
+        },
+        "license": {
+            "name": "Creative Commons Attribution 4.0 International",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    },
+    "Repertoire": [
+        {
+            "repertoire_id": "BC09_PRJNA472381_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA472381",
+                "study_title": "Single-Cell Map of Diverse Immune Phenotypes in the Breast Tumor Microenvironment",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Knowledge of immune cell phenotypes in the tumor microenvironment is essential for understanding mechanisms of cancer progression and immunotherapy response. We profiled 45,000 immune cells from eight breast carcinomas, as well as matched normal breast tissue, blood, and lymph nodes, using single-cell RNA-seq. We developed a preprocessing pipeline, SEQC, and a Bayesian clustering and normalization method, Biscuit, to address computational challenges inherent to single-cell data. Despite significant similarity between normal and tumor tissue-resident immune cells, we observed continuous phenotypic expansions specific to the tumor microenvironment. Analysis of paired single-cell RNA and T cell receptor (TCR) sequencing data from 27,000 additional T cells revealed the combinatorial impact of TCR utilization on phenotypic diversity. Our results support a model of continuous activation in T cells and do not comport with the macrophage polarization model in cancer. Our results have important implications for characterizing tumor-infiltrating immune cells.",
+                "inclusion_exclusion_criteria": "Tissues were collected from women undergoing surgery for primary breast cancer. All samples were obtained after informed consent and approval from the Institutional Review Board (IRB) at Memorial Sloan Kettering Cancer Center.",
+                "grants": "This study was supported by NIH grants R37 AI034206 (A.Y.R.), DP1-HD084071 (D.P.), R01CA164729 (D.P.), U54 CA209975 (A.Y.R, D.P.). Cancer Center Support Grant P30 CA008748, the Hilton-Ludwig Cancer Prevention Initiative funded by the Conrad N. Hilton Foundation, Ludwig Cancer Research, and Gerry Center for Metastasis and Tumor Ecosystems. E.A. was supported by an American Cancer Society - Fairfield County Roast Committee Postdoctoral Fellowship (PF-17-243-01-RMC), A.J.C. by a HHMI international graduate fellowship, G.P. by a Breast Cancer Alliance Young Investigator Grant and the Society of MSK Research Grant, C.K. by a Hutham S. Olayan Graduate Fellowship, and P.T.M. by a Boehringer Ingelheim SHINE Fellowship. CyTOF experiments were supported with funds from the Boehringer Ingelheim SHINE Program (A.Y.R.). A.Y.R. is an investigator with the Howard Hughes Medical Institute.",
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Dana Pe\u05d2\u20ac\u2122er",
+                "lab_address": "Program for Computational and Systems Biology, Sloan Kettering Institute, Memorial Sloan Kettering Cancer Center, New York, NY 10065, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 29961579",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "BC09",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": "65",
+                "age_unit": {
+                    "id": "UO:0000036",
+                    "label": "year"
+                },
+                "age_event": "sampling",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "BC",
+                        "disease_diagnosis": {
+                            "id": "DOID:1612",
+                            "label": "breast cancer"
+                        },
+                        "disease_length": null,
+                        "disease_stage": "2",
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "BC09_TUMOR1_TCR_BC09_TUMOR1_TCR_2_BC09_TUMOR2_TCR_2_BC09_TUMOR2_TCR",
+                    "sample_type": "breast tumor",
+                    "tissue": {
+                        "id": "UBERON:0000310",
+                        "label": "breast"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000084",
+                        "label": "T cell"
+                    },
+                    "cell_phenotype": "CD3+",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": "12000",
+                    "cells_per_reaction": "1",
+                    "cell_storage": "False",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR7191916_SRR7191917_SRR7191919_SRR7191918",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina NextSeq 500",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR7191916_1.fastq.gz_SRR7191917_1.fastq.gz_SRR7191919_1.fastq.gz_SRR7191918_1.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 150,
+                        "paired_filename": "SRR7191916_2.fastq.gz_SRR7191917_2.fastq.gz_SRR7191919_2.fastq.gz_SRR7191918_2.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 150,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "BC09"
+        },
+        {
+            "repertoire_id": "BC10_PRJNA472381_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA472381",
+                "study_title": "Single-Cell Map of Diverse Immune Phenotypes in the Breast Tumor Microenvironment",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Knowledge of immune cell phenotypes in the tumor microenvironment is essential for understanding mechanisms of cancer progression and immunotherapy response. We profiled 45,000 immune cells from eight breast carcinomas, as well as matched normal breast tissue, blood, and lymph nodes, using single-cell RNA-seq. We developed a preprocessing pipeline, SEQC, and a Bayesian clustering and normalization method, Biscuit, to address computational challenges inherent to single-cell data. Despite significant similarity between normal and tumor tissue-resident immune cells, we observed continuous phenotypic expansions specific to the tumor microenvironment. Analysis of paired single-cell RNA and T cell receptor (TCR) sequencing data from 27,000 additional T cells revealed the combinatorial impact of TCR utilization on phenotypic diversity. Our results support a model of continuous activation in T cells and do not comport with the macrophage polarization model in cancer. Our results have important implications for characterizing tumor-infiltrating immune cells.",
+                "inclusion_exclusion_criteria": "Tissues were collected from women undergoing surgery for primary breast cancer. All samples were obtained after informed consent and approval from the Institutional Review Board (IRB) at Memorial Sloan Kettering Cancer Center.",
+                "grants": "This study was supported by NIH grants R37 AI034206 (A.Y.R.), DP1-HD084071 (D.P.), R01CA164729 (D.P.), U54 CA209975 (A.Y.R, D.P.). Cancer Center Support Grant P30 CA008748, the Hilton-Ludwig Cancer Prevention Initiative funded by the Conrad N. Hilton Foundation, Ludwig Cancer Research, and Gerry Center for Metastasis and Tumor Ecosystems. E.A. was supported by an American Cancer Society - Fairfield County Roast Committee Postdoctoral Fellowship (PF-17-243-01-RMC), A.J.C. by a HHMI international graduate fellowship, G.P. by a Breast Cancer Alliance Young Investigator Grant and the Society of MSK Research Grant, C.K. by a Hutham S. Olayan Graduate Fellowship, and P.T.M. by a Boehringer Ingelheim SHINE Fellowship. CyTOF experiments were supported with funds from the Boehringer Ingelheim SHINE Program (A.Y.R.). A.Y.R. is an investigator with the Howard Hughes Medical Institute.",
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Dana Pe\u05d2\u20ac\u2122er",
+                "lab_address": "Program for Computational and Systems Biology, Sloan Kettering Institute, Memorial Sloan Kettering Cancer Center, New York, NY 10065, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 29961579",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "BC10",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": "73",
+                "age_unit": {
+                    "id": "UO:0000036",
+                    "label": "year"
+                },
+                "age_event": "sampling",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "BC",
+                        "disease_diagnosis": {
+                            "id": "DOID:1612",
+                            "label": "breast cancer"
+                        },
+                        "disease_length": null,
+                        "disease_stage": "3",
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "BC10_TUMOR1_TCR_2_BC10_TUMOR1_TCR",
+                    "sample_type": "breast tumor",
+                    "tissue": {
+                        "id": "UBERON:0000310",
+                        "label": "breast"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000084",
+                        "label": "T cell"
+                    },
+                    "cell_phenotype": "CD3+",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": "12000",
+                    "cells_per_reaction": "1",
+                    "cell_storage": "False",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR7191921_SRR7191920",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina NextSeq 500",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR7191921_1.fastq.gz_SRR7191920_1.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 150,
+                        "paired_filename": "SRR7191921_2.fastq.gz_SRR7191920_2.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 150,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "BC10"
+        },
+        {
+            "repertoire_id": "BC11_PRJNA472381_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA472381",
+                "study_title": "Single-Cell Map of Diverse Immune Phenotypes in the Breast Tumor Microenvironment",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Knowledge of immune cell phenotypes in the tumor microenvironment is essential for understanding mechanisms of cancer progression and immunotherapy response. We profiled 45,000 immune cells from eight breast carcinomas, as well as matched normal breast tissue, blood, and lymph nodes, using single-cell RNA-seq. We developed a preprocessing pipeline, SEQC, and a Bayesian clustering and normalization method, Biscuit, to address computational challenges inherent to single-cell data. Despite significant similarity between normal and tumor tissue-resident immune cells, we observed continuous phenotypic expansions specific to the tumor microenvironment. Analysis of paired single-cell RNA and T cell receptor (TCR) sequencing data from 27,000 additional T cells revealed the combinatorial impact of TCR utilization on phenotypic diversity. Our results support a model of continuous activation in T cells and do not comport with the macrophage polarization model in cancer. Our results have important implications for characterizing tumor-infiltrating immune cells.",
+                "inclusion_exclusion_criteria": "Tissues were collected from women undergoing surgery for primary breast cancer. All samples were obtained after informed consent and approval from the Institutional Review Board (IRB) at Memorial Sloan Kettering Cancer Center.",
+                "grants": "This study was supported by NIH grants R37 AI034206 (A.Y.R.), DP1-HD084071 (D.P.), R01CA164729 (D.P.), U54 CA209975 (A.Y.R, D.P.). Cancer Center Support Grant P30 CA008748, the Hilton-Ludwig Cancer Prevention Initiative funded by the Conrad N. Hilton Foundation, Ludwig Cancer Research, and Gerry Center for Metastasis and Tumor Ecosystems. E.A. was supported by an American Cancer Society - Fairfield County Roast Committee Postdoctoral Fellowship (PF-17-243-01-RMC), A.J.C. by a HHMI international graduate fellowship, G.P. by a Breast Cancer Alliance Young Investigator Grant and the Society of MSK Research Grant, C.K. by a Hutham S. Olayan Graduate Fellowship, and P.T.M. by a Boehringer Ingelheim SHINE Fellowship. CyTOF experiments were supported with funds from the Boehringer Ingelheim SHINE Program (A.Y.R.). A.Y.R. is an investigator with the Howard Hughes Medical Institute.",
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Dana Pe\u05d2\u20ac\u2122er",
+                "lab_address": "Program for Computational and Systems Biology, Sloan Kettering Institute, Memorial Sloan Kettering Cancer Center, New York, NY 10065, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 29961579",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "BC11",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": "50",
+                "age_unit": {
+                    "id": "UO:0000036",
+                    "label": "year"
+                },
+                "age_event": "sampling",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "BC",
+                        "disease_diagnosis": {
+                            "id": "DOID:1612",
+                            "label": "breast cancer"
+                        },
+                        "disease_length": null,
+                        "disease_stage": "3",
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "BC11_TUMOR2_TCR_2_BC11_TUMOR1_TCR_BC11_TUMOR2_TCR_BC11_TUMOR1_TCR_2",
+                    "sample_type": "breast tumor",
+                    "tissue": {
+                        "id": "UBERON:0000310",
+                        "label": "breast"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000084",
+                        "label": "T cell"
+                    },
+                    "cell_phenotype": "CD3+",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": "12000",
+                    "cells_per_reaction": "1",
+                    "cell_storage": "False",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR7191925_SRR7191922_SRR7191924_SRR7191923",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina NextSeq 500",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR7191925_1.fastq.gz_SRR7191922_1.fastq.gz_SRR7191924_1.fastq.gz_SRR7191923_1.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 150,
+                        "paired_filename": "SRR7191925_2.fastq.gz_SRR7191922_2.fastq.gz_SRR7191924_2.fastq.gz_SRR7191923_2.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 150,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "BC11"
+        }
+    ]
+}

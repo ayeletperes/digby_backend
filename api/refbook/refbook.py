@@ -3,11 +3,11 @@ from flask import request
 from flask_restx import Resource, reqparse
 from api.restx import api
 from api.system.system import digby_protected
-from sqlalchemy import or_
+from sqlalchemy import or_, func, cast, Float
 
 from api.vdjbase.vdjbase import get_vdjbase_species, find_datasets as get_vdjbase_datasets
 from api.genomic.genomic import get_genomic_species, get_genomic_datasets
-from db.vdjbase_model import Gene as VDJbaseGene, Allele as VDJbaseAllele
+from db.vdjbase_model import Gene as VDJbaseGene, Allele as VDJbaseAllele, AllelesSample as VDJbaseAllelesSample
 from db.genomic_db import Gene as GenomicGene, Sequence as GenomicSequence
 
 ns = api.namespace('refbook', description='Refbook related operations')
@@ -185,4 +185,67 @@ class AscSeqs(Resource):
                     recs.append({'name': a, 'seq_gapped': gapped.upper(), 'seq': ungapped.upper()})
 
         return {'alleles': recs}
-    
+
+@ns.route('/asc_usage/<string:species>/<string:chain>/<string:asc>')
+@api.response(404, 'Species or chain not found')
+class AscUsage(Resource):
+    @digby_protected()
+    def get(self, species, chain, asc):
+        """ Returns usage statistics for all alleles in an ASC """
+
+        species_chains = SpeciesApi.get(self)
+        
+        if species not in species_chains['species']:
+            return {'message': 'Species not found'}, 404
+        if chain not in species_chains['chains'][species]:
+            return {'message': 'Chain not found'}, 404
+        
+        usage_data = {}
+
+        ds = chain[:3]
+
+        if ds in vdjbase_dbs[species]:
+            session = vdjbase_dbs[species][ds].session
+            
+            totals = (
+                session.query(
+                    VDJbaseAllelesSample.patient_id,
+                    VDJbaseAllelesSample.sample_id,
+                    func.sum(VDJbaseAllelesSample.total_count).label("total")
+                )
+                .group_by(VDJbaseAllelesSample.patient_id, VDJbaseAllelesSample.sample_id)
+                .subquery()
+            )
+            
+            fraction_expr = (
+                cast(VDJbaseAllelesSample.count, Float) /
+                func.nullif(cast(totals.c.total, Float), 0.0)
+            )
+
+            vdjbase_alleles = (
+                session.query(
+                    VDJbaseAllele.name,
+                    func.coalesce(fraction_expr, 0.0).label("fraction"),
+                )
+                .join(VDJbaseAllele, VDJbaseAllele.id == VDJbaseAllelesSample.allele_id)
+                .join(
+                    totals,
+                    (VDJbaseAllelesSample.patient_id == totals.c.patient_id)
+                    & (VDJbaseAllelesSample.sample_id == totals.c.sample_id),
+                )
+                .join(VDJbaseGene, VDJbaseGene.id == VDJbaseAllele.gene_id)  # adjust FK if different
+                .filter(
+                    VDJbaseGene.type == chain,
+                    VDJbaseGene.name == asc,
+                    VDJbaseAllelesSample.count.isnot(None)
+                )
+                .all()
+            )
+            
+            for a, usage in vdjbase_alleles:
+                if usage > 0:
+                    usage_data.setdefault(a, []).append(usage)
+        
+        recs = [{'name': name, 'usage': usages} for name, usages in usage_data.items()]
+
+        return {'alleles': sorted(recs, key=lambda x: x['name'])}

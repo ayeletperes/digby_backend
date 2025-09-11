@@ -1,0 +1,1397 @@
+{
+    "Info": {
+        "title": "AIRR Data File",
+        "description": "AIRR Data File written by AIRR Standards Python Library",
+        "version": 1.5,
+        "contact": {
+            "name": "AIRR Community",
+            "url": "https://github.com/airr-community"
+        },
+        "license": {
+            "name": "Creative Commons Attribution 4.0 International",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    },
+    "Repertoire": [
+        {
+            "repertoire_id": "HPV15_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA747292",
+                "study_title": "Functional HPV-specific PD-1+ stem-like CD8 T cells in head and neck cancer",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "T cells are important in tumour immunity but a better understanding is needed of the differentiation of antigen-specific T cells in human cancer1,2. Here we studied CD8 T cells in patients with human papillomavirus (HPV)-positive head and neck cancer and identified several epitopes derived from HPV E2, E5 and E6 proteins that allowed us to analyse virus-specific CD8 T cells using major histocompatibility complex (MHC) class I tetramers. HPV-specific CD8 T cells expressed PD-1 and were detectable in the tumour at levels that ranged from 0.1% to 10% of tumour-infiltrating CD8 T lymphocytes (TILs) for a given epitope. Single-cell RNA-sequencing analyses of tetramer-sorted HPV-specific PD-1+ CD8 TILs revealed three transcriptionally distinct subsets. One subset expressed TCF7 and other genes associated with PD-1+ stem-like CD8 T cells that are critical for maintaining T cell responses in conditions of antigen persistence. The second subset expressed more effector molecules, representing a transitory cell population, and the third subset was characterized by a terminally differentiated gene signature. T cell receptor clonotypes were shared between the three subsets and pseudotime analysis suggested a hypothetical differentiation trajectory from stem-like to transitory to terminally differentiated cells. More notably, HPV-specific PD-1+TCF-1+ stem-like TILs proliferated and differentiated into more effector-like cells after in vitro stimulation with the cognate HPV peptide, whereas the more terminally differentiated cells did not proliferate. The presence of functional HPV-specific PD-1+TCF-1+CD45RO+ stem-like CD8 T cells with proliferative capacity shows that the cellular machinery to respond to PD-1 blockade exists in HPV-positive head and neck cancer, supporting the further investigation of PD-1 targeted therapies in this malignancy. Furthermore, HPV therapeutic vaccination efforts have focused on E6 and E7 proteins; our results suggest that E2 and E5 should also be considered for inclusion as vaccine antigens to elicit tumour-reactive CD8 T cell responses of maximal breadth.",
+                "inclusion_exclusion_criteria": "Untreated patients with stage I HPV-positive head and neck squamous cell carcinoma (HNSCC) were enrolled at Emory University Hospital between March 2017 and April 2019 in accordance with an approved Emory University Institutional Review Board protocol (WINSHIP4008-17), with all patients providing informed consent.",
+                "grants": "This work was supported by funding from the Ambrose Monell Foundation (R.A.); the T. J. Martell Foundation (R.A.); NIH grants 5U19AI057266 and P01AI056299 (R.A.); the Oliver S. and Jennie R. Donaldson Charitable Trust (R.A.); a Winship Invest$ Pilot grant (R.A., Z.G.C. and N.F.S.); Swiss National Science Foundation grant P300PB_174483 (C.S.E.); a Eugenio Litta Foundation grant (C.S.E.); NCI grant 1-R00-CA197891 (H.T.K.); the James M. Cox Foundation and James C. Kennedy (H.T.K.); the Prostate Cancer Foundation (H.T.K. and N.P.); and a Triological Society Research Career Development Award (M.R.P.). We acknowledge the Emory Flow Cytometry Core supported by the National Center for Georgia Clinical and Translational Science Alliance of the NIH under award number UL1TR002378; the Integrated Cellular Imaging Microscopy Core of the Winship Cancer Institute of Emory University and the NIH\u05d2\u20ac\u201cNCI under award number, 2P30CA138292-04; and the Yerkes NHP Genomics Core, which is supported in part by NIH P51 OD011132. This research was supported in part by the Intramural Research Program of the NIH, the Frederick National Laboratory for Cancer Research and the Center for Cancer Research. The project has been funded in part with federal funds from the Frederick National Laboratory for Cancer Research, under contract no. HHSN261200800001E.",
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Rafi Ahmed",
+                "lab_address": "Emory Vaccine Center, Emory University School of Medicine, Atlanta, GA, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34471285",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV15",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "SAMN20285861_SAMN20285859",
+                    "sample_type": "primary tumor",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY)_tetramer sorted HLA-A*01:01-HPV E2(329-337)(peptide sequence KSAIVTLTY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR15178153_SRR15178156",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 3000",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR15178153_2.fastq.gz_SRR15178156_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 150,
+                        "paired_filename": "SRR15178153_3.fastq.gz_SRR15178156_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 150,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "HPV15"
+        },
+        {
+            "repertoire_id": "HPV34_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA747292",
+                "study_title": "Functional HPV-specific PD-1+ stem-like CD8 T cells in head and neck cancer",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "T cells are important in tumour immunity but a better understanding is needed of the differentiation of antigen-specific T cells in human cancer1,2. Here we studied CD8 T cells in patients with human papillomavirus (HPV)-positive head and neck cancer and identified several epitopes derived from HPV E2, E5 and E6 proteins that allowed us to analyse virus-specific CD8 T cells using major histocompatibility complex (MHC) class I tetramers. HPV-specific CD8 T cells expressed PD-1 and were detectable in the tumour at levels that ranged from 0.1% to 10% of tumour-infiltrating CD8 T lymphocytes (TILs) for a given epitope. Single-cell RNA-sequencing analyses of tetramer-sorted HPV-specific PD-1+ CD8 TILs revealed three transcriptionally distinct subsets. One subset expressed TCF7 and other genes associated with PD-1+ stem-like CD8 T cells that are critical for maintaining T cell responses in conditions of antigen persistence. The second subset expressed more effector molecules, representing a transitory cell population, and the third subset was characterized by a terminally differentiated gene signature. T cell receptor clonotypes were shared between the three subsets and pseudotime analysis suggested a hypothetical differentiation trajectory from stem-like to transitory to terminally differentiated cells. More notably, HPV-specific PD-1+TCF-1+ stem-like TILs proliferated and differentiated into more effector-like cells after in vitro stimulation with the cognate HPV peptide, whereas the more terminally differentiated cells did not proliferate. The presence of functional HPV-specific PD-1+TCF-1+CD45RO+ stem-like CD8 T cells with proliferative capacity shows that the cellular machinery to respond to PD-1 blockade exists in HPV-positive head and neck cancer, supporting the further investigation of PD-1 targeted therapies in this malignancy. Furthermore, HPV therapeutic vaccination efforts have focused on E6 and E7 proteins; our results suggest that E2 and E5 should also be considered for inclusion as vaccine antigens to elicit tumour-reactive CD8 T cell responses of maximal breadth.",
+                "inclusion_exclusion_criteria": "Untreated patients with stage I HPV-positive head and neck squamous cell carcinoma (HNSCC) were enrolled at Emory University Hospital between March 2017 and April 2019 in accordance with an approved Emory University Institutional Review Board protocol (WINSHIP4008-17), with all patients providing informed consent.",
+                "grants": "This work was supported by funding from the Ambrose Monell Foundation (R.A.); the T. J. Martell Foundation (R.A.); NIH grants 5U19AI057266 and P01AI056299 (R.A.); the Oliver S. and Jennie R. Donaldson Charitable Trust (R.A.); a Winship Invest$ Pilot grant (R.A., Z.G.C. and N.F.S.); Swiss National Science Foundation grant P300PB_174483 (C.S.E.); a Eugenio Litta Foundation grant (C.S.E.); NCI grant 1-R00-CA197891 (H.T.K.); the James M. Cox Foundation and James C. Kennedy (H.T.K.); the Prostate Cancer Foundation (H.T.K. and N.P.); and a Triological Society Research Career Development Award (M.R.P.). We acknowledge the Emory Flow Cytometry Core supported by the National Center for Georgia Clinical and Translational Science Alliance of the NIH under award number UL1TR002378; the Integrated Cellular Imaging Microscopy Core of the Winship Cancer Institute of Emory University and the NIH\u05d2\u20ac\u201cNCI under award number, 2P30CA138292-04; and the Yerkes NHP Genomics Core, which is supported in part by NIH P51 OD011132. This research was supported in part by the Intramural Research Program of the NIH, the Frederick National Laboratory for Cancer Research and the Center for Cancer Research. The project has been funded in part with federal funds from the Frederick National Laboratory for Cancer Research, under contract no. HHSN261200800001E.",
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Rafi Ahmed",
+                "lab_address": "Emory Vaccine Center, Emory University School of Medicine, Atlanta, GA, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34471285",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV34",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "SAMN20285853_SAMN20285849_SAMN20285857_SAMN20285855_SAMN20285851",
+                    "sample_type": "metastatic lymph node_primary tumor",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+_CD3+CD19-CD14-CD16-CD4-CD8+PD-1+CD45RA-",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(329-337)(peptide sequence KSAIVTLTY)_PD-1+ sorted_tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR15178189_SRR15178211_SRR15178187_SRR15178210_SRR15178188_SRR15178167_SRR15178165_SRR15178177_SRR15178198_SRR15178176_SRR15178199_SRR15178200_SRR15178209_SRR15178166_SRR15178178",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 3000",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR15178189_2.fastq.gz_SRR15178211_2.fastq.gz_SRR15178187_2.fastq.gz_SRR15178210_2.fastq.gz_SRR15178188_2.fastq.gz_SRR15178167_2.fastq.gz_SRR15178165_2.fastq.gz_SRR15178177_2.fastq.gz_SRR15178198_2.fastq.gz_SRR15178176_2.fastq.gz_SRR15178199_2.fastq.gz_SRR15178200_2.fastq.gz_SRR15178209_2.fastq.gz_SRR15178166_2.fastq.gz_SRR15178178_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR15178189_3.fastq.gz_SRR15178211_3.fastq.gz_SRR15178187_3.fastq.gz_SRR15178210_3.fastq.gz_SRR15178188_3.fastq.gz_SRR15178167_3.fastq.gz_SRR15178165_3.fastq.gz_SRR15178177_3.fastq.gz_SRR15178198_3.fastq.gz_SRR15178176_3.fastq.gz_SRR15178199_3.fastq.gz_SRR15178200_3.fastq.gz_SRR15178209_3.fastq.gz_SRR15178166_3.fastq.gz_SRR15178178_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "HPV34"
+        },
+        {
+            "repertoire_id": "HPV37_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA747292",
+                "study_title": "Functional HPV-specific PD-1+ stem-like CD8 T cells in head and neck cancer",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "T cells are important in tumour immunity but a better understanding is needed of the differentiation of antigen-specific T cells in human cancer1,2. Here we studied CD8 T cells in patients with human papillomavirus (HPV)-positive head and neck cancer and identified several epitopes derived from HPV E2, E5 and E6 proteins that allowed us to analyse virus-specific CD8 T cells using major histocompatibility complex (MHC) class I tetramers. HPV-specific CD8 T cells expressed PD-1 and were detectable in the tumour at levels that ranged from 0.1% to 10% of tumour-infiltrating CD8 T lymphocytes (TILs) for a given epitope. Single-cell RNA-sequencing analyses of tetramer-sorted HPV-specific PD-1+ CD8 TILs revealed three transcriptionally distinct subsets. One subset expressed TCF7 and other genes associated with PD-1+ stem-like CD8 T cells that are critical for maintaining T cell responses in conditions of antigen persistence. The second subset expressed more effector molecules, representing a transitory cell population, and the third subset was characterized by a terminally differentiated gene signature. T cell receptor clonotypes were shared between the three subsets and pseudotime analysis suggested a hypothetical differentiation trajectory from stem-like to transitory to terminally differentiated cells. More notably, HPV-specific PD-1+TCF-1+ stem-like TILs proliferated and differentiated into more effector-like cells after in vitro stimulation with the cognate HPV peptide, whereas the more terminally differentiated cells did not proliferate. The presence of functional HPV-specific PD-1+TCF-1+CD45RO+ stem-like CD8 T cells with proliferative capacity shows that the cellular machinery to respond to PD-1 blockade exists in HPV-positive head and neck cancer, supporting the further investigation of PD-1 targeted therapies in this malignancy. Furthermore, HPV therapeutic vaccination efforts have focused on E6 and E7 proteins; our results suggest that E2 and E5 should also be considered for inclusion as vaccine antigens to elicit tumour-reactive CD8 T cell responses of maximal breadth.",
+                "inclusion_exclusion_criteria": "Untreated patients with stage I HPV-positive head and neck squamous cell carcinoma (HNSCC) were enrolled at Emory University Hospital between March 2017 and April 2019 in accordance with an approved Emory University Institutional Review Board protocol (WINSHIP4008-17), with all patients providing informed consent.",
+                "grants": "This work was supported by funding from the Ambrose Monell Foundation (R.A.); the T. J. Martell Foundation (R.A.); NIH grants 5U19AI057266 and P01AI056299 (R.A.); the Oliver S. and Jennie R. Donaldson Charitable Trust (R.A.); a Winship Invest$ Pilot grant (R.A., Z.G.C. and N.F.S.); Swiss National Science Foundation grant P300PB_174483 (C.S.E.); a Eugenio Litta Foundation grant (C.S.E.); NCI grant 1-R00-CA197891 (H.T.K.); the James M. Cox Foundation and James C. Kennedy (H.T.K.); the Prostate Cancer Foundation (H.T.K. and N.P.); and a Triological Society Research Career Development Award (M.R.P.). We acknowledge the Emory Flow Cytometry Core supported by the National Center for Georgia Clinical and Translational Science Alliance of the NIH under award number UL1TR002378; the Integrated Cellular Imaging Microscopy Core of the Winship Cancer Institute of Emory University and the NIH\u05d2\u20ac\u201cNCI under award number, 2P30CA138292-04; and the Yerkes NHP Genomics Core, which is supported in part by NIH P51 OD011132. This research was supported in part by the Intramural Research Program of the NIH, the Frederick National Laboratory for Cancer Research and the Center for Cancer Research. The project has been funded in part with federal funds from the Frederick National Laboratory for Cancer Research, under contract no. HHSN261200800001E.",
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Rafi Ahmed",
+                "lab_address": "Emory Vaccine Center, Emory University School of Medicine, Atlanta, GA, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34471285",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV37",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "SAMN20285824",
+                    "sample_type": "metastatic lymph node",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR15178337",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 3000",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR15178337_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 150,
+                        "paired_filename": "SRR15178337_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 150,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "HPV37"
+        },
+        {
+            "repertoire_id": "HPV42_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA747292",
+                "study_title": "Functional HPV-specific PD-1+ stem-like CD8 T cells in head and neck cancer",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "T cells are important in tumour immunity but a better understanding is needed of the differentiation of antigen-specific T cells in human cancer1,2. Here we studied CD8 T cells in patients with human papillomavirus (HPV)-positive head and neck cancer and identified several epitopes derived from HPV E2, E5 and E6 proteins that allowed us to analyse virus-specific CD8 T cells using major histocompatibility complex (MHC) class I tetramers. HPV-specific CD8 T cells expressed PD-1 and were detectable in the tumour at levels that ranged from 0.1% to 10% of tumour-infiltrating CD8 T lymphocytes (TILs) for a given epitope. Single-cell RNA-sequencing analyses of tetramer-sorted HPV-specific PD-1+ CD8 TILs revealed three transcriptionally distinct subsets. One subset expressed TCF7 and other genes associated with PD-1+ stem-like CD8 T cells that are critical for maintaining T cell responses in conditions of antigen persistence. The second subset expressed more effector molecules, representing a transitory cell population, and the third subset was characterized by a terminally differentiated gene signature. T cell receptor clonotypes were shared between the three subsets and pseudotime analysis suggested a hypothetical differentiation trajectory from stem-like to transitory to terminally differentiated cells. More notably, HPV-specific PD-1+TCF-1+ stem-like TILs proliferated and differentiated into more effector-like cells after in vitro stimulation with the cognate HPV peptide, whereas the more terminally differentiated cells did not proliferate. The presence of functional HPV-specific PD-1+TCF-1+CD45RO+ stem-like CD8 T cells with proliferative capacity shows that the cellular machinery to respond to PD-1 blockade exists in HPV-positive head and neck cancer, supporting the further investigation of PD-1 targeted therapies in this malignancy. Furthermore, HPV therapeutic vaccination efforts have focused on E6 and E7 proteins; our results suggest that E2 and E5 should also be considered for inclusion as vaccine antigens to elicit tumour-reactive CD8 T cell responses of maximal breadth.",
+                "inclusion_exclusion_criteria": "Untreated patients with stage I HPV-positive head and neck squamous cell carcinoma (HNSCC) were enrolled at Emory University Hospital between March 2017 and April 2019 in accordance with an approved Emory University Institutional Review Board protocol (WINSHIP4008-17), with all patients providing informed consent.",
+                "grants": "This work was supported by funding from the Ambrose Monell Foundation (R.A.); the T. J. Martell Foundation (R.A.); NIH grants 5U19AI057266 and P01AI056299 (R.A.); the Oliver S. and Jennie R. Donaldson Charitable Trust (R.A.); a Winship Invest$ Pilot grant (R.A., Z.G.C. and N.F.S.); Swiss National Science Foundation grant P300PB_174483 (C.S.E.); a Eugenio Litta Foundation grant (C.S.E.); NCI grant 1-R00-CA197891 (H.T.K.); the James M. Cox Foundation and James C. Kennedy (H.T.K.); the Prostate Cancer Foundation (H.T.K. and N.P.); and a Triological Society Research Career Development Award (M.R.P.). We acknowledge the Emory Flow Cytometry Core supported by the National Center for Georgia Clinical and Translational Science Alliance of the NIH under award number UL1TR002378; the Integrated Cellular Imaging Microscopy Core of the Winship Cancer Institute of Emory University and the NIH\u05d2\u20ac\u201cNCI under award number, 2P30CA138292-04; and the Yerkes NHP Genomics Core, which is supported in part by NIH P51 OD011132. This research was supported in part by the Intramural Research Program of the NIH, the Frederick National Laboratory for Cancer Research and the Center for Cancer Research. The project has been funded in part with federal funds from the Frederick National Laboratory for Cancer Research, under contract no. HHSN261200800001E.",
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Rafi Ahmed",
+                "lab_address": "Emory Vaccine Center, Emory University School of Medicine, Atlanta, GA, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34471285",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV42",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "SAMN20285826",
+                    "sample_type": "primary tumor",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR15178333_SRR15178332_SRR15178334",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 3000",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR15178333_2.fastq.gz_SRR15178332_2.fastq.gz_SRR15178334_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR15178333_3.fastq.gz_SRR15178332_3.fastq.gz_SRR15178334_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "HPV42"
+        },
+        {
+            "repertoire_id": "HPV51_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA747292",
+                "study_title": "Functional HPV-specific PD-1+ stem-like CD8 T cells in head and neck cancer",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "T cells are important in tumour immunity but a better understanding is needed of the differentiation of antigen-specific T cells in human cancer1,2. Here we studied CD8 T cells in patients with human papillomavirus (HPV)-positive head and neck cancer and identified several epitopes derived from HPV E2, E5 and E6 proteins that allowed us to analyse virus-specific CD8 T cells using major histocompatibility complex (MHC) class I tetramers. HPV-specific CD8 T cells expressed PD-1 and were detectable in the tumour at levels that ranged from 0.1% to 10% of tumour-infiltrating CD8 T lymphocytes (TILs) for a given epitope. Single-cell RNA-sequencing analyses of tetramer-sorted HPV-specific PD-1+ CD8 TILs revealed three transcriptionally distinct subsets. One subset expressed TCF7 and other genes associated with PD-1+ stem-like CD8 T cells that are critical for maintaining T cell responses in conditions of antigen persistence. The second subset expressed more effector molecules, representing a transitory cell population, and the third subset was characterized by a terminally differentiated gene signature. T cell receptor clonotypes were shared between the three subsets and pseudotime analysis suggested a hypothetical differentiation trajectory from stem-like to transitory to terminally differentiated cells. More notably, HPV-specific PD-1+TCF-1+ stem-like TILs proliferated and differentiated into more effector-like cells after in vitro stimulation with the cognate HPV peptide, whereas the more terminally differentiated cells did not proliferate. The presence of functional HPV-specific PD-1+TCF-1+CD45RO+ stem-like CD8 T cells with proliferative capacity shows that the cellular machinery to respond to PD-1 blockade exists in HPV-positive head and neck cancer, supporting the further investigation of PD-1 targeted therapies in this malignancy. Furthermore, HPV therapeutic vaccination efforts have focused on E6 and E7 proteins; our results suggest that E2 and E5 should also be considered for inclusion as vaccine antigens to elicit tumour-reactive CD8 T cell responses of maximal breadth.",
+                "inclusion_exclusion_criteria": "Untreated patients with stage I HPV-positive head and neck squamous cell carcinoma (HNSCC) were enrolled at Emory University Hospital between March 2017 and April 2019 in accordance with an approved Emory University Institutional Review Board protocol (WINSHIP4008-17), with all patients providing informed consent.",
+                "grants": "This work was supported by funding from the Ambrose Monell Foundation (R.A.); the T. J. Martell Foundation (R.A.); NIH grants 5U19AI057266 and P01AI056299 (R.A.); the Oliver S. and Jennie R. Donaldson Charitable Trust (R.A.); a Winship Invest$ Pilot grant (R.A., Z.G.C. and N.F.S.); Swiss National Science Foundation grant P300PB_174483 (C.S.E.); a Eugenio Litta Foundation grant (C.S.E.); NCI grant 1-R00-CA197891 (H.T.K.); the James M. Cox Foundation and James C. Kennedy (H.T.K.); the Prostate Cancer Foundation (H.T.K. and N.P.); and a Triological Society Research Career Development Award (M.R.P.). We acknowledge the Emory Flow Cytometry Core supported by the National Center for Georgia Clinical and Translational Science Alliance of the NIH under award number UL1TR002378; the Integrated Cellular Imaging Microscopy Core of the Winship Cancer Institute of Emory University and the NIH\u05d2\u20ac\u201cNCI under award number, 2P30CA138292-04; and the Yerkes NHP Genomics Core, which is supported in part by NIH P51 OD011132. This research was supported in part by the Intramural Research Program of the NIH, the Frederick National Laboratory for Cancer Research and the Center for Cancer Research. The project has been funded in part with federal funds from the Frederick National Laboratory for Cancer Research, under contract no. HHSN261200800001E.",
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Rafi Ahmed",
+                "lab_address": "Emory Vaccine Center, Emory University School of Medicine, Atlanta, GA, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34471285",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV51",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "SAMN20285845_SAMN20285842_SAMN20285839_SAMN20285844_SAMN20285847",
+                    "sample_type": "primary tumor_metastatic lymph node",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+_CD3+CD19-CD14-CD16-CD4-CD8+PD-1+CD45RA-",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(329-337)(peptide sequence KSAIVTLTY)_PD-1+ sorted_tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR15178233_SRR15178264_SRR15178242_SRR15178255_SRR15178221_SRR15178243_SRR15178231_SRR15178244_SRR15178253_SRR15178265_SRR15178266_SRR15178220_SRR15178254_SRR15178232_SRR15178222",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 3000",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR15178233_2.fastq.gz_SRR15178264_2.fastq.gz_SRR15178242_2.fastq.gz_SRR15178255_2.fastq.gz_SRR15178221_2.fastq.gz_SRR15178243_2.fastq.gz_SRR15178231_2.fastq.gz_SRR15178244_2.fastq.gz_SRR15178253_2.fastq.gz_SRR15178265_2.fastq.gz_SRR15178266_2.fastq.gz_SRR15178220_2.fastq.gz_SRR15178254_2.fastq.gz_SRR15178232_2.fastq.gz_SRR15178222_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR15178233_3.fastq.gz_SRR15178264_3.fastq.gz_SRR15178242_3.fastq.gz_SRR15178255_3.fastq.gz_SRR15178221_3.fastq.gz_SRR15178243_3.fastq.gz_SRR15178231_3.fastq.gz_SRR15178244_3.fastq.gz_SRR15178253_3.fastq.gz_SRR15178265_3.fastq.gz_SRR15178266_3.fastq.gz_SRR15178220_3.fastq.gz_SRR15178254_3.fastq.gz_SRR15178232_3.fastq.gz_SRR15178222_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "HPV51"
+        },
+        {
+            "repertoire_id": "HPV7_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA747292",
+                "study_title": "Functional HPV-specific PD-1+ stem-like CD8 T cells in head and neck cancer",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "T cells are important in tumour immunity but a better understanding is needed of the differentiation of antigen-specific T cells in human cancer1,2. Here we studied CD8 T cells in patients with human papillomavirus (HPV)-positive head and neck cancer and identified several epitopes derived from HPV E2, E5 and E6 proteins that allowed us to analyse virus-specific CD8 T cells using major histocompatibility complex (MHC) class I tetramers. HPV-specific CD8 T cells expressed PD-1 and were detectable in the tumour at levels that ranged from 0.1% to 10% of tumour-infiltrating CD8 T lymphocytes (TILs) for a given epitope. Single-cell RNA-sequencing analyses of tetramer-sorted HPV-specific PD-1+ CD8 TILs revealed three transcriptionally distinct subsets. One subset expressed TCF7 and other genes associated with PD-1+ stem-like CD8 T cells that are critical for maintaining T cell responses in conditions of antigen persistence. The second subset expressed more effector molecules, representing a transitory cell population, and the third subset was characterized by a terminally differentiated gene signature. T cell receptor clonotypes were shared between the three subsets and pseudotime analysis suggested a hypothetical differentiation trajectory from stem-like to transitory to terminally differentiated cells. More notably, HPV-specific PD-1+TCF-1+ stem-like TILs proliferated and differentiated into more effector-like cells after in vitro stimulation with the cognate HPV peptide, whereas the more terminally differentiated cells did not proliferate. The presence of functional HPV-specific PD-1+TCF-1+CD45RO+ stem-like CD8 T cells with proliferative capacity shows that the cellular machinery to respond to PD-1 blockade exists in HPV-positive head and neck cancer, supporting the further investigation of PD-1 targeted therapies in this malignancy. Furthermore, HPV therapeutic vaccination efforts have focused on E6 and E7 proteins; our results suggest that E2 and E5 should also be considered for inclusion as vaccine antigens to elicit tumour-reactive CD8 T cell responses of maximal breadth.",
+                "inclusion_exclusion_criteria": "Untreated patients with stage I HPV-positive head and neck squamous cell carcinoma (HNSCC) were enrolled at Emory University Hospital between March 2017 and April 2019 in accordance with an approved Emory University Institutional Review Board protocol (WINSHIP4008-17), with all patients providing informed consent.",
+                "grants": "This work was supported by funding from the Ambrose Monell Foundation (R.A.); the T. J. Martell Foundation (R.A.); NIH grants 5U19AI057266 and P01AI056299 (R.A.); the Oliver S. and Jennie R. Donaldson Charitable Trust (R.A.); a Winship Invest$ Pilot grant (R.A., Z.G.C. and N.F.S.); Swiss National Science Foundation grant P300PB_174483 (C.S.E.); a Eugenio Litta Foundation grant (C.S.E.); NCI grant 1-R00-CA197891 (H.T.K.); the James M. Cox Foundation and James C. Kennedy (H.T.K.); the Prostate Cancer Foundation (H.T.K. and N.P.); and a Triological Society Research Career Development Award (M.R.P.). We acknowledge the Emory Flow Cytometry Core supported by the National Center for Georgia Clinical and Translational Science Alliance of the NIH under award number UL1TR002378; the Integrated Cellular Imaging Microscopy Core of the Winship Cancer Institute of Emory University and the NIH\u05d2\u20ac\u201cNCI under award number, 2P30CA138292-04; and the Yerkes NHP Genomics Core, which is supported in part by NIH P51 OD011132. This research was supported in part by the Intramural Research Program of the NIH, the Frederick National Laboratory for Cancer Research and the Center for Cancer Research. The project has been funded in part with federal funds from the Frederick National Laboratory for Cancer Research, under contract no. HHSN261200800001E.",
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": "Rafi Ahmed",
+                "lab_address": "Emory Vaccine Center, Emory University School of Medicine, Atlanta, GA, USA",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 34471285",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV7",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "SAMN20285837_SAMN20285833_SAMN20285829_SAMN20285835_SAMN20285831",
+                    "sample_type": "primary tumor_metastatic lymph node",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+_CD3+CD19-CD14-CD16-CD4-CD8+PD-1+CD45RA-",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(329-337)(peptide sequence KSAIVTLTY)_PD-1+ sorted_tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR15178277_SRR15178300_SRR15178275_SRR15178320_SRR15178298_SRR15178288_SRR15178276_SRR15178321_SRR15178289_SRR15178311_SRR15178299_SRR15178309_SRR15178287_SRR15178322_SRR15178310",
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina HiSeq 3000",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": "fastq",
+                        "filename": "SRR15178277_2.fastq.gz_SRR15178300_2.fastq.gz_SRR15178275_2.fastq.gz_SRR15178320_2.fastq.gz_SRR15178298_2.fastq.gz_SRR15178288_2.fastq.gz_SRR15178276_2.fastq.gz_SRR15178321_2.fastq.gz_SRR15178289_2.fastq.gz_SRR15178311_2.fastq.gz_SRR15178299_2.fastq.gz_SRR15178309_2.fastq.gz_SRR15178287_2.fastq.gz_SRR15178322_2.fastq.gz_SRR15178310_2.fastq.gz",
+                        "read_direction": null,
+                        "read_length": 26,
+                        "paired_filename": "SRR15178277_3.fastq.gz_SRR15178300_3.fastq.gz_SRR15178275_3.fastq.gz_SRR15178320_3.fastq.gz_SRR15178298_3.fastq.gz_SRR15178288_3.fastq.gz_SRR15178276_3.fastq.gz_SRR15178321_3.fastq.gz_SRR15178289_3.fastq.gz_SRR15178311_3.fastq.gz_SRR15178299_3.fastq.gz_SRR15178309_3.fastq.gz_SRR15178287_3.fastq.gz_SRR15178322_3.fastq.gz_SRR15178310_3.fastq.gz",
+                        "paired_read_direction": null,
+                        "paired_read_length": 91,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "ir_sra_run_id": null,
+            "combine_repertoire": "HPV7"
+        }
+    ]
+}

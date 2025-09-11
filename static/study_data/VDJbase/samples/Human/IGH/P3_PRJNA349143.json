@@ -1,0 +1,689 @@
+{
+    "Info": {
+        "title": "AIRR Data File",
+        "description": "AIRR Data File written by AIRR Standards Python Library",
+        "version": 1.4,
+        "contact": {
+            "name": "AIRR Community",
+            "url": "https://github.com/airr-community"
+        },
+        "license": {
+            "name": "Creative Commons Attribution 4.0 International",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    },
+    "Repertoire": [
+        {
+            "repertoire_id": "IB_PRJNA349143_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA349143",
+                "study_title": "Hierarchical Clustering Can Identify B Cell Clones With High Confidence in Ig Repertoire Sequencing Data",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Adaptive immunity is driven by the expansion, somatic hypermutation, and selection of B cell clones. Each clone is the progeny of a single B cell responding to Ag, with diversified Ig receptors. These receptors can now be profiled on a large scale by next-generation sequencing. Such data provide a window into the microevolutionary dynamics that drive successful immune responses and the dysregulation that occurs with aging or disease. Clonal relationships are not directly measured, but they must be computationally inferred from these sequencing data. Although several hierarchical clustering-based methods have been proposed, they vary in distance and linkage methods and have not yet been rigorously compared. In this study, we use a combination of human experimental and simulated data to characterize the performance of hierarchical clustering-based methods for partitioning sequences into clones. We find that single linkage clustering has high performance, with specificity, sensitivity, and positive predictive value all >99%, whereas other linkages result in a significant loss of sensitivity. Surprisingly, distance metrics that incorporate the biases of somatic hypermutation do not outperform simple Hamming distance. Although errors were more likely in sequences with short junctions, using the entire dataset to choose a single distance threshold for clustering is near optimal. Our results suggest that hierarchical clustering using single linkage with Hamming distance identifies clones with high confidence and provides a fully automated method for clonal grouping. The performance estimates we develop provide important context to interpret clonal analysis of repertoire sequencing data and allow for rigorous testing of other clonal grouping algorithms.",
+                "inclusion_exclusion_criteria": null,
+                "grants": "NIH, Grant ID RO1AI104739, Grant 2013395, Grant R12886, Grants RR19895 and RR029676-01",
+                "study_contact": null,
+                "collected_by": "Namita T. Gupta",
+                "lab_name": "Steven H. Kleinstein",
+                "lab_address": "Department of Immunobiology, Yale School of Medicine, New Haven, CT 06520",
+                "submitted_by": "Brandon Windsor, brandon.windsor@utsouthwestern.edu",
+                "pub_ids": "PMID:28179494",
+                "keywords_study": "contains_ig",
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "IB",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": "influenza vaccination",
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "IB_SRR431764_SRR431765_SRR431766_SRR431767_SRR431768_SRR431769_SRR431770_SRR431771_SRR431772_SRR431773",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0000178",
+                        "label": "blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": "-8",
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": "influenza vaccination",
+                    "biomaterial_provider": "AbVitro Inc., Boston MA ",
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "Illumina 600 cycle kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "SRR4431772",
+                        "read_direction": null,
+                        "read_length": 307,
+                        "paired_filename": null,
+                        "paired_read_direction": null,
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": "AIRR-seq",
+            "combine_repertoire": "IB"
+        },
+        {
+            "repertoire_id": "FV_PRJNA349143_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA349143",
+                "study_title": "Hierarchical Clustering Can Identify B Cell Clones With High Confidence in Ig Repertoire Sequencing Data",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Adaptive immunity is driven by the expansion, somatic hypermutation, and selection of B cell clones. Each clone is the progeny of a single B cell responding to Ag, with diversified Ig receptors. These receptors can now be profiled on a large scale by next-generation sequencing. Such data provide a window into the microevolutionary dynamics that drive successful immune responses and the dysregulation that occurs with aging or disease. Clonal relationships are not directly measured, but they must be computationally inferred from these sequencing data. Although several hierarchical clustering-based methods have been proposed, they vary in distance and linkage methods and have not yet been rigorously compared. In this study, we use a combination of human experimental and simulated data to characterize the performance of hierarchical clustering-based methods for partitioning sequences into clones. We find that single linkage clustering has high performance, with specificity, sensitivity, and positive predictive value all >99%, whereas other linkages result in a significant loss of sensitivity. Surprisingly, distance metrics that incorporate the biases of somatic hypermutation do not outperform simple Hamming distance. Although errors were more likely in sequences with short junctions, using the entire dataset to choose a single distance threshold for clustering is near optimal. Our results suggest that hierarchical clustering using single linkage with Hamming distance identifies clones with high confidence and provides a fully automated method for clonal grouping. The performance estimates we develop provide important context to interpret clonal analysis of repertoire sequencing data and allow for rigorous testing of other clonal grouping algorithms.",
+                "inclusion_exclusion_criteria": null,
+                "grants": "NIH, Grant ID RO1AI104739, Grant 2013395, Grant R12886, Grants RR19895 and RR029676-20",
+                "study_contact": null,
+                "collected_by": "Namita T. Gupta",
+                "lab_name": "Steven H. Kleinstein",
+                "lab_address": "Department of Immunobiology, Yale School of Medicine, New Haven, CT 06539",
+                "submitted_by": "Brandon Windsor, brandon.windsor@utsouthwestern.edu",
+                "pub_ids": "PMID:28179513",
+                "keywords_study": "contains_ig",
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "FV",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": "influenza vaccination",
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "GMC_SRR431774_SRR431775_SRR431776_SRR431777_SRR431778_SRR431779_SRR431780_SRR431781_SRR431782_SRR431783",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0000178",
+                        "label": "blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": "28",
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": "influenza vaccination",
+                    "biomaterial_provider": "AbVitro Inc., Boston MA ",
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "Illumina 600 cycle kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "SRR4431793",
+                        "read_direction": null,
+                        "read_length": 311,
+                        "paired_filename": null,
+                        "paired_read_direction": null,
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": "AIRR-seq",
+            "combine_repertoire": "FV"
+        },
+        {
+            "repertoire_id": "GMC_PRJNA349143_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA349143",
+                "study_title": "Hierarchical Clustering Can Identify B Cell Clones With High Confidence in Ig Repertoire Sequencing Data",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Adaptive immunity is driven by the expansion, somatic hypermutation, and selection of B cell clones. Each clone is the progeny of a single B cell responding to Ag, with diversified Ig receptors. These receptors can now be profiled on a large scale by next-generation sequencing. Such data provide a window into the microevolutionary dynamics that drive successful immune responses and the dysregulation that occurs with aging or disease. Clonal relationships are not directly measured, but they must be computationally inferred from these sequencing data. Although several hierarchical clustering-based methods have been proposed, they vary in distance and linkage methods and have not yet been rigorously compared. In this study, we use a combination of human experimental and simulated data to characterize the performance of hierarchical clustering-based methods for partitioning sequences into clones. We find that single linkage clustering has high performance, with specificity, sensitivity, and positive predictive value all >99%, whereas other linkages result in a significant loss of sensitivity. Surprisingly, distance metrics that incorporate the biases of somatic hypermutation do not outperform simple Hamming distance. Although errors were more likely in sequences with short junctions, using the entire dataset to choose a single distance threshold for clustering is near optimal. Our results suggest that hierarchical clustering using single linkage with Hamming distance identifies clones with high confidence and provides a fully automated method for clonal grouping. The performance estimates we develop provide important context to interpret clonal analysis of repertoire sequencing data and allow for rigorous testing of other clonal grouping algorithms.",
+                "inclusion_exclusion_criteria": null,
+                "grants": "NIH, Grant ID RO1AI104739, Grant 2013395, Grant R12886, Grants RR19895 and RR029676-21",
+                "study_contact": null,
+                "collected_by": "Namita T. Gupta",
+                "lab_name": "Steven H. Kleinstein",
+                "lab_address": "Department of Immunobiology, Yale School of Medicine, New Haven, CT 06540",
+                "submitted_by": "Brandon Windsor, brandon.windsor@utsouthwestern.edu",
+                "pub_ids": "PMID:28179514",
+                "keywords_study": "contains_ig",
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "GMC",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": "influenza vaccination",
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "FV_SRR431784_SRR431785_SRR431786_SRR431787_SRR431788_SRR431789_SRR431790_SRR431791_SRR431792_SRR431793",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0000178",
+                        "label": "blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": "-8",
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": "influenza vaccination",
+                    "biomaterial_provider": "AbVitro Inc., Boston MA ",
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "Illumina 600 cycle kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "SRR4431783",
+                        "read_direction": null,
+                        "read_length": 311,
+                        "paired_filename": null,
+                        "paired_read_direction": null,
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": "AIRR-seq",
+            "combine_repertoire": "GMC"
+        }
+    ]
+}

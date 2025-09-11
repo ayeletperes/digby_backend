@@ -1,0 +1,94 @@
+Reference_assemblies:
+  Human_IGL:
+    chromosome: 22
+    end: 0
+    locations:
+    - GENE.bed
+    - HEPTAMER.bed
+    - NONAMER.bed
+    - SPACER.bed
+    - EXON_1.bed
+    - EXON_2.bed
+    - INTRON.bed
+    - UTR.bed
+    name: chr22
+    reference: ''
+    sense: '+'
+    sequence_file: igl.fasta
+    start: 0
+Reference_sets:
+- Homo_sapiens_IGLV_gapped.fasta
+- Homo_sapiens_IGLJ.fasta
+Studies:
+  G4:
+    Contact: corey.watson@louisville.edu
+    Date: '2022-01-01'
+    Id: Hybrid
+    Institute: University of Louisville
+    Reference: https://doi.org/10.1101/2022.07.20.500849
+    Researcher: Corey T. Watson
+    Study: Hybrid study
+    Study_description: A short description of the Hybrid study
+    Subjects:
+      G4_I1:
+        Age: ''
+        Annotation_file: imported_genes.csv
+        Annotation_format: IGenotyper
+        Annotation_method: IGenotyper
+        Annotation_reference: https://www.frontiersin.org/article/10.3389/fimmu.2020.02136
+        Assemblies: {}
+        Grouped Ethnicity: null
+        IGH_coverage: null
+        Name_in_study: Hybrid-ABC10
+        Reference_assembly: chr22
+        Self-reported Ethnicity: null
+        Sequencing_platform: null
+        Sex: ''
+  G5:
+    Contact: corey.watson@louisville.edu
+    Date: '2022-01-01'
+    Id: Capture
+    Institute: University of Louisville
+    Reference: https://doi.org/10.1101/2022.07.20.500849
+    Researcher: Corey T. Watson
+    Study: Capture study
+    Study_description: A short description of the Capture study
+    Subjects:
+      G5_I1:
+        Age: ''
+        Annotation_file: imported_genes.csv
+        Annotation_format: IGenotyper
+        Annotation_method: IGenotyper
+        Annotation_reference: https://www.frontiersin.org/article/10.3389/fimmu.2020.02136
+        Assemblies: {}
+        Grouped Ethnicity: null
+        IGH_coverage: null
+        Name_in_study: Capture-HG01106
+        Reference_assembly: chr22
+        Self-reported Ethnicity: null
+        Sequencing_platform: null
+        Sex: ''
+  G6:
+    Contact: corey.watson@louisville.edu
+    Date: '2022-01-01'
+    Id: Pangenome
+    Institute: University of Louisville
+    Reference: https://doi.org/10.1101/2022.07.20.500849
+    Researcher: Corey T. Watson
+    Study: Pangenome study
+    Study_description: A short description of the Pangenome study
+    Subjects:
+      G6_I1:
+        Age: ''
+        Annotation_file: imported_genes.csv
+        Annotation_format: IGenotyper
+        Annotation_method: IGenotyper
+        Annotation_reference: https://www.frontiersin.org/article/10.3389/fimmu.2020.02136
+        Assemblies: {}
+        Grouped Ethnicity: null
+        IGH_coverage: null
+        Name_in_study: Pangenome-CHM13Y
+        Reference_assembly: chr22
+        Self-reported Ethnicity: null
+        Sequencing_platform: null
+        Sex: ''

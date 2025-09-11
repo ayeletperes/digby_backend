@@ -1,0 +1,38 @@
+Reference_assemblies:
+  Human_IGK:
+    chromosome: 2
+    locations:
+    - gene.bed
+    - heptamer.bed
+    - nonamer.bed
+    - spacer.bed
+    - region.bed
+    - l-part2.bed
+    - exon_1.bed
+    - exon_2.bed
+    - intron.bed
+    - constant.bed
+    name: chr2
+    sense: +
+    sequence_file: chr2.fasta
+    start: 0
+    end: 0
+    reference: ''
+Reference_set_version: IMGT:Homo sapiens:2023-09-26
+Reference_sets:
+- Homo_sapiens_IGK_V_gapped.fasta
+- Homo_sapiens_IGK_J.fasta
+- Homo_sapiens_IGKC.fasta
+Studies:
+  P27:
+    metadata_file: P27_metadata_with_vdjbase_names.csv
+    annotation_file: P27_EE-IGK-36-samples_master_IGK_alleles.csv
+    annotation_method: 'IGenotyper'
+    annotation_reference: 'https://www.frontiersin.org/article/10.3389/fimmu.2020.02136'
+    bam_dir: D:/Research/VDJbase-Genomics/results/IGK/assemblies/PMID38844673
+  P28:
+    metadata_file: P28_IGK_metadata_with_vdjbase_names.csv
+    annotation_file: P28_EE-capture_master_IGK_alleles.csv
+    annotation_method: 'IGenotyper'
+    annotation_reference: 'https://www.frontiersin.org/article/10.3389/fimmu.2020.02136'
+    bam_dir: D:/Research/VDJbase-Genomics/results/IGK/assemblies/PRJNA555323

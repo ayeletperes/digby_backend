@@ -1,0 +1,12 @@
+Create a new target folder, e.g. Human_TRB_July_2021. Copy reference from the previous target folder. Make empty samples directory
+Copy and amend make_yml.bat from previous target folder
+Copy ds2_filter_TRB_geno.R and change_geno_format.R from previous source folder to new source folder
+Copy excel2yml python files in each previous DS source directory to new DS directories
+Run ds2_filter_TRB_geno.R - this takes out the TRA in the DS2 dataset
+Run change_geno_format.R - this adds the FREQ_BY_SEQ, FREQ_BY_CLONE (identical, because this is TR, therefore no clones)
+Run the excel2yml python files in each DS directoy - this renames files and fixes up yml into Pnn.yml files
+Run db/munge_tcr_data.py from digby_data - change run config and lines at bottom of file first
+Run make_yml.bat in target directory
+Edit run config for make TRB db, and run
+Review output carefully, in particular look for warnings of duplicated read counts right at the start
+'no genotype report' warnings mean ogrdbstats is missing

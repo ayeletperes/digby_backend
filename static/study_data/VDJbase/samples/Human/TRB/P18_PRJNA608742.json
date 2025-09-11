@@ -1,0 +1,2218 @@
+{
+    "Repertoire": [
+        {
+            "repertoire_id": "7975227533997707756-242ac117-0001-012_PRJNA608742_TRB",
+            "study": {
+                "study_id": "PRJNA608742",
+                "study_title": "Single-cell landscape of bronchoalveolar immune cells in patients with COVID-19",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Respiratory immune characteristics associated with Coronavirus Disease 2019 (COVID-19) severity are currently unclear. We characterized bronchoalveolar lavage fluid immune cells from patients with varying severity of COVID-19 and from healthy people by using single-cell RNA sequencing. Proinflammatory monocyte-derived macrophages were abundant in the bronchoalveolar lavage fluid from patients with severe COVID-9. Moderate cases were characterized by the presence of highly clonally expanded CD8+ T cells. This atlas of the bronchoalveolar immune microenvironment suggests potential mechanisms underlying pathogenesis and recovery in COVID-19.",
+                "inclusion_exclusion_criteria": "This study was conducted according to the principles expressed in the Declaration of Helsinki. Ethical approval was obtained from the Research Ethics Committee of Shenzhen Third People\u2019s Hospital (2020-112). All participants provided written informed consent for sample collection and subsequent analyses.",
+                "grants": "This study was supported by the Science and Technology Innovation Committee of Shenzhen Municipality (202002073000002) and the National Natural Science Foundation of China (91442127 to Z.Z.; 81700540 to Y.L.).",
+                "collected_by": "Mingfeng Liao, Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "lab_name": "Zheng Zhang",
+                "lab_address": "Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 32398875",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": "2021-08-27T02:00:30.261Z",
+                "adc_update_date": "2022-12-16T20:43:16.264Z",
+                "vdjserver_uuid": "8808030969725784556-242ac117-0001-012",
+                "vdjserver_keywords": [
+                    "is_10x_genomics",
+                    "contains_single_cell"
+                ],
+                "study_contact": null
+            },
+            "subject": {
+                "subject_id": "S6",
+                "synthetic": false,
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "male",
+                "age_min": 46,
+                "age_max": 46,
+                "age_unit": {
+                    "label": "year",
+                    "id": "UO:0000036"
+                },
+                "age_event": "sampling",
+                "diagnosis": [
+                    {
+                        "study_group_description": "severe",
+                        "disease_diagnosis": {
+                            "label": "COVID-19",
+                            "id": "DOID:0080600"
+                        },
+                        "disease_stage": "COVID_critical",
+                        "prior_therapies": "Interferon atomization, Ribavirin",
+                        "disease_length": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "vdjserver_uuid": "7865147522201227756-242ac117-0001-012",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": null,
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_id": "C152_TCR-seq",
+                    "sample_type": "bronchoalveolar lavage fluid",
+                    "tissue": {
+                        "label": "lung",
+                        "id": "UBERON:0002048"
+                    },
+                    "collection_time_point_relative": 0,
+                    "collection_time_point_reference": "Sample collection",
+                    "tissue_processing": "BALF was strained and the cells were re-suspended in RPMI 1640 complete medium. ",
+                    "cell_subset": {
+                        "id": null,
+                        "label": null
+                    },
+                    "cell_species": {
+                        "label": "Homo sapiens",
+                        "id": "NCBITAXON:9606"
+                    },
+                    "single_cell": true,
+                    "cell_storage": false,
+                    "template_class": "RNA",
+                    "template_amount": 11,
+                    "library_generation_method": "RT(oligo-dT)+TS+PCR",
+                    "library_generation_protocol": "Total 11 \u00b5l of single cell suspension and 40 \u00b5l barcoded Gel Beads were loaded to Chromium Chip A to generate single-cell gel bead-in-emulsion (GEM). The poly-adenylated transcripts were reverse-transcribed later. The single-cell capturing and downstream library constructions were performed using the Chromium Single Cell 5' library preparation kit with full length TCR V(D)J segment enrichment with a Chromium Single-Cell V(D)J Enrichment kit. Both kits were used accourding to 10X Genomic's protocol. Full-length cDNA along with cell-barcode identifiers were PCR-amplified and sequencing libraries were prepared and normalized to 3 nM.",
+                    "library_generation_kit_version": "Chromium Single Cell V(D)J Reagent kits (10x Genomics; PN-1000006, PN-1000014, PN-1000020, PN-1000005)",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRAV",
+                            "reverse_pcr_primer_target_location": "TRAC"
+                        },
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRBV",
+                            "reverse_pcr_primer_target_location": "TRBC"
+                        }
+                    ],
+                    "complete_sequences": "complete",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR11537954",
+                    "sequencing_platform": "BGI MGISEQ-2000",
+                    "sequencing_files": {
+                        "file_type": "fastq",
+                        "filename": "SRR11537954_1.fastq.gz",
+                        "read_length": 150,
+                        "paired_filename": "SRR11537954_2.fastq.gz",
+                        "paired_read_length": 150,
+                        "sequencing_data_id": null,
+                        "read_direction": null,
+                        "paired_read_direction": null,
+                        "index_filename": null,
+                        "index_length": null
+                    },
+                    "collection_time_point_relative_unit": {
+                        "id": "UO:0000033",
+                        "label": "day"
+                    },
+                    "template_amount_unit": {
+                        "id": "UO:0000101",
+                        "label": "microliter"
+                    },
+                    "vdjserver_uuid": "8392764532025135596-242ac117-0001-012",
+                    "sample_processing_id": null,
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "biomaterial_provider": null,
+                    "cell_phenotype": null,
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_quality": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": "9c7ea51d-dc5d-4567-8362-a48b8a474b19-007",
+                    "primary_annotation": true,
+                    "software_versions": "cellranger-ls5-6.1",
+                    "data_processing_files": [
+                        "SRR11537954.10x.igblast.airr.tsv.gz"
+                    ],
+                    "germline_database": "10X Genomics GRCh38 5.0.0, VDJServer IMGT 2019.01.23",
+                    "vdjserver_uuid": "8445249032382255596-242ac117-0001-012",
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "repository": "vdjserver.org",
+            "rearrangements": 913.0,
+            "filename": "/work/sequence_data_store/PRJNA608742/7975227533997707756-242ac117-0001-012.tsv.gz"
+        },
+        {
+            "repertoire_id": "7976215376475787756-242ac117-0001-012_PRJNA608742_TRB",
+            "study": {
+                "study_id": "PRJNA608742",
+                "study_title": "Single-cell landscape of bronchoalveolar immune cells in patients with COVID-19",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Respiratory immune characteristics associated with Coronavirus Disease 2019 (COVID-19) severity are currently unclear. We characterized bronchoalveolar lavage fluid immune cells from patients with varying severity of COVID-19 and from healthy people by using single-cell RNA sequencing. Proinflammatory monocyte-derived macrophages were abundant in the bronchoalveolar lavage fluid from patients with severe COVID-9. Moderate cases were characterized by the presence of highly clonally expanded CD8+ T cells. This atlas of the bronchoalveolar immune microenvironment suggests potential mechanisms underlying pathogenesis and recovery in COVID-19.",
+                "inclusion_exclusion_criteria": "This study was conducted according to the principles expressed in the Declaration of Helsinki. Ethical approval was obtained from the Research Ethics Committee of Shenzhen Third People\u2019s Hospital (2020-112). All participants provided written informed consent for sample collection and subsequent analyses.",
+                "grants": "This study was supported by the Science and Technology Innovation Committee of Shenzhen Municipality (202002073000002) and the National Natural Science Foundation of China (91442127 to Z.Z.; 81700540 to Y.L.).",
+                "collected_by": "Mingfeng Liao, Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "lab_name": "Zheng Zhang",
+                "lab_address": "Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 32398875",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": "2021-08-27T02:00:30.261Z",
+                "adc_update_date": "2022-12-16T20:43:16.264Z",
+                "vdjserver_uuid": "8808030969725784556-242ac117-0001-012",
+                "vdjserver_keywords": [
+                    "is_10x_genomics",
+                    "contains_single_cell"
+                ],
+                "study_contact": null
+            },
+            "subject": {
+                "subject_id": "M2",
+                "synthetic": false,
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "female",
+                "age_min": 37,
+                "age_max": 37,
+                "age_unit": {
+                    "label": "year",
+                    "id": "UO:0000036"
+                },
+                "age_event": "sampling",
+                "linked_subjects": "C143",
+                "link_type": "family member and close contact",
+                "diagnosis": [
+                    {
+                        "study_group_description": "mild",
+                        "disease_diagnosis": {
+                            "label": "COVID-19",
+                            "id": "DOID:0080600"
+                        },
+                        "disease_stage": "COVID_moderate",
+                        "disease_length": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "vdjserver_uuid": "7854410103961227756-242ac117-0001-012",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": null,
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_id": "C142_TCR-seq",
+                    "sample_type": "bronchoalveolar lavage fluid",
+                    "tissue": {
+                        "label": "lung",
+                        "id": "UBERON:0002048"
+                    },
+                    "collection_time_point_relative": 0,
+                    "collection_time_point_reference": "Sample collection",
+                    "tissue_processing": "BALF was strained and the cells were re-suspended in RPMI 1640 complete medium. ",
+                    "cell_subset": {
+                        "id": null,
+                        "label": null
+                    },
+                    "cell_species": {
+                        "label": "Homo sapiens",
+                        "id": "NCBITAXON:9606"
+                    },
+                    "single_cell": true,
+                    "cell_storage": false,
+                    "template_class": "RNA",
+                    "template_amount": 11,
+                    "library_generation_method": "RT(oligo-dT)+TS+PCR",
+                    "library_generation_protocol": "Total 11 \u00b5l of single cell suspension and 40 \u00b5l barcoded Gel Beads were loaded to Chromium Chip A to generate single-cell gel bead-in-emulsion (GEM). The poly-adenylated transcripts were reverse-transcribed later. The single-cell capturing and downstream library constructions were performed using the Chromium Single Cell 5' library preparation kit with full length TCR V(D)J segment enrichment with a Chromium Single-Cell V(D)J Enrichment kit. Both kits were used accourding to 10X Genomic's protocol. Full-length cDNA along with cell-barcode identifiers were PCR-amplified and sequencing libraries were prepared and normalized to 3 nM.",
+                    "library_generation_kit_version": "Chromium Single Cell V(D)J Reagent kits (10x Genomics; PN-1000006, PN-1000014, PN-1000020, PN-1000005)",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRAV",
+                            "reverse_pcr_primer_target_location": "TRAC"
+                        },
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRBV",
+                            "reverse_pcr_primer_target_location": "TRBC"
+                        }
+                    ],
+                    "complete_sequences": "complete",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR11245352",
+                    "sequencing_platform": "BGI MGISEQ-2000",
+                    "sequencing_files": {
+                        "file_type": "fastq",
+                        "filename": "SRR11245352_1.fastq.gz",
+                        "read_length": 150,
+                        "paired_filename": "SRR11245352_2.fastq.gz",
+                        "paired_read_length": 150,
+                        "sequencing_data_id": null,
+                        "read_direction": null,
+                        "paired_read_direction": null,
+                        "index_filename": null,
+                        "index_length": null
+                    },
+                    "collection_time_point_relative_unit": {
+                        "id": "UO:0000033",
+                        "label": "day"
+                    },
+                    "template_amount_unit": {
+                        "id": "UO:0000101",
+                        "label": "microliter"
+                    },
+                    "vdjserver_uuid": "8393451726792495596-242ac117-0001-012",
+                    "sample_processing_id": null,
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "biomaterial_provider": null,
+                    "cell_phenotype": null,
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_quality": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": "df3ec2c7-dd62-4441-af06-8594e4079be7-007",
+                    "primary_annotation": true,
+                    "software_versions": "cellranger-ls5-6.1",
+                    "data_processing_files": [
+                        "SRR11245352.10x.igblast.airr.tsv.gz"
+                    ],
+                    "germline_database": "10X Genomics GRCh38 5.0.0, VDJServer IMGT 2019.01.23",
+                    "vdjserver_uuid": "8445807378130735596-242ac117-0001-012",
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "repository": "vdjserver.org",
+            "rearrangements": 2140.0,
+            "filename": "/work/sequence_data_store/PRJNA608742/7976215376475787756-242ac117-0001-012.tsv.gz"
+        },
+        {
+            "repertoire_id": "7978019262740107756-242ac117-0001-012_PRJNA608742_TRB",
+            "study": {
+                "study_id": "PRJNA608742",
+                "study_title": "Single-cell landscape of bronchoalveolar immune cells in patients with COVID-19",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Respiratory immune characteristics associated with Coronavirus Disease 2019 (COVID-19) severity are currently unclear. We characterized bronchoalveolar lavage fluid immune cells from patients with varying severity of COVID-19 and from healthy people by using single-cell RNA sequencing. Proinflammatory monocyte-derived macrophages were abundant in the bronchoalveolar lavage fluid from patients with severe COVID-9. Moderate cases were characterized by the presence of highly clonally expanded CD8+ T cells. This atlas of the bronchoalveolar immune microenvironment suggests potential mechanisms underlying pathogenesis and recovery in COVID-19.",
+                "inclusion_exclusion_criteria": "This study was conducted according to the principles expressed in the Declaration of Helsinki. Ethical approval was obtained from the Research Ethics Committee of Shenzhen Third People\u2019s Hospital (2020-112). All participants provided written informed consent for sample collection and subsequent analyses.",
+                "grants": "This study was supported by the Science and Technology Innovation Committee of Shenzhen Municipality (202002073000002) and the National Natural Science Foundation of China (91442127 to Z.Z.; 81700540 to Y.L.).",
+                "collected_by": "Mingfeng Liao, Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "lab_name": "Zheng Zhang",
+                "lab_address": "Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 32398875",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": "2021-08-27T02:00:30.261Z",
+                "adc_update_date": "2022-12-16T20:43:16.264Z",
+                "vdjserver_uuid": "8808030969725784556-242ac117-0001-012",
+                "vdjserver_keywords": [
+                    "is_10x_genomics",
+                    "contains_single_cell"
+                ],
+                "study_contact": null
+            },
+            "subject": {
+                "subject_id": "S5",
+                "synthetic": false,
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "female",
+                "age_min": 57,
+                "age_max": 57,
+                "age_unit": {
+                    "label": "year",
+                    "id": "UO:0000036"
+                },
+                "age_event": "sampling",
+                "diagnosis": [
+                    {
+                        "study_group_description": "severe",
+                        "disease_diagnosis": {
+                            "label": "COVID-19",
+                            "id": "DOID:0080600"
+                        },
+                        "disease_stage": "COVID_critical",
+                        "prior_therapies": "Interferon atomization, Methylprednisolone",
+                        "disease_length": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "vdjserver_uuid": "7854968449709707756-242ac117-0001-012",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": null,
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_id": "C149_TCR-seq",
+                    "sample_type": "bronchoalveolar lavage fluid",
+                    "tissue": {
+                        "label": "lung",
+                        "id": "UBERON:0002048"
+                    },
+                    "collection_time_point_relative": 0,
+                    "collection_time_point_reference": "Sample collection",
+                    "tissue_processing": "BALF was strained and the cells were re-suspended in RPMI 1640 complete medium. ",
+                    "cell_subset": {
+                        "id": null,
+                        "label": null
+                    },
+                    "cell_species": {
+                        "label": "Homo sapiens",
+                        "id": "NCBITAXON:9606"
+                    },
+                    "single_cell": true,
+                    "cell_storage": false,
+                    "template_class": "RNA",
+                    "template_amount": 11,
+                    "library_generation_method": "RT(oligo-dT)+TS+PCR",
+                    "library_generation_protocol": "Total 11 \u00b5l of single cell suspension and 40 \u00b5l barcoded Gel Beads were loaded to Chromium Chip A to generate single-cell gel bead-in-emulsion (GEM). The poly-adenylated transcripts were reverse-transcribed later. The single-cell capturing and downstream library constructions were performed using the Chromium Single Cell 5' library preparation kit with full length TCR V(D)J segment enrichment with a Chromium Single-Cell V(D)J Enrichment kit. Both kits were used accourding to 10X Genomic's protocol. Full-length cDNA along with cell-barcode identifiers were PCR-amplified and sequencing libraries were prepared and normalized to 3 nM.",
+                    "library_generation_kit_version": "Chromium Single Cell V(D)J Reagent kits (10x Genomics; PN-1000006, PN-1000014, PN-1000020, PN-1000005)",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRAV",
+                            "reverse_pcr_primer_target_location": "TRAC"
+                        },
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRBV",
+                            "reverse_pcr_primer_target_location": "TRBC"
+                        }
+                    ],
+                    "complete_sequences": "complete",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR11537953",
+                    "sequencing_platform": "BGI MGISEQ-2000",
+                    "sequencing_files": {
+                        "file_type": "fastq",
+                        "filename": "SRR11537953_1.fastq.gz",
+                        "read_length": 150,
+                        "paired_filename": "SRR11537953_2.fastq.gz",
+                        "paired_read_length": 150,
+                        "sequencing_data_id": null,
+                        "read_direction": null,
+                        "paired_read_direction": null,
+                        "index_filename": null,
+                        "index_length": null
+                    },
+                    "collection_time_point_relative_unit": {
+                        "id": "UO:0000033",
+                        "label": "day"
+                    },
+                    "template_amount_unit": {
+                        "id": "UO:0000101",
+                        "label": "microliter"
+                    },
+                    "vdjserver_uuid": "8392163236603695596-242ac117-0001-012",
+                    "sample_processing_id": null,
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "biomaterial_provider": null,
+                    "cell_phenotype": null,
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_quality": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": "686e493c-0f69-40cd-8d79-2a5768fc98de-007",
+                    "primary_annotation": true,
+                    "software_versions": "cellranger-ls5-6.1",
+                    "data_processing_files": [
+                        "SRR11537953.10x.igblast.airr.tsv.gz"
+                    ],
+                    "germline_database": "10X Genomics GRCh38 5.0.0, VDJServer IMGT 2019.01.23",
+                    "vdjserver_uuid": "8444991334344495596-242ac117-0001-012",
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "repository": "vdjserver.org",
+            "rearrangements": 671.0,
+            "filename": "/work/sequence_data_store/PRJNA608742/7978019262740107756-242ac117-0001-012.tsv.gz"
+        },
+        {
+            "repertoire_id": "7977031420262027756-242ac117-0001-012_PRJNA608742_TRB",
+            "study": {
+                "study_id": "PRJNA608742",
+                "study_title": "Single-cell landscape of bronchoalveolar immune cells in patients with COVID-19",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Respiratory immune characteristics associated with Coronavirus Disease 2019 (COVID-19) severity are currently unclear. We characterized bronchoalveolar lavage fluid immune cells from patients with varying severity of COVID-19 and from healthy people by using single-cell RNA sequencing. Proinflammatory monocyte-derived macrophages were abundant in the bronchoalveolar lavage fluid from patients with severe COVID-9. Moderate cases were characterized by the presence of highly clonally expanded CD8+ T cells. This atlas of the bronchoalveolar immune microenvironment suggests potential mechanisms underlying pathogenesis and recovery in COVID-19.",
+                "inclusion_exclusion_criteria": "This study was conducted according to the principles expressed in the Declaration of Helsinki. Ethical approval was obtained from the Research Ethics Committee of Shenzhen Third People\u2019s Hospital (2020-112). All participants provided written informed consent for sample collection and subsequent analyses.",
+                "grants": "This study was supported by the Science and Technology Innovation Committee of Shenzhen Municipality (202002073000002) and the National Natural Science Foundation of China (91442127 to Z.Z.; 81700540 to Y.L.).",
+                "collected_by": "Mingfeng Liao, Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "lab_name": "Zheng Zhang",
+                "lab_address": "Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 32398875",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": "2021-08-27T02:00:30.261Z",
+                "adc_update_date": "2022-12-16T20:43:16.264Z",
+                "vdjserver_uuid": "8808030969725784556-242ac117-0001-012",
+                "vdjserver_keywords": [
+                    "is_10x_genomics",
+                    "contains_single_cell"
+                ],
+                "study_contact": null
+            },
+            "subject": {
+                "subject_id": "S2",
+                "synthetic": false,
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "male",
+                "age_min": 66,
+                "age_max": 66,
+                "age_unit": {
+                    "label": "year",
+                    "id": "UO:0000036"
+                },
+                "age_event": "sampling",
+                "linked_subjects": "C142",
+                "link_type": "family member and close contact",
+                "diagnosis": [
+                    {
+                        "study_group_description": "severe",
+                        "disease_diagnosis": {
+                            "label": "COVID-19",
+                            "id": "DOID:0080600"
+                        },
+                        "disease_stage": "COVID_severe",
+                        "prior_therapies": "Interferon atomization, Ribavirin, Methylprednisolone",
+                        "disease_length": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "vdjserver_uuid": "7854925500036747756-242ac117-0001-012",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": null,
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_id": "C143_TCR-seq",
+                    "sample_type": "bronchoalveolar lavage fluid",
+                    "tissue": {
+                        "label": "lung",
+                        "id": "UBERON:0002048"
+                    },
+                    "collection_time_point_relative": 0,
+                    "collection_time_point_reference": "Sample collection",
+                    "tissue_processing": "BALF was strained and the cells were re-suspended in RPMI 1640 complete medium. ",
+                    "cell_subset": {
+                        "id": null,
+                        "label": null
+                    },
+                    "cell_species": {
+                        "label": "Homo sapiens",
+                        "id": "NCBITAXON:9606"
+                    },
+                    "single_cell": true,
+                    "cell_storage": false,
+                    "template_class": "RNA",
+                    "template_amount": 11,
+                    "library_generation_method": "RT(oligo-dT)+TS+PCR",
+                    "library_generation_protocol": "Total 11 \u00b5l of single cell suspension and 40 \u00b5l barcoded Gel Beads were loaded to Chromium Chip A to generate single-cell gel bead-in-emulsion (GEM). The poly-adenylated transcripts were reverse-transcribed later. The single-cell capturing and downstream library constructions were performed using the Chromium Single Cell 5' library preparation kit with full length TCR V(D)J segment enrichment with a Chromium Single-Cell V(D)J Enrichment kit. Both kits were used accourding to 10X Genomic's protocol. Full-length cDNA along with cell-barcode identifiers were PCR-amplified and sequencing libraries were prepared and normalized to 3 nM.",
+                    "library_generation_kit_version": "Chromium Single Cell V(D)J Reagent kits (10x Genomics; PN-1000006, PN-1000014, PN-1000020, PN-1000005)",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRAV",
+                            "reverse_pcr_primer_target_location": "TRAC"
+                        },
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRBV",
+                            "reverse_pcr_primer_target_location": "TRBC"
+                        }
+                    ],
+                    "complete_sequences": "complete",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR11245353",
+                    "sequencing_platform": "BGI MGISEQ-2000",
+                    "sequencing_files": {
+                        "file_type": "fastq",
+                        "filename": "SRR11245353_1.fastq.gz",
+                        "read_length": 150,
+                        "paired_filename": "SRR11245353_2.fastq.gz",
+                        "paired_read_length": 150,
+                        "sequencing_data_id": null,
+                        "read_direction": null,
+                        "paired_read_direction": null,
+                        "index_filename": null,
+                        "index_length": null
+                    },
+                    "collection_time_point_relative_unit": {
+                        "id": "UO:0000033",
+                        "label": "day"
+                    },
+                    "template_amount_unit": {
+                        "id": "UO:0000101",
+                        "label": "microliter"
+                    },
+                    "vdjserver_uuid": "8392807481698095596-242ac117-0001-012",
+                    "sample_processing_id": null,
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "biomaterial_provider": null,
+                    "cell_phenotype": null,
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_quality": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": "1a566449-7db1-4b3f-8938-203fd78b3940-007",
+                    "primary_annotation": true,
+                    "software_versions": "cellranger-ls5-6.1",
+                    "data_processing_files": [
+                        "SRR11245353.10x.igblast.airr.tsv.gz"
+                    ],
+                    "germline_database": "10X Genomics GRCh38 5.0.0, VDJServer IMGT 2019.01.23",
+                    "vdjserver_uuid": "8445635579438895596-242ac117-0001-012",
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "repository": "vdjserver.org",
+            "rearrangements": 3858.0,
+            "filename": "/work/sequence_data_store/PRJNA608742/7977031420262027756-242ac117-0001-012.tsv.gz"
+        },
+        {
+            "repertoire_id": "7975184584324747756-242ac117-0001-012_PRJNA608742_TRB",
+            "study": {
+                "study_id": "PRJNA608742",
+                "study_title": "Single-cell landscape of bronchoalveolar immune cells in patients with COVID-19",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Respiratory immune characteristics associated with Coronavirus Disease 2019 (COVID-19) severity are currently unclear. We characterized bronchoalveolar lavage fluid immune cells from patients with varying severity of COVID-19 and from healthy people by using single-cell RNA sequencing. Proinflammatory monocyte-derived macrophages were abundant in the bronchoalveolar lavage fluid from patients with severe COVID-9. Moderate cases were characterized by the presence of highly clonally expanded CD8+ T cells. This atlas of the bronchoalveolar immune microenvironment suggests potential mechanisms underlying pathogenesis and recovery in COVID-19.",
+                "inclusion_exclusion_criteria": "This study was conducted according to the principles expressed in the Declaration of Helsinki. Ethical approval was obtained from the Research Ethics Committee of Shenzhen Third People\u2019s Hospital (2020-112). All participants provided written informed consent for sample collection and subsequent analyses.",
+                "grants": "This study was supported by the Science and Technology Innovation Committee of Shenzhen Municipality (202002073000002) and the National Natural Science Foundation of China (91442127 to Z.Z.; 81700540 to Y.L.).",
+                "collected_by": "Mingfeng Liao, Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "lab_name": "Zheng Zhang",
+                "lab_address": "Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 32398875",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": "2021-08-27T02:00:30.261Z",
+                "adc_update_date": "2022-12-16T20:43:16.264Z",
+                "vdjserver_uuid": "8808030969725784556-242ac117-0001-012",
+                "vdjserver_keywords": [
+                    "is_10x_genomics",
+                    "contains_single_cell"
+                ],
+                "study_contact": null
+            },
+            "subject": {
+                "subject_id": "M3",
+                "synthetic": false,
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "male",
+                "age_min": 35,
+                "age_max": 35,
+                "age_unit": {
+                    "label": "year",
+                    "id": "UO:0000036"
+                },
+                "age_event": "sampling",
+                "diagnosis": [
+                    {
+                        "study_group_description": "mild",
+                        "disease_diagnosis": {
+                            "label": "COVID-19",
+                            "id": "DOID:0080600"
+                        },
+                        "disease_stage": "COVID_moderate",
+                        "prior_therapies": "Interferon atomization, Ribavirin",
+                        "disease_length": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "vdjserver_uuid": "7865319320893067756-242ac117-0001-012",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": null,
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_id": "C144_TCR-seq",
+                    "sample_type": "bronchoalveolar lavage fluid",
+                    "tissue": {
+                        "label": "lung",
+                        "id": "UBERON:0002048"
+                    },
+                    "collection_time_point_relative": 0,
+                    "collection_time_point_reference": "Sample collection",
+                    "tissue_processing": "BALF was strained and the cells were re-suspended in RPMI 1640 complete medium. ",
+                    "cell_subset": {
+                        "id": null,
+                        "label": null
+                    },
+                    "cell_species": {
+                        "label": "Homo sapiens",
+                        "id": "NCBITAXON:9606"
+                    },
+                    "single_cell": true,
+                    "cell_storage": false,
+                    "template_class": "RNA",
+                    "template_amount": 11,
+                    "library_generation_method": "RT(oligo-dT)+TS+PCR",
+                    "library_generation_protocol": "Total 11 \u00b5l of single cell suspension and 40 \u00b5l barcoded Gel Beads were loaded to Chromium Chip A to generate single-cell gel bead-in-emulsion (GEM). The poly-adenylated transcripts were reverse-transcribed later. The single-cell capturing and downstream library constructions were performed using the Chromium Single Cell 5' library preparation kit with full length TCR V(D)J segment enrichment with a Chromium Single-Cell V(D)J Enrichment kit. Both kits were used accourding to 10X Genomic's protocol. Full-length cDNA along with cell-barcode identifiers were PCR-amplified and sequencing libraries were prepared and normalized to 3 nM.",
+                    "library_generation_kit_version": "Chromium Single Cell V(D)J Reagent kits (10x Genomics; PN-1000006, PN-1000014, PN-1000020, PN-1000005)",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRAV",
+                            "reverse_pcr_primer_target_location": "TRAC"
+                        },
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRBV",
+                            "reverse_pcr_primer_target_location": "TRBC"
+                        }
+                    ],
+                    "complete_sequences": "complete",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR11245354",
+                    "sequencing_platform": "BGI MGISEQ-2000",
+                    "sequencing_files": {
+                        "file_type": "fastq",
+                        "filename": "SRR11245354_1.fastq.gz",
+                        "read_length": 150,
+                        "paired_filename": "SRR11245354_2.fastq.gz",
+                        "paired_read_length": 150,
+                        "sequencing_data_id": null,
+                        "read_direction": null,
+                        "paired_read_direction": null,
+                        "index_filename": null,
+                        "index_length": null
+                    },
+                    "collection_time_point_relative_unit": {
+                        "id": "UO:0000033",
+                        "label": "day"
+                    },
+                    "template_amount_unit": {
+                        "id": "UO:0000101",
+                        "label": "microliter"
+                    },
+                    "vdjserver_uuid": "8392764536320102892-242ac117-0001-012",
+                    "sample_processing_id": null,
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "biomaterial_provider": null,
+                    "cell_phenotype": null,
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_quality": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": "3a59e66d-caab-4f6f-9cc2-97b2271a615c-007",
+                    "primary_annotation": true,
+                    "software_versions": "cellranger-ls5-6.1",
+                    "data_processing_files": [
+                        "SRR11245354.10x.igblast.airr.tsv.gz"
+                    ],
+                    "germline_database": "10X Genomics GRCh38 5.0.0, VDJServer IMGT 2019.01.23",
+                    "vdjserver_uuid": "8446365723879215596-242ac117-0001-012",
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "repository": "vdjserver.org",
+            "rearrangements": 264.0,
+            "filename": "/work/sequence_data_store/PRJNA608742/7975184584324747756-242ac117-0001-012.tsv.gz"
+        },
+        {
+            "repertoire_id": "7976516024186507756-242ac117-0001-012_PRJNA608742_TRB",
+            "study": {
+                "study_id": "PRJNA608742",
+                "study_title": "Single-cell landscape of bronchoalveolar immune cells in patients with COVID-19",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Respiratory immune characteristics associated with Coronavirus Disease 2019 (COVID-19) severity are currently unclear. We characterized bronchoalveolar lavage fluid immune cells from patients with varying severity of COVID-19 and from healthy people by using single-cell RNA sequencing. Proinflammatory monocyte-derived macrophages were abundant in the bronchoalveolar lavage fluid from patients with severe COVID-9. Moderate cases were characterized by the presence of highly clonally expanded CD8+ T cells. This atlas of the bronchoalveolar immune microenvironment suggests potential mechanisms underlying pathogenesis and recovery in COVID-19.",
+                "inclusion_exclusion_criteria": "This study was conducted according to the principles expressed in the Declaration of Helsinki. Ethical approval was obtained from the Research Ethics Committee of Shenzhen Third People\u2019s Hospital (2020-112). All participants provided written informed consent for sample collection and subsequent analyses.",
+                "grants": "This study was supported by the Science and Technology Innovation Committee of Shenzhen Municipality (202002073000002) and the National Natural Science Foundation of China (91442127 to Z.Z.; 81700540 to Y.L.).",
+                "collected_by": "Mingfeng Liao, Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "lab_name": "Zheng Zhang",
+                "lab_address": "Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 32398875",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": "2021-08-27T02:00:30.261Z",
+                "adc_update_date": "2022-12-16T20:43:16.264Z",
+                "vdjserver_uuid": "8808030969725784556-242ac117-0001-012",
+                "vdjserver_keywords": [
+                    "is_10x_genomics",
+                    "contains_single_cell"
+                ],
+                "study_contact": null
+            },
+            "subject": {
+                "subject_id": "S1",
+                "synthetic": false,
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "male",
+                "age_min": 62,
+                "age_max": 62,
+                "age_unit": {
+                    "label": "year",
+                    "id": "UO:0000036"
+                },
+                "age_event": "sampling",
+                "diagnosis": [
+                    {
+                        "study_group_description": "severe",
+                        "disease_diagnosis": {
+                            "label": "COVID-19",
+                            "id": "DOID:0080600"
+                        },
+                        "disease_stage": "COVID_critical",
+                        "prior_therapies": "Interferon atomization, Ribavirin",
+                        "disease_length": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "vdjserver_uuid": "7864202629396107756-242ac117-0001-012",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": null,
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_id": "C145_TCR-seq",
+                    "sample_type": "bronchoalveolar lavage fluid",
+                    "tissue": {
+                        "label": "lung",
+                        "id": "UBERON:0002048"
+                    },
+                    "collection_time_point_relative": 0,
+                    "collection_time_point_reference": "Sample collection",
+                    "tissue_processing": "BALF was strained and the cells were re-suspended in RPMI 1640 complete medium. ",
+                    "cell_subset": {
+                        "id": null,
+                        "label": null
+                    },
+                    "cell_species": {
+                        "label": "Homo sapiens",
+                        "id": "NCBITAXON:9606"
+                    },
+                    "single_cell": true,
+                    "cell_storage": false,
+                    "template_class": "RNA",
+                    "template_amount": 11,
+                    "library_generation_method": "RT(oligo-dT)+TS+PCR",
+                    "library_generation_protocol": "Total 11 \u00b5l of single cell suspension and 40 \u00b5l barcoded Gel Beads were loaded to Chromium Chip A to generate single-cell gel bead-in-emulsion (GEM). The poly-adenylated transcripts were reverse-transcribed later. The single-cell capturing and downstream library constructions were performed using the Chromium Single Cell 5' library preparation kit with full length TCR V(D)J segment enrichment with a Chromium Single-Cell V(D)J Enrichment kit. Both kits were used accourding to 10X Genomic's protocol. Full-length cDNA along with cell-barcode identifiers were PCR-amplified and sequencing libraries were prepared and normalized to 3 nM.",
+                    "library_generation_kit_version": "Chromium Single Cell V(D)J Reagent kits (10x Genomics; PN-1000006, PN-1000014, PN-1000020, PN-1000005)",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRAV",
+                            "reverse_pcr_primer_target_location": "TRAC"
+                        },
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRBV",
+                            "reverse_pcr_primer_target_location": "TRBC"
+                        }
+                    ],
+                    "complete_sequences": "complete",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR11245355",
+                    "sequencing_platform": "BGI MGISEQ-2000",
+                    "sequencing_files": {
+                        "file_type": "fastq",
+                        "filename": "SRR11245355_1.fastq.gz",
+                        "read_length": 150,
+                        "paired_filename": "SRR11245355_2.fastq.gz",
+                        "paired_read_length": 150,
+                        "sequencing_data_id": null,
+                        "read_direction": null,
+                        "paired_read_direction": null,
+                        "index_filename": null,
+                        "index_length": null
+                    },
+                    "collection_time_point_relative_unit": {
+                        "id": "UO:0000033",
+                        "label": "day"
+                    },
+                    "template_amount_unit": {
+                        "id": "UO:0000101",
+                        "label": "microliter"
+                    },
+                    "vdjserver_uuid": "8391003595433775596-242ac117-0001-012",
+                    "sample_processing_id": null,
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "biomaterial_provider": null,
+                    "cell_phenotype": null,
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_quality": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": "cd11343d-6c8f-4494-b517-03576e972893-007",
+                    "primary_annotation": true,
+                    "software_versions": "cellranger-ls5-6.1",
+                    "data_processing_files": [
+                        "SRR11245355.10x.igblast.airr.tsv.gz"
+                    ],
+                    "germline_database": "10X Genomics GRCh38 5.0.0, VDJServer IMGT 2019.01.23",
+                    "vdjserver_uuid": "8445592634060902892-242ac117-0001-012",
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "repository": "vdjserver.org",
+            "rearrangements": 708.0,
+            "filename": "/work/sequence_data_store/PRJNA608742/7976516024186507756-242ac117-0001-012.tsv.gz"
+        },
+        {
+            "repertoire_id": "7976387175167627756-242ac117-0001-012_PRJNA608742_TRB",
+            "study": {
+                "study_id": "PRJNA608742",
+                "study_title": "Single-cell landscape of bronchoalveolar immune cells in patients with COVID-19",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Respiratory immune characteristics associated with Coronavirus Disease 2019 (COVID-19) severity are currently unclear. We characterized bronchoalveolar lavage fluid immune cells from patients with varying severity of COVID-19 and from healthy people by using single-cell RNA sequencing. Proinflammatory monocyte-derived macrophages were abundant in the bronchoalveolar lavage fluid from patients with severe COVID-9. Moderate cases were characterized by the presence of highly clonally expanded CD8+ T cells. This atlas of the bronchoalveolar immune microenvironment suggests potential mechanisms underlying pathogenesis and recovery in COVID-19.",
+                "inclusion_exclusion_criteria": "This study was conducted according to the principles expressed in the Declaration of Helsinki. Ethical approval was obtained from the Research Ethics Committee of Shenzhen Third People\u2019s Hospital (2020-112). All participants provided written informed consent for sample collection and subsequent analyses.",
+                "grants": "This study was supported by the Science and Technology Innovation Committee of Shenzhen Municipality (202002073000002) and the National Natural Science Foundation of China (91442127 to Z.Z.; 81700540 to Y.L.).",
+                "collected_by": "Mingfeng Liao, Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "lab_name": "Zheng Zhang",
+                "lab_address": "Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 32398875",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": "2021-08-27T02:00:30.261Z",
+                "adc_update_date": "2022-12-16T20:43:16.264Z",
+                "vdjserver_uuid": "8808030969725784556-242ac117-0001-012",
+                "vdjserver_keywords": [
+                    "is_10x_genomics",
+                    "contains_single_cell"
+                ],
+                "study_contact": null
+            },
+            "subject": {
+                "subject_id": "S3",
+                "synthetic": false,
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "male",
+                "age_min": 63,
+                "age_max": 63,
+                "age_unit": {
+                    "label": "year",
+                    "id": "UO:0000036"
+                },
+                "age_event": "sampling",
+                "diagnosis": [
+                    {
+                        "study_group_description": "severe",
+                        "disease_diagnosis": {
+                            "label": "COVID-19",
+                            "id": "DOID:0080600"
+                        },
+                        "disease_stage": "COVID_critical",
+                        "prior_therapies": "Interferon atomization, Ribavirin, Methylprednisolone",
+                        "disease_length": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "vdjserver_uuid": "7853293412464267756-242ac117-0001-012",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": null,
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_id": "C146_TCR-seq",
+                    "sample_type": "bronchoalveolar lavage fluid",
+                    "tissue": {
+                        "label": "lung",
+                        "id": "UBERON:0002048"
+                    },
+                    "collection_time_point_relative": 0,
+                    "collection_time_point_reference": "Sample collection",
+                    "tissue_processing": "BALF was strained and the cells were re-suspended in RPMI 1640 complete medium. ",
+                    "cell_subset": {
+                        "id": null,
+                        "label": null
+                    },
+                    "cell_species": {
+                        "label": "Homo sapiens",
+                        "id": "NCBITAXON:9606"
+                    },
+                    "single_cell": true,
+                    "cell_storage": false,
+                    "template_class": "RNA",
+                    "template_amount": 11,
+                    "library_generation_method": "RT(oligo-dT)+TS+PCR",
+                    "library_generation_protocol": "Total 11 \u00b5l of single cell suspension and 40 \u00b5l barcoded Gel Beads were loaded to Chromium Chip A to generate single-cell gel bead-in-emulsion (GEM). The poly-adenylated transcripts were reverse-transcribed later. The single-cell capturing and downstream library constructions were performed using the Chromium Single Cell 5' library preparation kit with full length TCR V(D)J segment enrichment with a Chromium Single-Cell V(D)J Enrichment kit. Both kits were used accourding to 10X Genomic's protocol. Full-length cDNA along with cell-barcode identifiers were PCR-amplified and sequencing libraries were prepared and normalized to 3 nM.",
+                    "library_generation_kit_version": "Chromium Single Cell V(D)J Reagent kits (10x Genomics; PN-1000006, PN-1000014, PN-1000020, PN-1000005)",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRAV",
+                            "reverse_pcr_primer_target_location": "TRAC"
+                        },
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRBV",
+                            "reverse_pcr_primer_target_location": "TRBC"
+                        }
+                    ],
+                    "complete_sequences": "complete",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR11245356",
+                    "sequencing_platform": "BGI MGISEQ-2000",
+                    "sequencing_files": {
+                        "file_type": "fastq",
+                        "filename": "SRR11245356_1.fastq.gz",
+                        "read_length": 150,
+                        "paired_filename": "SRR11245356_2.fastq.gz",
+                        "paired_read_length": 150,
+                        "sequencing_data_id": null,
+                        "read_direction": null,
+                        "paired_read_direction": null,
+                        "index_filename": null,
+                        "index_length": null
+                    },
+                    "collection_time_point_relative_unit": {
+                        "id": "UO:0000033",
+                        "label": "day"
+                    },
+                    "template_amount_unit": {
+                        "id": "UO:0000101",
+                        "label": "microliter"
+                    },
+                    "vdjserver_uuid": "8393408777119535596-242ac117-0001-012",
+                    "sample_processing_id": null,
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "biomaterial_provider": null,
+                    "cell_phenotype": null,
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_quality": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": "8d326112-2110-43bf-87c7-19febf9bfd0a-007",
+                    "primary_annotation": true,
+                    "software_versions": "cellranger-ls5-6.1",
+                    "data_processing_files": [
+                        "SRR11245356.10x.igblast.airr.tsv.gz"
+                    ],
+                    "germline_database": "10X Genomics GRCh38 5.0.0, VDJServer IMGT 2019.01.23",
+                    "vdjserver_uuid": "8445420831074095596-242ac117-0001-012",
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "repository": "vdjserver.org",
+            "rearrangements": 96.0,
+            "filename": "/work/sequence_data_store/PRJNA608742/7976387175167627756-242ac117-0001-012.tsv.gz"
+        },
+        {
+            "repertoire_id": "7977718615029387756-242ac117-0001-012_PRJNA608742_TRB",
+            "study": {
+                "study_id": "PRJNA608742",
+                "study_title": "Single-cell landscape of bronchoalveolar immune cells in patients with COVID-19",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Respiratory immune characteristics associated with Coronavirus Disease 2019 (COVID-19) severity are currently unclear. We characterized bronchoalveolar lavage fluid immune cells from patients with varying severity of COVID-19 and from healthy people by using single-cell RNA sequencing. Proinflammatory monocyte-derived macrophages were abundant in the bronchoalveolar lavage fluid from patients with severe COVID-9. Moderate cases were characterized by the presence of highly clonally expanded CD8+ T cells. This atlas of the bronchoalveolar immune microenvironment suggests potential mechanisms underlying pathogenesis and recovery in COVID-19.",
+                "inclusion_exclusion_criteria": "This study was conducted according to the principles expressed in the Declaration of Helsinki. Ethical approval was obtained from the Research Ethics Committee of Shenzhen Third People\u2019s Hospital (2020-112). All participants provided written informed consent for sample collection and subsequent analyses.",
+                "grants": "This study was supported by the Science and Technology Innovation Committee of Shenzhen Municipality (202002073000002) and the National Natural Science Foundation of China (91442127 to Z.Z.; 81700540 to Y.L.).",
+                "collected_by": "Mingfeng Liao, Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "lab_name": "Zheng Zhang",
+                "lab_address": "Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 32398875",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": "2021-08-27T02:00:30.261Z",
+                "adc_update_date": "2022-12-16T20:43:16.264Z",
+                "vdjserver_uuid": "8808030969725784556-242ac117-0001-012",
+                "vdjserver_keywords": [
+                    "is_10x_genomics",
+                    "contains_single_cell"
+                ],
+                "study_contact": null
+            },
+            "subject": {
+                "subject_id": "M1",
+                "synthetic": false,
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "male",
+                "age_min": 36,
+                "age_max": 36,
+                "age_unit": {
+                    "label": "year",
+                    "id": "UO:0000036"
+                },
+                "age_event": "sampling",
+                "diagnosis": [
+                    {
+                        "study_group_description": "mild",
+                        "disease_diagnosis": {
+                            "label": "COVID-19",
+                            "id": "DOID:0080600"
+                        },
+                        "disease_stage": "COVID_moderate",
+                        "prior_therapies": "Interferon atomization, Ribavirin",
+                        "disease_length": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "vdjserver_uuid": "7865577018930827756-242ac117-0001-012",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": null,
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_id": "C141_TCR-seq",
+                    "sample_type": "bronchoalveolar lavage fluid",
+                    "tissue": {
+                        "label": "lung",
+                        "id": "UBERON:0002048"
+                    },
+                    "collection_time_point_relative": 0,
+                    "collection_time_point_reference": "Sample collection",
+                    "tissue_processing": "BALF was strained and the cells were re-suspended in RPMI 1640 complete medium. ",
+                    "cell_subset": {
+                        "id": null,
+                        "label": null
+                    },
+                    "cell_species": {
+                        "label": "Homo sapiens",
+                        "id": "NCBITAXON:9606"
+                    },
+                    "single_cell": true,
+                    "cell_storage": false,
+                    "template_class": "RNA",
+                    "template_amount": 11,
+                    "library_generation_method": "RT(oligo-dT)+TS+PCR",
+                    "library_generation_protocol": "Total 11 \u00b5l of single cell suspension and 40 \u00b5l barcoded Gel Beads were loaded to Chromium Chip A to generate single-cell gel bead-in-emulsion (GEM). The poly-adenylated transcripts were reverse-transcribed later. The single-cell capturing and downstream library constructions were performed using the Chromium Single Cell 5' library preparation kit with full length TCR V(D)J segment enrichment with a Chromium Single-Cell V(D)J Enrichment kit. Both kits were used accourding to 10X Genomic's protocol. Full-length cDNA along with cell-barcode identifiers were PCR-amplified and sequencing libraries were prepared and normalized to 3 nM.",
+                    "library_generation_kit_version": "Chromium Single Cell V(D)J Reagent kits (10x Genomics; PN-1000006, PN-1000014, PN-1000020, PN-1000005)",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRAV",
+                            "reverse_pcr_primer_target_location": "TRAC"
+                        },
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRBV",
+                            "reverse_pcr_primer_target_location": "TRBC"
+                        }
+                    ],
+                    "complete_sequences": "complete",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR11245351",
+                    "sequencing_platform": "BGI MGISEQ-2000",
+                    "sequencing_files": {
+                        "file_type": "fastq",
+                        "filename": "SRR11245351_1.fastq.gz",
+                        "read_length": 150,
+                        "paired_filename": "SRR11245351_2.fastq.gz",
+                        "paired_read_length": 150,
+                        "sequencing_data_id": null,
+                        "read_direction": null,
+                        "paired_read_direction": null,
+                        "index_filename": null,
+                        "index_length": null
+                    },
+                    "collection_time_point_relative_unit": {
+                        "id": "UO:0000033",
+                        "label": "day"
+                    },
+                    "template_amount_unit": {
+                        "id": "UO:0000101",
+                        "label": "microliter"
+                    },
+                    "vdjserver_uuid": "8392206186276655596-242ac117-0001-012",
+                    "sample_processing_id": null,
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "biomaterial_provider": null,
+                    "cell_phenotype": null,
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_quality": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": "ce0bf122-6329-4c69-b79d-f80432d16e8b-007",
+                    "primary_annotation": true,
+                    "software_versions": "cellranger-ls5-6.1",
+                    "data_processing_files": [
+                        "SRR11245351.10x.igblast.airr.tsv.gz"
+                    ],
+                    "germline_database": "10X Genomics GRCh38 5.0.0, VDJServer IMGT 2019.01.23",
+                    "vdjserver_uuid": "8445592629765935596-242ac117-0001-012",
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "repository": "vdjserver.org",
+            "rearrangements": 2119.0,
+            "filename": "/work/sequence_data_store/PRJNA608742/7977718615029387756-242ac117-0001-012.tsv.gz"
+        },
+        {
+            "repertoire_id": "7976558973859467756-242ac117-0001-012_PRJNA608742_TRB",
+            "study": {
+                "study_id": "PRJNA608742",
+                "study_title": "Single-cell landscape of bronchoalveolar immune cells in patients with COVID-19",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "Respiratory immune characteristics associated with Coronavirus Disease 2019 (COVID-19) severity are currently unclear. We characterized bronchoalveolar lavage fluid immune cells from patients with varying severity of COVID-19 and from healthy people by using single-cell RNA sequencing. Proinflammatory monocyte-derived macrophages were abundant in the bronchoalveolar lavage fluid from patients with severe COVID-9. Moderate cases were characterized by the presence of highly clonally expanded CD8+ T cells. This atlas of the bronchoalveolar immune microenvironment suggests potential mechanisms underlying pathogenesis and recovery in COVID-19.",
+                "inclusion_exclusion_criteria": "This study was conducted according to the principles expressed in the Declaration of Helsinki. Ethical approval was obtained from the Research Ethics Committee of Shenzhen Third People\u2019s Hospital (2020-112). All participants provided written informed consent for sample collection and subsequent analyses.",
+                "grants": "This study was supported by the Science and Technology Innovation Committee of Shenzhen Municipality (202002073000002) and the National Natural Science Foundation of China (91442127 to Z.Z.; 81700540 to Y.L.).",
+                "collected_by": "Mingfeng Liao, Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "lab_name": "Zheng Zhang",
+                "lab_address": "Institute for Hepatology, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital, Shenzhen, China",
+                "submitted_by": "Scott Christley, scott.christley@utsouthwestern.edu, UT Southwestern Medical Center",
+                "pub_ids": "PMID: 32398875",
+                "keywords_study": [
+                    "contains_paired_chain",
+                    "contains_tr"
+                ],
+                "adc_publish_date": "2021-08-27T02:00:30.261Z",
+                "adc_update_date": "2022-12-16T20:43:16.264Z",
+                "vdjserver_uuid": "8808030969725784556-242ac117-0001-012",
+                "vdjserver_keywords": [
+                    "is_10x_genomics",
+                    "contains_single_cell"
+                ],
+                "study_contact": null
+            },
+            "subject": {
+                "subject_id": "S4",
+                "synthetic": false,
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "female",
+                "age_min": 65,
+                "age_max": 65,
+                "age_unit": {
+                    "label": "year",
+                    "id": "UO:0000036"
+                },
+                "age_event": "sampling",
+                "diagnosis": [
+                    {
+                        "study_group_description": "severe",
+                        "disease_diagnosis": {
+                            "label": "COVID-19",
+                            "id": "DOID:0080600"
+                        },
+                        "disease_stage": "COVID_critical",
+                        "prior_therapies": "Interferon atomization, Ribavirin, Methylprednisolone",
+                        "disease_length": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "vdjserver_uuid": "7865061622855307756-242ac117-0001-012",
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": null,
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_id": "C148_TCR-seq",
+                    "sample_type": "bronchoalveolar lavage fluid",
+                    "tissue": {
+                        "label": "lung",
+                        "id": "UBERON:0002048"
+                    },
+                    "collection_time_point_relative": 0,
+                    "collection_time_point_reference": "Sample collection",
+                    "tissue_processing": "BALF was strained and the cells were re-suspended in RPMI 1640 complete medium. ",
+                    "cell_subset": {
+                        "id": null,
+                        "label": null
+                    },
+                    "cell_species": {
+                        "label": "Homo sapiens",
+                        "id": "NCBITAXON:9606"
+                    },
+                    "single_cell": true,
+                    "cell_storage": false,
+                    "template_class": "RNA",
+                    "template_amount": 11,
+                    "library_generation_method": "RT(oligo-dT)+TS+PCR",
+                    "library_generation_protocol": "Total 11 \u00b5l of single cell suspension and 40 \u00b5l barcoded Gel Beads were loaded to Chromium Chip A to generate single-cell gel bead-in-emulsion (GEM). The poly-adenylated transcripts were reverse-transcribed later. The single-cell capturing and downstream library constructions were performed using the Chromium Single Cell 5' library preparation kit with full length TCR V(D)J segment enrichment with a Chromium Single-Cell V(D)J Enrichment kit. Both kits were used accourding to 10X Genomic's protocol. Full-length cDNA along with cell-barcode identifiers were PCR-amplified and sequencing libraries were prepared and normalized to 3 nM.",
+                    "library_generation_kit_version": "Chromium Single Cell V(D)J Reagent kits (10x Genomics; PN-1000006, PN-1000014, PN-1000020, PN-1000005)",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRAV",
+                            "reverse_pcr_primer_target_location": "TRAC"
+                        },
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": "Upstream of TRBV",
+                            "reverse_pcr_primer_target_location": "TRBC"
+                        }
+                    ],
+                    "complete_sequences": "complete",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": "SRR11537952",
+                    "sequencing_platform": "BGI MGISEQ-2000",
+                    "sequencing_files": {
+                        "file_type": "fastq",
+                        "filename": "SRR11537952_1.fastq.gz",
+                        "read_length": 150,
+                        "paired_filename": "SRR11537952_2.fastq.gz",
+                        "paired_read_length": 150,
+                        "sequencing_data_id": null,
+                        "read_direction": null,
+                        "paired_read_direction": null,
+                        "index_filename": null,
+                        "index_length": null
+                    },
+                    "collection_time_point_relative_unit": {
+                        "id": "UO:0000033",
+                        "label": "day"
+                    },
+                    "template_amount_unit": {
+                        "id": "UO:0000101",
+                        "label": "microliter"
+                    },
+                    "vdjserver_uuid": "8395642160113455596-242ac117-0001-012",
+                    "sample_processing_id": null,
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "biomaterial_provider": null,
+                    "cell_phenotype": null,
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_quality": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": "b7296be6-9a69-4ddf-af96-72ad71ab890f-007",
+                    "primary_annotation": true,
+                    "software_versions": "cellranger-ls5-6.1",
+                    "data_processing_files": [
+                        "SRR11537952.10x.igblast.airr.tsv.gz"
+                    ],
+                    "germline_database": "10X Genomics GRCh38 5.0.0, VDJServer IMGT 2019.01.23",
+                    "vdjserver_uuid": "8445979176822575596-242ac117-0001-012",
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "TRB  2022-05-16",
+                            "aligner_reference_d": "TRB  2022-05-16",
+                            "aligner_reference_j": "TRB  2022-05-16"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.2.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "repository": "vdjserver.org",
+            "rearrangements": 254.0,
+            "filename": "/work/sequence_data_store/PRJNA608742/7976558973859467756-242ac117-0001-012.tsv.gz"
+        }
+    ]
+}

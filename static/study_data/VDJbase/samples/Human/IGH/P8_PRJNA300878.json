@@ -1,0 +1,2287 @@
+{
+    "Info": {
+        "title": "AIRR Data File",
+        "description": "AIRR Data File written by AIRR Standards Python Library",
+        "version": 1.4,
+        "contact": {
+            "name": "AIRR Community",
+            "url": "https://github.com/airr-community"
+        },
+        "license": {
+            "name": "Creative Commons Attribution 4.0 International",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    },
+    "Repertoire": [
+        {
+            "repertoire_id": "TW01A_PRJNA300878_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA300878",
+                "study_title": "Individual heritable differences result in unique cell lymphocyte receptor repertoires of naive and antigen-experienced cells",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The adaptive immune system's capability to protect the body requires a highly diverse lymphocyte antigen receptor repertoire. However, the influence of individual genetic and epigenetic differences on these repertoires is not typically measured. By leveraging the unique characteristics of B, CD4+ T, and CD8+ T lymphocyte subsets isolated from monozygotic twins, we have quantified the impact of heritable factors on both the V(D)J recombination process and thymic selection in the case of T cell receptors, and show that the repertoires of both naive and antigen experienced cells are subject to biases resulting from differences in recombination. We show that biases in V(D)J usage, as well as biased N/P additions, contribute to significant variation in the CDR3 region. Moreover, we show that the relative usage of V and J gene segments is chromosomally biased, with approximately 1.5 times as many rearrangements originating from a single chromosome. These data refine our understanding of the heritable mechanisms affecting the repertoire, and show that biases are evident on a chromosome-wide level.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": "Florian Rubelt",
+                "lab_name": "Mark M. Davis",
+                "lab_address": "Stanford University",
+                "submitted_by": null,
+                "pub_ids": "PMID:27005435",
+                "keywords_study": [
+                    "contains_ig",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "TW01A",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": "TW01B",
+                "link_type": "twin",
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "TW01A_B_naive_B_memory",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0013756",
+                        "label": "venous blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": "expression of CD20 and the absence of CD27",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "TRUE",
+                    "cell_quality": null,
+                    "cell_isolation": "FACS",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR2905656_R1.fastq.gz",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "2564613624180576746-242ac113-0001-012",
+                        "read_direction": "forward",
+                        "read_length": 300,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 300,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": "TW01A"
+        },
+        {
+            "repertoire_id": "TW01B_PRJNA300878_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA300878",
+                "study_title": "Individual heritable differences result in unique cell lymphocyte receptor repertoires of naive and antigen-experienced cells",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The adaptive immune system's capability to protect the body requires a highly diverse lymphocyte antigen receptor repertoire. However, the influence of individual genetic and epigenetic differences on these repertoires is not typically measured. By leveraging the unique characteristics of B, CD4+ T, and CD8+ T lymphocyte subsets isolated from monozygotic twins, we have quantified the impact of heritable factors on both the V(D)J recombination process and thymic selection in the case of T cell receptors, and show that the repertoires of both naive and antigen experienced cells are subject to biases resulting from differences in recombination. We show that biases in V(D)J usage, as well as biased N/P additions, contribute to significant variation in the CDR3 region. Moreover, we show that the relative usage of V and J gene segments is chromosomally biased, with approximately 1.5 times as many rearrangements originating from a single chromosome. These data refine our understanding of the heritable mechanisms affecting the repertoire, and show that biases are evident on a chromosome-wide level.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": "Florian Rubelt",
+                "lab_name": "Mark M. Davis",
+                "lab_address": "Stanford University",
+                "submitted_by": null,
+                "pub_ids": "PMID:27005437",
+                "keywords_study": [
+                    "contains_ig",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "TW01B",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": "TW01A",
+                "link_type": "twin",
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "TW01B_B_naive_B_memory",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0013756",
+                        "label": "venous blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": "expression of CD20 and the absence of CD27",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "TRUE",
+                    "cell_quality": null,
+                    "cell_isolation": "FACS",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR2905662_R1.fastq.gz",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "2663612620353376746-242ac113-0001-012",
+                        "read_direction": "forward",
+                        "read_length": 300,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 300,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": "TW01B"
+        },
+        {
+            "repertoire_id": "TW02A_PRJNA300878_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA300878",
+                "study_title": "Individual heritable differences result in unique cell lymphocyte receptor repertoires of naive and antigen-experienced cells",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The adaptive immune system's capability to protect the body requires a highly diverse lymphocyte antigen receptor repertoire. However, the influence of individual genetic and epigenetic differences on these repertoires is not typically measured. By leveraging the unique characteristics of B, CD4+ T, and CD8+ T lymphocyte subsets isolated from monozygotic twins, we have quantified the impact of heritable factors on both the V(D)J recombination process and thymic selection in the case of T cell receptors, and show that the repertoires of both naive and antigen experienced cells are subject to biases resulting from differences in recombination. We show that biases in V(D)J usage, as well as biased N/P additions, contribute to significant variation in the CDR3 region. Moreover, we show that the relative usage of V and J gene segments is chromosomally biased, with approximately 1.5 times as many rearrangements originating from a single chromosome. These data refine our understanding of the heritable mechanisms affecting the repertoire, and show that biases are evident on a chromosome-wide level.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": "Florian Rubelt",
+                "lab_name": "Mark M. Davis",
+                "lab_address": "Stanford University",
+                "submitted_by": null,
+                "pub_ids": "PMID:27005439",
+                "keywords_study": [
+                    "contains_ig",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "TW02A",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": "TW02B",
+                "link_type": "twin",
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "TW02A_B_naive_B_memory",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0013756",
+                        "label": "venous blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": "expression of CD20 and the absence of CD27",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "TRUE",
+                    "cell_quality": null,
+                    "cell_isolation": "FACS",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR2905668_R1.fastq.gz",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "2767207231532896746-242ac113-0001-012",
+                        "read_direction": "forward",
+                        "read_length": 300,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 300,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": "TW02A"
+        },
+        {
+            "repertoire_id": "TW02B_PRJNA300878_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA300878",
+                "study_title": "Individual heritable differences result in unique cell lymphocyte receptor repertoires of naive and antigen-experienced cells",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The adaptive immune system's capability to protect the body requires a highly diverse lymphocyte antigen receptor repertoire. However, the influence of individual genetic and epigenetic differences on these repertoires is not typically measured. By leveraging the unique characteristics of B, CD4+ T, and CD8+ T lymphocyte subsets isolated from monozygotic twins, we have quantified the impact of heritable factors on both the V(D)J recombination process and thymic selection in the case of T cell receptors, and show that the repertoires of both naive and antigen experienced cells are subject to biases resulting from differences in recombination. We show that biases in V(D)J usage, as well as biased N/P additions, contribute to significant variation in the CDR3 region. Moreover, we show that the relative usage of V and J gene segments is chromosomally biased, with approximately 1.5 times as many rearrangements originating from a single chromosome. These data refine our understanding of the heritable mechanisms affecting the repertoire, and show that biases are evident on a chromosome-wide level.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": "Florian Rubelt",
+                "lab_name": "Mark M. Davis",
+                "lab_address": "Stanford University",
+                "submitted_by": null,
+                "pub_ids": "PMID:27005441",
+                "keywords_study": [
+                    "contains_ig",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "TW02B",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "female",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": "TW02A",
+                "link_type": "twin",
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "TW02B_B_naive_B_memory",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0013756",
+                        "label": "venous blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": "expression of CD20 and the absence of CD27",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "TRUE",
+                    "cell_quality": null,
+                    "cell_isolation": "FACS",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR2905674_R1.fastq.gz",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "2857873991151456746-242ac113-0001-012",
+                        "read_direction": "forward",
+                        "read_length": 300,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 300,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": "TW02B"
+        },
+        {
+            "repertoire_id": "TW03A_PRJNA300878_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA300878",
+                "study_title": "Individual heritable differences result in unique cell lymphocyte receptor repertoires of naive and antigen-experienced cells",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The adaptive immune system's capability to protect the body requires a highly diverse lymphocyte antigen receptor repertoire. However, the influence of individual genetic and epigenetic differences on these repertoires is not typically measured. By leveraging the unique characteristics of B, CD4+ T, and CD8+ T lymphocyte subsets isolated from monozygotic twins, we have quantified the impact of heritable factors on both the V(D)J recombination process and thymic selection in the case of T cell receptors, and show that the repertoires of both naive and antigen experienced cells are subject to biases resulting from differences in recombination. We show that biases in V(D)J usage, as well as biased N/P additions, contribute to significant variation in the CDR3 region. Moreover, we show that the relative usage of V and J gene segments is chromosomally biased, with approximately 1.5 times as many rearrangements originating from a single chromosome. These data refine our understanding of the heritable mechanisms affecting the repertoire, and show that biases are evident on a chromosome-wide level.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": "Florian Rubelt",
+                "lab_name": "Mark M. Davis",
+                "lab_address": "Stanford University",
+                "submitted_by": null,
+                "pub_ids": "PMID:27005443",
+                "keywords_study": [
+                    "contains_ig",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "TW03A",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": "TW03B",
+                "link_type": "twin",
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "TW03A_B_naive_B_memory",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0013756",
+                        "label": "venous blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": "expression of CD20 and the absence of CD27",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "TRUE",
+                    "cell_quality": null,
+                    "cell_isolation": "FACS",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR2905680_R1.fastq.gz",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "2955498597789536746-242ac113-0001-012",
+                        "read_direction": "forward",
+                        "read_length": 300,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 300,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": "TW03A"
+        },
+        {
+            "repertoire_id": "TW03B_PRJNA300878_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA300878",
+                "study_title": "Individual heritable differences result in unique cell lymphocyte receptor repertoires of naive and antigen-experienced cells",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The adaptive immune system's capability to protect the body requires a highly diverse lymphocyte antigen receptor repertoire. However, the influence of individual genetic and epigenetic differences on these repertoires is not typically measured. By leveraging the unique characteristics of B, CD4+ T, and CD8+ T lymphocyte subsets isolated from monozygotic twins, we have quantified the impact of heritable factors on both the V(D)J recombination process and thymic selection in the case of T cell receptors, and show that the repertoires of both naive and antigen experienced cells are subject to biases resulting from differences in recombination. We show that biases in V(D)J usage, as well as biased N/P additions, contribute to significant variation in the CDR3 region. Moreover, we show that the relative usage of V and J gene segments is chromosomally biased, with approximately 1.5 times as many rearrangements originating from a single chromosome. These data refine our understanding of the heritable mechanisms affecting the repertoire, and show that biases are evident on a chromosome-wide level.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": "Florian Rubelt",
+                "lab_name": "Mark M. Davis",
+                "lab_address": "Stanford University",
+                "submitted_by": null,
+                "pub_ids": "PMID:27005445",
+                "keywords_study": [
+                    "contains_ig",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "TW03B",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": "TW03A",
+                "link_type": "twin",
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "TW03B_B_naive_B_memory",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0013756",
+                        "label": "venous blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": "expression of CD20 and the absence of CD27",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "TRUE",
+                    "cell_quality": null,
+                    "cell_isolation": "FACS",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR2905686_R1.fastq.gz",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "3055614285459296746-242ac113-0001-012",
+                        "read_direction": "forward",
+                        "read_length": 300,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 300,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": "TW03B"
+        },
+        {
+            "repertoire_id": "TW04A_PRJNA300878_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA300878",
+                "study_title": "Individual heritable differences result in unique cell lymphocyte receptor repertoires of naive and antigen-experienced cells",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The adaptive immune system's capability to protect the body requires a highly diverse lymphocyte antigen receptor repertoire. However, the influence of individual genetic and epigenetic differences on these repertoires is not typically measured. By leveraging the unique characteristics of B, CD4+ T, and CD8+ T lymphocyte subsets isolated from monozygotic twins, we have quantified the impact of heritable factors on both the V(D)J recombination process and thymic selection in the case of T cell receptors, and show that the repertoires of both naive and antigen experienced cells are subject to biases resulting from differences in recombination. We show that biases in V(D)J usage, as well as biased N/P additions, contribute to significant variation in the CDR3 region. Moreover, we show that the relative usage of V and J gene segments is chromosomally biased, with approximately 1.5 times as many rearrangements originating from a single chromosome. These data refine our understanding of the heritable mechanisms affecting the repertoire, and show that biases are evident on a chromosome-wide level.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": "Florian Rubelt",
+                "lab_name": "Mark M. Davis",
+                "lab_address": "Stanford University",
+                "submitted_by": null,
+                "pub_ids": "PMID:27005447",
+                "keywords_study": [
+                    "contains_ig",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "TW04A",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": "TW04B",
+                "link_type": "twin",
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "TW04A_B_naive_B_memory",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0013756",
+                        "label": "venous blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": "expression of CD20 and the absence of CD27",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "TRUE",
+                    "cell_quality": null,
+                    "cell_isolation": "FACS",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR2905692_R1.fastq.gz",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "3144949605216096746-242ac113-0001-012",
+                        "read_direction": "forward",
+                        "read_length": 300,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 300,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": "TW04A"
+        },
+        {
+            "repertoire_id": "TW04B_PRJNA300878_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA300878",
+                "study_title": "Individual heritable differences result in unique cell lymphocyte receptor repertoires of naive and antigen-experienced cells",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The adaptive immune system's capability to protect the body requires a highly diverse lymphocyte antigen receptor repertoire. However, the influence of individual genetic and epigenetic differences on these repertoires is not typically measured. By leveraging the unique characteristics of B, CD4+ T, and CD8+ T lymphocyte subsets isolated from monozygotic twins, we have quantified the impact of heritable factors on both the V(D)J recombination process and thymic selection in the case of T cell receptors, and show that the repertoires of both naive and antigen experienced cells are subject to biases resulting from differences in recombination. We show that biases in V(D)J usage, as well as biased N/P additions, contribute to significant variation in the CDR3 region. Moreover, we show that the relative usage of V and J gene segments is chromosomally biased, with approximately 1.5 times as many rearrangements originating from a single chromosome. These data refine our understanding of the heritable mechanisms affecting the repertoire, and show that biases are evident on a chromosome-wide level.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": "Florian Rubelt",
+                "lab_name": "Mark M. Davis",
+                "lab_address": "Stanford University",
+                "submitted_by": null,
+                "pub_ids": "PMID:27005449",
+                "keywords_study": [
+                    "contains_ig",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "TW04B",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": "TW04A",
+                "link_type": "twin",
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "TW04B_B_naive_B_memory",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0013756",
+                        "label": "venous blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": "expression of CD20 and the absence of CD27",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "TRUE",
+                    "cell_quality": null,
+                    "cell_isolation": "FACS",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR2905698_R1.fastq.gz",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "3252882133364576746-242ac113-0001-012",
+                        "read_direction": "forward",
+                        "read_length": 300,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 300,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": "TW04B"
+        },
+        {
+            "repertoire_id": "TW05A_PRJNA300878_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA300878",
+                "study_title": "Individual heritable differences result in unique cell lymphocyte receptor repertoires of naive and antigen-experienced cells",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The adaptive immune system's capability to protect the body requires a highly diverse lymphocyte antigen receptor repertoire. However, the influence of individual genetic and epigenetic differences on these repertoires is not typically measured. By leveraging the unique characteristics of B, CD4+ T, and CD8+ T lymphocyte subsets isolated from monozygotic twins, we have quantified the impact of heritable factors on both the V(D)J recombination process and thymic selection in the case of T cell receptors, and show that the repertoires of both naive and antigen experienced cells are subject to biases resulting from differences in recombination. We show that biases in V(D)J usage, as well as biased N/P additions, contribute to significant variation in the CDR3 region. Moreover, we show that the relative usage of V and J gene segments is chromosomally biased, with approximately 1.5 times as many rearrangements originating from a single chromosome. These data refine our understanding of the heritable mechanisms affecting the repertoire, and show that biases are evident on a chromosome-wide level.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": "Florian Rubelt",
+                "lab_name": "Mark M. Davis",
+                "lab_address": "Stanford University",
+                "submitted_by": null,
+                "pub_ids": "PMID:27005451",
+                "keywords_study": [
+                    "contains_ig",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "TW05A",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": "TW05B",
+                "link_type": "twin",
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "TW05A_B_naive_B_memory",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0013756",
+                        "label": "venous blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": "expression of CD20 and the absence of CD27",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "TRUE",
+                    "cell_quality": null,
+                    "cell_isolation": "FACS",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR2905704_R1.fastq.gz",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "3366741716381536746-242ac113-0001-012",
+                        "read_direction": "forward",
+                        "read_length": 300,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 300,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": "TW05A"
+        },
+        {
+            "repertoire_id": "TW05B_PRJNA300878_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA300878",
+                "study_title": "Individual heritable differences result in unique cell lymphocyte receptor repertoires of naive and antigen-experienced cells",
+                "study_type": {
+                    "id": "NCIT:C16084",
+                    "label": "Observational Study"
+                },
+                "study_description": "The adaptive immune system's capability to protect the body requires a highly diverse lymphocyte antigen receptor repertoire. However, the influence of individual genetic and epigenetic differences on these repertoires is not typically measured. By leveraging the unique characteristics of B, CD4+ T, and CD8+ T lymphocyte subsets isolated from monozygotic twins, we have quantified the impact of heritable factors on both the V(D)J recombination process and thymic selection in the case of T cell receptors, and show that the repertoires of both naive and antigen experienced cells are subject to biases resulting from differences in recombination. We show that biases in V(D)J usage, as well as biased N/P additions, contribute to significant variation in the CDR3 region. Moreover, we show that the relative usage of V and J gene segments is chromosomally biased, with approximately 1.5 times as many rearrangements originating from a single chromosome. These data refine our understanding of the heritable mechanisms affecting the repertoire, and show that biases are evident on a chromosome-wide level.",
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": "Florian Rubelt",
+                "lab_name": "Mark M. Davis",
+                "lab_address": "Stanford University",
+                "submitted_by": null,
+                "pub_ids": "PMID:27005453",
+                "keywords_study": [
+                    "contains_ig",
+                    "contains_tr"
+                ],
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "TW05B",
+                "synthetic": "FALSE",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": "TW05A",
+                "link_type": "twin",
+                "diagnosis": [
+                    {
+                        "study_group_description": null,
+                        "disease_diagnosis": {
+                            "id": null,
+                            "label": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "TW05B_B_naive_B_memory",
+                    "sample_type": null,
+                    "tissue": {
+                        "id": "UBERON:0013756",
+                        "label": "venous blood"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": null,
+                    "cell_phenotype": "expression of CD20 and the absence of CD27",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "TRUE",
+                    "cell_quality": null,
+                    "cell_isolation": "FACS",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(specific+UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "Illumina MiSeq",
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": "SRR2905710_R1.fastq.gz",
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "3480429500706656746-242ac113-0001-012",
+                        "read_direction": "forward",
+                        "read_length": 300,
+                        "paired_filename": null,
+                        "paired_read_direction": "reverse",
+                        "paired_read_length": 300,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.22.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "V_gapped",
+                            "aligner_reference_d": "D",
+                            "aligner_reference_j": "J"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.1.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.4"
+                        },
+                        "Single Assignment": "true"
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": "TW05B"
+        }
+    ]
+}

@@ -1,0 +1,165 @@
+From Aviv, 29/5, 18:08
+
+In the full length set the sequences TRBV6-2*01 and TRBV6-3*01 are identical, so in the reference we called the sequence TRBV6-23*01.
+defined in ambiguous_alleles:
+TRBV6-23*01 -> TRBV6-2*01_3.01
+also for ap, bp
+
+In the BIOMED-2 set the partial sequences TRBV12-3*bp01 and TRBV12-4*bp01 are identical, so in the reference we called the partial sequence TRBV12-34*bp01.
+...12-3*01 and 12-4*01 are identical. 12-4*02 is not
+TRBV12-34*bp01 -> TRBV12-3*01_4.01
+TRBV12-34*ap01 -> TRBV12-3*01_4.01
+
+In the Adaptive set the partial sequences TRBV3-1&TRBV3-2 and TRBV6-5&TRBV6-6 are indistinguishable, so in the reference they appear as TRBV3-12 and TRBV6-56.
+TRBV3-12*ap01 -> TRBV3-1*01_02_2.01_2.02_2.03
+TRBV6-56*ap01 -> TRBV6-5*01_6.01_6.02_6.03
+TRBV6-56*ap02 -> TRBV6-6*04
+TRBV6-56*ap03 -> TRBV6-6*05
+
+
+However, in the paper we referred to those four gene pairs as TRBV6-2/TRBV6-3, TRBV12-3/TRBV12-4, TRBV3-1/TRBV3-2, and TRBV6-5/TRBV6-6, we can use those names also in VDJbase.
+
+About TRBV10-2*03 I looked deeply and found out that this allele was removed from IMGT, so the appearance of TRBV10-2*03 in BIOMED2_TRBV.tab is probably because I haven't updated it after the updated the reference.
+Except for this allele all the rest remain the same, there isn't any new allele in the latest version of IMGT, I just checked it again to verify.
+I attached an old version that contains TRBV10-2*03.
+
+
+TRBV11-13 is recorded as a deletion in the ap genotypes. Doesn't seem to be in the reference set. Have copied 11-1 to 11-13 for the time being.
+
+--------------------
+
+
+
+TRBV6-23*1 -> TRBV6-2*01_3.01
+
+
+>TRBV6-56*ap01
+tccctcccagacatctgtgtacttctgtgccagcagttactc
+>TRBV6-56*ap02
+tccctcccagacatctgtgtacttctgtgccagcagtcga
+>TRBV6-56*ap03
+tgcctcccagacatctgtgtacttctgtgccagcagc
+
+TRBV6-56*01 - > TRBV6-5*01_6.01_6.02_6.03
+
+>TRBV6-5*01
+AATGCTGGTGTCACTCAGACCCCAAAATTCCAGGTCCTGAAGACAGGACAGAGCATGACA
+CTGCAGTGTGCCCAGGATATGAACCAT.....................GAATACATGTCC
+TGGTATCGACAAGACCCAGGCATGGGGCTGAGGCTGATTCATTACTCAGTTGGT......
+......GCTGGTATCACTGACCAAGGAGAAGTCCCC...AATGGCTACAATGTCTCCAGA
+TCA...ACCACAGAGGATTTCCCGCTCAGGCTGCTGTCGGCTGCTCCCTCCCAGACATCTGTGTACTTCTGTGCCAGCAGTTACTC
+                                            tccctcccagacatctgtgtacttctgtgccagcagttactc
+>TRBV6-6*01
+AATGCTGGTGTCACTCAGACCCCAAAATTCCGCATCCTGAAGATAGGACAGAGCATGACA
+CTGCAGTGTACCCAGGATATGAACCAT.....................AACTACATGTAC
+TGGTATCGACAAGACCCAGGCATGGGGCTGAAGCTGATTTATTATTCAGTTGGT......
+......GCTGGTATCACTGATAAAGGAGAAGTCCCG...AATGGCTACAACGTCTCCAGA
+TCA...ACCACAGAGGATTTCCCGCTCAGGCTGGAGTTGGCTGCTCCCTCCCAGACATCTGTGTACTTCTGTGCCAGCAGTTACTC
+                                            tccctcccagacatctgtgtacttctgtgccagcagttactc
+>TRBV6-6*02
+AATGCTGGTGTCACTCAGACCCCAAAATTCCGCATCCTGAAGATAGGACAGAGCATGACA
+CTGCAGTGTGCCCAGGATATGAACCAT.....................AACTACATGTAC
+TGGTATCGACAAGACCCAGGCATGGGGCTGAAGCTGATTTATTATTCAGTTGGT......
+......GCTGGTATCACTGACAAAGGAGAAGTCCCG...AATGGCTACAACGTCTCCAGA
+TCA...ACCACAGAGGATTTCCCGCTCAGGCTGGAGTTGGCTGCTCCCTCCCAGACATCTGTGTACTTCTGTGCCAGCAGTTACTC
+                                            tccctcccagacatctgtgtacttctgtgccagcagttactc
+>TRBV6-6*03
+AATGCTGGTGTCACTCAGACCCCAAAATTCCGCATCCTGAAGATAGGACAGAGCATGACA
+CTGCAGTGTGCCCAGGATATGAACCAT.....................AACTACATGTAC
+TGGTATCGACAAGACCCAGGCATGGGGCTGAAGCTGATTTATTATTCAGTTGGT......
+......GCTGGTATCACTGATAAAGGAGAAGTCCCG...AATGGCTACAACGTCTCCAGA
+TCA...ACCACAGAGGATTTCCCGCTCAGGCTGGAGTTGGCTGCTCCCTCCCAGACATCTGTGTACTTCTGTGCCAGCAGT
+                                            tccctcccagacatctgtgtacttctgtgccagcagttactc
+											
+>TRBV6-6*04
+AATGCTGGTGTCACTCAGACCCCAAAATTCCGCATCCTGAAGATAGGACAGAGCATGACA
+CTGCAGTGTACCCAGGATATGAACCAT.....................GAATACATGTAC
+TGGTATCGACAAGACCCAGGCATGGGGCTGAAGCTGATTTATTATTCAGTTGGT......
+......GCTGGTATCACTGATAAAGGAGAAGTCCCG...AATGGCTACAATGTCTCCAGA
+TCA...ACCACAGAGGATTTCCCGCTCAGGCTGGAGTTGGCTGCTCCCTCCCAGACATCTGTGTACTTCTGTGCCAGCAGTCGA
+                                            tccctcccagacatctgtgtacttctgtgccagcagtcga
+>TRBV6-6*05
+AATGCTGGTGTCACTCAGACCCCAAAATTCCGCATCCTGAAGATAGGACAGAGCATGACA
+CTGCAGTGTGCCCAGGATATGAACCAT.....................AACTACATGTAC
+TGGTATCGACAAGACCCAGGCATGGGGCTGAAGCTGATTTATTATTCAGTTGGT......
+......GCTGGTATCACTGACAAAGGAGAAGTCCCG...AATGGCTACAACGTCTCCAGA
+TCA...ACCACAGAGGATTTCCCGCTCAGGCTGGAGTTGGCTGCTGCCTCCCAGACATCTGTGTACTTCTGTGCCAGCAGC
+                                            tgcctcccagacatctgtgtacttctgtgccagcagc
+
+
+
+
+
+>TRBV3-12*ap01 -> TRBV3-1*01_02_2.01_2.02_2.03
+gcttggtgactctgctgtgtatttctgtgccagcagccaaga
+
+do not know what to say for ap02, ap03. Will set them to the same value.
+
+
+
+											
+>TRBV3-1*01
+GACACAGCTGTTTCCCAGACTCCAAAATACCTGGTCACACAGATGGGAAACGACAAGTCC
+ATTAAATGTGAACAAAATCTGGGCCAT.....................GATACTATGTAT
+TGGTATAAACAGGACTCTAAGAAATTTCTGAAGATAATGTTTAGCTACAATAAT......
+......AAGGAGCTCATTATAAATGAAACAGTTCCA...AATCGCTTCTCACCTAAATCT
+CCA...GACAAAGCTCACTTAAATCTTCACATCAATTCCCTGGAGCTTGGTGACTCTGCTGTGTATTTCTGTGCCAGCAGCCAAGA
+                                            gcttggtgactctgctgtgtatttctgtgccagcagccaaga
+>TRBV3-1*02
+GACACAGCTGTTTCCCAGACTCCAAAATACCTGGTCACACAGATGGGAAACGACAAGTCC
+ATTAAATGTGAACAAAATCTGGGCCAT.....................GATACTATGTAT
+TGGTATAAACAGGACTCTAAGAAATTTCTGAAGATAATGTTTAGCTACAATAAC......
+......AAGGAGATCATTATAAATGAAACAGTTCCA...AATCGATTCTCACCTAAATCT
+CCA...GACAAAGCTAAATTAAATCTTCACATCAATTCCCTGGAGCTTGGTGACTCTGCTGTGTATTTCTGTGCCAGC
+                                            gcttggtgactctgctgtgtatttctgtgccagcagccaaga
+>TRBV3-2*01
+GACACAGCCGTTTCCCAGACTCCAAAATACCTGGTCACACAGATGGGAAAAAAGGAGTCT
+CTTAAATGAGAACAAAATCTGGGCCAT.....................AATGCTATGTAT
+TGGTATAAACAGGACTCTAAGAAATTTCTGAAGACAATGTTTATCTACAGTAAC......
+......AAGGAGCCAATTTTAAATGAAACAGTTCCA...AATCGCTTCTCACCTGACTCT
+CCA...GACAAAGCTCATTTAAATCTTCACATCAATTCCCTGGAGCTTGGTGACTCTGCTGTGTATTTCTGTGCCAGCAGCCAAGA 
+                                            gcttggtgactctgctgtgtatttctgtgccagcagccaaga
+>TRBV3-2*02
+GACACAGCCGTTTCCCAGACTCCAAAATACCTGGTCACACAGATGGGAAAAAAGGAGTCT
+CTTAAATGAGAACAAAATCTGGGCCAT.....................AATGCTATGTAT
+TGGTATAAACAGGACTCTAAGAAATTTCTGAAGACAATGTTTATCTACAGTAAC......
+......AAGGAGCCAATTTTAAATGAAACAGTTCCA...AATCGCTTCTCACCTGACTCT
+CCA...GACAAAGTTCATTTAAATCTTCACATCAATTCCCTGGAGCTTGGTGACTCTGCTGTGTATTTCTGTGCCAGCAGCCAAGA
+                                            gcttggtgactctgctgtgtatttctgtgccagcagccaaga
+>TRBV3-2*03
+GACACAGCCGTTTCCCAGACTCCAAAATACCTGGTCACACAGACGGGAAAAAAGGAGTCT
+CTTAAATGAGAACAAAATCTGGGCCAT.....................AATGCTATGTAT
+TGGTATAAACAGGACTCTAAGAAATTTCTGAAGACAATGTTTATCTACAGTAAC......
+......AAGGAGCCAATTTTAAATGAAACAGTTCCA...AATCGCTTCTCACCTGACTCT
+CCA...GACAAAGTTCATTTAAATCTTCACATCAATTCCCTGGAGCTTGGTGACTCTGCTGTGTATTTCTGTGCCAGCAGCCAAG
+                                            gcttggtgactctgctgtgtatttctgtgccagcagccaaga
+											
+											
+											
+											
+											
+from vdjbase:											
+>TRBV3-1*01
+gacacagctgtttcccagactccaaaatacctggtcacacagatgggaaa
+cgacaagtccattaaatgtgaacaaaatctgggccat.............
+........gatactatgtattggtataaacaggactctaagaaatttctg
+aagataatgtttagctacaataat............aaggagctcattat
+aaatgaaacagttcca...aatcgcttctcacctaaatctcca...gaca
+aagctcacttaaatcttcacatcaattccctggagcttggtgactctgct
+gtgtatttctgtgccagcagccaaga
+
+>TRBV3-1*01_02_2.01_2.02_2.03
+gacacagcngtttcccagactccaaaatacctggtcacacagangggaaa
+nnannagtcnnttaaatgngaacaaaatctgggccat.............
+........natnctatgtattggtataaacaggactctaagaaatttctg
+aaganaatgtttanctacantaan............aaggagnnnattnt
+aaatgaaacagttcca...aatcgnttctcacctnantctcca...gaca
+aagntnanttaaatcttcacatcaattccctggagcttggtgactctgct
+gtgtatttctgtgccagc											
+											
+											
+											
+											
+											
+											
+											

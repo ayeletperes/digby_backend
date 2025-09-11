@@ -1,0 +1,21 @@
+Reference_assemblies:
+  Human_IGH:
+    chromosome: 14
+    end: 0
+    locations:
+    - constant.bed
+    name: ighc
+    reference: ''
+    sense: '-'
+    sequence_file: ighc.fasta
+    start: 0
+Reference_set_version: OGRDB:Homo_sapiens_IGH_VDJ_rev_9
+Reference_sets:
+- imgt_db.fasta
+Studies:
+  P40   :
+    metadata_file: P40_IGHC_metadata.csv
+    annotation_file: P40_imported_genes.csv
+    annotation_method: 'IGenotyper'
+    annotation_reference: 'https://www.frontiersin.org/article/10.3389/fimmu.2020.02136'
+    bam_dir: D:/Research/VDJbase-Genomics/results/IGHC/assemblies/PRJNA555323

@@ -1,0 +1,96 @@
+Homo sapiens	TRBC1	F	Homo sapiens T cell receptor beta constant 1	3	7q34	M12887	TRBC1	12156	28639	ENSG00000211751	4865	TRBC1	
+Homo sapiens	TRBC2	F	Homo sapiens T cell receptor beta constant 2	3	7q34	M12888	TRBC2	12157	28638	ENSG00000211772	4903	TRBC2	
+Homo sapiens	TRBD1	F	Homo sapiens T cell receptor beta diversity 1	1	7q34	K02545	TRBD1	12158	28637	ENSG00000282431	4866	TRBD1	
+Homo sapiens	TRBD2	F	Homo sapiens T cell receptor beta diversity 2	2	7q34	X02987	TRBD2	12159	28636		4904	TRBD2	
+Homo sapiens	TRBJ1-1	F	Homo sapiens T cell receptor beta joining 1-1	1	7q34	K02545	TRBJ1-1	12162	28635	ENSG00000282320	29087	TRBJ1-1	
+Homo sapiens	TRBJ1-2	F	Homo sapiens T cell receptor beta joining 1-2	1	7q34	K02545	TRBJ1-2	12163	28634	ENSG00000282420	29088	TRBJ1-2	
+Homo sapiens	TRBJ1-3	F	Homo sapiens T cell receptor beta joining 1-3	1	7q34	M14158	TRBJ1-3	12164	28633	ENSG00000282133	29089	TRBJ1-3	
+Homo sapiens	TRBJ1-4	F	Homo sapiens T cell receptor beta joining 1-4	1	7q34	M14158	TRBJ1-4	12165	28632	ENSG00000281958	29090	TRBJ1-4	
+Homo sapiens	TRBJ1-5	F	Homo sapiens T cell receptor beta joining 1-5	1	7q34	M14158	TRBJ1-5	12166	28631	ENSG00000282173	29103	TRBJ1-5	
+Homo sapiens	TRBJ1-6	F	Homo sapiens T cell receptor beta joining 1-6	2	7q34	M14158	TRBJ1-6	12167	28630	ENSG00000282780	29091	TRBJ1-6	
+Homo sapiens	TRBJ2-1	F	Homo sapiens T cell receptor beta joining 2-1	1	7q34	X02987	TRBJ2-1	12168	28629	ENSG00000211764	29092	TRBJ2-1	
+Homo sapiens	TRBJ2-2	F	Homo sapiens T cell receptor beta joining 2-2	1	7q34	X02987	TRBJ2-2	12169	28628	ENSG00000211765	29112	TRBJ2-2	
+Homo sapiens	TRBJ2-2P	ORF	Homo sapiens T cell receptor beta joining 2-2P	1	7q34	X02987	TRBJ2-2P	12170	28627	ENSG00000211766	29118	TRBJ2-2P	
+Homo sapiens	TRBJ2-3	F	Homo sapiens T cell receptor beta joining 2-3	1	7q34	X02987	TRBJ2-3	12171	28626	ENSG00000211767	29113	TRBJ2-3	
+Homo sapiens	TRBJ2-4	F	Homo sapiens T cell receptor beta joining 2-4	1	7q34	X02987	TRBJ2-4	12172	28625	ENSG00000211768	29114	TRBJ2-4	
+Homo sapiens	TRBJ2-5	F	Homo sapiens T cell receptor beta joining 2-5	1	7q34	X02987	TRBJ2-5	12173	28624	ENSG00000211769	29115	TRBJ2-5	
+Homo sapiens	TRBJ2-6	F	Homo sapiens T cell receptor beta joining 2-6	1	7q34	X02987	TRBJ2-6	12174	28623	ENSG00000211770	29116	TRBJ2-6	
+Homo sapiens	TRBJ2-7	ORF F	Homo sapiens T cell receptor beta joining 2-7	2	7q34	M14159	TRBJ2-7	12175	28622	ENSG00000211771	29117	TRBJ2-7	
+Homo sapiens	TRBV1	P	Homo sapiens T cell receptor beta variable 1	1	7q34	L36092	TRBV1	12176	28621	ENSG00000242736	29236	TRBV1	
+Homo sapiens	TRBV10-1	F [P]	Homo sapiens T cell receptor beta variable 10-1	3	7q34	L36092	TRBV10-1	12177	28585	ENSG00000211717	29181	TRBV10-1	
+Homo sapiens	TRBV10-2	F	Homo sapiens T cell receptor beta variable 10-2	2	7q34	L36092	TRBV10-2	12178	28584	ENSG00000229769	29182	TRBV10-2	
+Homo sapiens	TRBV10-3	[F] F	Homo sapiens T cell receptor beta variable 10-3	4	7q34	U03115	TRBV10-3	12179	28583	ENSG00000275791	29183	TRBV10-3	
+Homo sapiens	TRBV11-1	F	Homo sapiens T cell receptor beta variable 11-1	1	7q34	M33233	TRBV11-1	12180	28582	ENSG00000211720	29184	TRBV11-1	
+Homo sapiens	TRBV11-2	[F] F	Homo sapiens T cell receptor beta variable 11-2	3	7q34	L36092	TRBV11-2	12181	28581	ENSG00000241657	29185	TRBV11-2	
+Homo sapiens	TRBV11-3	F (F)	Homo sapiens T cell receptor beta variable 11-3	4	7q34	U03115	TRBV11-3	12182	28580	ENSG00000276597	29186	TRBV11-3	
+Homo sapiens	TRBV12-1	P	Homo sapiens T cell receptor beta variable 12-1	1	7q34	X07224	TRBV12-1	12183	28579	ENSG00000244661	29237	TRBV12-1	
+Homo sapiens	TRBV12-2	P	Homo sapiens T cell receptor beta variable 12-2	1	7q34	X06936	TRBV12-2	12184	28578	ENSG00000211739	27775	TRBV12-2	
+Homo sapiens	TRBV12-3	F	Homo sapiens T cell receptor beta variable 12-3	1	7q34	X07192	TRBV12-3	12185	28577	ENSG00000274752	29187	TRBV12-3	
+Homo sapiens	TRBV12-4	F (F)	Homo sapiens T cell receptor beta variable 12-4	2	7q34	K02546	TRBV12-4	12186	28576	ENSG00000276953	29188	TRBV12-4	
+Homo sapiens	TRBV12-5	F	Homo sapiens T cell receptor beta variable 12-5	1	7q34	X07223	TRBV12-5	12187	28575	ENSG00000275158	29189	TRBV12-5	
+Homo sapiens	TRBV13	F (F)	Homo sapiens T cell receptor beta variable 13	2	7q34	U03115	TRBV13	12188	28574	ENSG00000276405	29190	TRBV13	
+Homo sapiens	TRBV14	F (F)	Homo sapiens T cell receptor beta variable 14	2	7q34	X06154	TRBV14	12189	28573	ENSG00000275743	29191	TRBV14	
+Homo sapiens	TRBV15	F (F)	Homo sapiens T cell receptor beta variable 15	3	7q34	U03115	TRBV15	12190	28572	ENSG00000276819	29192	TRBV15	
+Homo sapiens	TRBV16	P F (F)	Homo sapiens T cell receptor beta variable 16	3	7q34	L26231	TRBV16	12191	28571	ENSG00000275243	29193	TRBV16	
+Homo sapiens	TRBV17	ORF	Homo sapiens T cell receptor beta variable 17	2	7q34	U03115	TRBV17	12192	28570	ENSG00000277880	29249	TRBV17	
+Homo sapiens	TRBV18	F	Homo sapiens T cell receptor beta variable 18	1	7q34	L36092	TRBV18	12193	28569	ENSG00000276557	29194	TRBV18	
+Homo sapiens	TRBV19	F (F)	Homo sapiens T cell receptor beta variable 19	3	7q34	L36092	TRBV19	12194	28568	ENSG00000211746	29195	TRBV19	
+Homo sapiens	TRBV2	F (F)	Homo sapiens T cell receptor beta variable 2	3	7q34	L36092	TRBV2	12195	28620	ENSG00000226660	29234	TRBV2	
+Homo sapiens	TRBV20-1	F (F)	Homo sapiens T cell receptor beta variable 20-1	7	7q34	M11955	TRBV20-1	12196	28567	ENSG00000211747	29203	TRBV20-1	
+Homo sapiens	TRBV20/OR9-2	ORF [ORF]	Homo sapiens T cell receptor beta variable 20/OR9-2	3	9p21	L05149	TRBV20OR9-2	12197	6962	ENSG00000205274	6802	TRBV20OR9-2	
+Homo sapiens	TRBV21-1	P	Homo sapiens T cell receptor beta variable 21-1	2	7q34	L36092	TRBV21-1	12198	28566	ENSG00000251578	29238	TRBV21-1	
+Homo sapiens	TRBV21/OR9-2	P	Homo sapiens T cell receptor beta variable 21/OR9-2	1	9p21	AF029308	TRBV21OR9-2	12199	6959	ENSG00000183938	29264	TRBV21OR9-2	
+Homo sapiens	TRBV22-1	P	Homo sapiens T cell receptor beta variable 22-1	1	7q34	L36092	TRBV22-1	12200	28565	ENSG00000240578	29239	TRBV22-1	
+Homo sapiens	TRBV22/OR9-2	P	Homo sapiens T cell receptor beta variable 22/OR9-2	1	9p21	AF029308	TRBV22OR9-2	18740	246283	ENSG00000234122	29261	TRBV22OR9-2	
+Homo sapiens	TRBV23-1	ORF	Homo sapiens T cell receptor beta variable 23-1	1	7q34	L36092	TRBV23-1	12201	28564	ENSG00000211749	29250	TRBV23-1	
+Homo sapiens	TRBV23/OR9-2	P ORF	Homo sapiens T cell receptor beta variable 23/OR9-2	2	9p21	AF029308	TRBV23OR9-2	12202	28552	ENSG00000229063	29255	TRBV23OR9-2	
+Homo sapiens	TRBV24-1	F	Homo sapiens T cell receptor beta variable 24-1	2	7q34	M11951	TRBV24-1	12203	28563	ENSG00000211750	29202	TRBV24-1	
+Homo sapiens	TRBV24/OR9-2	P ORF	Homo sapiens T cell receptor beta variable 24/OR9-2	3	9p21	L05153	TRBV24OR9-2	12204	6961	ENSG00000215206	29265	TRBV24OR9-2	
+Homo sapiens	TRBV25-1	F	Homo sapiens T cell receptor beta variable 25-1	1	7q34	L36092	TRBV25-1	12205	28562	ENSG00000282499	29201	TRBV25-1	
+Homo sapiens	TRBV25/OR9-2	P	Homo sapiens T cell receptor beta variable 25/OR9-2	2	9p21	L05152	TRBV25OR9-2	12206	6960	ENSG00000240215	29260	TRBV25OR9-2	
+Homo sapiens	TRBV26	P	Homo sapiens T cell receptor beta variable 26	1	7q34	L36092	TRBV26	12207	28561	ENSG00000249912	29240	TRBV26	
+Homo sapiens	TRBV26/OR9-2	P	Homo sapiens T cell receptor beta variable 26/OR9-2	2	9p21	AF029308	TRBV26OR9-2	15485	246285	ENSG00000231165	29262	TRBV26OR9-2	
+Homo sapiens	TRBV27	F	Homo sapiens T cell receptor beta variable 27	1	7q34	L36092	TRBV27	12208	28560	ENSG00000211752	29198	TRBV27	
+Homo sapiens	TRBV28	F	Homo sapiens T cell receptor beta variable 28	1	7q34	U08314	TRBV28	12209	28559	ENSG00000211753	29199	TRBV28	
+Homo sapiens	TRBV29-1	F (F)	Homo sapiens T cell receptor beta variable 29-1	3	7q34	L36092	TRBV29-1	12210	28558	ENSG00000232869	29200	TRBV29-1	
+Homo sapiens	TRBV29/OR9-2	ORF	Homo sapiens T cell receptor beta variable 29/OR9-2	2	9p21	L05150	TRBV29OR9-2	12211	6958	ENSG00000223394	29266	TRBV29OR9-2	
+Homo sapiens	TRBV3-1	F (F)	Homo sapiens T cell receptor beta variable 3-1	2	7q34	U07977	TRBV3-1	12212	28619	ENSG00000237702	29235	TRBV3-1	
+Homo sapiens	TRBV3-2	P (P)	Homo sapiens T cell receptor beta variable 3-2	3	7q34	L36092	TRBV3-2	12213	28618		29241	TRBV3-2	
+Homo sapiens	TRBV30	P F (F)	Homo sapiens T cell receptor beta variable 30	5	7q34	L36092	TRBV30	12214	28557	ENSG00000237254	29204	TRBV30	
+Homo sapiens	TRBV4-1	F (F)	Homo sapiens T cell receptor beta variable 4-1	2	7q34	U07977	TRBV4-1	12215	28617	ENSG00000211710	29205	TRBV4-1	
+Homo sapiens	TRBV4-2	F (F)	Homo sapiens T cell receptor beta variable 4-2	2	7q34	U07975	TRBV4-2	12216	28616	ENSG00000211745	29206	TRBV4-2	
+Homo sapiens	TRBV4-3	F (F)	Homo sapiens T cell receptor beta variable 4-3	4	7q34	U07978	TRBV4-3	12217	28615		29207	TRBV4-3	
+Homo sapiens	TRBV5-1	F (F)	Homo sapiens T cell receptor beta variable 5-1	2	7q34	L36092	TRBV5-1	12218	28614	ENSG00000211734	29233	TRBV5-1	
+Homo sapiens	TRBV5-2	P	Homo sapiens T cell receptor beta variable 5-2	1	7q34	L36092	TRBV5-2	12219	28613	ENSG00000242771	29242	TRBV5-2	
+Homo sapiens	TRBV5-3	ORF	Homo sapiens T cell receptor beta variable 5-3	2	7q34	X61439	TRBV5-3	12220	28612	ENSG00000211715	29251	TRBV5-3	
+Homo sapiens	TRBV5-4	F (F)	Homo sapiens T cell receptor beta variable 5-4	4	7q34	L36092	TRBV5-4	12221	28611	ENSG00000230099	29208	TRBV5-4	
+Homo sapiens	TRBV5-5	F (F)	Homo sapiens T cell receptor beta variable 5-5	3	7q34	L36092	TRBV5-5	12222	28610	ENSG00000211725	29209	TRBV5-5	
+Homo sapiens	TRBV5-6	F	Homo sapiens T cell receptor beta variable 5-6	1	7q34	L36092	TRBV5-6	12223	28609	ENSG00000211728	29210	TRBV5-6	
+Homo sapiens	TRBV5-7	ORF	Homo sapiens T cell receptor beta variable 5-7	1	7q34	L36092	TRBV5-7	12224	28608	ENSG00000211731	29252	TRBV5-7	
+Homo sapiens	TRBV5-8	F (F)	Homo sapiens T cell receptor beta variable 5-8	2	7q34	L36092	TRBV5-8	12225	28607		29211	TRBV5-8	
+Homo sapiens	TRBV6-1	F	Homo sapiens T cell receptor beta variable 6-1	1	7q34	X61446	TRBV6-1	12226	28606	ENSG00000211706	29212	TRBV6-1	
+Homo sapiens	TRBV6-2	F	Homo sapiens T cell receptor beta variable 6-2	1	7q34	X61445	TRBV6-2	12227	28605	ENSG00000283063	29213	TRBV6-2	
+Homo sapiens	TRBV6-3	F	Homo sapiens T cell receptor beta variable 6-3	1	7q34	U07978	TRBV6-3	12228	28604		29214	TRBV6-3	
+Homo sapiens	TRBV6-4	F	Homo sapiens T cell receptor beta variable 6-4	2	7q34	X61653	TRBV6-4	12229	28603	ENSG00000211713	29228	TRBV6-4	
+Homo sapiens	TRBV6-5	F	Homo sapiens T cell receptor beta variable 6-5	1	7q34	L36092	TRBV6-5	12230	28602	ENSG00000211721	29229	TRBV6-5	
+Homo sapiens	TRBV6-6	F (F)	Homo sapiens T cell receptor beta variable 6-6	5	7q34	L36092	TRBV6-6	12231	28601	ENSG00000211724	29230	TRBV6-6	
+Homo sapiens	TRBV6-7	ORF	Homo sapiens T cell receptor beta variable 6-7	1	7q34	L36092	TRBV6-7	12232	28600	ENSG00000253188	29253	TRBV6-7	
+Homo sapiens	TRBV6-8	F	Homo sapiens T cell receptor beta variable 6-8	1	7q34	L36092	TRBV6-8	12233	28599	ENSG00000253534	29231	TRBV6-8	
+Homo sapiens	TRBV6-9	F	Homo sapiens T cell receptor beta variable 6-9	1	7q34	X61447	TRBV6-9	12234	28598		29232	TRBV6-9	
+Homo sapiens	TRBV7-1	ORF	Homo sapiens T cell receptor beta variable 7-1	1	7q34	X61444	TRBV7-1	12235	28597	ENSG00000211707	29254	TRBV7-1	
+Homo sapiens	TRBV7-2	F (F)	Homo sapiens T cell receptor beta variable 7-2	4	7q34	X61442	TRBV7-2	12236	28596	ENSG00000282939	29220	TRBV7-2	
+Homo sapiens	TRBV7-3	ORF F (F)	Homo sapiens T cell receptor beta variable 7-3	5	7q34	X61440	TRBV7-3	12237	28595	ENSG00000211714		TRBV7-3	
+Homo sapiens	TRBV7-4	F [P]	Homo sapiens T cell receptor beta variable 7-4	2	7q34	L36092	TRBV7-4	12238	28594	ENSG00000253409	29222	TRBV7-4	
+Homo sapiens	TRBV7-5	P	Homo sapiens T cell receptor beta variable 7-5	2	7q34	L36092	TRBV7-5	12239	28593	ENSG00000227550	29243	TRBV7-5	
+Homo sapiens	TRBV7-6	F (F)	Homo sapiens T cell receptor beta variable 7-6	2	7q34	L36092	TRBV7-6	12240	28592	ENSG00000211727	29223	TRBV7-6	
+Homo sapiens	TRBV7-7	F (F)	Homo sapiens T cell receptor beta variable 7-7	2	7q34	L36092	TRBV7-7	12241	28591	ENSG00000253291	29224	TRBV7-7	
+Homo sapiens	TRBV7-8	F (F)	Homo sapiens T cell receptor beta variable 7-8	3	7q34	M11953	TRBV7-8	12242	28590		29225	TRBV7-8	
+Homo sapiens	TRBV7-9	F (F)	Homo sapiens T cell receptor beta variable 7-9	7	7q34	L36092	TRBV7-9	12243	28589	ENSG00000278030	29226	TRBV7-9	
+Homo sapiens	TRBV8-1	P	Homo sapiens T cell receptor beta variable 8-1	2	7q34	L36092	TRBV8-1	12244	28588	ENSG00000243889	29244	TRBV8-1	
+Homo sapiens	TRBV8-2	P	Homo sapiens T cell receptor beta variable 8-2	2	7q34	L36092	TRBV8-2	12245	28587	ENSG00000239944	29245	TRBV8-2	
+Homo sapiens	TRBV9	F (F)	Homo sapiens T cell receptor beta variable 9	3	7q34	L36092	TRBV9	12246	28586	ENSG00000211716	29227	TRBV9	
+Homo sapiens	TRBVA	P	Homo sapiens T cell receptor beta variable A	2	7q34	L36092	TRBVA	12247	28556	ENSG00000239992	29246	TRBVA	
+Homo sapiens	TRBVA/OR9-2	P	Homo sapiens T cell receptor beta variable A/OR9-2	1	9p21	AF029308	TRBVAOR9-2	18741	246286		29263	TRBVAOR9-2	
+Homo sapiens	TRBVB	P	Homo sapiens T cell receptor beta variable B	2	7q34	L36092	TRBVB	12248	28555	ENSG00000241911	29247	TRBVB	
+Homo sapiens	TRBVC	P	Homo sapiens T cell receptor beta variable C	1	7q34	L36092	TRBVC	50321	103106900			TRBVC	
+Homo sapiens	TRDC	F	Homo sapiens T cell receptor delta constant	1	14q11.2	M22148 M22149 M22150 M22151	TRDC	12253	28526	ENSG00000211829	29122	TRDC

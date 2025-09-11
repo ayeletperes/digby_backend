@@ -1,0 +1,1850 @@
+{
+    "Info": {
+        "title": "AIRR Data File",
+        "description": "AIRR Data File written by AIRR Standards Python Library",
+        "version": 1.4,
+        "contact": {
+            "name": "AIRR Community",
+            "url": "https://github.com/airr-community"
+        },
+        "license": {
+            "name": "Creative Commons Attribution 4.0 International",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    },
+    "Repertoire": [
+        {
+            "repertoire_id": "4_PRJNA324093_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA324093",
+                "study_title": "B cell repertoire sequencing of seasonal influenza vaccine responses",
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": "http://med.stanford.edu/scottboydlab.html",
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": "STANFORD",
+                "submitted_by": "Ali Hassan Ellebedy",
+                "pub_ids": "https://dx.doi.org/10.1038/ni.3533",
+                "keywords_study": null,
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "Donor-4",
+                "synthetic": "FALSE",
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "not collected",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "Ebola & influenza",
+                        "disease_diagnosis": {
+                            "label": null,
+                            "id": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "122-S045",
+                    "sample_type": null,
+                    "tissue": {
+                        "label": "blood",
+                        "id": "UBERON:0000178"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "label": "B cell",
+                        "id": "CL:0000236"
+                    },
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": null,
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": "Constant region",
+                            "reverse_pcr_primer_target_location": "FW-1"
+                        }
+                    ],
+                    "complete_sequences": "Partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "ILLUMINA",
+                    "sequencing_facility": "MiSeq 2x300",
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "4",
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": null,
+                        "paired_read_direction": null,
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "OGRDB - veresion revision 8",
+                            "aligner_reference_d": "OGRDB - veresion revision 8",
+                            "aligner_reference_j": "OGRDB - veresion revision 8"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.0.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    },
+                    "preprocessing": {
+                        "software_versions": {
+                            "AssemblePairs.py": "0.7.0 2021.10.28"
+                        }
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": null
+        },
+        {
+            "repertoire_id": "5_PRJNA324093_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA324093",
+                "study_title": "B cell repertoire sequencing of seasonal influenza vaccine responses",
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": "http://med.stanford.edu/scottboydlab.html",
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": "STANFORD",
+                "submitted_by": "Ali Hassan Ellebedy",
+                "pub_ids": "https://dx.doi.org/10.1038/ni.3533",
+                "keywords_study": null,
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "Donor-5",
+                "synthetic": "FALSE",
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "not collected",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "Ebola & influenza",
+                        "disease_diagnosis": {
+                            "label": null,
+                            "id": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "122-S049",
+                    "sample_type": null,
+                    "tissue": {
+                        "label": "blood",
+                        "id": "UBERON:0000178"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "label": "B cell",
+                        "id": "CL:0000236"
+                    },
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": null,
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": "Constant region",
+                            "reverse_pcr_primer_target_location": "FW-1"
+                        }
+                    ],
+                    "complete_sequences": "Partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "ILLUMINA",
+                    "sequencing_facility": "MiSeq 2x300",
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "5",
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": null,
+                        "paired_read_direction": null,
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "OGRDB - veresion revision 8",
+                            "aligner_reference_d": "OGRDB - veresion revision 8",
+                            "aligner_reference_j": "OGRDB - veresion revision 8"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.0.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    },
+                    "preprocessing": {
+                        "software_versions": {
+                            "AssemblePairs.py": "0.7.0 2021.10.28"
+                        }
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": null
+        },
+        {
+            "repertoire_id": "6_PRJNA324093_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA324093",
+                "study_title": "B cell repertoire sequencing of seasonal influenza vaccine responses",
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": "http://med.stanford.edu/scottboydlab.html",
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": "STANFORD",
+                "submitted_by": "Ali Hassan Ellebedy",
+                "pub_ids": "https://dx.doi.org/10.1038/ni.3533",
+                "keywords_study": null,
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "Donor-6",
+                "synthetic": "FALSE",
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "not collected",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "Ebola & influenza",
+                        "disease_diagnosis": {
+                            "label": null,
+                            "id": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "122-S053",
+                    "sample_type": null,
+                    "tissue": {
+                        "label": "blood",
+                        "id": "UBERON:0000178"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "label": "B cell",
+                        "id": "CL:0000236"
+                    },
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": null,
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": "Constant region",
+                            "reverse_pcr_primer_target_location": "FW-1"
+                        }
+                    ],
+                    "complete_sequences": "Partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "ILLUMINA",
+                    "sequencing_facility": "MiSeq 2x300",
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "6",
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": null,
+                        "paired_read_direction": null,
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "OGRDB - veresion revision 8",
+                            "aligner_reference_d": "OGRDB - veresion revision 8",
+                            "aligner_reference_j": "OGRDB - veresion revision 8"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.0.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    },
+                    "preprocessing": {
+                        "software_versions": {
+                            "AssemblePairs.py": "0.7.0 2021.10.28"
+                        }
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": null
+        },
+        {
+            "repertoire_id": "8_PRJNA324093_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA324093",
+                "study_title": "B cell repertoire sequencing of seasonal influenza vaccine responses",
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": "http://med.stanford.edu/scottboydlab.html",
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": "STANFORD",
+                "submitted_by": "Ali Hassan Ellebedy",
+                "pub_ids": "https://dx.doi.org/10.1038/ni.3533",
+                "keywords_study": null,
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "Donor-8",
+                "synthetic": "FALSE",
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "not collected",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "Ebola & influenza",
+                        "disease_diagnosis": {
+                            "label": null,
+                            "id": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "122-S057",
+                    "sample_type": null,
+                    "tissue": {
+                        "label": "blood",
+                        "id": "UBERON:0000178"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "label": "B cell",
+                        "id": "CL:0000236"
+                    },
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": null,
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": "Constant region",
+                            "reverse_pcr_primer_target_location": "FW-1"
+                        }
+                    ],
+                    "complete_sequences": "Partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "ILLUMINA",
+                    "sequencing_facility": "MiSeq 2x300",
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "8",
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": null,
+                        "paired_read_direction": null,
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "OGRDB - veresion revision 8",
+                            "aligner_reference_d": "OGRDB - veresion revision 8",
+                            "aligner_reference_j": "OGRDB - veresion revision 8"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.0.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    },
+                    "preprocessing": {
+                        "software_versions": {
+                            "AssemblePairs.py": "0.7.0 2021.10.28"
+                        }
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": null
+        },
+        {
+            "repertoire_id": "155_PRJNA324093_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA324093",
+                "study_title": "B cell repertoire sequencing of seasonal influenza vaccine responses",
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": "http://med.stanford.edu/scottboydlab.html",
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": "STANFORD",
+                "submitted_by": "Ali Hassan Ellebedy",
+                "pub_ids": "https://dx.doi.org/10.1038/ni.3533",
+                "keywords_study": null,
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "Donor-155",
+                "synthetic": "FALSE",
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "not collected",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "Ebola & influenza",
+                        "disease_diagnosis": {
+                            "label": null,
+                            "id": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "036-S021",
+                    "sample_type": null,
+                    "tissue": {
+                        "label": "blood",
+                        "id": "UBERON:0000178"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "label": "B cell",
+                        "id": "CL:0000236"
+                    },
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": null,
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": "Constant region",
+                            "reverse_pcr_primer_target_location": "FW-1"
+                        }
+                    ],
+                    "complete_sequences": "Partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "ILLUMINA",
+                    "sequencing_facility": "MiSeq 2x300",
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "155",
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": null,
+                        "paired_read_direction": null,
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "OGRDB - veresion revision 8",
+                            "aligner_reference_d": "OGRDB - veresion revision 8",
+                            "aligner_reference_j": "OGRDB - veresion revision 8"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.0.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    },
+                    "preprocessing": {
+                        "software_versions": {
+                            "AssemblePairs.py": "0.7.0 2021.10.28"
+                        }
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": null
+        },
+        {
+            "repertoire_id": "157_PRJNA324093_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA324093",
+                "study_title": "B cell repertoire sequencing of seasonal influenza vaccine responses",
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": "http://med.stanford.edu/scottboydlab.html",
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": "STANFORD",
+                "submitted_by": "Ali Hassan Ellebedy",
+                "pub_ids": "https://dx.doi.org/10.1038/ni.3533",
+                "keywords_study": null,
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "Donor-157",
+                "synthetic": "FALSE",
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "not collected",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "Ebola & influenza",
+                        "disease_diagnosis": {
+                            "label": null,
+                            "id": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "036-S024",
+                    "sample_type": null,
+                    "tissue": {
+                        "label": "blood",
+                        "id": "UBERON:0000178"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "label": "B cell",
+                        "id": "CL:0000236"
+                    },
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": null,
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": "Constant region",
+                            "reverse_pcr_primer_target_location": "FW-1"
+                        }
+                    ],
+                    "complete_sequences": "Partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "ILLUMINA",
+                    "sequencing_facility": "MiSeq 2x300",
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "157",
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": null,
+                        "paired_read_direction": null,
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "OGRDB - veresion revision 8",
+                            "aligner_reference_d": "OGRDB - veresion revision 8",
+                            "aligner_reference_j": "OGRDB - veresion revision 8"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.0.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    },
+                    "preprocessing": {
+                        "software_versions": {
+                            "AssemblePairs.py": "0.7.0 2021.10.28",
+                            "MaskPrimers.py": "0.7.0 2021.10.28"
+                        }
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": null
+        },
+        {
+            "repertoire_id": "165_PRJNA324093_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA324093",
+                "study_title": "B cell repertoire sequencing of seasonal influenza vaccine responses",
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": "http://med.stanford.edu/scottboydlab.html",
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": "STANFORD",
+                "submitted_by": "Ali Hassan Ellebedy",
+                "pub_ids": "https://dx.doi.org/10.1038/ni.3533",
+                "keywords_study": null,
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "Donor-162",
+                "synthetic": "FALSE",
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "not collected",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "Ebola & influenza",
+                        "disease_diagnosis": {
+                            "label": null,
+                            "id": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "036-S027",
+                    "sample_type": null,
+                    "tissue": {
+                        "label": "blood",
+                        "id": "UBERON:0000178"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "label": "B cell",
+                        "id": "CL:0000236"
+                    },
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": null,
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": "Constant region",
+                            "reverse_pcr_primer_target_location": "FW-1"
+                        }
+                    ],
+                    "complete_sequences": "Partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "ILLUMINA",
+                    "sequencing_facility": "MiSeq 2x300",
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "165",
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": null,
+                        "paired_read_direction": null,
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "OGRDB - veresion revision 8",
+                            "aligner_reference_d": "OGRDB - veresion revision 8",
+                            "aligner_reference_j": "OGRDB - veresion revision 8"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.0.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    },
+                    "preprocessing": {
+                        "software_versions": {
+                            "AssemblePairs.py": "0.7.0 2021.10.28"
+                        }
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": null
+        },
+        {
+            "repertoire_id": "163_PRJNA324093_IGH",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": "PRJNA324093",
+                "study_title": "B cell repertoire sequencing of seasonal influenza vaccine responses",
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": "http://med.stanford.edu/scottboydlab.html",
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": "STANFORD",
+                "submitted_by": "Ali Hassan Ellebedy",
+                "pub_ids": "https://dx.doi.org/10.1038/ni.3533",
+                "keywords_study": null,
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "Donor-163",
+                "synthetic": "FALSE",
+                "species": {
+                    "label": "Homo sapiens",
+                    "id": "NCBITAXON:9606"
+                },
+                "sex": "not collected",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": null,
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "Ebola & influenza",
+                        "disease_diagnosis": {
+                            "label": null,
+                            "id": null
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "IGH",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "036-S030",
+                    "sample_type": null,
+                    "tissue": {
+                        "label": "blood",
+                        "id": "UBERON:0000178"
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": null,
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "label": "B cell",
+                        "id": "CL:0000236"
+                    },
+                    "cell_phenotype": null,
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "FALSE",
+                    "cell_number": null,
+                    "cells_per_reaction": null,
+                    "cell_storage": "FALSE",
+                    "cell_quality": null,
+                    "cell_isolation": null,
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": null,
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": null,
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "IGH",
+                            "forward_pcr_primer_target_location": "Constant region",
+                            "reverse_pcr_primer_target_location": "FW-1"
+                        }
+                    ],
+                    "complete_sequences": "Partial",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": null,
+                    "sequencing_platform": "ILLUMINA",
+                    "sequencing_facility": "MiSeq 2x300",
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": "163",
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": null,
+                        "paired_read_direction": null,
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null,
+                    "annotation": {
+                        "aligner": {
+                            "tool": "IgBLAST",
+                            "version": "1.20.0"
+                        },
+                        "aligner_reference": {
+                            "aligner_reference_v": "OGRDB - veresion revision 8",
+                            "aligner_reference_d": "OGRDB - veresion revision 8",
+                            "aligner_reference_j": "OGRDB - veresion revision 8"
+                        },
+                        "Genotyper": {
+                            "Tool": "TIgGER",
+                            "Version": "1.0.0"
+                        },
+                        "Haplotyper": {
+                            "Tool": "RAbHIT",
+                            "Version": "0.2.0"
+                        },
+                        "Single Assignment": "true"
+                    },
+                    "preprocessing": {
+                        "software_versions": {
+                            "AssemblePairs.py": "0.7.0 2021.10.28"
+                        }
+                    }
+                }
+            ],
+            "filetype": null,
+            "combine_repertoire": null
+        }
+    ]
+}

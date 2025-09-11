@@ -1,0 +1,9 @@
+LOCUS_ORDER = [
+
+]
+
+ALPHA_ORDER = [
+
+]
+
+PSEUDO_GENES = []

@@ -1,0 +1,1247 @@
+{
+    "Info": {
+        "title": "AIRR Data File",
+        "description": "AIRR Data File written by AIRR Standards Python Library",
+        "version": 1.5,
+        "contact": {
+            "name": "AIRR Community",
+            "url": "https://github.com/airr-community"
+        },
+        "license": {
+            "name": "Creative Commons Attribution 4.0 International",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    },
+    "Repertoire": [
+        {
+            "repertoire_id": "HPV15_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": null,
+                "study_title": null,
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": null,
+                "submitted_by": null,
+                "pub_ids": null,
+                "keywords_study": "['contains_paired_chain', 'contains_tr']",
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV15",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "HPV15",
+                    "sample_type": "primary tumor",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY), tetramer sorted HLA-A*01:01-HPV E2(329-337)(peptide sequence KSAIVTLTY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": "Illumina HiSeq 3000",
+                    "sequencing_platform": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": "150",
+                        "paired_read_direction": "SRR15178153_2.fastq.gz, SRR15178156_2.fastq.gz",
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null
+                }
+            ],
+            "combine_repertoire": "HPV15",
+            "data_id": null,
+            "filetype": null
+        },
+        {
+            "repertoire_id": "HPV34_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": null,
+                "study_title": null,
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": null,
+                "submitted_by": null,
+                "pub_ids": null,
+                "keywords_study": "['contains_paired_chain', 'contains_tr']",
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV34",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "HPV34",
+                    "sample_type": "metastatic lymph node, primary tumor",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+, CD3+CD19-CD14-CD16-CD4-CD8+PD-1+CD45RA-",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(329-337)(peptide sequence KSAIVTLTY), PD-1+ sorted, tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": "Illumina HiSeq 3000",
+                    "sequencing_platform": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": "91",
+                        "paired_read_direction": "SRR15178189_2.fastq.gz, SRR15178211_2.fastq.gz, SRR15178187_2.fastq.gz, SRR15178210_2.fastq.gz, SRR15178188_2.fastq.gz, SRR15178167_2.fastq.gz, SRR15178165_2.fastq.gz, SRR15178177_2.fastq.gz, SRR15178198_2.fastq.gz, SRR15178176_2.fastq.gz, SRR15178199_2.fastq.gz, SRR15178200_2.fastq.gz, SRR15178209_2.fastq.gz, SRR15178166_2.fastq.gz, SRR15178178_2.fastq.gz",
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null
+                }
+            ],
+            "combine_repertoire": "HPV34",
+            "data_id": null,
+            "filetype": null
+        },
+        {
+            "repertoire_id": "HPV37_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": null,
+                "study_title": null,
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": null,
+                "submitted_by": null,
+                "pub_ids": null,
+                "keywords_study": "['contains_paired_chain', 'contains_tr']",
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV37",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "HPV37",
+                    "sample_type": "metastatic lymph node",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": "Illumina HiSeq 3000",
+                    "sequencing_platform": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": "150",
+                        "paired_read_direction": "SRR15178337_2.fastq.gz",
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null
+                }
+            ],
+            "combine_repertoire": "HPV37",
+            "data_id": null,
+            "filetype": null
+        },
+        {
+            "repertoire_id": "HPV42_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": null,
+                "study_title": null,
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": null,
+                "submitted_by": null,
+                "pub_ids": null,
+                "keywords_study": "['contains_paired_chain', 'contains_tr']",
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV42",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "HPV42",
+                    "sample_type": "primary tumor",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": "Illumina HiSeq 3000",
+                    "sequencing_platform": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": "91",
+                        "paired_read_direction": "SRR15178333_2.fastq.gz, SRR15178332_2.fastq.gz, SRR15178334_2.fastq.gz",
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null
+                }
+            ],
+            "combine_repertoire": "HPV42",
+            "data_id": null,
+            "filetype": null
+        },
+        {
+            "repertoire_id": "HPV51_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": null,
+                "study_title": null,
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": null,
+                "submitted_by": null,
+                "pub_ids": null,
+                "keywords_study": "['contains_paired_chain', 'contains_tr']",
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV51",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "HPV51",
+                    "sample_type": "primary tumor, metastatic lymph node",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+, CD3+CD19-CD14-CD16-CD4-CD8+PD-1+CD45RA-",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(329-337)(peptide sequence KSAIVTLTY), PD-1+ sorted, tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": "Illumina HiSeq 3000",
+                    "sequencing_platform": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": "91",
+                        "paired_read_direction": "SRR15178233_2.fastq.gz, SRR15178264_2.fastq.gz, SRR15178242_2.fastq.gz, SRR15178255_2.fastq.gz, SRR15178221_2.fastq.gz, SRR15178243_2.fastq.gz, SRR15178231_2.fastq.gz, SRR15178244_2.fastq.gz, SRR15178253_2.fastq.gz, SRR15178265_2.fastq.gz, SRR15178266_2.fastq.gz, SRR15178220_2.fastq.gz, SRR15178254_2.fastq.gz, SRR15178232_2.fastq.gz, SRR15178222_2.fastq.gz",
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null
+                }
+            ],
+            "combine_repertoire": "HPV51",
+            "data_id": null,
+            "filetype": null
+        },
+        {
+            "repertoire_id": "HPV7_PRJNA747292_TRB",
+            "repertoire_name": null,
+            "repertoire_description": null,
+            "study": {
+                "study_id": null,
+                "study_title": null,
+                "study_type": null,
+                "study_description": null,
+                "inclusion_exclusion_criteria": null,
+                "grants": null,
+                "study_contact": null,
+                "collected_by": null,
+                "lab_name": null,
+                "lab_address": null,
+                "submitted_by": null,
+                "pub_ids": null,
+                "keywords_study": "['contains_paired_chain', 'contains_tr']",
+                "adc_publish_date": null,
+                "adc_update_date": null
+            },
+            "subject": {
+                "subject_id": "HPV7",
+                "synthetic": "False",
+                "species": {
+                    "id": "NCBITAXON:9606",
+                    "label": "Homo sapiens"
+                },
+                "sex": "male",
+                "age_min": null,
+                "age_max": null,
+                "age_unit": {
+                    "id": null,
+                    "label": null
+                },
+                "age_event": null,
+                "ancestry_population": null,
+                "ethnicity": null,
+                "race": "White",
+                "strain_name": null,
+                "linked_subjects": null,
+                "link_type": null,
+                "diagnosis": [
+                    {
+                        "study_group_description": "HNSCC",
+                        "disease_diagnosis": {
+                            "id": "DOID:5520",
+                            "label": "head and neck squamous cell carcinoma"
+                        },
+                        "disease_length": null,
+                        "disease_stage": null,
+                        "prior_therapies": null,
+                        "immunogen": null,
+                        "intervention": null,
+                        "medical_history": null
+                    }
+                ],
+                "genotype": {
+                    "receptor_genotype_set": {
+                        "receptor_genotype_set_id": null,
+                        "genotype_class_list": [
+                            {
+                                "receptor_genotype_id": null,
+                                "locus": "TRB",
+                                "documented_alleles": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "undocumented_alleles": [
+                                    {
+                                        "allele_name": null,
+                                        "sequence": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "deleted_genes": [
+                                    {
+                                        "label": null,
+                                        "germline_set_ref": null,
+                                        "phasing": null
+                                    }
+                                ],
+                                "inference_process": null
+                            }
+                        ]
+                    },
+                    "mhc_genotype_set": {
+                        "mhc_genotype_set_id": null,
+                        "mhc_genotype_list": [
+                            {
+                                "mhc_genotype_id": null,
+                                "mhc_class": "MHC-I",
+                                "mhc_alleles": [
+                                    {
+                                        "allele_designation": null,
+                                        "gene": {
+                                            "id": null,
+                                            "label": null
+                                        },
+                                        "reference_set_ref": null
+                                    }
+                                ],
+                                "mhc_genotyping_method": null
+                            }
+                        ]
+                    }
+                }
+            },
+            "sample": [
+                {
+                    "sample_processing_id": null,
+                    "sample_id": "HPV7",
+                    "sample_type": "primary tumor, metastatic lymph node",
+                    "tissue": {
+                        "id": null,
+                        "label": null
+                    },
+                    "anatomic_site": null,
+                    "disease_state_sample": "tumor",
+                    "collection_time_point_relative": null,
+                    "collection_time_point_relative_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "collection_time_point_reference": null,
+                    "biomaterial_provider": null,
+                    "tissue_processing": null,
+                    "cell_subset": {
+                        "id": "CL:0000625",
+                        "label": "CD8-positive, alpha-beta T cell"
+                    },
+                    "cell_phenotype": "CD3+CD19-CD14-CD16-CD4-CD8+, CD3+CD19-CD14-CD16-CD4-CD8+PD-1+CD45RA-",
+                    "cell_species": {
+                        "id": null,
+                        "label": null
+                    },
+                    "single_cell": "True",
+                    "cell_number": null,
+                    "cells_per_reaction": "1",
+                    "cell_storage": "True",
+                    "cell_quality": null,
+                    "cell_isolation": "tetramer sorted HLA-A*01:01-HPV E2(329-337)(peptide sequence KSAIVTLTY), PD-1+ sorted, tetramer sorted HLA-A*01:01-HPV E2(151-159) (peptide sequence QVDYYGLYY)",
+                    "cell_processing_protocol": null,
+                    "template_class": "RNA",
+                    "template_quality": null,
+                    "template_amount": null,
+                    "template_amount_unit": {
+                        "id": null,
+                        "label": null
+                    },
+                    "library_generation_method": "RT(oligo-dT)+TS(UMI)+PCR",
+                    "library_generation_protocol": null,
+                    "library_generation_kit_version": "10x Genomics Chromium Single Cell V(D)J Enrichment Kit",
+                    "pcr_target": [
+                        {
+                            "pcr_target_locus": "TRB",
+                            "forward_pcr_primer_target_location": null,
+                            "reverse_pcr_primer_target_location": null
+                        }
+                    ],
+                    "complete_sequences": "complete+untemplated",
+                    "physical_linkage": "none",
+                    "sequencing_run_id": null,
+                    "total_reads_passing_qc_filter": "Illumina HiSeq 3000",
+                    "sequencing_platform": null,
+                    "sequencing_facility": null,
+                    "sequencing_run_date": null,
+                    "sequencing_kit": null,
+                    "sequencing_files": {
+                        "sequencing_data_id": null,
+                        "file_type": null,
+                        "filename": null,
+                        "read_direction": null,
+                        "read_length": null,
+                        "paired_filename": "91",
+                        "paired_read_direction": "SRR15178277_2.fastq.gz, SRR15178300_2.fastq.gz, SRR15178275_2.fastq.gz, SRR15178320_2.fastq.gz, SRR15178298_2.fastq.gz, SRR15178288_2.fastq.gz, SRR15178276_2.fastq.gz, SRR15178321_2.fastq.gz, SRR15178289_2.fastq.gz, SRR15178311_2.fastq.gz, SRR15178299_2.fastq.gz, SRR15178309_2.fastq.gz, SRR15178287_2.fastq.gz, SRR15178322_2.fastq.gz, SRR15178310_2.fastq.gz",
+                        "paired_read_length": null,
+                        "index_filename": null,
+                        "index_length": null
+                    }
+                }
+            ],
+            "data_processing": [
+                {
+                    "data_processing_id": null,
+                    "primary_annotation": false,
+                    "software_versions": null,
+                    "paired_reads_assembly": null,
+                    "quality_thresholds": null,
+                    "primer_match_cutoffs": null,
+                    "collapsing_method": null,
+                    "data_processing_protocols": null,
+                    "data_processing_files": [],
+                    "germline_database": null,
+                    "germline_set_ref": null,
+                    "analysis_provenance_id": null
+                }
+            ],
+            "combine_repertoire": "HPV7",
+            "data_id": null,
+            "filetype": null
+        }
+    ]
+}

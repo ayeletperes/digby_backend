@@ -1,16 +1,4 @@
-/.idea
-/temp
-/migrations
-*.pyc
-__pycache__
-secret.cfg
-secret*.cfg
-app.log
-/database model.pdf
-*.pickle
-/static/study_data/
-/static/output/*
-report_request.log
-/tests/test_results
-/exports
-/uploads
+wwwroot/*.js
+node_modules
+typings
+dist

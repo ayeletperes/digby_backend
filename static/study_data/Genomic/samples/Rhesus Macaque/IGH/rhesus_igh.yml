@@ -1,0 +1,22 @@
+XReference_assemblies:
+  Human_IGH:
+    chromosome: 22
+    end: 0
+    locations:
+    name: chr22
+    reference: ''
+    sense: +
+    sequence_file: 
+    start: 0
+Reference_set_version: MUSA 2025-02-05
+Reference_sets:
+- MUSA_2025-02-05_new_tag_IGH_V_gapped.fasta
+- MUSA_2025-02-05_new_tag_IGH_D.fasta
+- MUSA_2025-02-05_new_tag_IGH_J.fasta
+Studies:
+  P37:  
+    metadata_file: P37_PRJNA1207082_metadata.csv
+    annotation_file: P37_IGH_diggers.csv
+    annotation_method: 'Digger'
+    annotation_reference: 'https://doi.org/10.1093/bioinformatics/btae144'
+    bam_dir: 'F:/macaque_R24/contigs/IGH_contigs'
