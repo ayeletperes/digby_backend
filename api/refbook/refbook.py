@@ -9,6 +9,7 @@ from api.vdjbase.vdjbase import get_vdjbase_species, find_datasets as get_vdjbas
 from api.genomic.genomic import get_genomic_species, get_genomic_datasets
 from db.vdjbase_model import Gene as VDJbaseGene, Allele as VDJbaseAllele, AllelesSample as VDJbaseAllelesSample
 from db.genomic_db import Gene as GenomicGene, Sequence as GenomicSequence
+from db.vdjbase_airr_model import Sample as VDJbaseSample
 
 ns = api.namespace('refbook', description='Refbook related operations')
 
@@ -166,7 +167,7 @@ class AscSeqs(Resource):
             session = vdjbase_dbs[species][ds].session
             vdjbase_alleles = session.query(VDJbaseAllele.name, VDJbaseAllele.seq) \
                 .join(VDJbaseGene) \
-                .filter(VDJbaseGene.type == chain, VDJbaseGene.name == asc) \
+                .filter(VDJbaseGene.type == chain, VDJbaseGene.name == asc, 'Del' not in VDJbaseAllele.name) \
                 .all()
             
             for a, seq_gapped in vdjbase_alleles:
@@ -200,8 +201,7 @@ class AscUsage(Resource):
         if chain not in species_chains['chains'][species]:
             return {'message': 'Chain not found'}, 404
         
-        usage_data = {}
-
+        
         ds = chain[:3]
 
         if ds in vdjbase_dbs[species]:
@@ -225,15 +225,18 @@ class AscUsage(Resource):
             vdjbase_alleles = (
                 session.query(
                     VDJbaseAllele.name,
-                    func.coalesce(fraction_expr, 0.0).label("fraction"),
+                    func.group_concat(VDJbaseSample.sample_name).label("samples"),
+                    func.group_concat(func.coalesce(fraction_expr, 0.0)).label("fraction"),
                 )
                 .join(VDJbaseAllele, VDJbaseAllele.id == VDJbaseAllelesSample.allele_id)
+                .join(VDJbaseSample, VDJbaseSample.id == VDJbaseAllelesSample.sample_id)
                 .join(
                     totals,
                     (VDJbaseAllelesSample.patient_id == totals.c.patient_id)
                     & (VDJbaseAllelesSample.sample_id == totals.c.sample_id),
                 )
-                .join(VDJbaseGene, VDJbaseGene.id == VDJbaseAllele.gene_id)  # adjust FK if different
+                .join(VDJbaseGene, VDJbaseGene.id == VDJbaseAllele.gene_id)
+                .group_by(VDJbaseAllele.name)
                 .filter(
                     VDJbaseGene.type == chain,
                     VDJbaseGene.name == asc,
@@ -241,11 +244,55 @@ class AscUsage(Resource):
                 )
                 .all()
             )
-            
-            for a, usage in vdjbase_alleles:
-                if usage > 0:
-                    usage_data.setdefault(a, []).append(usage)
-        
-        recs = [{'name': name, 'usage': usages} for name, usages in usage_data.items()]
 
-        return {'alleles': sorted(recs, key=lambda x: x['name'])}
+        recs = [{'name': allele, 'usage': list(usages.split(',') if usages else []), 'samples': list(samples.split(',') if samples else [])} for allele, samples, usages in vdjbase_alleles]
+
+        return {'alleles': recs}
+
+@ns.route('/asc_zygousity/<string:species>/<string:chain>/<string:asc>')
+@api.response(404, 'Species or chain not found')
+class AscZygosity(Resource):
+    @digby_protected()
+    def get(self, species, chain, asc):
+        """ Returns zygosity statistics for all subjects in a given ASC """
+
+        species_chains = SpeciesApi.get(self)
+        
+        if species not in species_chains['species']:
+            return {'message': 'Species not found'}, 404
+        if chain not in species_chains['chains'][species]:
+            return {'message': 'Chain not found'}, 404
+        
+        recs = []
+
+        ds = chain[:3]
+
+        if ds in vdjbase_dbs[species]:
+            session = vdjbase_dbs[species][ds].session
+
+            alleles_per_sample = (
+                session.query(
+                    VDJbaseAllelesSample.sample_id,
+                    #VDJbaseSample.sample_name,
+                    func.group_concat(func.distinct(VDJbaseAllele.name)).label("alleles"),
+                )
+                .join(VDJbaseAllele, VDJbaseAllele.id == VDJbaseAllelesSample.allele_id)
+                .join(VDJbaseGene, VDJbaseGene.id == VDJbaseAllele.gene_id)
+                #.join(VDJbaseSample, VDJbaseSample.sample_id == VDJbaseAllelesSample.sample_id)
+                .filter(
+                    VDJbaseGene.type == chain,
+                    VDJbaseGene.name == asc,
+                )
+                .group_by(VDJbaseAllelesSample.sample_id)
+                .all()
+            )
+
+            
+            for sample_id, alleles in alleles_per_sample:
+                allele_list = alleles.split(',') if alleles else []
+                recs.append({
+                    "name": sample_id,
+                    "sets": list(allele_list)
+                })
+
+        return {'samples': recs}
