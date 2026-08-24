@@ -85,20 +85,26 @@ def study_data_db_init(vdjbase_db_path):
 
     # temp fix: add asc_genotype column to sample table if not there already
 
-    if 'genomic' not in vdjbase_db_path.lower():
-        for species in sqlite_dbs:
-            for locus in sqlite_dbs[species]:
-                inspector = inspect(sqlite_dbs[species][locus].db)
-                cols = inspector.get_columns('Sample')
-                if 'asc_genotype' not in [col['name'] for col in cols]:
-                    # Not `with ... as con`: exiting that block closes the connection, and
-                    # this dataset's long-lived session is bound to it, so every later
-                    # query raised ResourceClosedError. The branch only runs when the
-                    # column is missing, so it broke the first start after a database was
-                    # rebuilt and looked fine on the next one.
-                    sqlite_dbs[species][locus].connection.execute(
-                        'ALTER TABLE Sample ADD COLUMN asc_genotype text')
-                    sqlite_dbs[species][locus].session.commit()
+    for species in sqlite_dbs:
+        for locus in sqlite_dbs[species]:
+            inspector = inspect(sqlite_dbs[species][locus].db)
+
+            # Was gated on the path not containing "genomic", which assumed every
+            # other kind of database has a Sample table. Ask the database instead,
+            # so a flavour without one is simply skipped.
+            if 'sample' not in {name.lower() for name in inspector.get_table_names()}:
+                continue
+
+            cols = inspector.get_columns('Sample')
+            if 'asc_genotype' not in [col['name'] for col in cols]:
+                # Not `with ... as con`: exiting that block closes the connection,
+                # and this dataset's long-lived session is bound to it, so every
+                # later query raised ResourceClosedError. The branch only runs when
+                # the column is missing, so it broke the first start after a
+                # database was rebuilt and looked fine on the next one.
+                sqlite_dbs[species][locus].connection.execute(
+                    'ALTER TABLE Sample ADD COLUMN asc_genotype text')
+                sqlite_dbs[species][locus].session.commit()
 
 
     # sort datasets of each species
