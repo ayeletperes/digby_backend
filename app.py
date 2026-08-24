@@ -62,6 +62,8 @@ custom_logging.init_logging(app, mail)
 
 vdjbase_dbs = study_data_db_init(os.path.join(app.config['STATIC_PATH'], 'study_data/VDJbase/db'))
 genomic_dbs = study_data_db_init(os.path.join(app.config['STATIC_PATH'], 'study_data/Genomic/db'))
+qtl_dbs = study_data_db_init(os.path.join(app.config['STATIC_PATH'], 'study_data/QTL/db')) \
+    if os.path.isdir(os.path.join(app.config['STATIC_PATH'], 'study_data/QTL/db')) else {}
 madc_index = madc_init(app)
 
 from api.restx import api
@@ -69,6 +71,7 @@ from api.genomic.genomic import ns as genomic
 from api.vdjbase.vdjbase import ns as vdjbase
 from api.reports.reports import ns as reports
 from api.refbook.refbook import ns as refbook
+from api.qtl.qtl import ns as qtl
 from api.system.system import ns as system, digby_protected
 
 from db.genomic_db import *
@@ -85,6 +88,7 @@ api.add_namespace(vdjbase)
 api.add_namespace(reports)
 api.add_namespace(system)
 api.add_namespace(refbook)
+api.add_namespace(qtl)
 app.register_blueprint(blueprint)
 
 from api_v1.open_api import api_bp
