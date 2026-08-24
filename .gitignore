@@ -14,3 +14,5 @@ report_request.log
 /tests/test_results
 /exports
 /uploads
+.venv/
+node_modules/
