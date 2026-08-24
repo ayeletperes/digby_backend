@@ -91,9 +91,14 @@ def study_data_db_init(vdjbase_db_path):
                 inspector = inspect(sqlite_dbs[species][locus].db)
                 cols = inspector.get_columns('Sample')
                 if 'asc_genotype' not in [col['name'] for col in cols]:
-                    with sqlite_dbs[species][locus].connection as con:
-                        con.execute('ALTER TABLE Sample ADD COLUMN asc_genotype text')
-                        sqlite_dbs[species][locus].session.commit()
+                    # Not `with ... as con`: exiting that block closes the connection, and
+                    # this dataset's long-lived session is bound to it, so every later
+                    # query raised ResourceClosedError. The branch only runs when the
+                    # column is missing, so it broke the first start after a database was
+                    # rebuilt and looked fine on the next one.
+                    sqlite_dbs[species][locus].connection.execute(
+                        'ALTER TABLE Sample ADD COLUMN asc_genotype text')
+                    sqlite_dbs[species][locus].session.commit()
 
 
     # sort datasets of each species
