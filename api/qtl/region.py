@@ -43,6 +43,8 @@ ns = api.namespace('qtl_region', path='/qtl',
 
 DEFAULT_WINDOW = 20000
 MAX_WINDOW = 2000000
+# below this a window holds no context at all, and a stray drag can produce it
+MIN_WINDOW = 200
 
 # BED file -> the name the guQTL database gives that feature, so the track and
 # the variant panel use one vocabulary rather than two. `exon_2` is deliberately
@@ -159,14 +161,32 @@ class QtlRegionApi(Resource):
         if record.pos is None or record.contig is None:
             return {'message': f'{variant} has no position, so it has no neighbourhood'}, 404
 
+        # Two ways to say which stretch to draw. `window` centres it on the
+        # variant, which is what opening the panel wants; an explicit `start`/`end`
+        # is what dragging a range on the track wants, and that range does not
+        # generally have the variant in the middle of it - or in it at all.
         try:
             window = int(request.args.get('window') or DEFAULT_WINDOW)
+            explicit = (int(request.args['start']), int(request.args['end'])) \
+                if request.args.get('start') and request.args.get('end') else None
         except ValueError:
-            return {'message': 'window must be a number of base pairs'}, 400
-        window = max(200, min(window, MAX_WINDOW))
+            return {'message': 'window, start and end must be whole numbers'}, 400
 
-        start = max(1, record.pos - window // 2)
-        end = start + window
+        if explicit is not None:
+            start, end = explicit
+            if end <= start:
+                return {'message': 'end must be greater than start'}, 400
+            start = max(1, start)
+            # clamped, not rejected: a drag that runs off the end of the contig is
+            # an ordinary gesture, and the same ceiling applies either way
+            end = min(end, start + MAX_WINDOW)
+            if end - start < MIN_WINDOW:
+                end = start + MIN_WINDOW
+        else:
+            window = max(MIN_WINDOW, min(window, MAX_WINDOW))
+            start = max(1, record.pos - window // 2)
+            end = start + window
+
         asc = request.args.get('asc')
 
         directory = _annotation_dir()
