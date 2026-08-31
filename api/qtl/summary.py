@@ -12,10 +12,11 @@ A variant significant against both a V and a J ASC is counted under both, since
 it genuinely did both; the segment totals therefore need not sum to the locus
 total, and the response says so.
 
-DENOMINATORS. Every count travels with what it was drawn from. `n_tested` is the
-variants that entered the scan for that segment, so a bar can be read as a rate
-rather than a raw height - 130 significant coding variants means something
-different out of 200 than out of 20,000.
+DENOMINATORS. Every count travels with what it was drawn from: the locus totals
+here, and `n_tested` per gene below, so a count can be read as a rate rather than
+a raw height. There is deliberately no per-segment denominator - in all three
+loci every gene is tested against every variant, so it was the locus total under
+another name and cost a 658,000-row distinct pass to say so.
 
 UTR. The manuscript figure folds `utr` into `intergenic`; the database keeps them
 apart, so this does too. The two IGL variants involved are the whole difference
@@ -47,22 +48,30 @@ def _rank(values, order):
 
 
 def _locus_counts(session):
-    """Distinct significant variants by segment and feature, with denominators."""
-    counts = (session.query(Asc.segment, Variant.feature,
-                            func.count(distinct(Variant.id)))
-              .select_from(UsageAssociation)
-              .join(Variant, Variant.id == UsageAssociation.variant_id)
-              .join(Asc, Asc.id == UsageAssociation.asc_id)
-              .filter(UsageAssociation.significant == True)
-              .group_by(Asc.segment, Variant.feature).all())
+    """Distinct significant variants by segment and feature."""
+    return (session.query(Asc.segment, Variant.feature,
+                          func.count(distinct(Variant.id)))
+            .select_from(UsageAssociation)
+            .join(Variant, Variant.id == UsageAssociation.variant_id)
+            .join(Asc, Asc.id == UsageAssociation.asc_id)
+            .filter(UsageAssociation.significant == True)
+            .group_by(Asc.segment, Variant.feature).all())
 
-    tested = (session.query(Asc.segment, func.count(distinct(Variant.id)))
-              .select_from(UsageAssociation)
-              .join(Variant, Variant.id == UsageAssociation.variant_id)
-              .join(Asc, Asc.id == UsageAssociation.asc_id)
-              .group_by(Asc.segment).all())
 
-    return counts, dict(tested)
+def _tested_per_asc(session):
+    """How many variants each gene was tested against.
+
+    Two things keep this off a full pass over 658,000 rows. `count(*)` rather
+    than `count(distinct variant_id)`: the table is unique on (variant_id,
+    asc_id), so within one gene the two are the same number - checked, and they
+    agree on every row. And grouped by `asc_id` rather than by the gene's name,
+    which lets `ix_usage_asc_p` do the grouping instead of joining every
+    association to `qtl_asc` first; the 70 names are looked up afterwards.
+    """
+    counts = dict(session.query(UsageAssociation.asc_id, func.count())
+                  .group_by(UsageAssociation.asc_id).all())
+    return {name: int(counts.get(asc_id, 0))
+            for asc_id, name in session.query(Asc.id, Asc.asc).all()}
 
 
 @ns.route('/usage_summary/<string:species>')
@@ -85,16 +94,12 @@ class QtlUsageSummaryApi(Resource):
             if session is None:
                 continue
 
-            counts, tested = _locus_counts(session)
-            for segment, feature, n in counts:
+            for segment, feature, n in _locus_counts(session):
                 rows.append({'locus': locus, 'segment': segment,
-                             'feature': feature, 'n': int(n),
-                             'n_tested_in_segment': int(tested.get(segment, 0))})
+                             'feature': feature, 'n': int(n)})
                 segments.add(segment)
                 features.add(feature)
 
-            # the locus's own denominators, which the per-segment ones do not sum
-            # to: a variant tested against both a V and a J ASC is in both
             significant = (session.query(func.count(distinct(Variant.id)))
                            .select_from(UsageAssociation)
                            .join(Variant, Variant.id == UsageAssociation.variant_id)
@@ -102,7 +107,6 @@ class QtlUsageSummaryApi(Resource):
             totals[locus] = {
                 'n_variants': int(session.query(func.count(Variant.id)).scalar() or 0),
                 'n_significant': int(significant or 0),
-                'n_tested_by_segment': {s: int(n) for s, n in tested.items()},
             }
 
         return {
@@ -145,11 +149,7 @@ class QtlGeneSummaryApi(Resource):
                   .filter(UsageAssociation.significant == True)
                   .group_by(Asc.asc, Asc.segment, Variant.feature).all())
 
-        tested = dict(session.query(Asc.asc, func.count(distinct(Variant.id)))
-                      .select_from(UsageAssociation)
-                      .join(Variant, Variant.id == UsageAssociation.variant_id)
-                      .join(Asc, Asc.id == UsageAssociation.asc_id)
-                      .group_by(Asc.asc).all())
+        tested = _tested_per_asc(session)
 
         # where the gene's strongest significant variant sits, so a row can be
         # placed on the locus as well as counted
