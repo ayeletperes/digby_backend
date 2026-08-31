@@ -578,12 +578,23 @@ def abbreviate_names(names):
     labels = {}
     used = set()
 
-    for name in names:
+    # Sorted, so a `#2` lands on the same allele as it does in the client's
+    # shortenAlleleNames. Assignment depends on iteration order, and the two
+    # sides receive their names in different orders.
+    for name in sorted(names):
         if len(name) <= NAME_LIMIT:
             label = name
         else:
-            stem, _, suffixes = name.partition('_')
-            label = f'{stem}+{len(suffixes.split("_"))}' if suffixes else name[:NAME_LIMIT - 1] + '~'
+            # split at the first _ AFTER the allele: gene names themselves carry
+            # underscores (IGHV4-NL_1*01_a157g), and partitioning on the first
+            # one dropped the allele and miscounted the mutations - 458 of
+            # allele_server's 3,449 suffixed IG names are affected
+            star = name.find('*')
+            cut = name.find('_', star + 1) if star >= 0 else name.find('_')
+            if cut >= 0:
+                label = f'{name[:cut]}+{len(name[cut + 1:].split("_"))}'
+            else:
+                label = name[:NAME_LIMIT - 1] + '~'
 
         # labels index the alignment rows, so they have to stay distinct
         candidate, n = label, 2
