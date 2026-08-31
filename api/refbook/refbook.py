@@ -564,6 +564,26 @@ def dataset_stamp(species, locus):
 NAME_LIMIT = 26
 
 
+def _fnv1a(text):
+    """FNV-1a 32-bit, mirrored byte-for-byte in gene-naming.ts."""
+    h = 0x811C9DC5
+    for ch in text:
+        h ^= ord(ch) & 0xFFFF
+        h = (h * 0x01000193) & 0xFFFFFFFF
+    return h
+
+
+def _suffix_token(suffix):
+    """Three base36 characters of that hash - stable for an allele, whatever else is loaded."""
+    b36 = '0123456789abcdefghijklmnopqrstuvwxyz'
+    h = _fnv1a(suffix)
+    out = ''
+    for _ in range(3):
+        out += b36[h % 36]
+        h //= 36
+    return out
+
+
 def abbreviate_names(names):
     """ Map allele names to short display labels, and back.
 
@@ -592,7 +612,12 @@ def abbreviate_names(names):
             star = name.find('*')
             cut = name.find('_', star + 1) if star >= 0 else name.find('_')
             if cut >= 0:
-                label = f'{name[:cut]}+{len(name[cut + 1:].split("_"))}'
+                suffix = name[cut + 1:]
+                # the count alone is not distinguishing: 231 of the 793 names
+                # over the limit in the full HUSA set share a stem and a count.
+                # The token comes from the allele's own suffix, so it survives
+                # more data being loaded, which a positional #N does not.
+                label = f'{name[:cut]}+{len(suffix.split("_"))}~{_suffix_token(suffix)}'
             else:
                 label = name[:NAME_LIMIT - 1] + '~'
 
