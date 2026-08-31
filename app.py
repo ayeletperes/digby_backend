@@ -80,6 +80,7 @@ from api.qtl.qtl import ns as qtl
 from api.refbook import tree as _refbook_tree      # noqa: F401
 from api.qtl import region as _qtl_region          # noqa: F401
 from api.qtl import pairing as _qtl_pairing        # noqa: F401
+from api.qtl import summary as _qtl_summary        # noqa: F401
 from api.system.system import ns as system, digby_protected
 
 from db.genomic_db import *
