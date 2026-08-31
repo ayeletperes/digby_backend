@@ -228,7 +228,8 @@ def _tree(species, locus, asc, stamp, sources, allele_names, method):
 
     if len(recs) == 1:
         return {'labels': names, 'merges': [], 'order': [0], 'informative_columns': [],
-                'duplicate_groups': [], 'columns': len(seqs[0]), 'gapped': gapped}
+                'duplicate_groups': [], 'columns': len(seqs[0]), 'gapped': gapped,
+                'metric': 'hamming_gapped' if gapped else 'edit'}
 
     dist, informative, columns = (gapped_distances(seqs) if gapped else nw_distances(seqs))
     merges = linkage(dist, method)
@@ -239,7 +240,11 @@ def _tree(species, locus, asc, stamp, sources, allele_names, method):
             'informative_columns': informative,
             'duplicate_groups': duplicate_groups(names, seqs),
             'columns': columns,
-            'gapped': gapped}
+            'gapped': gapped,
+            # two different measures, and the caller has to say which: over the
+            # IMGT columns it is a count of differing positions, and off them it
+            # is an edit distance that can also count a gap
+            'metric': 'hamming_gapped' if gapped else 'edit'}
 
 
 @ns.route('/asc_tree/<string:species>/<string:locus>/<path:asc>')
@@ -266,8 +271,7 @@ class AscTree(Resource):
             return {'message': f'No sequences for {asc}'}, 404
 
         info = _tree.cache_info()
-        return {'asc': asc, 'segment': segment_of(asc), 'linkage': method,
-                'metric': 'differences', **tree,
+        return {'asc': asc, 'segment': segment_of(asc), 'linkage': method, **tree,
                 'cache': {'hits': info.hits, 'misses': info.misses, 'size': info.currsize}}
 
 
