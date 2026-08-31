@@ -25,10 +25,11 @@ from db.qtl_model import (
 
 ns = api.namespace('qtl', description='Gene-usage QTL results')
 
-# Loci offered by the API. IGH is held back for now: its cohort has no linked
-# repertoire in VDJbase, which the analyses that join the two will need. The data
-# is built and on disk, so this is a one-line change when that lands.
-HIDDEN_LOCI = {'IGH'}
+# Loci offered by the API. IGH was held back while its cohort had no linked
+# repertoire in VDJbase; that gate only ever mattered to analyses that join the
+# two, and none of the guQTL views do, so every built locus is offered. Kept as a
+# set rather than deleted: it is the one place to hold a locus back again.
+HIDDEN_LOCI: set = set()
 
 # The smallest genotype class a fit needs before the run calls it well powered.
 # Read off the run's own published leads rather than assumed: across all 1,228
@@ -71,12 +72,23 @@ def gene_names(locus, asc):
     who types either member should find the cluster that contains it.
     """
     parts = str(asc).split('/')
-    segment = parts[0][:1]
+    # IGH's D clusters are stored with the locus already on them - `IGHD5-12`,
+    # and `IGHD4-11/IGHD4-4` for a merged one - while V and J are not. Prefixing
+    # blindly made `IGHIGHD5-12`, which matches nothing anyone would type. The
+    # stored string is left alone either way; this only builds search aliases.
+    def qualify(name):
+        name = name if name.startswith(locus) else f'{locus}{name}'
+        return name
 
-    names = {asc, f'{locus}{parts[0]}'}
+    segment = parts[0].replace(locus, '', 1)[:1]
+
+    names = {asc, qualify(parts[0])}
     for member in parts[1:]:
-        names.add(f'{locus}{segment}{member}' if not member.startswith(segment)
-                  else f'{locus}{member}')
+        if member.startswith(locus):
+            names.add(member)
+        else:
+            names.add(qualify(member if member.startswith(segment)
+                              else f'{segment}{member}'))
     return names
 
 
