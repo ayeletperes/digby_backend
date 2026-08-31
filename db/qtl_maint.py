@@ -61,6 +61,45 @@ def _neglog10(p):
     return -math.log10(max(p, MIN_P)) if p is not None else None
 
 
+def _genotype(dosage):
+    """The dosage as a called genotype: 0, 1 or 2, which is what the boxplot groups on."""
+    return min(2, max(0, int(round(dosage))))
+
+
+def read_manifest(run_dir):
+    path = os.path.join(run_dir, 'provenance', 'manifest.json')
+    if not os.path.exists(path):
+        return {}
+    with open(path) as handle:
+        return json.load(handle)
+
+
+def genotype_matrix(run_dir):
+    """The cohort genotype matrix the run was given, or None.
+
+    The manifest records it as `config.genotype`, but relative to the manuscript
+    root, which sits above the run tree and is written down nowhere. So the path
+    is resolved by walking up from the run directory until it exists - the run is
+    a few levels below the root, and the relative path is specific enough that
+    nothing else answers to it.
+    """
+    genotype = (read_manifest(run_dir).get('config') or {}).get('genotype')
+    if not genotype:
+        return None
+    if os.path.isabs(genotype):
+        return genotype if os.path.exists(genotype) else None
+
+    base = os.path.realpath(run_dir)
+    while True:
+        candidate = os.path.join(base, genotype)
+        if os.path.exists(candidate):
+            return candidate
+        parent = os.path.dirname(base)
+        if parent == base:
+            return None
+        base = parent
+
+
 class QtlBuilder:
     """Loads one locus of a run into a fresh database."""
 
@@ -104,11 +143,7 @@ class QtlBuilder:
     # --------------------------------------------------------------- loading
 
     def load_run(self):
-        manifest_path = os.path.join(self.run_dir, 'provenance', 'manifest.json')
-        manifest = {}
-        if os.path.exists(manifest_path):
-            with open(manifest_path) as handle:
-                manifest = json.load(handle)
+        manifest = read_manifest(self.run_dir)
 
         self.con.execute(
             "INSERT INTO qtl_run (label, generated_at, script, config) VALUES (?,?,?,?)",
@@ -172,7 +207,12 @@ class QtlBuilder:
                 self.con.execute(
                     "INSERT INTO qtl_variant (id, variant, contig, pos, maf) VALUES (?,?,?,?,?)",
                     (self.variants[variant], variant,
-                     variant.rsplit('_', 1)[0] if '_' in variant else None,
+                     # split on the FIRST underscore, not the last: ids are
+                     # contig_pos, but a multi-allelic site adds a third part
+                     # (chr22_23161341_2), and rsplit handed that whole
+                     # `chr22_23161341` back as the contig. No contig carries an
+                     # underscore, so the first one always ends it.
+                     variant.split('_', 1)[0] if '_' in variant else None,
                      _num(row.get('pos'), int), _num(row.get('maf'))))
 
             asc = row['asc']
@@ -261,13 +301,8 @@ class QtlBuilder:
             if not asc_id:
                 continue            # an ASC with a phenotype but no tested variant
 
-            subject = row['subject']
-            if subject not in self.subjects:
-                self.subjects[subject] = len(self.subjects) + 1
-                self.con.execute("INSERT INTO qtl_subject (id, subject) VALUES (?,?)",
-                                 (self.subjects[subject], subject))
-
-            rows.append((self.subjects[subject], asc_id, _num(row.get('count'), int),
+            rows.append((self._register_subject(row['subject']), asc_id,
+                         _num(row.get('count'), int),
                          _num(row.get('total'), int), _num(row.get('n_asc'), int),
                          _num(row.get('usage')), _num(row.get('logit_usage'))))
 
@@ -277,12 +312,76 @@ class QtlBuilder:
 
         return written + self._insert('qtl_asc_usage', _USAGE_COLS, rows)
 
-    def load_dosage(self):
-        """Genotypes, filtered to this locus by variant membership.
+    def _register_subject(self, subject):
+        if subject not in self.subjects:
+            self.subjects[subject] = len(self.subjects) + 1
+            self.con.execute("INSERT INTO qtl_subject (id, subject) VALUES (?,?)",
+                             (self.subjects[subject], subject))
+        return self.subjects[subject]
 
-        The file carries no locus column, so the variants tested here are the
-        only way to tell which rows belong.
+    def load_dosage(self, genotypes=None):
+        """Genotypes, from the cohort matrix where there is one.
+
+        Two sources say the same thing in different shapes. dosage_long.tsv.gz
+        is written by the run, but only for IGH, so a database built from it
+        leaves IGK and IGL with no genotypes at all and no per-variant plot. The
+        matrix the run was *given* (`config.genotype`: one row per variant, one
+        column per subject) covers every locus, so it is preferred, and
+        dosage_long is the fallback for a run whose matrix cannot be found.
+
+        Either way the rows are filtered to this locus by variant membership:
+        neither source carries a locus column, so the variants tested here are
+        the only way to tell which rows belong.
         """
+        if genotypes is None:
+            genotypes = genotype_matrix(self.run_dir)
+        if genotypes:
+            return self._load_dosage_matrix(genotypes)
+        return self._load_dosage_long()
+
+    def _load_dosage_matrix(self, path):
+        """Read the wide genotype matrix, streaming one variant per row.
+
+        Filtered on both axes as it goes rather than read whole: it holds the
+        entire cohort at every locus, and this database wants one locus of it.
+        """
+        rows = []
+        written = 0
+
+        with open(path, newline='') as handle:
+            reader = csv.reader(handle, delimiter='\t')
+            header = next(reader)
+
+            # load_asc_usage has already registered the subjects this locus
+            # phenotyped, and the matrix carries the rest of the cohort besides;
+            # a genotype with no usage to plot it against is not worth a row. If
+            # no phenotypes were loaded at all, keep the whole cohort rather than
+            # silently writing an empty table.
+            if not self.subjects:
+                for subject in header[1:]:
+                    self._register_subject(subject)
+            columns = [(index, self.subjects[subject])
+                       for index, subject in enumerate(header)
+                       if index and subject in self.subjects]
+
+            for record in reader:
+                variant_id = self.variants.get(record[0])
+                if not variant_id:
+                    continue
+
+                for index, subject_id in columns:
+                    dosage = _num(record[index])
+                    if dosage is None:
+                        continue        # NA: no call for this subject
+                    rows.append((variant_id, subject_id, dosage, _genotype(dosage)))
+
+                if len(rows) >= BATCH:
+                    written += self._insert('qtl_dosage', _DOSAGE_COLS, rows)
+                    rows = []
+
+        return written + self._insert('qtl_dosage', _DOSAGE_COLS, rows)
+
+    def _load_dosage_long(self):
         path = self._source('dosage_long.tsv.gz')
         if not os.path.exists(path):
             return 0
@@ -294,13 +393,7 @@ class QtlBuilder:
             if not variant_id:
                 continue
 
-            subject = row['subject']
-            if subject not in self.subjects:
-                self.subjects[subject] = len(self.subjects) + 1
-                self.con.execute("INSERT INTO qtl_subject (id, subject) VALUES (?,?)",
-                                 (self.subjects[subject], subject))
-
-            rows.append((variant_id, self.subjects[subject],
+            rows.append((variant_id, self._register_subject(row['subject']),
                          _num(row.get('dosage')), _num(row.get('genotype'), int)))
 
             if len(rows) >= BATCH:
@@ -412,8 +505,12 @@ def loci_in(run_dir):
                   if name.startswith('usage_associations_') and name.endswith('.tsv.gz'))
 
 
-def build(run_dir, species, locus, static_path):
-    """Build one locus, returning the row counts written."""
+def build(run_dir, species, locus, static_path, genotypes=None):
+    """Build one locus, returning the row counts written.
+
+    `genotypes` overrides the cohort genotype matrix; with none given the run's
+    manifest is asked where its own was (see genotype_matrix).
+    """
     path = os.path.join(static_path, 'study_data', 'QTL', 'db', species, locus, 'db.sqlite3')
     builder = QtlBuilder(run_dir, locus, path)
 
@@ -426,7 +523,7 @@ def build(run_dir, species, locus, static_path):
     counts['annotated'] = builder.annotate_variants()
     counts['leads'] = builder.mark_leads()
     counts['asc_usage'] = builder.load_asc_usage()
-    counts['dosage'] = builder.load_dosage()
+    counts['dosage'] = builder.load_dosage(genotypes)
     counts['subjects'] = len(builder.subjects)
     counts.update(builder.load_pairing())
     builder.finish(species)

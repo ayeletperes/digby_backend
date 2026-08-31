@@ -30,6 +30,14 @@ ns = api.namespace('qtl', description='Gene-usage QTL results')
 # is built and on disk, so this is a one-line change when that lands.
 HIDDEN_LOCI = {'IGH'}
 
+# The smallest genotype class a fit needs before the run calls it well powered.
+# Read off the run's own published leads rather than assumed: across all 1,228
+# rows carrying the flag in IGK and IGL, every one at 4 or below is flagged not
+# well powered and every one at 5 or above is flagged well powered, with no
+# exceptions in either locus. Applying it to the rest of the table says the same
+# thing about the same numbers, rather than leaving the caveat off most rows.
+WELL_POWERED_MIN = 5
+
 
 def qtl_session(species, locus):
     """Session for one guQTL dataset, or None if it is absent or held back."""
@@ -51,6 +59,25 @@ def available():
             ret['loci'][species] = loci
 
     return ret
+
+
+def gene_names(locus, asc):
+    """Every gene name an ASC answers to, for searching.
+
+    ASC names drop the locus, so IGL's `V9-49` is the gene IGLV9-49. A name
+    carrying a slash is a merged cluster of genes that cannot be told apart -
+    `V1-13/1D-13` is IGKV1-13 together with IGKV1D-13 - and the members after the
+    first are written without their segment letter, so it is put back. Someone
+    who types either member should find the cluster that contains it.
+    """
+    parts = str(asc).split('/')
+    segment = parts[0][:1]
+
+    names = {asc, f'{locus}{parts[0]}'}
+    for member in parts[1:]:
+        names.add(f'{locus}{segment}{member}' if not member.startswith(segment)
+                  else f'{locus}{member}')
+    return names
 
 
 def check_species_locus(species, locus):
@@ -136,25 +163,40 @@ class QtlManhattanApi(Resource):
         session = qtl_session(species, locus)
         asc = request.args.get('asc')
 
+        # Each ASC is its own scan, so a Manhattan is properly per-ASC. Without one
+        # this returns each variant's strongest signal across all of them, which is
+        # a summary rather than a test - so it also reports which ASC produced that
+        # maximum, or a click on a point would not know whose usage to plot.
+        # (SQLite returns the row matching a bare MAX() in a grouped query, which
+        # is what makes `Asc.asc` here the ASC that achieved it.)
         query = (
             session.query(Variant.variant, Variant.pos, Variant.maf, Variant.gene,
                           Variant.feature,
                           func.max(UsageAssociation.neglog10_p),
-                          func.max(cast(UsageAssociation.significant, Integer)))
+                          cast(UsageAssociation.significant, Integer),
+                          Asc.asc)
             .join(UsageAssociation, UsageAssociation.variant_id == Variant.id)
+            .join(Asc, Asc.id == UsageAssociation.asc_id)
             .group_by(Variant.id)
         )
 
         if asc:
-            query = query.join(Asc, Asc.id == UsageAssociation.asc_id).filter(Asc.asc == asc)
+            query = query.filter(Asc.asc == asc)
 
         points = [{'variant': variant, 'pos': pos, 'maf': maf, 'gene': gene,
                    'feature': feature, 'neglog10_p': neglog10_p,
-                   'significant': bool(significant)}
-                  for variant, pos, maf, gene, feature, neglog10_p, significant in query.all()]
+                   'significant': bool(significant), 'asc': best_asc}
+                  for variant, pos, maf, gene, feature, neglog10_p, significant,
+                      best_asc in query.all()]
         points.sort(key=lambda p: p['pos'] if p['pos'] is not None else 0)
 
+        # the contig the positions are on. IGH sits on a locus-relative contig
+        # literally named `igh` while the light chains use chr2 / chr22, so the
+        # axis has to say which frame it is drawn in rather than name the locus
+        contig = session.query(Variant.contig).filter(Variant.contig.isnot(None)).first()
+
         return {'locus': locus, 'asc': asc, 'points': points,
+                'contig': contig[0] if contig else None,
                 'thresholds': _thresholds(session),
                 'leads': _leads(session, asc)}
 
@@ -179,6 +221,81 @@ def _leads(session, asc=None, limit=10):
             for variant, pos, asc_name, p, beta, min_group, powered in rows]
 
 
+def _genotype_counts(session, record):
+    """How many subjects carry each genotype at a variant.
+
+    A property of the variant, not of the scan: the cohort is the same for every
+    ASC, and the only subjects a scan drops are the ones with no call here, which
+    is what `genotype is not null` already excludes.
+    """
+    rows = (
+        session.query(Dosage.genotype, func.count(Dosage.id))
+        .filter(Dosage.variant_id == record.id, Dosage.genotype.isnot(None))
+        .group_by(Dosage.genotype)
+        .all()
+    )
+    return {int(genotype): count for genotype, count in rows}
+
+
+def _variant_payload(session, record):
+    """A variant's identity, and every ASC scan it appeared in.
+
+    Shared by the two ways in: from a Manhattan point, where the locus is already
+    known, and from a bare variant id, where it is not.
+
+    `min_genotype_group` is filled in here. The run publishes it only for lead
+    variants - 988 of IGK's 7,255 significant rows, 240 of IGL's 1,573 - which
+    would leave the column that qualifies every p-value blank on most of the
+    table. It is recovered from the genotype counts instead, which reproduces the
+    run's own value exactly wherever the run published one. `well_powered`
+    follows from it by the run's own rule - see WELL_POWERED_MIN.
+    """
+    counts = _genotype_counts(session, record)
+    smallest = min(counts.values()) if counts else None
+
+    rows = (
+        session.query(Asc.asc, Asc.segment, UsageAssociation.beta, UsageAssociation.se,
+                      UsageAssociation.p_value, UsageAssociation.neglog10_p,
+                      UsageAssociation.significant, UsageAssociation.n,
+                      UsageAssociation.min_genotype_group, UsageAssociation.well_powered,
+                      UsageAssociation.is_lead)
+        .join(UsageAssociation, UsageAssociation.asc_id == Asc.id)
+        .filter(UsageAssociation.variant_id == record.id)
+        .order_by(UsageAssociation.neglog10_p.desc())
+        .all()
+    )
+
+    associations = [
+        {'asc': asc, 'segment': segment, 'beta': beta, 'se': se, 'p_value': p,
+         'neglog10_p': neglog10_p, 'significant': bool(significant), 'n': n,
+         'min_genotype_group': min_group if min_group is not None else smallest,
+         'well_powered': (bool(powered) if powered is not None
+                          else None if smallest is None
+                          else smallest >= WELL_POWERED_MIN),
+         'is_lead': bool(lead)}
+        for asc, segment, beta, se, p, neglog10_p, significant, n,
+            min_group, powered, lead in rows]
+
+    return {
+        'variant': {'variant': record.variant, 'contig': record.contig, 'pos': record.pos,
+                    'maf': record.maf, 'gene': record.gene, 'feature': record.feature,
+                    'sub_feature': record.sub_feature,
+                    'distance_to_gene': record.distance_to_gene},
+        'associations': associations,
+        # a variant is tested against every ASC in the locus, so "how many genes
+        # does it actually drive" is the number the table is really asked for
+        'n_tested': len(associations),
+        'n_significant': sum(1 for a in associations if a['significant']),
+        # the same three numbers the boxplot is drawn over, stated once: they
+        # qualify every row of the table rather than any one of them
+        'genotype_counts': counts,
+        'min_genotype_group': smallest,
+        'thresholds': _thresholds(session),
+        'has_genotypes': session.query(Dosage.id)
+            .filter(Dosage.variant_id == record.id).first() is not None,
+    }
+
+
 @ns.route('/variant/<string:species>/<string:locus>/<path:variant>')
 @api.response(404, 'Species, locus or variant not found')
 class QtlVariantApi(Resource):
@@ -195,34 +312,45 @@ class QtlVariantApi(Resource):
         if record is None:
             return {'message': f'No such variant: {variant}'}, 404
 
-        rows = (
-            session.query(Asc.asc, Asc.segment, UsageAssociation.beta, UsageAssociation.se,
-                          UsageAssociation.p_value, UsageAssociation.neglog10_p,
-                          UsageAssociation.significant, UsageAssociation.n,
-                          UsageAssociation.min_genotype_group, UsageAssociation.well_powered,
-                          UsageAssociation.is_lead)
-            .join(UsageAssociation, UsageAssociation.asc_id == Asc.id)
-            .filter(UsageAssociation.variant_id == record.id)
-            .order_by(UsageAssociation.neglog10_p.desc())
-            .all()
-        )
+        payload = _variant_payload(session, record)
+        payload['locus'] = locus
+        return payload
 
-        return {
-            'variant': {'variant': record.variant, 'contig': record.contig, 'pos': record.pos,
-                        'maf': record.maf, 'gene': record.gene, 'feature': record.feature,
-                        'sub_feature': record.sub_feature,
-                        'distance_to_gene': record.distance_to_gene},
-            'associations': [
-                {'asc': asc, 'segment': segment, 'beta': beta, 'se': se, 'p_value': p,
-                 'neglog10_p': neglog10_p, 'significant': bool(significant), 'n': n,
-                 'min_genotype_group': min_group,
-                 'well_powered': bool(powered) if powered is not None else None,
-                 'is_lead': bool(lead)}
-                for asc, segment, beta, se, p, neglog10_p, significant, n,
-                    min_group, powered, lead in rows],
-            'has_genotypes': session.query(Dosage.id)
-                .filter(Dosage.variant_id == record.id).first() is not None,
-        }
+
+@ns.route('/variant_lookup/<string:species>/<path:variant>')
+@api.response(404, 'Species or variant not found')
+class QtlVariantLookupApi(Resource):
+    @digby_protected()
+    def get(self, species, variant):
+        """ Resolves a bare variant id to its locus and every ASC it was tested against
+
+        The lookup people actually arrive with. Someone holding an id from a GWAS
+        hit knows the id and nothing else - not which locus it falls in, and not
+        which genes were scanned against it - so every offered locus is searched
+        for an exact match rather than the caller being asked to guess.
+
+        Ids carry their contig (`chr22_22756855`, `igh_...`) and the loci sit on
+        different contigs, so a match is unambiguous and the first one is the one.
+        """
+        catalogue = available()
+        if species not in catalogue['species']:
+            return {'message': 'Species not found'}, 404
+
+        for locus in catalogue['loci'][species]:
+            session = qtl_session(species, locus)
+            if session is None:
+                continue
+
+            record = (session.query(Variant)
+                      .filter(Variant.variant == variant).one_or_none())
+            if record is None:
+                continue
+
+            payload = _variant_payload(session, record)
+            payload['locus'] = locus
+            return payload
+
+        return {'message': f'No such variant: {variant}'}, 404
 
 
 @ns.route('/variant_usage/<string:species>/<string:locus>/<path:variant>')
@@ -293,3 +421,83 @@ class QtlVariantUsageApi(Resource):
                                  if association.well_powered is not None else None),
             },
         }
+
+
+@ns.route('/search/<string:species>')
+@api.response(404, 'Species not found')
+class QtlSearchApi(Resource):
+    @digby_protected()
+    def get(self, species):
+        """ Resolves a typed query to variants and genes across every locus
+
+        The two questions people arrive with are "I have a variant, is it a QTL
+        here" and "I have a gene, does anything drive its usage" - neither of
+        which starts from a Manhattan plot. Both are answered from the same box,
+        so the caller does not have to know which locus to look in first.
+        """
+        query = (request.args.get('q') or '').strip()
+        # each side of the dashboard asks only about its own kind, so the other
+        # scan is skipped rather than run and discarded
+        kind = request.args.get('kind') or 'both'
+        want_variants = kind in ('both', 'variant')
+        want_genes = kind in ('both', 'gene')
+
+        if len(query) < 2:
+            return {'query': query, 'variants': [], 'genes': []}
+
+        catalogue = available()
+        if species not in catalogue['species']:
+            return {'message': 'Species not found'}, 404
+
+        needle = f'%{query}%'
+        variants, genes = [], []
+
+        for locus in catalogue['loci'][species]:
+            session = qtl_session(species, locus)
+            if session is None:
+                continue
+
+            # a variant: how strong its best hit was, and against which gene
+            rows = [] if not want_variants else (
+                session.query(Variant.variant, Variant.pos, Variant.gene, Variant.feature,
+                              func.max(UsageAssociation.neglog10_p), Asc.asc,
+                              cast(UsageAssociation.significant, Integer))
+                .join(UsageAssociation, UsageAssociation.variant_id == Variant.id)
+                .join(Asc, Asc.id == UsageAssociation.asc_id)
+                .filter(Variant.variant.like(needle))
+                .group_by(Variant.id)
+                .order_by(func.max(UsageAssociation.neglog10_p).desc())
+                .limit(25)
+                .all()
+            )
+            variants.extend(
+                {'locus': locus, 'variant': variant, 'pos': pos, 'gene': gene,
+                 'feature': feature, 'neglog10_p': best, 'asc': asc,
+                 'significant': bool(significant)}
+                for variant, pos, gene, feature, best, asc, significant in rows)
+
+            # ASC names drop the locus - IGL's V9-49 is the gene IGLV9-49 - and
+            # people type the full name, so match against both. There are only a
+            # few dozen per locus, so filtering here beats string-building in SQL.
+            rows = [] if not want_genes else (
+                session.query(Asc.asc, Asc.segment,
+                              func.count(UsageAssociation.id),
+                              func.sum(cast(UsageAssociation.significant, Integer)),
+                              func.max(UsageAssociation.neglog10_p))
+                .join(UsageAssociation, UsageAssociation.asc_id == Asc.id)
+                .group_by(Asc.id)
+                .all()
+            )
+            wanted = query.upper()
+            for asc, segment, tested, significant, best in rows:
+                if not any(wanted in name.upper() for name in gene_names(locus, asc)):
+                    continue
+                genes.append(
+                    {'locus': locus, 'asc': asc, 'gene': f'{locus}{asc}', 'segment': segment,
+                     'n_variants': tested, 'n_significant': int(significant or 0),
+                     'best_neglog10_p': best})
+
+        variants.sort(key=lambda v: v['neglog10_p'], reverse=True)
+        genes.sort(key=lambda g: g['n_significant'], reverse=True)
+
+        return {'query': query, 'variants': variants[:25], 'genes': genes[:25]}

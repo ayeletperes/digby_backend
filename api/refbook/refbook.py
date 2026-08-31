@@ -206,9 +206,13 @@ class ProjectsApi(Resource):
 
             for name, accession, count in rows:
                 entry = found.setdefault(name, {'name': name, 'accession': accession,
-                                                'samples': 0, 'sources': []})
+                                                'samples': 0, 'sources': [],
+                                                'by_source': {}})
                 entry['samples'] += count
                 entry['sources'].append(source)
+                # kept split as well as totalled: a project in both databases is
+                # one bar per database, and `samples` alone cannot be unstacked
+                entry['by_source'][source] = count
 
         projects = sorted(found.values(), key=lambda p: _project_order(p['name']))
         return {'projects': projects}
@@ -253,6 +257,48 @@ class SamplesApi(Resource):
 
         samples = sorted(found.values(), key=lambda s: s['name'])
         return {'samples': samples}
+
+
+@ns.route('/summary')
+class RefbookSummary(Resource):
+    @digby_protected()
+    def get(self):
+        """ Headline counts for the landing page
+
+        Samples are counted as distinct names per species+locus, unioned across
+        the two databases. That matters in both directions: the human cohorts are
+        disjoint, so genomic and AIRR-seq add up, while the rhesus macaque cohort
+        was sequenced both ways and its 106 animals would otherwise be counted
+        twice.
+        """
+        catalogue = species_and_loci()
+        samples, projects, datasets = 0, set(), 0
+
+        for species in catalogue['species']:
+            for locus in catalogue['loci'][species]:
+                names = set()
+                # joined through Sample, not read off Study directly: a study row
+                # with no samples in this locus is not a project anyone can look at
+                session = dataset_session(vdjbase_dbs, species, locus, None, 'airrseq')
+                if session is not None:
+                    rows = (session.query(VDJbaseSample.sample_name, VDJbaseStudy.study_name)
+                            .join(VDJbaseStudy, VDJbaseStudy.id == VDJbaseSample.study_id).all())
+                    names.update(n for n, _ in rows)
+                    projects.update(p for _, p in rows)
+
+                session = dataset_session(genomic_dbs, species, locus, None, 'genomic')
+                if session is not None:
+                    rows = (session.query(GenomicSample.sample_name, GenomicStudy.study_name)
+                            .join(GenomicStudy, GenomicStudy.id == GenomicSample.study_id).all())
+                    names.update(n for n, _ in rows)
+                    projects.update(p for _, p in rows)
+
+                if names:
+                    datasets += 1
+                samples += len(names)
+
+        return {'samples': samples, 'projects': len(projects), 'datasets': datasets,
+                'species': len(catalogue['species'])}
 
 
 @ns.route('/ascs_in_locus/<string:species>/<string:locus>')
@@ -340,40 +386,64 @@ class AscsOverview(Resource):
         # when the database was built, so they ignore the project and sample
         # filters and had drifted (248 recorded against 250 actual). Count the
         # samples directly instead, so these agree with the carrier figures.
-        observed_airrseq = {}
-        observed_genomic = {}
+        #
+        # Sample *names*, not counts, because "both" has to be an intersection.
+        #
+        # Whether that intersection can be non-empty depends on the species. The
+        # rhesus macaque data is one cohort sequenced both ways - 106 of 106
+        # samples carry the same name in both databases - so an allele really can
+        # be seen in the same animal by both. The human databases hold disjoint
+        # cohorts (genomic P25/P28, AIRR-seq P2..P34; no shared sample, no shared
+        # project), so there the intersection is empty and saying so is the
+        # honest answer. `min(genomic, airrseq)`, which this used to report, is
+        # neither: it invented 299 shared samples for IGHV1-18*01 out of two
+        # cohorts with nobody in common.
+        #
+        carriers_airrseq = {}
+        carriers_genomic = {}
         airrseq_scoped = False
         genomic_scoped = False
+        airrseq_cohort = set()
+        genomic_cohort = set()
 
         session = dataset_session(vdjbase_dbs, species, locus, sources, 'airrseq')
         if session is not None:
-            counted = (
-                session.query(VDJbaseAllele.name,
-                              func.count(distinct(VDJbaseAllelesSample.sample_id)))
+            named = (
+                session.query(VDJbaseAllele.name, VDJbaseSample.sample_name)
                 .select_from(VDJbaseAllelesSample)
                 .join(VDJbaseAllele, VDJbaseAllele.id == VDJbaseAllelesSample.allele_id)
                 .join(VDJbaseGene, VDJbaseGene.id == VDJbaseAllele.gene_id)
                 .join(VDJbaseSample, VDJbaseSample.id == VDJbaseAllelesSample.sample_id)
                 .filter(VDJbaseGene.name == asc)
-                .group_by(VDJbaseAllele.name)
             )
-            observed_airrseq = dict(sample_filter(counted, projects, samples, session).all())
+            for allele_name, sample_name in sample_filter(named, projects, samples, session).all():
+                carriers_airrseq.setdefault(allele_name, set()).add(sample_name)
+
+            in_scope = sample_filter(session.query(VDJbaseSample.sample_name),
+                                     projects, samples, session).all()
+            airrseq_cohort = {name for (name,) in in_scope}
             _, _, airrseq_scoped = applicable(session, VDJbaseStudy, VDJbaseSample, projects, samples)
 
         session = dataset_session(genomic_dbs, species, locus, sources, 'genomic')
         if session is not None:
-            counted = (
-                session.query(GenomicSequence.name,
-                              func.count(distinct(GenomicSampleSequence.sample_id)))
+            named = (
+                session.query(GenomicSequence.name, GenomicSample.sample_name)
                 .select_from(GenomicSampleSequence)
                 .join(GenomicSequence, GenomicSequence.id == GenomicSampleSequence.sequence_id)
                 .join(GenomicGene, GenomicGene.id == GenomicSequence.gene_id)
                 .join(GenomicSample, GenomicSample.id == GenomicSampleSequence.sample_id)
                 .filter(GenomicGene.name == asc)
-                .group_by(GenomicSequence.name)
             )
-            observed_genomic = dict(genomic_sample_filter(counted, projects, samples, session).all())
+            for allele_name, sample_name in genomic_sample_filter(named, projects, samples, session).all():
+                carriers_genomic.setdefault(allele_name, set()).add(sample_name)
+
+            in_scope = genomic_sample_filter(session.query(GenomicSample.sample_name),
+                                             projects, samples, session).all()
+            genomic_cohort = {name for (name,) in in_scope}
             _, _, genomic_scoped = applicable(session, GenomicStudy, GenomicSample, projects, samples)
+
+        observed_airrseq = {name: len(rows) for name, rows in carriers_airrseq.items()}
+        observed_genomic = {name: len(rows) for name, rows in carriers_genomic.items()}
 
         ret['total'] = len(alleles)
         ret['novel'] = sum(rec['novel'] for rec in alleles.values())
@@ -382,16 +452,32 @@ class AscsOverview(Resource):
         ret['alleles'] = list(alleles.keys())
         # these counts may not be exactly what we want, I am not sure what to do if there are samples
         # for which we don't have both genomic and airr-seq results
-        ret['genomic_only_counts'] = [rec['Genomic'] if rec['VDJbase'] == 0 else 0 for rec in alleles.values()]
-        ret['vdjbase_only_counts'] = [rec['VDJbase'] if rec['Genomic'] == 0 else 0 for rec in alleles.values()]
-        ret['both_counts'] = [min(rec['Genomic'], rec['VDJbase']) if rec['Genomic'] > 0 and rec['VDJbase'] > 0 else 0 for rec in alleles.values()]
+        # Three exclusive buckets over the same samples, so they add up to the
+        # number of distinct samples carrying the allele in either database.
+        ret['genomic_only_counts'] = [
+            len(carriers_genomic.get(name, set()) - carriers_airrseq.get(name, set()))
+            for name in alleles]
+        ret['vdjbase_only_counts'] = [
+            len(carriers_airrseq.get(name, set()) - carriers_genomic.get(name, set()))
+            for name in alleles]
+        ret['both_counts'] = [
+            len(carriers_genomic.get(name, set()) & carriers_airrseq.get(name, set()))
+            for name in alleles]
 
-        # The three series above are exclusive buckets for a stacked bar, and
-        # `both` is a minimum, so the per-database totals cannot be recovered from
-        # them. Report them separately for anything that needs the real figures.
+        # The per-database totals, which the buckets above no longer hide.
         ret['genomic_counts'] = [observed_genomic.get(name, 0) for name in alleles]
         ret['vdjbase_counts'] = [observed_airrseq.get(name, 0) for name in alleles]
         ret['scoped'] = {'genomic': genomic_scoped, 'airrseq': airrseq_scoped}
+
+        # How many samples the figures are drawn from, and how many of them are
+        # the same animal in both databases. A UI needs the last number to tell
+        # "no allele happens to be shared" apart from "these cohorts have nobody
+        # in common, so Both cannot be anything but zero".
+        ret['cohort'] = {
+            'genomic': len(genomic_cohort),
+            'airrseq': len(airrseq_cohort),
+            'shared': len(genomic_cohort & airrseq_cohort),
+        }
 
         return ret
 
@@ -669,7 +755,13 @@ class AscZygosity(Resource):
         samples = requested_list('samples')
         alleles = requested_list('alleles')
 
-        recs = []
+        # Keyed on sample name and unioned across the databases, because the unit
+        # of zygosity is the subject, not the record. Where the same subject was
+        # sequenced both ways - the rhesus macaque cohort is, 106 of 106 names
+        # match - the two databases describe one animal and must not become two
+        # rows. Where the cohorts are disjoint, as in the human data, the union is
+        # simply a concatenation.
+        carried = {}
 
         session = dataset_session(vdjbase_dbs, species, locus, sources, 'airrseq')
         if session is not None:
@@ -705,11 +797,58 @@ class AscZygosity(Resource):
                 .all()
             )
 
-            for sample_name, alleles in alleles_per_sample:
-                allele_list = alleles.split(',') if alleles else []
-                recs.append({
-                    "name": sample_name,
-                    "sets": list(allele_list)
-                })
+            # not `alleles`: that name holds the requested allele filter, and
+            # rebinding it here left the genomic branch below filtering on a
+            # row's comma-joined string instead of the caller's list
+            for sample_name, carried_names in alleles_per_sample:
+                if carried_names:
+                    carried.setdefault(sample_name, set()).update(carried_names.split(','))
+
+        # Genomic carries the same information: which alleles of the gene a
+        # sample holds. Only *usage* is genuinely AIRR-seq-only, so the panel
+        # used to be gated on a database it did not actually need.
+        session = dataset_session(genomic_dbs, species, locus, sources, 'genomic')
+        if session is not None:
+
+            genomic_query = (
+                session.query(
+                    GenomicSample.sample_name,
+                    func.group_concat(func.distinct(GenomicSequence.name)).label("alleles"),
+                )
+                # as above: let the association table decide the FROM, so the
+                # explicit join does not add `sample` a second time
+                .select_from(GenomicSampleSequence)
+                .join(GenomicSequence, GenomicSequence.id == GenomicSampleSequence.sequence_id)
+                .join(GenomicGene, GenomicGene.id == GenomicSequence.gene_id)
+                .join(GenomicSample, GenomicSample.id == GenomicSampleSequence.sample_id)
+                .filter(
+                    GenomicGene.name == asc,
+                    or_(GenomicSequence.functional == 'Functional',
+                        GenomicSequence.functional == 'ORF'),
+                )
+            )
+
+            if alleles:
+                carriers = (
+                    session.query(GenomicSampleSequence.sample_id)
+                    .join(GenomicSequence,
+                          GenomicSequence.id == GenomicSampleSequence.sequence_id)
+                    .filter(GenomicSequence.name.in_(alleles))
+                    .subquery()
+                )
+                genomic_query = genomic_query.filter(GenomicSample.id.in_(carriers))
+
+            genomic_per_sample = (
+                genomic_sample_filter(genomic_query, projects, samples, session)
+                .group_by(GenomicSample.id)
+                .all()
+            )
+
+            for sample_name, carried_names in genomic_per_sample:
+                if carried_names:
+                    carried.setdefault(sample_name, set()).update(carried_names.split(','))
+
+        recs = [{'name': name, 'sets': sorted(sets)}
+                for name, sets in sorted(carried.items())]
 
         return {'samples': recs}

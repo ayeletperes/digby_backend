@@ -22,10 +22,16 @@ def main():
                         help='build only this locus; repeatable')
     parser.add_argument('--static', default=None,
                         help='static path to write under (default ./static)')
+    parser.add_argument('--genotypes', default=None,
+                        help='the cohort genotype matrix to take genotypes from '
+                             '(default: the one the run records in its manifest)')
     args = parser.parse_args()
 
     if not os.path.isdir(args.run_dir):
         sys.exit(f'No such run directory: {args.run_dir}')
+
+    if args.genotypes and not os.path.exists(args.genotypes):
+        sys.exit(f'No such genotype matrix: {args.genotypes}')
 
     static_path = args.static or os.path.join(os.getcwd(), 'static')
     loci = args.locus or loci_in(args.run_dir)
@@ -34,7 +40,7 @@ def main():
 
     for locus in loci:
         print(f'{args.species} {locus}:')
-        counts = build(args.run_dir, args.species, locus, static_path)
+        counts = build(args.run_dir, args.species, locus, static_path, args.genotypes)
         path = counts.pop('path')
         for name, value in counts.items():
             print(f'    {name:22} {value:>9,}')
