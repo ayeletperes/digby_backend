@@ -128,6 +128,11 @@ class QtlPairingVariantsApi(Resource):
 
         return {'species': species, 'locus': locus, 'conditional': conditional,
                 'conditionals': list(CONDITIONALS),
+                # zero scanned and zero significant are different answers, and an
+                # empty list cannot tell them apart: only IGH has a pairing scan,
+                # and a light chain returning nothing must not read as a scan that
+                # found nothing
+                'scanned': bool(total),
                 # every count it took to get here, so a shortened list cannot be
                 # mistaken for the whole scan
                 'n_variants_scanned': int(total or 0),
