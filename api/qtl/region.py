@@ -84,7 +84,15 @@ def _bed(name):
     Static release files, so they are read once and kept. Each is a few hundred
     rows; the whole set is under 100 kB.
     """
-    path = os.path.join(_annotation_dir(), name + '.bed')
+    directory = _annotation_dir()
+    if not os.path.isdir(directory):
+        # returning nothing here would report every variant as intergenic, which
+        # is a wrong answer rather than a missing one
+        raise FileNotFoundError(
+            f'guQTL annotation not found at {directory}. This is the BED release the '
+            'analysis was run against; set QTL_ANNOTATION_PATH to point at it.')
+
+    path = os.path.join(directory, name + '.bed')
     stamp = os.path.getmtime(path) if os.path.exists(path) else None
 
     hit = _cache.get(path)

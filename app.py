@@ -71,7 +71,14 @@ from api.genomic.genomic import ns as genomic
 from api.vdjbase.vdjbase import ns as vdjbase
 from api.reports.reports import ns as reports
 from api.refbook.refbook import ns as refbook
+from api.refbook.sunburst import ns as refbook_sunburst
 from api.qtl.qtl import ns as qtl
+# tree and region build their namespace with api.namespace(), which registers it
+# on import, so importing them is all the wiring they need. Bind them under a
+# different name: `import api.refbook.tree` would rebind `api` here to the
+# package, shadowing the Api object imported from api.restx.
+from api.refbook import tree as _refbook_tree      # noqa: F401
+from api.qtl import region as _qtl_region          # noqa: F401
 from api.system.system import ns as system, digby_protected
 
 from db.genomic_db import *
@@ -88,6 +95,7 @@ api.add_namespace(vdjbase)
 api.add_namespace(reports)
 api.add_namespace(system)
 api.add_namespace(refbook)
+api.add_namespace(refbook_sunburst)
 api.add_namespace(qtl)
 app.register_blueprint(blueprint)
 
