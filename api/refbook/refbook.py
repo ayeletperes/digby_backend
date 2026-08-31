@@ -399,51 +399,88 @@ class AscsOverview(Resource):
         # neither: it invented 299 shared samples for IGHV1-18*01 out of two
         # cohorts with nobody in common.
         #
+        # Whether the per-sample rows are needed at all. Pulling one row per
+        # (allele, sample) so the Both column can be an intersection costs ~300ms
+        # for a big gene against ~40ms for plain counts, and it is wasted whenever
+        # the two cohorts are disjoint - which they are for every human locus,
+        # where Both is necessarily zero. The names are fetched only when a sample
+        # can actually be in both databases.
         carriers_airrseq = {}
         carriers_genomic = {}
+        observed_airrseq = {}
+        observed_genomic = {}
         airrseq_scoped = False
         genomic_scoped = False
         airrseq_cohort = set()
         genomic_cohort = set()
+        airrseq_session = genomic_session = None
 
-        session = dataset_session(vdjbase_dbs, species, locus, sources, 'airrseq')
-        if session is not None:
-            named = (
-                session.query(VDJbaseAllele.name, VDJbaseSample.sample_name)
+        # Pass one: who is in each cohort. One column per sample, so it is cheap,
+        # and it decides whether the per-allele rows below need names at all.
+        airrseq_session = dataset_session(vdjbase_dbs, species, locus, sources, 'airrseq')
+        if airrseq_session is not None:
+            in_scope = sample_filter(airrseq_session.query(VDJbaseSample.sample_name),
+                                     projects, samples, airrseq_session).all()
+            airrseq_cohort = {name for (name,) in in_scope}
+            _, _, airrseq_scoped = applicable(airrseq_session, VDJbaseStudy, VDJbaseSample,
+                                              projects, samples)
+
+        genomic_session = dataset_session(genomic_dbs, species, locus, sources, 'genomic')
+        if genomic_session is not None:
+            in_scope = genomic_sample_filter(genomic_session.query(GenomicSample.sample_name),
+                                             projects, samples, genomic_session).all()
+            genomic_cohort = {name for (name,) in in_scope}
+            _, _, genomic_scoped = applicable(genomic_session, GenomicStudy, GenomicSample,
+                                              projects, samples)
+
+        # Pass two. Names are only needed for the intersection, so where no sample
+        # is in both databases - every human locus - count in SQL instead.
+        shared_cohort = airrseq_cohort & genomic_cohort
+        need_names = bool(shared_cohort)
+
+        if airrseq_session is not None:
+            base = (
+                airrseq_session.query(VDJbaseAllele.name, VDJbaseSample.sample_name)
                 .select_from(VDJbaseAllelesSample)
                 .join(VDJbaseAllele, VDJbaseAllele.id == VDJbaseAllelesSample.allele_id)
                 .join(VDJbaseGene, VDJbaseGene.id == VDJbaseAllele.gene_id)
                 .join(VDJbaseSample, VDJbaseSample.id == VDJbaseAllelesSample.sample_id)
                 .filter(VDJbaseGene.name == asc)
             )
-            for allele_name, sample_name in sample_filter(named, projects, samples, session).all():
-                carriers_airrseq.setdefault(allele_name, set()).add(sample_name)
+            if need_names:
+                for allele_name, sample_name in sample_filter(base, projects, samples,
+                                                              airrseq_session).all():
+                    carriers_airrseq.setdefault(allele_name, set()).add(sample_name)
+            else:
+                counted = base.with_entities(
+                    VDJbaseAllele.name, func.count(distinct(VDJbaseAllelesSample.sample_id))
+                ).group_by(VDJbaseAllele.name)
+                observed_airrseq = dict(sample_filter(counted, projects, samples,
+                                                      airrseq_session).all())
 
-            in_scope = sample_filter(session.query(VDJbaseSample.sample_name),
-                                     projects, samples, session).all()
-            airrseq_cohort = {name for (name,) in in_scope}
-            _, _, airrseq_scoped = applicable(session, VDJbaseStudy, VDJbaseSample, projects, samples)
-
-        session = dataset_session(genomic_dbs, species, locus, sources, 'genomic')
-        if session is not None:
-            named = (
-                session.query(GenomicSequence.name, GenomicSample.sample_name)
+        if genomic_session is not None:
+            base = (
+                genomic_session.query(GenomicSequence.name, GenomicSample.sample_name)
                 .select_from(GenomicSampleSequence)
                 .join(GenomicSequence, GenomicSequence.id == GenomicSampleSequence.sequence_id)
                 .join(GenomicGene, GenomicGene.id == GenomicSequence.gene_id)
                 .join(GenomicSample, GenomicSample.id == GenomicSampleSequence.sample_id)
                 .filter(GenomicGene.name == asc)
             )
-            for allele_name, sample_name in genomic_sample_filter(named, projects, samples, session).all():
-                carriers_genomic.setdefault(allele_name, set()).add(sample_name)
+            if need_names:
+                for allele_name, sample_name in genomic_sample_filter(base, projects, samples,
+                                                                      genomic_session).all():
+                    carriers_genomic.setdefault(allele_name, set()).add(sample_name)
+            else:
+                counted = base.with_entities(
+                    GenomicSequence.name, func.count(distinct(GenomicSampleSequence.sample_id))
+                ).group_by(GenomicSequence.name)
+                observed_genomic = dict(genomic_sample_filter(counted, projects, samples,
+                                                              genomic_session).all())
 
-            in_scope = genomic_sample_filter(session.query(GenomicSample.sample_name),
-                                             projects, samples, session).all()
-            genomic_cohort = {name for (name,) in in_scope}
-            _, _, genomic_scoped = applicable(session, GenomicStudy, GenomicSample, projects, samples)
-
-        observed_airrseq = {name: len(rows) for name, rows in carriers_airrseq.items()}
-        observed_genomic = {name: len(rows) for name, rows in carriers_genomic.items()}
+        if need_names:
+            observed_airrseq = {name: len(rows) for name, rows in carriers_airrseq.items()}
+            observed_genomic = {name: len(rows) for name, rows in carriers_genomic.items()}
 
         ret['total'] = len(alleles)
         ret['novel'] = sum(rec['novel'] for rec in alleles.values())
