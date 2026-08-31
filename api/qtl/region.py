@@ -113,6 +113,21 @@ def _bed(name):
     return rows
 
 
+def _release(directory):
+    """The annotation release, as the release itself states it.
+
+    The directory name is not the release: this one is called `annotation`, while
+    the files in it are `immune_receptor_genomics release 251106`. A different
+    release moves every feature call, so what travels with the answer has to be
+    the version, not where it happens to be mounted.
+    """
+    try:
+        with open(os.path.join(directory, 'RELEASE.txt')) as handle:
+            return handle.readline().strip() or None
+    except OSError:
+        return None
+
+
 def _overlapping(name, contig, start, end):
     return [row for row in _bed(name)
             if row[0] == contig and row[1] <= end and row[2] >= start]
@@ -186,8 +201,7 @@ class QtlRegionApi(Resource):
             # said rather than implied: an unconfigured annotation directory draws
             # an empty track, and an empty track must not read as empty sequence
             'annotation': {'available': annotated,
-                           'source': os.path.basename(directory.rstrip('/'))
-                           if annotated else None},
+                           'source': _release(directory) if annotated else None},
         }
 
 
