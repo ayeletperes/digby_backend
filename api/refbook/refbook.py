@@ -42,8 +42,6 @@ def species_and_loci():
                 ret['species'].append(sp)
             for rec in get_datasets(sp):
                 loc = rec['dataset']
-                if 'IGHC' in loc:
-                    continue
                 # a locus held in both databases must still appear once
                 if loc not in ret['loci'].setdefault(sp, []):
                     ret['loci'][sp].append(loc)
@@ -318,23 +316,37 @@ class AscsInLocusApi(Resource):
         genomic = False
         airr_seq = False
 
+        # segment comes from the stored type, not the name: IGHA1 and IGHG1 do not
+        # carry it, and IGHD is both the delta constant gene and a D-segment prefix
+        segments = {}
+
+        # a gene with no sequence has nothing for any panel to draw. The IGHC
+        # dataset carries 78 V, 37 D and 6 J gene rows with zero sequences
+        # between them, and listing those offers 98 genes that open empty.
         session = dataset_session(vdjbase_dbs, species, locus, sources, 'airrseq')
         if session is not None:
-            genes = session.query(VDJbaseGene.name).filter(VDJbaseGene.pseudo_gene == 0).all()
+            genes = session.query(VDJbaseGene.name, VDJbaseGene.type) \
+                .join(VDJbaseAllele, VDJbaseAllele.gene_id == VDJbaseGene.id) \
+                .filter(VDJbaseGene.pseudo_gene == 0).distinct().all()
             ascs.extend([g[0] for g in genes])
+            segments.update({g[0]: segment_of_type(g[1]) for g in genes})
             airr_seq = True
 
         session = dataset_session(genomic_dbs, species, locus, sources, 'genomic')
         if session is not None:
-            genes = session.query(GenomicGene.name).filter(GenomicGene.pseudo_gene == 0).all()
+            genes = session.query(GenomicGene.name, GenomicGene.type) \
+                .join(GenomicSequence, GenomicSequence.gene_id == GenomicGene.id) \
+                .filter(GenomicGene.pseudo_gene == 0).distinct().all()
             ascs.extend([g[0] for g in genes])
+            segments.update({g[0]: segment_of_type(g[1]) for g in genes})
             genomic = True
 
         # both databases contribute: re-deriving this from `genes` dropped whichever
         # ran first, and raised NameError when neither held the locus
         ascs = sorted(set(ascs))
         ascs = [g for g in ascs if '/OR' not in g] # filter orphons
-        return {'ascs': ascs, 'genomic': genomic, 'airr_seq': airr_seq}
+        return {'ascs': ascs, 'segments': {g: segments[g] for g in ascs},
+                'genomic': genomic, 'airr_seq': airr_seq}
 
 
 @ns.route('/ascs_overview/<string:species>/<string:locus>/<path:asc>')
@@ -575,10 +587,31 @@ def collect_asc_sequences(species, locus, asc, sources=None, allele_names=None,
     return recs
 
 
+SEGMENTS = ('V', 'D', 'J', 'C')
+
+
+def segment_of_type(gene_type):
+    """ The segment a gene's stored type says it is: IGHV -> V, IGHC -> C.
+
+    The type is what the database records, so this works for a constant gene,
+    whose name does not carry the segment where a V, D or J name does. Prefer it
+    to segment_of.
+    """
+    code = (gene_type or '')[3:4].upper()
+    return code if code in SEGMENTS else '?'
+
+
 def segment_of(asc):
-    """ V, D or J, taken from the fourth character of the ASC name (IGHV1-2 -> V). """
-    segment = asc[3:4].upper()
-    return segment if segment in ('V', 'D', 'J') else 'V'
+    """ The segment read off an ASC name (IGHV1-2 -> V), where nothing better is at hand.
+
+    Only V, D and J names carry it. IGHA1 and IGHG1 do not, and IGHD is the delta
+    constant gene as well as a D-segment prefix, so a name is not enough for a
+    constant locus - use segment_of_type against Gene.type there. This returned
+    'V' for anything it did not recognise, which made a constant gene a V gene
+    silently; it says so now.
+    """
+    segment = (asc or '')[3:4].upper()
+    return segment if segment in SEGMENTS else '?'
 
 
 def dataset_stamp(species, locus):

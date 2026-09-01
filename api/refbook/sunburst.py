@@ -36,13 +36,25 @@ _FAMILY = re.compile(r'^([A-Z]{2,3}[VDJC]\d*)')
 _DIGITS = re.compile(r'(\d+)')
 
 
-def family_of(gene):
-    """ IGHV1-18 -> IGHV1.
+_ISOTYPE = re.compile(r'^(IG[HKL][ADEGM])')
+
+
+def family_of(gene, segment=None):
+    """ IGHV1-18 -> IGHV1, IGHG1 -> IGHG.
 
     Derived from the gene name rather than read off Gene.family, because the two
     databases fill that column differently: the AIRR-seq side holds 'IGHV1' where
     the genomic side holds '1'. Merging on it would split every subgroup in two.
+
+    Constant genes are named for their isotype rather than a numbered subgroup,
+    so they group by it: IGHG1 to IGHG4 and IGHG4D are the IgG subclasses and
+    belong under IGHG. The segment has to be passed in, because IGHD is the delta
+    constant gene and also the prefix every D gene shares.
     """
+    if segment == 'C':
+        match = _ISOTYPE.match(gene or '')
+        return match.group(1) if match else (gene or '?')
+
     match = _FAMILY.match(gene or '')
     return match.group(1) if match else (gene or '?')
 
@@ -83,8 +95,9 @@ def collect(species, locus, sources):
             return
         entry = found.get(allele)
         if entry is None:
-            entry = found[allele] = {'gene': gene, 'segment': segment_of(gene_type),
-                                     'subgroup': family_of(gene), 'novel': False,
+            segment = segment_of(gene_type)
+            entry = found[allele] = {'gene': gene, 'segment': segment,
+                                     'subgroup': family_of(gene, segment), 'novel': False,
                                      'genomic': 0, 'airrseq': 0}
         entry[source] = 1
         # a novel call in either database is enough to mark the allele novel; the
