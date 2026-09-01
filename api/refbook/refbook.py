@@ -644,7 +644,7 @@ def abbreviate_names(names):
         else:
             # split at the first _ AFTER the allele: gene names themselves carry
             # underscores (IGHV4-NL_1*01_a157g), and partitioning on the first
-            # one dropped the allele and miscounted the mutations - 458 of
+            # one dropped the allele and miscounted the substitutions - 458 of
             # allele_server's 3,449 suffixed IG names are affected
             star = name.find('*')
             cut = name.find('_', star + 1) if star >= 0 else name.find('_')
