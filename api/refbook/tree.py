@@ -5,7 +5,6 @@
 # and an `alleles` subset, which a precomputed table cannot enumerate.
 
 import numpy as np
-from flask import request
 from flask_restx import Resource
 from functools import lru_cache
 
@@ -19,8 +18,6 @@ ns = api.namespace('refbook_tree', description='Hierarchical clustering of an AS
 
 GAP = ord('.')
 PAD = ord(' ')
-
-LINKAGES = ('complete', 'single', 'average')
 
 
 def _matrix(seqs):
@@ -141,12 +138,16 @@ def nw_distances(seqs):
     return dist, [], max(len(s) for s in seqs)
 
 
-def linkage(dist, method='complete'):
-    """ Agglomerative clustering, in scipy's linkage format.
+def linkage(dist):
+    """ Complete-linkage agglomerative clustering, in scipy's linkage format.
 
     scipy is not in the backend environment and this is the only thing it would be
-    used for, so the ~25 lines are here instead. Rows are [i, j, height, size],
+    used for, so the ~20 lines are here instead. Rows are [i, j, height, size],
     leaves are 0..n-1 and merge k creates cluster n+k, as scipy does it.
+
+    Complete only. Single and average were once selectable through a `linkage`
+    query parameter that nothing ever sent, and the panel states complete linkage
+    as fact - the height of a join is the distance of its furthest pair.
     """
     n = dist.shape[0]
     d = dist.astype(float).copy()
@@ -160,12 +161,7 @@ def linkage(dist, method='complete'):
         i, j = np.unravel_index(np.argmin(d), d.shape)
         height = float(d[i, j])
 
-        if method == 'single':
-            row = np.minimum(d[i], d[j])
-        elif method == 'average':
-            row = (size[i] * d[i] + size[j] * d[j]) / (size[i] + size[j])
-        else:
-            row = np.maximum(d[i], d[j])
+        row = np.maximum(d[i], d[j])
 
         merges.append([min(cid[i], cid[j]), max(cid[i], cid[j]), height, size[i] + size[j]])
 
@@ -211,7 +207,7 @@ def duplicate_groups(names, seqs):
 # filters. Sized like the alignment cache: sweeping one large locus through a
 # smaller LRU evicts each entry before it is reused. A tree is a few KB.
 @lru_cache(maxsize=4096)
-def _tree(species, locus, asc, stamp, sources, allele_names, method):
+def _tree(species, locus, asc, stamp, sources, allele_names):
     """ The tree for one ASC. `stamp` only keys the cache: see dataset_stamp. """
     recs = collect_asc_sequences(species, locus, asc, set(sources),
                                  list(allele_names) if allele_names else None)
@@ -232,7 +228,7 @@ def _tree(species, locus, asc, stamp, sources, allele_names, method):
                 'metric': 'hamming_gapped' if gapped else 'edit'}
 
     dist, informative, columns = (gapped_distances(seqs) if gapped else nw_distances(seqs))
-    merges = linkage(dist, method)
+    merges = linkage(dist)
 
     return {'labels': names,
             'merges': [[int(a), int(b), h, int(s)] for a, b, h, s in merges],
@@ -258,20 +254,16 @@ class AscTree(Resource):
         if error:
             return error
 
-        method = request.args.get('linkage', 'complete').lower()
-        if method not in LINKAGES:
-            return {'message': f'linkage must be one of {", ".join(LINKAGES)}'}, 400
-
         alleles = requested_list('alleles')
         tree = _tree(species, locus, asc, dataset_stamp(species, locus),
                      frozenset(requested_sources()),
-                     frozenset(alleles) if alleles else None, method)
+                     frozenset(alleles) if alleles else None)
 
         if tree is None:
             return {'message': f'No sequences for {asc}'}, 404
 
         info = _tree.cache_info()
-        return {'asc': asc, 'segment': segment_of(asc), 'linkage': method, **tree,
+        return {'asc': asc, 'segment': segment_of(asc), 'linkage': 'complete', **tree,
                 'cache': {'hits': info.hits, 'misses': info.misses, 'size': info.currsize}}
 
 
@@ -291,7 +283,6 @@ def demo():
     # complete linkage: {0,1} at 0, 2 joins at max(1,1), 3 at max(3,3,2)
     merges = linkage(dist)
     assert merges == [[0, 1, 0.0, 2], [2, 4, 1.0, 3], [3, 5, 3.0, 4]], merges
-    assert linkage(dist, 'single')[-1][2] == 2.0    # single takes the nearest instead
     assert leaf_order(merges, 4) == [3, 2, 0, 1]    # the outlier ends up on one edge
     assert duplicate_groups(['a', 'b', 'c'], ['AC', 'AC', 'AG']) == [['a', 'b']]
 
