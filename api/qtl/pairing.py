@@ -31,7 +31,9 @@ from sqlalchemy import case, func
 from api.restx import api
 from api.system.system import digby_protected
 from api.qtl.qtl import check_species_locus, qtl_session
-from db.qtl_model import Asc, CellTest, DjEnrichment, Dosage, PairingAssociation, Variant
+from db.qtl_model import (
+    Asc, CellTest, DjEnrichment, Dosage, PairingAssociation, UsageAssociation, Variant,
+)
 
 # Its own module, mounted on the guQTL path: one more question about a guQTL
 # variant, so it belongs beside the endpoints that answer the others.
@@ -235,6 +237,22 @@ class QtlPairingApi(Resource):
 
         segment = {row.asc: row.segment for row in session.query(Asc).all()}
 
+        # The marginal panels are the usage scan's question, not this one's: does
+        # the variant change how MUCH a gene is used, as against who it pairs
+        # with. Passed through so the two can be read against each other, which
+        # is the whole reason the marginals are drawn beside the grid.
+        usage = {
+            asc: {'beta': beta, 'p_value': p_value, 'neglog10_p': neglog10_p,
+                  'significant': bool(sig), 'n': n,
+                  'min_genotype_group': min_group}
+            for asc, beta, p_value, neglog10_p, sig, n, min_group in
+            session.query(Asc.asc, UsageAssociation.beta, UsageAssociation.p_value,
+                          UsageAssociation.neglog10_p, UsageAssociation.significant,
+                          UsageAssociation.n, UsageAssociation.min_genotype_group)
+            .select_from(UsageAssociation)
+            .join(Asc, Asc.id == UsageAssociation.asc_id)
+            .filter(UsageAssociation.variant_id == record.id).all()}
+
         return {
             'species': species,
             'locus': locus,
@@ -255,6 +273,9 @@ class QtlPairingApi(Resource):
             'anchors': anchors,
             'partners': partners,
             'segments': segment,
+            # keyed by the stored ASC name, the same key the anchors and partners
+            # use, so no name has to be rebuilt to line the two scans up
+            'usage': usage,
             'omnibus': omnibus,
             'cells': [{'anchor': a, 'partner': p, 'genotype': g, 'box': _box(values)}
                       for (a, p, g), values in sorted(cells.items())],
