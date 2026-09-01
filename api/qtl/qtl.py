@@ -18,6 +18,7 @@ from sqlalchemy import Integer, cast, func
 
 from api.restx import api
 from api.system.system import digby_protected
+from api.qtl import dbsnp
 from app import qtl_dbs
 from db.qtl_model import (
     Asc, AscUsage, Dosage, Subject, Threshold, UsageAssociation, Variant,
@@ -302,6 +303,9 @@ def _variant_payload(session, record):
         # qualify every row of the table rather than any one of them
         'genotype_counts': counts,
         'min_genotype_group': smallest,
+        # what the world outside VDJbase calls this variant, when it can be said.
+        # IGH is named for a locus-relative contig, so it takes a map.
+        'dbsnp': dbsnp.lookup(record.contig, record.pos),
         'thresholds': _thresholds(session),
         'has_genotypes': session.query(Dosage.id)
             .filter(Dosage.variant_id == record.id).first() is not None,
