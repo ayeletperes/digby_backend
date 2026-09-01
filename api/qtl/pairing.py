@@ -30,7 +30,7 @@ from sqlalchemy import case, func
 
 from api.restx import api
 from api.system.system import digby_protected
-from api.qtl.qtl import check_species_locus, qtl_session
+from api.qtl.qtl import _thresholds, check_species_locus, qtl_session
 from db.qtl_model import (
     Asc, CellTest, DjEnrichment, Dosage, PairingAssociation, UsageAssociation, Variant,
 )
@@ -276,6 +276,10 @@ class QtlPairingApi(Resource):
             # keyed by the stored ASC name, the same key the anchors and partners
             # use, so no name has to be rebuilt to line the two scans up
             'usage': usage,
+            # the run's own thresholds. The usage flag above is set against the
+            # study-wide corrected one, not against 0.05, and the panel has to be
+            # able to say so rather than let a cell-level star key stand for it.
+            'thresholds': _thresholds(session),
             'omnibus': omnibus,
             'cells': [{'anchor': a, 'partner': p, 'genotype': g, 'box': _box(values)}
                       for (a, p, g), values in sorted(cells.items())],
