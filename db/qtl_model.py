@@ -120,6 +120,19 @@ class Variant(Base):
     sub_feature = Column(String(40))
     distance_to_gene = Column(Float)
 
+    # The strongest association this variant showed against any ASC, and which
+    # ASC that was. Derived from qtl_usage_association and stored beside what it
+    # summarises: the whole-locus Manhattan is one point per variant, and finding
+    # 9,402 maxima in 658,140 rows took the endpoint several seconds on every
+    # request for a database that never changes after it is built. Computed once
+    # at build time instead, which is 50 ms there and 23 ms to read back.
+    #
+    # Null on a database built before these existed; the API notices and computes
+    # the aggregate live rather than reporting a variant as untested.
+    best_neglog10_p = Column(Float)
+    best_asc_id = Column(Integer)
+    best_significant = Column(Boolean)
+
     __table_args__ = (
         Index('ix_qtl_variant_pos', 'pos'),
     )

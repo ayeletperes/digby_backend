@@ -288,6 +288,32 @@ class QtlBuilder:
             "is_cis=?, is_lead=1 WHERE variant_id=? AND asc_id=?", updates)
         return len(updates)
 
+    def summarise_variants(self):
+        """Store each variant's strongest association, and which ASC gave it.
+
+        The whole-locus Manhattan is one point per variant taken across every
+        ASC. Computed on the fly that is 9,402 maxima out of 658,140 rows, and
+        the database is immutable once built, so it was several seconds of the
+        same arithmetic on every request. Fifty milliseconds here instead.
+
+        Ties are broken arbitrarily, as they were before: two ASCs at the same
+        p-value are two equally true answers to "which ASC", and the summary is
+        not the place to invent a preference between them.
+        """
+        self.con.execute("""
+            UPDATE qtl_variant SET
+              best_neglog10_p = (SELECT MAX(neglog10_p) FROM qtl_usage_association u
+                                 WHERE u.variant_id = qtl_variant.id),
+              best_asc_id = (SELECT asc_id FROM qtl_usage_association u
+                             WHERE u.variant_id = qtl_variant.id
+                             ORDER BY neglog10_p DESC LIMIT 1),
+              best_significant = (SELECT significant FROM qtl_usage_association u
+                                  WHERE u.variant_id = qtl_variant.id
+                                  ORDER BY neglog10_p DESC LIMIT 1)""")
+        return self.con.execute(
+            'SELECT COUNT(*) FROM qtl_variant WHERE best_neglog10_p IS NOT NULL'
+        ).fetchone()[0]
+
     def load_asc_usage(self):
         path = self._source('asc_usage.tsv.gz')
         if not os.path.exists(path):
@@ -542,6 +568,7 @@ def build(run_dir, species, locus, static_path, genotypes=None, project=None):
     counts['ascs'] = len(builder.ascs)
     counts['annotated'] = builder.annotate_variants()
     counts['leads'] = builder.mark_leads()
+    counts['summarised'] = builder.summarise_variants()
     counts['asc_usage'] = builder.load_asc_usage()
     counts['dosage'] = builder.load_dosage(genotypes)
     counts['subjects'] = len(builder.subjects)

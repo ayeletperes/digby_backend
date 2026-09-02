@@ -277,6 +277,27 @@ class QtlAscsApi(Resource):
         return {'ascs': ascs, 'thresholds': _thresholds(session)}
 
 
+_summary_columns = {}
+
+
+def _has_summary(session):
+    """Whether this database carries the precomputed best-per-variant columns.
+
+    A schema question, asked once per database, not a data question: the answer
+    chooses between two queries that return the same numbers, so an older
+    database is slower here and never wrong.
+    """
+    key = id(session.bind)
+    if key not in _summary_columns:
+        try:
+            session.query(Variant.best_neglog10_p).limit(1).all()
+            _summary_columns[key] = True
+        except Exception:
+            session.rollback()
+            _summary_columns[key] = False
+    return _summary_columns[key]
+
+
 def _thresholds(session):
     return [{'analysis': t.analysis, 'conditional': t.conditional or None,
              'grouped_by': t.grouped_by or None, 'threshold': t.threshold,
@@ -305,25 +326,51 @@ class QtlManhattanApi(Resource):
         session = qtl_session(species, locus)
         asc = request.args.get('asc')
 
-        # Each ASC is its own scan, so a Manhattan is properly per-ASC. Without one
-        # this returns each variant's strongest signal across all of them, which is
-        # a summary rather than a test - so it also reports which ASC produced that
-        # maximum, or a click on a point would not know whose usage to plot.
-        # (SQLite returns the row matching a bare MAX() in a grouped query, which
-        # is what makes `Asc.asc` here the ASC that achieved it.)
-        query = (
-            session.query(Variant.variant, Variant.pos, Variant.maf, Variant.gene,
-                          Variant.feature,
-                          func.max(UsageAssociation.neglog10_p),
-                          cast(UsageAssociation.significant, Integer),
-                          Asc.asc)
-            .join(UsageAssociation, UsageAssociation.variant_id == Variant.id)
-            .join(Asc, Asc.id == UsageAssociation.asc_id)
-            .group_by(Variant.id)
-        )
-
+        # Each ASC is its own scan, so a Manhattan is properly per-ASC. Without
+        # one this returns each variant's strongest signal across all of them,
+        # which is a summary rather than a test - so it also reports which ASC
+        # produced that maximum, or a click on a point would not know whose usage
+        # to plot.
         if asc:
-            query = query.filter(Asc.asc == asc)
+            # One row per (variant, ASC) - the table is unique on the pair - so
+            # there is nothing to group and no maximum to take. Grouping anyway
+            # cost a temp b-tree over the filtered set for a result that was
+            # already one row per variant.
+            query = (
+                session.query(Variant.variant, Variant.pos, Variant.maf,
+                              Variant.gene, Variant.feature,
+                              UsageAssociation.neglog10_p,
+                              cast(UsageAssociation.significant, Integer),
+                              Asc.asc)
+                .join(UsageAssociation, UsageAssociation.variant_id == Variant.id)
+                .join(Asc, Asc.id == UsageAssociation.asc_id)
+                .filter(Asc.asc == asc)
+            )
+        elif _has_summary(session):
+            # Read the answer rather than recompute it. The maxima are stored on
+            # the variant at build time; see Variant.best_neglog10_p.
+            query = (
+                session.query(Variant.variant, Variant.pos, Variant.maf,
+                              Variant.gene, Variant.feature,
+                              Variant.best_neglog10_p,
+                              cast(Variant.best_significant, Integer),
+                              Asc.asc)
+                .outerjoin(Asc, Asc.id == Variant.best_asc_id)
+                .filter(Variant.best_neglog10_p.isnot(None))
+            )
+        else:
+            # A database built before the summary columns existed. Same numbers,
+            # several seconds slower - the aggregate this view was named for.
+            query = (
+                session.query(Variant.variant, Variant.pos, Variant.maf,
+                              Variant.gene, Variant.feature,
+                              func.max(UsageAssociation.neglog10_p),
+                              cast(UsageAssociation.significant, Integer),
+                              Asc.asc)
+                .join(UsageAssociation, UsageAssociation.variant_id == Variant.id)
+                .join(Asc, Asc.id == UsageAssociation.asc_id)
+                .group_by(Variant.id)
+            )
 
         points = [{'variant': variant, 'pos': pos, 'maf': maf, 'gene': gene,
                    'feature': feature, 'neglog10_p': neglog10_p,
