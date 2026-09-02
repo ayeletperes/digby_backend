@@ -41,24 +41,112 @@ HIDDEN_LOCI: set = set()
 WELL_POWERED_MIN = 5
 
 
-def qtl_session(species, locus):
-    """Session for one guQTL dataset, or None if it is absent or held back."""
-    if locus in HIDDEN_LOCI:
-        return None
+# What each built database says it holds, keyed by species. Read once: the set of
+# databases is fixed at startup.
+_catalogue = None
 
-    dataset = qtl_dbs.get(species, {}).get(locus)
-    return dataset.session if dataset is not None else None
+
+def _describe(key, provider):
+    """The locus and project a database records about itself.
+
+    Asked of the database, never of the directory it sits in. A directory has to
+    be uniquely named so two projects can both hold an IGH, which makes its name
+    a filing label; taking a fact back out of it is how `IGKC` ended up filed as
+    a V gene next door.
+    """
+    session = provider.session
+    try:
+        locus = session.execute('select locus from details limit 1').scalar()
+    except Exception:
+        locus = None
+    try:
+        project = session.execute('select project from qtl_run limit 1').scalar()
+    except Exception:
+        # built before the column existed; unknown, which is not the same as none
+        project = None
+    return (locus or key), project
+
+
+def datasets(species=None):
+    """Every offered database, as {species: [{locus, project, provider}, ...]}."""
+    global _catalogue
+    if _catalogue is None:
+        _catalogue = {}
+        for name in sorted(qtl_dbs):
+            found = []
+            for key in sorted(qtl_dbs[name]):
+                provider = qtl_dbs[name][key]
+                locus, project = _describe(key, provider)
+                if locus in HIDDEN_LOCI:
+                    continue
+                found.append({'locus': locus, 'project': project,
+                              'provider': provider})
+            if found:
+                _catalogue[name] = found
+    return _catalogue.get(species, []) if species else _catalogue
+
+
+def loci_for(species, project=None):
+    """The loci one project holds, for the views that sweep every locus at once.
+
+    Without this those sweeps ran over every locus any project holds, and each
+    one that resolved to two databases was skipped in silence - a search that
+    quietly stopped covering a locus as soon as a second study was loaded.
+    """
+    if project is None:
+        project = current_project()
+    return sorted({d['locus'] for d in datasets(species)
+                   if project is None or d['project'] == project})
+
+
+def qtl_session(species, locus, project=None):
+    """Session for one guQTL dataset, or None if it is absent or ambiguous.
+
+    A project selects a database rather than filtering inside one: a scan is
+    computed within one cohort and never pooled across them, so two projects are
+    two builds. With none named and only one database holding this locus, that
+    one answers. With none named and several, this returns None rather than
+    picking - serving the wrong cohort's numbers under the right locus name is
+    the one outcome worth a hard failure.
+    """
+    if project is None:
+        project = current_project()
+
+    found = [d for d in datasets(species) if d['locus'] == locus]
+    if project is not None:
+        found = [d for d in found if d['project'] == project]
+
+    return found[0]['provider'].session if len(found) == 1 else None
+
+
+def current_project():
+    """The project this request asked for, if it named one.
+
+    Read here rather than declared on twelve routes: it qualifies every one of
+    them the same way, and a route that forgot to accept it would quietly answer
+    from whichever database sorted first.
+    """
+    try:
+        value = request.args.get('project')
+    except RuntimeError:      # outside a request context
+        return None
+    return value or None
 
 
 def available():
-    """Species and loci that have guQTL results and are offered."""
-    ret = {'species': [], 'loci': {}}
+    """Species, projects and loci that have guQTL results and are offered."""
+    ret = {'species': [], 'loci': {}, 'projects': {}, 'datasets': []}
 
-    for species in sorted(qtl_dbs):
-        loci = sorted(l for l in qtl_dbs[species] if l not in HIDDEN_LOCI)
-        if loci:
-            ret['species'].append(species)
-            ret['loci'][species] = loci
+    for species, found in datasets().items():
+        ret['species'].append(species)
+        ret['loci'][species] = sorted({d['locus'] for d in found})
+        # '' is a database built before projects were recorded, which is a
+        # different statement from a database whose project is known
+        ret['projects'][species] = sorted({d['project'] or '' for d in found})
+        ret['datasets'] += [{'species': species, 'locus': d['locus'],
+                             'project': d['project']}
+                            for d in sorted(found, key=lambda d: (d['project'] or '',
+                                                                  d['locus']))]
 
     return ret
 
@@ -93,14 +181,28 @@ def gene_names(locus, asc):
     return names
 
 
-def check_species_locus(species, locus):
-    """A 404 response if this species/locus has no guQTL results, else None."""
+def check_species_locus(species, locus, project=None):
+    """A 404 or 400 response if this request names no single dataset, else None."""
     catalogue = available()
 
     if species not in catalogue['species']:
         return {'message': 'Species not found'}, 404
     if locus not in catalogue['loci'].get(species, []):
         return {'message': 'Locus not found'}, 404
+
+    if project is None:
+        project = current_project()
+    found = [d for d in datasets(species) if d['locus'] == locus]
+    if project is not None:
+        named = [d for d in found if d['project'] == project]
+        if not named:
+            return {'message': f'No {locus} results for project {project}'}, 404
+        found = named
+
+    if len(found) > 1:
+        return {'message': f'{len(found)} projects hold {locus} results; name one '
+                           'with ?project=. These analyses are per project and '
+                           'are not pooled across them.'}, 400
 
     return None
 
@@ -369,7 +471,7 @@ class QtlVariantLookupApi(Resource):
         if species not in catalogue['species']:
             return {'message': 'Species not found'}, 404
 
-        for locus in catalogue['loci'][species]:
+        for locus in loci_for(species):
             session = qtl_session(species, locus)
             if session is None:
                 continue
@@ -485,7 +587,7 @@ class QtlSearchApi(Resource):
         needle = f'%{query}%'
         variants, genes = [], []
 
-        for locus in catalogue['loci'][species]:
+        for locus in loci_for(species):
             session = qtl_session(species, locus)
             if session is None:
                 continue

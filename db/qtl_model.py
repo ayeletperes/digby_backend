@@ -40,6 +40,18 @@ class Run(Base):
     label = Column(String(100))
     generated_at = Column(String(40))
     script = Column(String(500))
+    # Which study's cohort was scanned. One database holds one project: a scan is
+    # computed within a cohort and is never pooled across them, so this selects a
+    # database rather than filtering inside one, and every analysis served from
+    # here is that project's.
+    #
+    # Stated by whoever builds the database, not derived. The run's own config
+    # names a metadata file whose stem happens to carry the project, and reading
+    # a name for an identity is how a wrong answer gets in - the same mistake as
+    # taking a gene's segment from the fourth letter of its name. Null where a
+    # database predates the column; the API reports that as unknown rather than
+    # guessing.
+    project = Column(String(60))
     # the analysis config verbatim, as JSON: every filter and its value, which is
     # what makes a figure reproducible
     config = Column(Text)

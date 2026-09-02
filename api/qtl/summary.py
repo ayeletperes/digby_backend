@@ -30,7 +30,8 @@ from sqlalchemy import distinct, func
 
 from api.restx import api
 from api.system.system import digby_protected
-from api.qtl.qtl import available, check_species_locus, qtl_session
+from api.qtl.qtl import (available, check_species_locus, current_project,
+                          loci_for, qtl_session)
 from db.qtl_model import Asc, UsageAssociation, Variant
 
 ns = api.namespace('qtl_summary', path='/qtl',
@@ -85,11 +86,17 @@ class QtlUsageSummaryApi(Resource):
         if species not in catalogue['species']:
             return {'message': 'Species not found'}, 404
 
+        # one project's loci, not every locus any project holds: this rolls three
+        # scans into one figure, and a figure that mixed cohorts would be reading
+        # across studies the analysis never pooled
+        project = current_project()
+        loci = loci_for(species, project)
+
         rows = []
         totals = {}
         segments, features = set(), set()
 
-        for locus in catalogue['loci'][species]:
+        for locus in loci:
             session = qtl_session(species, locus)
             if session is None:
                 continue
@@ -111,7 +118,8 @@ class QtlUsageSummaryApi(Resource):
 
         return {
             'species': species,
-            'loci': catalogue['loci'][species],
+            'project': project,
+            'loci': loci,
             'segments': _rank(segments, SEGMENT_ORDER),
             'features': _rank(features, FEATURE_ORDER),
             'rows': rows,

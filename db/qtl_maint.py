@@ -142,14 +142,16 @@ class QtlBuilder:
 
     # --------------------------------------------------------------- loading
 
-    def load_run(self):
+    def load_run(self, project=None):
         manifest = read_manifest(self.run_dir)
 
         self.con.execute(
-            "INSERT INTO qtl_run (label, generated_at, script, config) VALUES (?,?,?,?)",
+            "INSERT INTO qtl_run (label, generated_at, script, project, config) "
+            "VALUES (?,?,?,?,?)",
             (os.path.basename(os.path.realpath(self.run_dir)),
              manifest.get('generated_at'),
              manifest.get('script'),
+             project,
              json.dumps(manifest.get('config', {}))))
 
     def load_thresholds(self):
@@ -468,7 +470,7 @@ class QtlBuilder:
 
         return totals
 
-    def finish(self, species):
+    def finish(self, species, project=None):
         self.con.execute(
             "INSERT INTO details (dbtype, species, locus, created_on, created_by) "
             "VALUES (?,?,?,datetime('now'),?)",
@@ -478,7 +480,8 @@ class QtlBuilder:
         self.con.close()
 
         with open(os.path.join(os.path.dirname(self.path), 'db_description.txt'), 'w') as fo:
-            fo.write(f'Gene-usage QTL results for {species} {self.locus}')
+            fo.write(f'Gene-usage QTL results for {species} {self.locus}'
+                     + (f', project {project}' if project else ''))
 
 
 _ASSOC_COLS = ['variant_id', 'asc_id', 'n', 'beta', 'se', 't_stat', 'p_value',
@@ -505,17 +508,34 @@ def loci_in(run_dir):
                   if name.startswith('usage_associations_') and name.endswith('.tsv.gz'))
 
 
-def build(run_dir, species, locus, static_path, genotypes=None):
+def dataset_dir(locus, project=None):
+    """The directory one built database lives in.
+
+    A directory name has to be unique per species, so a second project's IGH
+    cannot also be called `IGH`. The name is a filing label and nothing reads a
+    fact back out of it: the API takes the locus from `details` and the project
+    from `qtl_run`, both written into the database itself. Keeping the bare
+    locus when no project is named leaves existing installations where they are.
+    """
+    return f'{project}_{locus}' if project else locus
+
+
+def build(run_dir, species, locus, static_path, genotypes=None, project=None):
     """Build one locus, returning the row counts written.
 
     `genotypes` overrides the cohort genotype matrix; with none given the run's
     manifest is asked where its own was (see genotype_matrix).
+
+    `project` is the study whose cohort this run scanned. It is stated, not
+    inferred: the run records a metadata path whose stem carries the project, and
+    reading an identity out of a filename is how the wrong one gets in.
     """
-    path = os.path.join(static_path, 'study_data', 'QTL', 'db', species, locus, 'db.sqlite3')
+    path = os.path.join(static_path, 'study_data', 'QTL', 'db', species,
+                        dataset_dir(locus, project), 'db.sqlite3')
     builder = QtlBuilder(run_dir, locus, path)
 
     counts = {}
-    builder.load_run()
+    builder.load_run(project)
     counts['thresholds'] = builder.load_thresholds()
     counts['usage_associations'] = builder.load_usage_associations()
     counts['variants'] = len(builder.variants)
@@ -526,7 +546,7 @@ def build(run_dir, species, locus, static_path, genotypes=None):
     counts['dosage'] = builder.load_dosage(genotypes)
     counts['subjects'] = len(builder.subjects)
     counts.update(builder.load_pairing())
-    builder.finish(species)
+    builder.finish(species, project)
 
     counts['path'] = path
     return counts

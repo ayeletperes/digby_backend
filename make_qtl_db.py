@@ -1,9 +1,13 @@
 """Build the guQTL databases from an igqtl.R run directory.
 
-    python make_qtl_db.py <run_dir> [--species Human] [--locus IGH]
+    python make_qtl_db.py <run_dir> [--species Human] [--locus IGH] [--project P28]
 
 <run_dir> is a dated directory under results/igqtl (or its `current` symlink).
 With no --locus, every locus the run produced is built.
+
+--project names the study whose cohort the run scanned. One database holds one
+project, and the dashboard offers whichever ones are built, so a second study is
+a second build rather than a merge.
 """
 
 import argparse
@@ -25,6 +29,10 @@ def main():
     parser.add_argument('--genotypes', default=None,
                         help='the cohort genotype matrix to take genotypes from '
                              '(default: the one the run records in its manifest)')
+    parser.add_argument('--project', default=None,
+                        help='the study whose cohort this run scanned, e.g. P28. '
+                             'Recorded in the database and offered as a choice in '
+                             'the dashboard. Not guessed from the run: state it')
     args = parser.parse_args()
 
     if not os.path.isdir(args.run_dir):
@@ -39,8 +47,9 @@ def main():
         sys.exit(f'No usage_associations_*.tsv.gz found under {args.run_dir}/source_data')
 
     for locus in loci:
-        print(f'{args.species} {locus}:')
-        counts = build(args.run_dir, args.species, locus, static_path, args.genotypes)
+        print(f'{args.species} {locus}' + (f' [{args.project}]' if args.project else '') + ':')
+        counts = build(args.run_dir, args.species, locus, static_path,
+                       args.genotypes, args.project)
         path = counts.pop('path')
         for name, value in counts.items():
             print(f'    {name:22} {value:>9,}')
