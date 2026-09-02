@@ -151,6 +151,17 @@ def available():
     return ret
 
 
+def display_name(locus, asc):
+    """An ASC under the name someone would type, without doubling the locus.
+
+    IGH's D clusters are stored with the locus already on them - `IGHD5-12` -
+    while V and J are stored bare - `V5-10-1`. Prefixing either way round without
+    looking produced `IGHIGHD5-12`, which matches nothing.
+    """
+    asc = str(asc)
+    return asc if asc.startswith(locus) else f'{locus}{asc}'
+
+
 def gene_names(locus, asc):
     """Every gene name an ASC answers to, for searching.
 
@@ -166,8 +177,7 @@ def gene_names(locus, asc):
     # blindly made `IGHIGHD5-12`, which matches nothing anyone would type. The
     # stored string is left alone either way; this only builds search aliases.
     def qualify(name):
-        name = name if name.startswith(locus) else f'{locus}{name}'
-        return name
+        return display_name(locus, name)
 
     segment = parts[0].replace(locus, '', 1)[:1]
 
@@ -628,7 +638,8 @@ class QtlSearchApi(Resource):
                 if not any(wanted in name.upper() for name in gene_names(locus, asc)):
                     continue
                 genes.append(
-                    {'locus': locus, 'asc': asc, 'gene': f'{locus}{asc}', 'segment': segment,
+                    {'locus': locus, 'asc': asc,
+                     'gene': display_name(locus, asc), 'segment': segment,
                      'n_variants': tested, 'n_significant': int(significant or 0),
                      'best_neglog10_p': best})
 
