@@ -954,6 +954,15 @@ class AscZygosity(Resource):
                 if carried_names:
                     carried.setdefault(sample_name, set()).update(carried_names.split(','))
 
+        # The subqueries above pick the subjects who carry one of the requested
+        # alleles; they do not say which alleles to draw, so every other allele
+        # those subjects hold came back too and the "seen in" thresholds had no
+        # visible effect here. Intersect, and drop a subject left holding none.
+        if alleles:
+            wanted = set(alleles)
+            carried = {name: sets & wanted for name, sets in carried.items()}
+            carried = {name: sets for name, sets in carried.items() if sets}
+
         recs = [{'name': name, 'sets': sorted(sets)}
                 for name, sets in sorted(carried.items())]
 
