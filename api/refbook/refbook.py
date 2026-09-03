@@ -120,30 +120,25 @@ def applicable(session, Study, Sample, projects, samples):
     return known_projects, known_samples, bool(known_projects or known_samples)
 
 
-def sample_filter(query, projects, samples, session=None):
+def _filter_samples(query, Study, Sample, projects, samples, session):
     """ Narrow a query already joined to Sample by project and by sample name. """
     if session is not None:
-        projects, samples, _ = applicable(session, VDJbaseStudy, VDJbaseSample, projects, samples)
+        projects, samples, _ = applicable(session, Study, Sample, projects, samples)
 
     if projects:
-        query = query.join(VDJbaseStudy, VDJbaseStudy.id == VDJbaseSample.study_id) \
-                     .filter(VDJbaseStudy.study_name.in_(projects))
+        query = query.join(Study, Study.id == Sample.study_id) \
+                     .filter(Study.study_name.in_(projects))
     if samples:
-        query = query.filter(VDJbaseSample.sample_name.in_(samples))
+        query = query.filter(Sample.sample_name.in_(samples))
     return query
+
+
+def sample_filter(query, projects, samples, session=None):
+    return _filter_samples(query, VDJbaseStudy, VDJbaseSample, projects, samples, session)
 
 
 def genomic_sample_filter(query, projects, samples, session=None):
-    """ Narrow a genomic query already joined to Sample by project and sample. """
-    if session is not None:
-        projects, samples, _ = applicable(session, GenomicStudy, GenomicSample, projects, samples)
-
-    if projects:
-        query = query.join(GenomicStudy, GenomicStudy.id == GenomicSample.study_id) \
-                     .filter(GenomicStudy.study_name.in_(projects))
-    if samples:
-        query = query.filter(GenomicSample.sample_name.in_(samples))
-    return query
+    return _filter_samples(query, GenomicStudy, GenomicSample, projects, samples, session)
 
 
 def dataset_session(dbs, species, locus, sources=None, source=None):
@@ -187,9 +182,7 @@ class ProjectsApi(Resource):
         sources = requested_sources()
         found = {}
 
-        # the two databases hold different studies entirely - the genomic side has
-        # P25/P28 where AIRR-seq has P1..P34 - so which projects exist depends on
-        # which databases the caller asked for
+        # different studies on each side, so the list depends on the sources asked for
         for source, dbs, Study, Sample in (
                 ('airrseq', vdjbase_dbs, VDJbaseStudy, VDJbaseSample),
                 ('genomic', genomic_dbs, GenomicStudy, GenomicSample)):
@@ -386,29 +379,9 @@ class AscsOverview(Resource):
         if wanted:
             alleles = {name: rec for name, rec in alleles.items() if name in wanted}
 
-        # Allele.appears and Sequence.appearances are whole-dataset totals written
-        # when the database was built, so they ignore the project and sample
-        # filters and had drifted (248 recorded against 250 actual). Count the
-        # samples directly instead, so these agree with the carrier figures.
-        #
-        # Sample *names*, not counts, because "both" has to be an intersection.
-        #
-        # Whether that intersection can be non-empty depends on the species. The
-        # rhesus macaque data is one cohort sequenced both ways - 106 of 106
-        # samples carry the same name in both databases - so an allele really can
-        # be seen in the same animal by both. The human databases hold disjoint
-        # cohorts (genomic P25/P28, AIRR-seq P2..P34; no shared sample, no shared
-        # project), so there the intersection is empty and saying so is the
-        # honest answer. `min(genomic, airrseq)`, which this used to report, is
-        # neither: it invented 299 shared samples for IGHV1-18*01 out of two
-        # cohorts with nobody in common.
-        #
-        # Whether the per-sample rows are needed at all. Pulling one row per
-        # (allele, sample) so the Both column can be an intersection costs ~300ms
-        # for a big gene against ~40ms for plain counts, and it is wasted whenever
-        # the two cohorts are disjoint - which they are for every human locus,
-        # where Both is necessarily zero. The names are fetched only when a sample
-        # can actually be in both databases.
+        # Counted here rather than read from Allele.appears, a whole-dataset
+        # total that ignores the filters. Sample names, not counts, because Both
+        # is an intersection; fetched only where the cohorts can overlap at all.
         carriers_airrseq = {}
         carriers_genomic = {}
         observed_airrseq = {}
@@ -493,8 +466,6 @@ class AscsOverview(Resource):
         ret['alleles'] = list(alleles.keys())
         # these counts may not be exactly what we want, I am not sure what to do if there are samples
         # for which we don't have both genomic and airr-seq results
-        # Three exclusive buckets over the same samples, so they add up to the
-        # number of distinct samples carrying the allele in either database.
         ret['genomic_only_counts'] = [
             len(carriers_genomic.get(name, set()) - carriers_airrseq.get(name, set()))
             for name in alleles]
@@ -510,10 +481,8 @@ class AscsOverview(Resource):
         ret['vdjbase_counts'] = [observed_airrseq.get(name, 0) for name in alleles]
         ret['scoped'] = {'genomic': genomic_scoped, 'airrseq': airrseq_scoped}
 
-        # How many samples the figures are drawn from, and how many of them are
-        # the same animal in both databases. A UI needs the last number to tell
-        # "no allele happens to be shared" apart from "these cohorts have nobody
-        # in common, so Both cannot be anything but zero".
+        # the shared count separates "no allele is shared" from "these cohorts
+        # have nobody in common, so Both cannot be anything but zero"
         ret['cohort'] = {
             'genomic': len(genomic_cohort),
             'airrseq': len(airrseq_cohort),
@@ -566,9 +535,7 @@ def collect_asc_sequences(species, locus, asc, sources=None, allele_names=None,
     if allele_names:
         wanted = [rec for rec in recs if rec['name'] in allele_names]
 
-        # An alignment of a single sequence shows nothing, since every row is read
-        # against a reference. Keep the gene's first allele as that baseline when
-        # the filter would otherwise leave nothing to compare against.
+        # one sequence has nothing to be read against: keep the gene's first allele
         if keep_reference and len(wanted) < 2 and recs:
             reference = min(recs, key=lambda rec: rec['name'])
             if reference not in wanted:
@@ -619,10 +586,8 @@ def dataset_stamp(species, locus):
     return tuple(stamp)
 
 
-# Sized to hold every ASC in every dataset at once (~1,140 today, ~7MB of text).
-# A smaller cache is actively worse than none for the larger loci: sweeping the 524
-# Rhesus IGH ASCs through a 256-entry LRU evicts each entry before it is reused and
-# returns a 0% hit rate, paying the bookkeeping for nothing.
+# Holds every ASC at once (~1,140, ~7MB). A smaller cache is worse than none:
+# 524 Rhesus IGH ASCs through a 256-entry LRU evict before reuse, 0% hit rate.
 NAME_LIMIT = 26
 
 
@@ -660,25 +625,18 @@ def abbreviate_names(names):
     labels = {}
     used = set()
 
-    # Sorted, so a `#2` lands on the same allele as it does in the client's
-    # shortenAlleleNames. Assignment depends on iteration order, and the two
-    # sides receive their names in different orders.
+    # sorted, so a #2 lands on the same allele as in the client's shortenAlleleNames
     for name in sorted(names):
         if len(name) <= NAME_LIMIT:
             label = name
         else:
-            # split at the first _ AFTER the allele: gene names themselves carry
-            # underscores (IGHV4-NL_1*01_a157g), and partitioning on the first
-            # one dropped the allele and miscounted the substitutions - 458 of
-            # allele_server's 3,449 suffixed IG names are affected
+            # the first _ AFTER the allele: a gene name can carry one (IGHV4-NL_1*01)
             star = name.find('*')
             cut = name.find('_', star + 1) if star >= 0 else name.find('_')
             if cut >= 0:
                 suffix = name[cut + 1:]
-                # the count alone is not distinguishing: 231 of the 793 names
-                # over the limit in the full HUSA set share a stem and a count.
-                # The token comes from the allele's own suffix, so it survives
-                # more data being loaded, which a positional #N does not.
+                # the count alone collides: 231 of 793 long names share a stem
+                # and a count. The token comes from the suffix, so it is stable.
                 label = f'{name[:cut]}+{len(suffix.split("_"))}~{_suffix_token(suffix)}'
             else:
                 label = name[:NAME_LIMIT - 1] + '~'
@@ -853,12 +811,8 @@ class AscZygosity(Resource):
         samples = requested_list('samples')
         alleles = requested_list('alleles')
 
-        # Keyed on sample name and unioned across the databases, because the unit
-        # of zygosity is the subject, not the record. Where the same subject was
-        # sequenced both ways - the rhesus macaque cohort is, 106 of 106 names
-        # match - the two databases describe one animal and must not become two
-        # rows. Where the cohorts are disjoint, as in the human data, the union is
-        # simply a concatenation.
+        # keyed on sample name and unioned: the unit is the subject, and one
+        # animal sequenced both ways must not become two rows
         carried = {}
 
         session = dataset_session(vdjbase_dbs, species, locus, sources, 'airrseq')
@@ -895,16 +849,12 @@ class AscZygosity(Resource):
                 .all()
             )
 
-            # not `alleles`: that name holds the requested allele filter, and
-            # rebinding it here left the genomic branch below filtering on a
-            # row's comma-joined string instead of the caller's list
+            # not `alleles`: that name holds the caller's filter
             for sample_name, carried_names in alleles_per_sample:
                 if carried_names:
                     carried.setdefault(sample_name, set()).update(carried_names.split(','))
 
-        # Genomic carries the same information: which alleles of the gene a
-        # sample holds. Only *usage* is genuinely AIRR-seq-only, so the panel
-        # used to be gated on a database it did not actually need.
+        # genomic carries the same information; only usage is AIRR-seq-only
         session = dataset_session(genomic_dbs, species, locus, sources, 'genomic')
         if session is not None:
 
@@ -946,10 +896,7 @@ class AscZygosity(Resource):
                 if carried_names:
                     carried.setdefault(sample_name, set()).update(carried_names.split(','))
 
-        # The subqueries above pick the subjects who carry one of the requested
-        # alleles; they do not say which alleles to draw, so every other allele
-        # those subjects hold came back too and the "seen in" thresholds had no
-        # visible effect here. Intersect, and drop a subject left holding none.
+        # the subqueries pick carriers, not what to draw
         if alleles:
             wanted = set(alleles)
             carried = {name: sets & wanted for name, sets in carried.items()}
