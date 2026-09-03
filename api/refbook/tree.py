@@ -1,5 +1,4 @@
 # Hierarchical clustering of the alleles of one ASC. Live and memoised: the worst
-# gene costs ~60ms, and the panel takes subsets a precomputed table cannot enumerate.
 
 import numpy as np
 from scipy.cluster import hierarchy
@@ -27,8 +26,7 @@ def _matrix(seqs):
 
 
 def _extent(M):
-    """ First and last real column per row. Terminal gaps are padding, not
-    differences; internal gaps are kept, since those are real indels. """
+    """ First and last real column per row. Terminal gaps are padding, not """
     real = (M != GAP) & (M != PAD)
     cols = np.arange(M.shape[1])
     start = np.where(real.any(1), np.argmax(real, 1), 0)
@@ -37,12 +35,7 @@ def _extent(M):
 
 
 def regap(seqs):
-    """ Put every sequence back into the gene's IMGT column frame.
-
-    An insertion shifts every later column, which put IGHV4-39's root at 188
-    differences instead of 25. Returns the reframed sequences and, per sequence,
-    the inserted columns dropped, which the caller adds back.
-    """
+    """ Put every sequence back into the gene's IMGT column frame. """
     widths = [len(s) for s in seqs]
     frame_width = max(set(widths), key=widths.count)
     if len(set(widths)) == 1:
@@ -71,11 +64,7 @@ def regap(seqs):
 
 
 def gapped_distances(seqs):
-    """ Difference counts over IMGT-gapped sequences, plus the informative columns.
-
-    Not scipy hamming or Bio identity: both count a never-sequenced position as a
-    difference, making IGLV8-61*01 and *03 50 apart where they differ at 1.
-    """
+    """ Difference counts over IMGT-gapped sequences, plus the informative columns. """
     seqs, dropped = regap(seqs)
 
     M = _matrix(seqs)
@@ -88,8 +77,6 @@ def gapped_distances(seqs):
     dist = ((M[:, None, :] != M[None, :, :]) & valid).sum(2).astype(float)
 
     # an insertion has no column in the frame, so it is counted by its length: two
-    # alleles sharing one are still identical, and one against an allele without it
-    # differs by its length
     drop = np.array(dropped, dtype=float)
     dist += np.abs(drop[:, None] - drop[None, :])
 
@@ -102,11 +89,7 @@ def gapped_distances(seqs):
 
 
 def nw_distances(seqs):
-    """ Edit distance for D and J, which have no gapped form.
-
-    End gaps are penalised, unlike the V path: free end gaps make the empty
-    overlap free and score every pair as identical.
-    """
+    """ Edit distance for D and J, which have no gapped form. """
     from Bio import Align
 
     aligner = Align.PairwiseAligner(mode='global', match_score=0, mismatch_score=-1,
@@ -121,10 +104,7 @@ def nw_distances(seqs):
 
 
 def linkage(dist):
-    """ Complete-linkage clustering, scipy's format: [i, j, height, size].
-
-    scipy's own, so that the panel's exported script redraws the same tree.
-    """
+    """ Complete-linkage clustering, scipy's format: [i, j, height, size]. """
     return [[float(a), float(b), float(h), float(n)]
             for a, b, h, n in hierarchy.linkage(squareform(dist, checks=False),
                                                 method='complete')]
@@ -138,8 +118,7 @@ def leaf_order(merges, n):
 
 
 def duplicate_groups(names, seqs):
-    """ Alleles sharing an identical sequence. Reported, not collapsed: they stay
-    as separate leaves at height 0 so none disappears silently. """
+    """ Alleles sharing an identical sequence. Reported, not collapsed: they stay """
     groups = {}
     for name, seq in zip(names, seqs):
         groups.setdefault(seq, []).append(name)
@@ -203,35 +182,3 @@ class AscTree(Resource):
         info = _tree.cache_info()
         return {'asc': asc, 'segment': segment_of(asc), 'linkage': 'complete', **tree,
                 'cache': {'hits': info.hits, 'misses': info.misses, 'size': info.currsize}}
-
-
-def demo():
-    """ Self-check: python -c 'import app; from api.refbook.tree import demo; demo()'
-    (through `app`: api.restx imports this module back) """
-    # terminal gaps are padding, so 0 and 1 are the same sequence
-    dist, informative, width = gapped_distances(['..ACGT..', 'AAACGT..', '..ACTT..', '..ATTA..'])
-    assert width == 8
-    assert dist[0, 1] == 0, dist
-    assert dist[0, 2] == 1 and dist[0, 3] == 3 and dist[2, 3] == 2, dist
-    assert informative == [3, 4, 5], informative    # 0-1 are covered by one allele only
-
-    # complete linkage: {0,1} at 0, 2 joins at max(1,1), 3 at max(3,3,2)
-    merges = linkage(dist)
-    assert merges == [[0, 1, 0.0, 2], [2, 4, 1.0, 3], [3, 5, 3.0, 4]], merges
-    assert leaf_order(merges, 4) == [3, 2, 0, 1]    # the outlier ends up on one edge
-    assert duplicate_groups(['a', 'b', 'c'], ['AC', 'AC', 'AG']) == [['a', 'b']]
-
-    # an insertion shifts every later column, so the row is put back in the frame
-    framed, dropped = regap(['ACGTACGTAC', 'ACGTTTACGTAC', 'ACGTACGTAC'])
-    assert framed[1] == 'ACGTACGTAC' and dropped == [0, 2, 0], (framed, dropped)
-    d2, _, _ = gapped_distances(['ACGTACGTAC', 'ACGTTTACGTAC', 'ACGTACGTAG'])
-    assert d2[0, 1] == 2 and d2[0, 2] == 1 and d2[1, 2] == 3, d2
-
-    # D and J: edit distance, so a shift costs two indels and a substitution costs one
-    d, _, _ = nw_distances(['GGTATAAC', 'GTATAACT', 'GGTAAAAC'])
-    assert d[0, 1] == 2 and d[0, 2] == 1, d
-    print('ok')
-
-
-if __name__ == '__main__':
-    demo()

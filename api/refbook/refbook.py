@@ -23,11 +23,7 @@ _species_and_loci_cache = None
 
 
 def species_and_loci():
-    """ The species/loci catalogue, merged across the genomic and AIRR-seq databases.
-
-    Every endpoint calls this to validate its arguments, and it walks each open
-    dataset, so it previously re-ran the whole scan on every request.
-    """
+    """ The species/loci catalogue, merged across the genomic and AIRR-seq databases. """
     global _species_and_loci_cache
 
     if _species_and_loci_cache is not None:
@@ -67,12 +63,7 @@ SOURCES = ('genomic', 'airrseq')
 
 
 def requested_sources():
-    """ The databases this request should read, from a `sources` query parameter.
-
-    Defaults to both, so an omitted parameter behaves as before. Unknown names are
-    ignored rather than rejected, and an empty result falls back to both: a request
-    that selects nothing is a caller error, not a reason to report no data.
-    """
+    """ The databases this request should read, from a `sources` query parameter. """
     raw = request.args.get('sources')
     if not raw:
         return set(SOURCES)
@@ -82,11 +73,7 @@ def requested_sources():
 
 
 def requested_list(name):
-    """ A comma-separated query parameter as a list, or None when absent.
-
-    None and an empty list mean different things here: no parameter means no
-    filtering, whereas an explicit empty value selects nothing.
-    """
+    """ A comma-separated query parameter as a list, or None when absent. """
     raw = request.args.get(name)
     if raw is None:
         return None
@@ -94,17 +81,7 @@ def requested_list(name):
 
 
 def applicable(session, Study, Sample, projects, samples):
-    """ The part of a project/sample selection that exists in one database.
-
-    The two databases name entirely different studies - AIRR-seq holds P2..P34 and
-    genomic holds P25/P28 - so a selection made in one of them matches nothing in
-    the other. Filtering both by the whole selection therefore reported zero for
-    whichever database the user had not picked from, which reads as "this allele is
-    absent" rather than "you did not ask about this database".
-
-    A database with none of the selection is left unfiltered, and `scoped` says so
-    for callers that need to describe what a figure covers.
-    """
+    """ The part of a project/sample selection that exists in one database. """
     known_projects = []
     if projects:
         known_projects = [name for (name,) in
@@ -142,15 +119,7 @@ def genomic_sample_filter(query, projects, samples, session=None):
 
 
 def dataset_session(dbs, species, locus, sources=None, source=None):
-    """ Session for one dataset, or None if this database holds nothing for that species/locus.
-
-    `dbs[species]` is absent entirely for a species held only in the other database,
-    so indexing it directly raises KeyError rather than missing gracefully.
-
-    Passing `sources` and this database's `source` name also returns None when the
-    caller asked not to read it, so selecting genomic-only filters the data and not
-    just the set of panels offered.
-    """
+    """ Session for one dataset, or None if this database holds nothing for that species/locus. """
     if sources is not None and source is not None and source not in sources:
         return None
 
@@ -202,7 +171,6 @@ class ProjectsApi(Resource):
                 entry['samples'] += count
                 entry['sources'].append(source)
                 # kept split as well as totalled: a project in both databases is
-                # one bar per database, and `samples` alone cannot be unstacked
                 entry['by_source'][source] = count
 
         projects = sorted(found.values(), key=lambda p: _project_order(p['name']))
@@ -254,14 +222,7 @@ class SamplesApi(Resource):
 class RefbookSummary(Resource):
     @digby_protected()
     def get(self):
-        """ Headline counts for the landing page
-
-        Samples are counted as distinct names per species+locus, unioned across
-        the two databases. That matters in both directions: the human cohorts are
-        disjoint, so genomic and AIRR-seq add up, while the rhesus macaque cohort
-        was sequenced both ways and its 106 animals would otherwise be counted
-        twice.
-        """
+        """ Headline counts for the landing page """
         catalogue = species_and_loci()
         samples, projects, datasets = 0, set(), 0
 
@@ -269,7 +230,6 @@ class RefbookSummary(Resource):
             for locus in catalogue['loci'][species]:
                 names = set()
                 # joined through Sample, not read off Study directly: a study row
-                # with no samples in this locus is not a project anyone can look at
                 session = dataset_session(vdjbase_dbs, species, locus, None, 'airrseq')
                 if session is not None:
                     rows = (session.query(VDJbaseSample.sample_name, VDJbaseStudy.study_name)
@@ -380,8 +340,6 @@ class AscsOverview(Resource):
             alleles = {name: rec for name, rec in alleles.items() if name in wanted}
 
         # Counted here rather than read from Allele.appears, a whole-dataset
-        # total that ignores the filters. Sample names, not counts, because Both
-        # is an intersection; fetched only where the cohorts can overlap at all.
         carriers_airrseq = {}
         carriers_genomic = {}
         observed_airrseq = {}
@@ -393,7 +351,6 @@ class AscsOverview(Resource):
         airrseq_session = genomic_session = None
 
         # Pass one: who is in each cohort. One column per sample, so it is cheap,
-        # and it decides whether the per-allele rows below need names at all.
         airrseq_session = dataset_session(vdjbase_dbs, species, locus, sources, 'airrseq')
         if airrseq_session is not None:
             in_scope = sample_filter(airrseq_session.query(VDJbaseSample.sample_name),
@@ -411,7 +368,6 @@ class AscsOverview(Resource):
                                               projects, samples)
 
         # Pass two. Names are only needed for the intersection, so where no sample
-        # is in both databases - every human locus - count in SQL instead.
         shared_cohort = airrseq_cohort & genomic_cohort
         need_names = bool(shared_cohort)
 
@@ -465,7 +421,6 @@ class AscsOverview(Resource):
         alleles = dict(sorted(alleles.items()))
         ret['alleles'] = list(alleles.keys())
         # these counts may not be exactly what we want, I am not sure what to do if there are samples
-        # for which we don't have both genomic and airr-seq results
         ret['genomic_only_counts'] = [
             len(carriers_genomic.get(name, set()) - carriers_airrseq.get(name, set()))
             for name in alleles]
@@ -482,7 +437,6 @@ class AscsOverview(Resource):
         ret['scoped'] = {'genomic': genomic_scoped, 'airrseq': airrseq_scoped}
 
         # the shared count separates "no allele is shared" from "these cohorts
-        # have nobody in common, so Both cannot be anything but zero"
         ret['cohort'] = {
             'genomic': len(genomic_cohort),
             'airrseq': len(airrseq_cohort),
@@ -494,14 +448,7 @@ class AscsOverview(Resource):
 
 def collect_asc_sequences(species, locus, asc, sources=None, allele_names=None,
                           keep_reference=False):
-    """ Every allele sequence for one ASC, merged across the requested databases.
-
-    `allele_names` narrows the result to particular alleles, which is what a
-    drill-down from another panel asks for.
-
-    Returns a list of {name, seq_gapped, seq}. AIRR-seq is read first so that an
-    allele held in both keeps the AIRR-seq record, as before.
-    """
+    """ Every allele sequence for one ASC, merged across the requested databases. """
     alleles = []
     recs = []
 
@@ -550,35 +497,19 @@ SEGMENTS = ('V', 'D', 'J', 'C')
 
 
 def segment_of_type(gene_type):
-    """ The segment a gene's stored type says it is: IGHV -> V, IGHC -> C.
-
-    The type is what the database records, so this works for a constant gene,
-    whose name does not carry the segment where a V, D or J name does. Prefer it
-    to segment_of.
-    """
+    """ The segment a gene's stored type says it is: IGHV -> V, IGHC -> C. """
     code = (gene_type or '')[3:4].upper()
     return code if code in SEGMENTS else '?'
 
 
 def segment_of(asc):
-    """ The segment read off an ASC name (IGHV1-2 -> V), where nothing better is at hand.
-
-    Only V, D and J names carry it. IGHA1 and IGHG1 do not, and IGHD is the delta
-    constant gene as well as a D-segment prefix, so a name is not enough for a
-    constant locus - use segment_of_type against Gene.type there. This returned
-    'V' for anything it did not recognise, which made a constant gene a V gene
-    silently; it says so now.
-    """
+    """ The segment read off an ASC name (IGHV1-2 -> V), where nothing better is at hand. """
     segment = (asc or '')[3:4].upper()
     return segment if segment in SEGMENTS else '?'
 
 
 def dataset_stamp(species, locus):
-    """ A build stamp for the databases behind one species/locus.
-
-    Part of the alignment cache key, so rebuilding a database invalidates its
-    entries rather than serving sequences that no longer exist.
-    """
+    """ A build stamp for the databases behind one species/locus. """
     stamp = []
     for dbs in (vdjbase_dbs, genomic_dbs):
         dataset = dbs.get(species, {}).get(locus)
@@ -587,7 +518,6 @@ def dataset_stamp(species, locus):
 
 
 # Holds every ASC at once (~1,140, ~7MB). A smaller cache is worse than none:
-# 524 Rhesus IGH ASCs through a 256-entry LRU evict before reuse, 0% hit rate.
 NAME_LIMIT = 26
 
 
@@ -612,16 +542,7 @@ def _suffix_token(suffix):
 
 
 def abbreviate_names(names):
-    """ Map allele names to short display labels, and back.
-
-    create_alignment indents every sequence past the longest name, and VDJbase
-    encodes each SNP in a novel allele's name: the longest here reaches 193
-    characters against a median of 23, which would push the sequences ~200
-    columns to the right and make the alignment unreadable.
-
-    A name over the limit is shortened to its stem plus the number of suffixes it
-    carried, so IGHV1-2*02_t211c_t213c_g225a becomes IGHV1-2*02+3.
-    """
+    """ Map allele names to short display labels, and back. """
     labels = {}
     used = set()
 
@@ -636,7 +557,6 @@ def abbreviate_names(names):
             if cut >= 0:
                 suffix = name[cut + 1:]
                 # the count alone collides: 231 of 793 long names share a stem
-                # and a count. The token comes from the suffix, so it is stable.
                 label = f'{name[:cut]}+{len(suffix.split("_"))}~{_suffix_token(suffix)}'
             else:
                 label = name[:NAME_LIMIT - 1] + '~'
@@ -655,11 +575,7 @@ def abbreviate_names(names):
 
 @lru_cache(maxsize=4096)
 def _render_alignment(species, locus, asc, stamp, codon_wrap, sources, allele_names):
-    """ Rendered alignment for one ASC. Memoised: see dataset_stamp for invalidation.
-
-    `stamp` is unused in the body and present only to key the cache. `sources` is a
-    frozenset so that it stays hashable and genomic-only renders cache separately.
-    """
+    """ Rendered alignment for one ASC. Memoised: see dataset_stamp for invalidation. """
     by_name = {r['name']: r['seq_gapped']
                for r in collect_asc_sequences(species, locus, asc, sources,
                                               list(allele_names) if allele_names else None,
@@ -812,7 +728,6 @@ class AscZygosity(Resource):
         alleles = requested_list('alleles')
 
         # keyed on sample name and unioned: the unit is the subject, and one
-        # animal sequenced both ways must not become two rows
         carried = {}
 
         session = dataset_session(vdjbase_dbs, species, locus, sources, 'airrseq')
@@ -824,7 +739,6 @@ class AscZygosity(Resource):
                     func.group_concat(func.distinct(VDJbaseAllele.name)).label("alleles"),
                 )
                 # without this the first selected column decides the FROM, and the
-                # explicit join below then adds `sample` a second time
                 .select_from(VDJbaseAllelesSample)
                 .join(VDJbaseAllele, VDJbaseAllele.id == VDJbaseAllelesSample.allele_id)
                 .join(VDJbaseGene, VDJbaseGene.id == VDJbaseAllele.gene_id)
@@ -864,7 +778,6 @@ class AscZygosity(Resource):
                     func.group_concat(func.distinct(GenomicSequence.name)).label("alleles"),
                 )
                 # as above: let the association table decide the FROM, so the
-                # explicit join does not add `sample` a second time
                 .select_from(GenomicSampleSequence)
                 .join(GenomicSequence, GenomicSequence.id == GenomicSampleSequence.sequence_id)
                 .join(GenomicGene, GenomicGene.id == GenomicSequence.gene_id)

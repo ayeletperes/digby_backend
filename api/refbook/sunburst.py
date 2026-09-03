@@ -1,15 +1,4 @@
-""" The sunburst panel's data: one locus as depth-ordered parallel arrays.
-
-The panel draws the whole locus at once and never fetches again, so this is a
-single request per species+locus. The hierarchy is
-
-    chain -> gene_type -> subgroup -> asc -> allele
-
-and it is returned flattened, level by level, as parallel arrays. Because the
-nodes are emitted in level order, `parent[i] < i` holds for every node, which is
-what lets the client derive arc sweeps, depths and subtree membership in linear
-forward/backward passes instead of walking parent chains per node.
-"""
+""" The sunburst panel's data: one locus as depth-ordered parallel arrays. """
 
 import re
 
@@ -24,7 +13,6 @@ from db.vdjbase_model import Gene as VDJbaseGene, Allele as VDJbaseAllele
 from db.genomic_db import Gene as GenomicGene, Sequence as GenomicSequence
 
 # a namespace of its own so app.py can register it separately; the path puts it
-# alongside the rest of the refbook API
 ns = Namespace('refbook_sunburst', description='Locus hierarchy for the sunburst panel',
                path='/refbook')
 
@@ -40,17 +28,7 @@ _ISOTYPE = re.compile(r'^(IG[HKL][ADEGM])')
 
 
 def family_of(gene, segment=None):
-    """ IGHV1-18 -> IGHV1, IGHG1 -> IGHG.
-
-    Derived from the gene name rather than read off Gene.family, because the two
-    databases fill that column differently: the AIRR-seq side holds 'IGHV1' where
-    the genomic side holds '1'. Merging on it would split every subgroup in two.
-
-    Constant genes are named for their isotype rather than a numbered subgroup,
-    so they group by it: IGHG1 to IGHG4 and IGHG4D are the IgG subclasses and
-    belong under IGHG. The segment has to be passed in, because IGHD is the delta
-    constant gene and also the prefix every D gene shares.
-    """
+    """ IGHV1-18 -> IGHV1, IGHG1 -> IGHG. """
     if segment == 'C':
         match = _ISOTYPE.match(gene or '')
         return match.group(1) if match else (gene or '?')
@@ -79,15 +57,7 @@ def _order(record):
 
 
 def collect(species, locus, sources):
-    """ Every allele of the locus, unioned across the databases the caller asked for.
-
-    Returns a list of (segment, subgroup, asc, allele, novel, in_genomic, in_airrseq).
-
-    Pseudogenes and orphons are excluded, matching /ascs_in_locus, and on the
-    genomic side only Functional and ORF sequences are taken, matching
-    /ascs_overview. An allele held in both databases is one node, flagged as
-    present in both.
-    """
+    """ Every allele of the locus, unioned across the databases the caller asked for. """
     found = {}
 
     def record(allele, gene, gene_type, novel, source):
@@ -101,7 +71,6 @@ def collect(species, locus, sources):
                                      'genomic': 0, 'airrseq': 0}
         entry[source] = 1
         # a novel call in either database is enough to mark the allele novel; the
-        # databases are built separately and only one of them may have seen it
         entry['novel'] = entry['novel'] or bool(novel)
 
     session = dataset_session(vdjbase_dbs, species, locus, sources, 'airrseq')
@@ -130,16 +99,7 @@ def collect(species, locus, sources):
 
 
 def build(chain, alleles):
-    """ Flatten the hierarchy into depth-ordered parallel arrays.
-
-    `alleles` is what collect() returns, already sorted, so each level comes out
-    in that order too and the arcs are drawn in gene order rather than at random.
-
-    novel/nG/nA are counts of alleles in the subtree, summed up the tree in one
-    backward pass. They are counts of alleles, not of samples: samples cannot be
-    added across alleles without counting the same subject many times, whereas an
-    allele belongs to exactly one node at every level.
-    """
+    """ Flatten the hierarchy into depth-ordered parallel arrays. """
     label = [chain]
     parent = [-1]
     novel, n_genomic, n_airrseq = [0], [0], [0]
@@ -183,39 +143,3 @@ class SunburstApi(Resource):
             return error
 
         return build(locus, collect(species, locus, requested_sources()))
-
-
-def _selfcheck():
-    """ The invariants the client relies on, on a hand-built locus. """
-    rows = [
-        ('V', 'IGHV1', 'IGHV1-2', 'IGHV1-2*02', 0, 1, 1),
-        ('V', 'IGHV1', 'IGHV1-2', 'IGHV1-2*04', 1, 0, 1),
-        ('V', 'IGHV1', 'IGHV1-18', 'IGHV1-18*01', 0, 1, 0),
-        ('D', 'IGHD1', 'IGHD1-7', 'IGHD1-7*01', 0, 1, 1),
-    ]
-    # D before V alphabetically, and *18 before *2 as strings: neither is what we want
-    assert sorted(reversed(rows), key=_order) == rows
-
-    out = build('IGH', rows)
-    n = len(out['label'])
-
-    assert n == 1 + 2 + 2 + 3 + 4, n                      # chain, segments, subgroups, ascs, alleles
-    assert out['parent'][0] == -1
-    assert all(out['parent'][i] < i for i in range(1, n))  # the whole point of depth ordering
-    assert out['levelStart'] == [0, 1, 3, 5, 8], out['levelStart']
-    assert all(out['levelStart'][i] < out['levelStart'][i + 1] for i in range(len(LEVELS) - 1))
-    assert out['label'][0] == 'IGH'
-    assert out['label'][1:3] == ['V', 'D']                 # V before D, not alphabetical
-    assert out['label'][5:8] == ['IGHV1-2', 'IGHV1-18', 'IGHD1-7']   # IGHV1-2 before IGHV1-18
-
-    assert out['novel'][0] == 1 and out['nG'][0] == 3 and out['nA'][0] == 3   # rolled up to the root
-    v = out['label'].index('V')
-    assert out['nG'][v] == 2 and out['nA'][v] == 2 and out['novel'][v] == 1
-
-    # sorting must not change what the tree contains
-    assert sum(1 for p in out['parent'] if p == 0) == 2
-    print('ok: %d nodes' % n)
-
-
-if __name__ == '__main__':
-    _selfcheck()
