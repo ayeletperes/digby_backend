@@ -5,6 +5,8 @@
 # and an `alleles` subset, which a precomputed table cannot enumerate.
 
 import numpy as np
+from scipy.cluster import hierarchy
+from scipy.spatial.distance import squareform
 from flask_restx import Resource
 from functools import lru_cache
 
@@ -139,55 +141,23 @@ def nw_distances(seqs):
 
 
 def linkage(dist):
-    """ Complete-linkage agglomerative clustering, in scipy's linkage format.
+    """ Complete-linkage clustering, in scipy's format: [i, j, height, size].
 
-    scipy is not in the backend environment and this is the only thing it would be
-    used for, so the ~20 lines are here instead. Rows are [i, j, height, size],
-    leaves are 0..n-1 and merge k creates cluster n+k, as scipy does it.
-
-    Complete only. Single and average were once selectable through a `linkage`
-    query parameter that nothing ever sent, and the panel states complete linkage
-    as fact - the height of a join is the distance of its furthest pair.
+    scipy's own, not a local implementation. The distances above are
+    domain-specific and stay here; the clustering is not, and a hand-rolled one
+    breaks ties differently from the reference. That matters because the panel's
+    exported script redraws the tree with scipy: the two must agree.
     """
-    n = dist.shape[0]
-    d = dist.astype(float).copy()
-    np.fill_diagonal(d, np.inf)
-
-    cid = list(range(n))            # cluster id currently held in each row
-    size = [1] * n
-    merges = []
-
-    for k in range(n - 1):
-        i, j = np.unravel_index(np.argmin(d), d.shape)
-        height = float(d[i, j])
-
-        row = np.maximum(d[i], d[j])
-
-        merges.append([min(cid[i], cid[j]), max(cid[i], cid[j]), height, size[i] + size[j]])
-
-        d[i] = d[:, i] = row        # row i becomes the merged cluster
-        d[i, i] = np.inf
-        d[j] = d[:, j] = np.inf     # row j leaves the pool
-        cid[i] = n + k
-        size[i] += size[j]
-
-    return merges
+    return [[float(a), float(b), float(h), float(n)]
+            for a, b, h, n in hierarchy.linkage(squareform(dist, checks=False),
+                                                method='complete')]
 
 
 def leaf_order(merges, n):
-    """ Leaves left to right, by walking the tree from its root. """
+    """ Leaves left to right, as the dendrogram draws them. """
     if not merges:
         return list(range(n))
-
-    order, stack = [], [n + len(merges) - 1]
-    while stack:
-        node = stack.pop()
-        if node < n:
-            order.append(node)
-        else:
-            left, right, _, _ = merges[node - n]
-            stack.extend([right, left])         # left comes off the stack first
-    return order
+    return [int(i) for i in hierarchy.leaves_list(np.array(merges, dtype=float))]
 
 
 def duplicate_groups(names, seqs):
