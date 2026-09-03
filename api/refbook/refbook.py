@@ -315,14 +315,8 @@ class AscsInLocusApi(Resource):
         ascs = []
         genomic = False
         airr_seq = False
-
-        # segment comes from the stored type, not the name: IGHA1 and IGHG1 do not
-        # carry it, and IGHD is both the delta constant gene and a D-segment prefix
         segments = {}
-
-        # a gene with no sequence has nothing for any panel to draw. The IGHC
-        # dataset carries 78 V, 37 D and 6 J gene rows with zero sequences
-        # between them, and listing those offers 98 genes that open empty.
+        
         session = dataset_session(vdjbase_dbs, species, locus, sources, 'airrseq')
         if session is not None:
             genes = session.query(VDJbaseGene.name, VDJbaseGene.type) \
@@ -341,8 +335,6 @@ class AscsInLocusApi(Resource):
             segments.update({g[0]: segment_of_type(g[1]) for g in genes})
             genomic = True
 
-        # both databases contribute: re-deriving this from `genes` dropped whichever
-        # ran first, and raised NameError when neither held the locus
         ascs = sorted(set(ascs))
         ascs = [g for g in ascs if '/OR' not in g] # filter orphons
         return {'ascs': ascs, 'segments': {g: segments[g] for g in ascs},
