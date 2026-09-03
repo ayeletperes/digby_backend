@@ -1,8 +1,5 @@
-# Hierarchical clustering of the alleles of one ASC, for the refbook dashboard.
-#
-# Computed live and memoised, not precomputed: the worst gene in the dataset
-# (Human/IGL/IGLV3-1, 133 alleles) costs ~60ms, and the panel accepts a `sources`
-# and an `alleles` subset, which a precomputed table cannot enumerate.
+# Hierarchical clustering of the alleles of one ASC. Live and memoised: the worst
+# gene costs ~60ms, and the panel takes subsets a precomputed table cannot enumerate.
 
 import numpy as np
 from scipy.cluster import hierarchy
@@ -30,12 +27,8 @@ def _matrix(seqs):
 
 
 def _extent(M):
-    """ First and last column of real sequence in each row.
-
-    Terminal gaps are alignment padding, not a difference: an allele recorded
-    only from position 20 onwards must not read as 19 substitutions against a
-    full-length one. Internal gaps are kept, since those are real indels.
-    """
+    """ First and last real column per row. Terminal gaps are padding, not
+    differences; internal gaps are kept, since those are real indels. """
     real = (M != GAP) & (M != PAD)
     cols = np.arange(M.shape[1])
     start = np.where(real.any(1), np.argmax(real, 1), 0)
@@ -44,18 +37,11 @@ def _extent(M):
 
 
 def regap(seqs):
-    """ Put every sequence back into the gene's own IMGT column frame.
+    """ Put every sequence back into the gene's IMGT column frame.
 
-    Almost all gapped sequences for a gene are the same width and their columns
-    already correspond. The exceptions are novel alleles carrying an insertion or a
-    deletion, which shift every column after it: 62 of the 589 multi-allele V genes
-    have at least one, and in IGHV4-39 (12 of 42 alleles) it put the root of the
-    tree at 188 differences instead of ~25. Those rows are realigned to the widest
-    common frame and rebuilt on its coordinates, so the fast column comparison holds
-    for the whole gene.
-
-    Returns the reframed sequences and, per sequence, the number of inserted columns
-    dropped, which the frame cannot represent and which the caller adds back.
+    An insertion shifts every later column, which put IGHV4-39's root at 188
+    differences instead of 25. Returns the reframed sequences and, per sequence,
+    the inserted columns dropped, which the caller adds back.
     """
     widths = [len(s) for s in seqs]
     frame_width = max(set(widths), key=widths.count)
@@ -85,13 +71,10 @@ def regap(seqs):
 
 
 def gapped_distances(seqs):
-    """ Pairwise difference counts over IMGT-gapped sequences, and the informative columns.
+    """ Difference counts over IMGT-gapped sequences, plus the informative columns.
 
-    Not scipy's hamming or Biopython's identity distance, both of which count a
-    position one allele was never sequenced at as a difference: they make
-    IGLV8-61*01 and *03 fifty apart where they differ at one position. Twenty
-    genes here have ragged extents. The masking is the whole point of this
-    function; the rest is one numpy comparison.
+    Not scipy hamming or Bio identity: both count a never-sequenced position as a
+    difference, making IGLV8-61*01 and *03 50 apart where they differ at 1.
     """
     seqs, dropped = regap(seqs)
 
@@ -119,15 +102,10 @@ def gapped_distances(seqs):
 
 
 def nw_distances(seqs):
-    """ Pairwise distances for D and J, which have no gapped form and ragged ends.
+    """ Edit distance for D and J, which have no gapped form.
 
-    Needleman-Wunsch scored so that minus the alignment score is the edit distance.
-    n is at most ~10 here, so all pairs cost about a millisecond.
-
-    End gaps are penalised, unlike the V path: there the IMGT columns say a terminal
-    gap is sequence that was never recorded, whereas here nothing distinguishes that
-    from a genuinely shorter allele - and free end gaps make the empty overlap free,
-    which scores every pair as identical.
+    End gaps are penalised, unlike the V path: free end gaps make the empty
+    overlap free and score every pair as identical.
     """
     from Bio import Align
 
@@ -143,12 +121,9 @@ def nw_distances(seqs):
 
 
 def linkage(dist):
-    """ Complete-linkage clustering, in scipy's format: [i, j, height, size].
+    """ Complete-linkage clustering, scipy's format: [i, j, height, size].
 
-    scipy's own, not a local implementation. The distances above are
-    domain-specific and stay here; the clustering is not, and a hand-rolled one
-    breaks ties differently from the reference. That matters because the panel's
-    exported script redraws the tree with scipy: the two must agree.
+    scipy's own, so that the panel's exported script redraws the same tree.
     """
     return [[float(a), float(b), float(h), float(n)]
             for a, b, h, n in hierarchy.linkage(squareform(dist, checks=False),
@@ -163,21 +138,15 @@ def leaf_order(merges, n):
 
 
 def duplicate_groups(names, seqs):
-    """ Alleles that share an identical sequence, reported rather than collapsed.
-
-    26 of the 672 multi-allele genes have at least two alleles with the same gapped
-    sequence. They stay as separate leaves joined at height 0, so no allele silently
-    disappears from the tree.
-    """
+    """ Alleles sharing an identical sequence. Reported, not collapsed: they stay
+    as separate leaves at height 0 so none disappears silently. """
     groups = {}
     for name, seq in zip(names, seqs):
         groups.setdefault(seq, []).append(name)
     return [g for g in groups.values() if len(g) > 1]
 
 
-# 1,138 genes today, and a gene can be asked for under several source or allele
-# filters. Sized like the alignment cache: sweeping one large locus through a
-# smaller LRU evicts each entry before it is reused. A tree is a few KB.
+# large enough that sweeping one locus does not evict before reuse
 @lru_cache(maxsize=4096)
 def _tree(species, locus, asc, stamp, sources, allele_names):
     """ The tree for one ASC. `stamp` only keys the cache: see dataset_stamp. """
@@ -209,9 +178,6 @@ def _tree(species, locus, asc, stamp, sources, allele_names):
             'duplicate_groups': duplicate_groups(names, seqs),
             'columns': columns,
             'gapped': gapped,
-            # two different measures, and the caller has to say which: over the
-            # IMGT columns it is a count of differing positions, and off them it
-            # is an edit distance that can also count a gap
             'metric': 'hamming_gapped' if gapped else 'edit'}
 
 
@@ -241,10 +207,7 @@ class AscTree(Resource):
 
 def demo():
     """ Self-check: python -c 'import app; from api.refbook.tree import demo; demo()'
-
-    (imported through `app` because api.restx imports it back, so this module
-    cannot be the one that starts the chain)
-    """
+    (through `app`: api.restx imports this module back) """
     # terminal gaps are padding, so 0 and 1 are the same sequence
     dist, informative, width = gapped_distances(['..ACGT..', 'AAACGT..', '..ACTT..', '..ATTA..'])
     assert width == 8
