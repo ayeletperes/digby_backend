@@ -87,9 +87,11 @@ def regap(seqs):
 def gapped_distances(seqs):
     """ Pairwise difference counts over IMGT-gapped sequences, and the informative columns.
 
-    The database stores V alleles already IMGT-gapped, so the columns correspond by
-    construction and comparing them costs ~40ms where re-aligning every pair of the
-    same gene with a pairwise aligner costs ~40s.
+    Not scipy's hamming or Biopython's identity distance, both of which count a
+    position one allele was never sequenced at as a difference: they make
+    IGLV8-61*01 and *03 fifty apart where they differ at one position. Twenty
+    genes here have ragged extents. The masking is the whole point of this
+    function; the rest is one numpy comparison.
     """
     seqs, dropped = regap(seqs)
 
