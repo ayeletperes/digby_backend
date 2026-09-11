@@ -402,8 +402,8 @@ def _leads(session, asc=None, limit=10):
     """The strongest independent signals, for labelling the plot."""
     query = (
         session.query(Variant.variant, Variant.pos, Asc.asc, UsageAssociation.neglog10_p,
-                      UsageAssociation.beta, UsageAssociation.min_genotype_group,
-                      UsageAssociation.well_powered)
+                      UsageAssociation.beta, Variant.min_genotype_group,
+                      Variant.well_powered)
         .join(UsageAssociation, UsageAssociation.variant_id == Variant.id)
         .join(Asc, Asc.id == UsageAssociation.asc_id)
         .filter(UsageAssociation.is_lead == True)      # noqa: E712 - SQL, not Python
@@ -451,11 +451,11 @@ def _variant_payload(session, record):
     smallest = min(counts.values()) if counts else None
 
     rows = (
+        # n, min_genotype_group and well_powered are the variant's, not each
+        # association's, so they come off `record` rather than a join
         session.query(Asc.asc, Asc.segment, UsageAssociation.beta, UsageAssociation.se,
                       UsageAssociation.p_value, UsageAssociation.neglog10_p,
-                      UsageAssociation.significant, UsageAssociation.n,
-                      UsageAssociation.min_genotype_group, UsageAssociation.well_powered,
-                      UsageAssociation.is_lead)
+                      UsageAssociation.significant, UsageAssociation.is_lead)
         .join(UsageAssociation, UsageAssociation.asc_id == Asc.id)
         .filter(UsageAssociation.variant_id == record.id)
         .order_by(UsageAssociation.neglog10_p.desc())
@@ -464,14 +464,14 @@ def _variant_payload(session, record):
 
     associations = [
         {'asc': asc, 'segment': segment, 'beta': beta, 'se': se, 'p_value': p,
-         'neglog10_p': neglog10_p, 'significant': bool(significant), 'n': n,
-         'min_genotype_group': min_group if min_group is not None else smallest,
-         'well_powered': (bool(powered) if powered is not None
+         'neglog10_p': neglog10_p, 'significant': bool(significant), 'n': record.n,
+         'min_genotype_group': (record.min_genotype_group
+                                if record.min_genotype_group is not None else smallest),
+         'well_powered': (bool(record.well_powered) if record.well_powered is not None
                           else None if smallest is None
                           else smallest >= WELL_POWERED_MIN),
          'is_lead': bool(lead)}
-        for asc, segment, beta, se, p, neglog10_p, significant, n,
-            min_group, powered, lead in rows]
+        for asc, segment, beta, se, p, neglog10_p, significant, lead in rows]
 
     return {
         'variant': {'variant': record.variant, 'contig': record.contig, 'pos': record.pos,

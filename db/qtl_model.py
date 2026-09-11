@@ -121,6 +121,12 @@ class Variant(Base):
     pos = Column(Integer)
     maf = Column(Float)
     missing_rate = Column(Float)
+    # the scan's subject count and smallest genotype class for this variant, and
+    # whether that class is big enough to trust the fit. Per variant, not per
+    # association: they were on every one of the 667,542 IGH association rows
+    n = Column(Integer)
+    min_genotype_group = Column(Integer)
+    well_powered = Column(Boolean)
 
     # from variant_features.tsv; populated for IGH, where the association rows
     # themselves carry no gene context
@@ -180,7 +186,6 @@ class UsageAssociation(Base):
     variant_id = Column(Integer, ForeignKey('qtl_variant.id'), nullable=False)
     asc_id = Column(Integer, ForeignKey('qtl_asc.id'), nullable=False)
 
-    n = Column(Integer)
     beta = Column(Float)
     se = Column(Float)
     t_stat = Column(Float)
@@ -192,11 +197,8 @@ class UsageAssociation(Base):
     significant = Column(Boolean)
     distance_to_asc = Column(Float)
 
-    # from usage_leads.tsv, present only for lead variants: the smallest genotype
-    # class behind the fit. The pipeline documents the extreme tail as
-    # anti-conservative, so a p-value should not be shown without it.
-    min_genotype_group = Column(Integer)
-    well_powered = Column(Boolean)
+    # is_cis is per variant AND cluster - it is the distance to that cluster -
+    # so unlike the power columns, which moved to qtl_variant, it belongs here
     is_cis = Column(Boolean)
     is_lead = Column(Boolean, default=False)
 

@@ -7,9 +7,10 @@ is a million rows and there is no reason to hold it in memory.
 Layout expected: one directory per locus, holding the files the run wrote for it
 
     manifest.json                       schema, thresholds, provenance
-    usage_associations_<LOCUS>.tsv.gz   the fits, carrying is_lead and the power columns
-    genotypes.matrix                    variant x subject, the whole cohort
-    variant_features.tsv                gene and feature per variant
+    usage_associations_<LOCUS>.tsv.gz   one row per variant and cluster
+    variant_features.tsv.gz             everything true of a variant
+    asc_features.tsv.gz                 everything true of a cluster
+    genotypes.matrix.gz                 variant x subject, this locus
     asc_usage.tsv.gz                    the usage phenotype
     pairing.tsv.gz, cell_tests.tsv.gz, dj_enrichment.tsv.gz    IGH only
 """
@@ -143,7 +144,7 @@ def check_schema(run_dir, manifest=None):
 
 def genotype_matrix(run_dir):
     """The cohort genotype matrix, which the run now carries beside its tables."""
-    path = os.path.join(run_dir, 'genotypes.matrix')
+    path = os.path.join(run_dir, 'genotypes.matrix.gz')
     return path if os.path.exists(path) else None
 
 
@@ -291,36 +292,29 @@ class QtlBuilder:
             variant = row['variant']
             if variant not in self.variants:
                 cur = self.con.execute(
-                    "INSERT INTO qtl_variant (run_id, variant, contig, pos, maf) VALUES (?,?,?,?,?)",
+                    "INSERT INTO qtl_variant (run_id, variant, contig) VALUES (?,?,?)",
                     (self.run_id, variant,
                      # split on the FIRST underscore, not the last: ids are
                      # contig_pos, but a multi-allelic site adds a third part
                      # (chr22_23161341_2), and rsplit handed that whole
                      # `chr22_23161341` back as the contig. No contig carries an
                      # underscore, so the first one always ends it.
-                     variant.split('_', 1)[0] if '_' in variant else None,
-                     _num(row.get('pos'), int), _num(row.get('maf'))))
+                     variant.split('_', 1)[0] if '_' in variant else None))
                 self.variants[variant] = cur.lastrowid
 
             asc = row['asc']
             if asc not in self.ascs:
-                cur = self.con.execute(
-                    "INSERT INTO qtl_asc (run_id, asc, segment, asc_position, asc_span, n_member) "
-                    "VALUES (?,?,?,?,?,?)",
-                    (self.run_id, asc, row.get('segment'),
-                     _num(row.get('asc_position')), _num(row.get('asc_span')),
-                     _num(row.get('n_member'), int)))
+                cur = self.con.execute("INSERT INTO qtl_asc (run_id, asc) VALUES (?,?)",
+                                       (self.run_id, asc))
                 self.ascs[asc] = cur.lastrowid
 
             p = _num(row.get('p_value'))
             associations.append((
-                self.variants[variant], self.ascs[asc], _num(row.get('n'), int),
+                self.variants[variant], self.ascs[asc],
                 _num(row.get('beta')), _num(row.get('se')), _num(row.get('t_stat')),
                 p, _neglog10(p), _bool(row.get('significant')),
                 _num(row.get('distance_to_asc')),
-                _num(row.get('min_genotype_group'), int),
-                _bool(row.get('well_powered')), _bool(row.get('is_cis')),
-                _bool(row.get('is_lead'))))
+                _bool(row.get('is_cis')), _bool(row.get('is_lead'))))
 
             if len(associations) >= BATCH:
                 written += self._insert('qtl_usage_association', _ASSOC_COLS, associations)
@@ -330,8 +324,12 @@ class QtlBuilder:
         return written
 
     def annotate_variants(self):
-        """Add the genomic feature each variant falls in, where it is known."""
-        path = self._file('variant_features.tsv')
+        """Everything true of a variant rather than of one of its associations.
+
+        The scan reports these per variant, so they arrive once here rather than
+        repeated on each of its association rows.
+        """
+        path = self._file('variant_features.tsv.gz')
         if not os.path.exists(path):
             return 0
 
@@ -341,12 +339,36 @@ class QtlBuilder:
                 continue
             variant_id = self.variants.get(row['variant'])
             if variant_id:
-                updates.append((row.get('gene'), row.get('feature'),
-                                row.get('sub_feature'), _num(row.get('distance_to_gene')),
-                                variant_id))
+                updates.append((
+                    _num(row.get('pos'), int), _num(row.get('maf')),
+                    _num(row.get('missing_rate')), _num(row.get('n'), int),
+                    _num(row.get('min_genotype_group'), int),
+                    _bool(row.get('well_powered')),
+                    row.get('gene'), row.get('feature'), row.get('sub_feature'),
+                    _num(row.get('distance_to_gene')), variant_id))
 
         self.con.executemany(
-            "UPDATE qtl_variant SET gene=?, feature=?, sub_feature=?, distance_to_gene=? "
+            "UPDATE qtl_variant SET pos=?, maf=?, missing_rate=?, n=?, "
+            "min_genotype_group=?, well_powered=?, gene=?, feature=?, sub_feature=?, "
+            "distance_to_gene=? WHERE id=?", updates)
+        return len(updates)
+
+    def annotate_ascs(self):
+        """Where each cluster sits and how many alleles it holds."""
+        path = self._file('asc_features.tsv.gz')
+        if not os.path.exists(path):
+            return 0
+
+        updates = []
+        for row in _rows(path):
+            asc_id = self.ascs.get(row['asc'])
+            if asc_id:
+                updates.append((row.get('segment'), _num(row.get('asc_position')),
+                                _num(row.get('asc_span')), _num(row.get('n_member'), int),
+                                asc_id))
+
+        self.con.executemany(
+            "UPDATE qtl_asc SET segment=?, asc_position=?, asc_span=?, n_member=? "
             "WHERE id=?", updates)
         return len(updates)
 
@@ -428,7 +450,7 @@ class QtlBuilder:
         rows = []
         written = 0
 
-        with open(path, newline='') as handle:
+        with gzip.open(path, 'rt', newline='') as handle:
             reader = csv.reader(handle, delimiter='\t')
             header = next(reader)
 
@@ -537,9 +559,8 @@ class QtlBuilder:
                      + (f', project {project}' if project else ''))
 
 
-_ASSOC_COLS = ['variant_id', 'asc_id', 'n', 'beta', 'se', 't_stat', 'p_value',
-               'neglog10_p', 'significant', 'distance_to_asc',
-               'min_genotype_group', 'well_powered', 'is_cis', 'is_lead']
+_ASSOC_COLS = ['variant_id', 'asc_id', 'beta', 'se', 't_stat', 'p_value',
+               'neglog10_p', 'significant', 'distance_to_asc', 'is_cis', 'is_lead']
 _USAGE_COLS = ['subject_id', 'asc_id', 'count', 'total', 'n_asc', 'usage', 'logit_usage']
 _DOSAGE_COLS = ['variant_id', 'subject_id', 'dosage', 'genotype']
 _PAIRING_COLS = ['conditional', 'variant_id', 'anchor_gene', 'n', 'pillai', 'f_stat',
@@ -568,6 +589,7 @@ def build(run_dir, species, locus, path, project=None, manifest=None):
     counts['variants'] = len(builder.variants)
     counts['ascs'] = len(builder.ascs)
     counts['annotated'] = builder.annotate_variants()
+    counts['clusters_annotated'] = builder.annotate_ascs()
     counts['summarised'] = builder.summarise_variants()
     counts['asc_usage'] = builder.load_asc_usage()
     counts['dosage'] = builder.load_dosage()

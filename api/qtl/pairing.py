@@ -243,12 +243,11 @@ class QtlPairingApi(Resource):
         # is the whole reason the marginals are drawn beside the grid.
         usage = {
             asc: {'beta': beta, 'p_value': p_value, 'neglog10_p': neglog10_p,
-                  'significant': bool(sig), 'n': n,
-                  'min_genotype_group': min_group}
-            for asc, beta, p_value, neglog10_p, sig, n, min_group in
+                  'significant': bool(sig), 'n': record.n,
+                  'min_genotype_group': record.min_genotype_group}
+            for asc, beta, p_value, neglog10_p, sig in
             session.query(Asc.asc, UsageAssociation.beta, UsageAssociation.p_value,
-                          UsageAssociation.neglog10_p, UsageAssociation.significant,
-                          UsageAssociation.n, UsageAssociation.min_genotype_group)
+                          UsageAssociation.neglog10_p, UsageAssociation.significant)
             .select_from(UsageAssociation)
             .join(Asc, Asc.id == UsageAssociation.asc_id)
             .filter(UsageAssociation.variant_id == record.id).all()}

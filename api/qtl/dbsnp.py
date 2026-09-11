@@ -29,13 +29,14 @@ linked out by position - but their frame has not been checked the way this one
 has, so this module does not claim them.
 """
 
+import gzip
 import os
 
 from app import app
 
 # The map lives outside the repository, beside the annotation release it shares a
 # reference with. `QTL_DBSNP_PATH` overrides the location.
-FILENAME = 'GRCh38_igh_dbSNP_id.tsv'
+FILENAME = 'GRCh38_igh_dbSNP_id.tsv.gz'
 
 # The locus-relative contig the map is written against. A variant on any other
 # contig is not something this file can speak about.
@@ -70,7 +71,7 @@ def _load():
     table = None
     if stamp is not None:
         table = {}
-        with open(path) as handle:
+        with gzip.open(path, 'rt') as handle:
             header = handle.readline().rstrip('\n').split('\t')
             try:
                 c_chrom = header.index('GRCh38')
