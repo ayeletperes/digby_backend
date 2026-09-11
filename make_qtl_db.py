@@ -1,59 +1,62 @@
-"""Build the guQTL databases from an igqtl.R run directory.
+"""Make a guQTL sqlite database from files in the current directory.
 
-    python make_qtl_db.py <run_dir> [--species Human] [--locus IGH] [--project P28]
+    python make_qtl_db.py <species> <locus>
 
-<run_dir> is a dated directory under results/igqtl (or its `current` symlink).
-With no --locus, every locus the run produced is built.
-
---project names the study whose cohort the run scanned. One database holds one
-project, and the dashboard offers whichever ones are built, so a second study is
-a second build rather than a merge.
+Run from the dataset directory, as make_vdjbase_db.py and make_genomic_db.py
+are. A yml file there names the studies to build and where each one's run
+directory is; every study goes into the one db.sqlite3, keyed by its run.
 """
 
-import argparse
 import os
 import sys
 
-from db.qtl_maint import build, loci_in
+import yaml
+
+from db.qtl_maint import build
+
+
+def read_yml_file(dataset_dir):
+    yml_files = [entry.name for entry in os.scandir(dataset_dir)
+                 if entry.is_file() and os.path.splitext(entry.name)[1] in ('.yml', '.yaml')]
+    if not yml_files:
+        sys.exit(f'Error: no yml file found in directory {dataset_dir}.')
+    if len(yml_files) > 1:
+        sys.exit(f'Error: multiple yml files found in directory {dataset_dir}.')
+    with open(os.path.join(dataset_dir, yml_files[0])) as fi:
+        return yaml.safe_load(fi)
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__,
-                                     formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('run_dir', help='an igqtl run directory')
-    parser.add_argument('--species', default='Human')
-    parser.add_argument('--locus', action='append',
-                        help='build only this locus; repeatable')
-    parser.add_argument('--static', default=None,
-                        help='static path to write under (default ./static)')
-    parser.add_argument('--genotypes', default=None,
-                        help='the cohort genotype matrix to take genotypes from '
-                             '(default: the one the run records in its manifest)')
-    parser.add_argument('--project', default=None,
-                        help='the study whose cohort this run scanned, e.g. P28. '
-                             'Recorded in the database and offered as a choice in '
-                             'the dashboard. Not guessed from the run: state it')
-    args = parser.parse_args()
+    if len(sys.argv) != 3:
+        sys.exit(__doc__)
+    species, locus = sys.argv[1], sys.argv[2]
 
-    if not os.path.isdir(args.run_dir):
-        sys.exit(f'No such run directory: {args.run_dir}')
+    dataset_dir = os.getcwd()
+    studies = (read_yml_file(dataset_dir) or {}).get('Studies') or {}
+    if not studies:
+        sys.exit('The yml file names no studies under `Studies:`.')
 
-    if args.genotypes and not os.path.exists(args.genotypes):
-        sys.exit(f'No such genotype matrix: {args.genotypes}')
+    db_file = os.path.join(dataset_dir, 'db.sqlite3')
 
-    static_path = args.static or os.path.join(os.getcwd(), 'static')
-    loci = args.locus or loci_in(args.run_dir)
-    if not loci:
-        sys.exit(f'No usage_associations_*.tsv.gz found under {args.run_dir}/source_data')
+    for project in sorted(studies):
+        run_dir = studies[project].get('run_dir') or os.path.join('studies', project)
+        if not os.path.isdir(run_dir):
+            sys.exit(f'{project}: no such run directory: {run_dir}')
 
-    for locus in loci:
-        print(f'{args.species} {locus}' + (f' [{args.project}]' if args.project else '') + ':')
-        counts = build(args.run_dir, args.species, locus, static_path,
-                       args.genotypes, args.project)
-        path = counts.pop('path')
+        # the manifest sits beside the database, named for its study, as the
+        # repertoire sets keep their MiAIRR json
+        manifest = studies[project].get('manifest_file') or f'{project}_manifest.json'
+        if not os.path.isfile(manifest):
+            sys.exit(f'{project}: no such manifest: {manifest}')
+
+        print(f'{species} {locus} [{project}]:')
+        counts = build(run_dir, species, locus, db_file, project=project,
+                       manifest=manifest)
         for name, value in counts.items():
             print(f'    {name:22} {value:>9,}')
-        print(f'    -> {path} ({os.path.getsize(path) / 1024 / 1024:.0f} MB)')
+
+    print(f'    -> {db_file} ({os.path.getsize(db_file) / 1024 / 1024:.0f} MB), '
+          f'{len(studies)} stud{"y" if len(studies) == 1 else "ies"}')
 
 
 if __name__ == '__main__':

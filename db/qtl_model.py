@@ -18,7 +18,8 @@ choices here:
 """
 
 from sqlalchemy import (
-    Boolean, Column, Float, Index, Integer, String, Text, UniqueConstraint,
+    Boolean, Column, Float, ForeignKey, Index, Integer, String, Text,
+    UniqueConstraint,
 )
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -33,17 +34,22 @@ class Details(Details_Mixin, Base):
 
 
 class Run(Base):
-    """Provenance for the single analysis run this database holds."""
+    """Provenance for one analysis run: one study's scan at this locus.
+
+    A database holds every study built at its locus, one run row each. Nothing
+    is ever compared across them - the scans have different cohorts, different
+    thresholds and therefore p-values on different scales - so `run_id` is a
+    filter every view applies, not a dimension anything aggregates over.
+    """
     __tablename__ = 'qtl_run'
 
     id = Column(Integer, primary_key=True)
     label = Column(String(100))
     generated_at = Column(String(40))
     script = Column(String(500))
-    # Which study's cohort was scanned. One database holds one project: a scan is
-    # computed within a cohort and is never pooled across them, so this selects a
-    # database rather than filtering inside one, and every analysis served from
-    # here is that project's.
+    # Which study's cohort was scanned. A scan is computed within a cohort and
+    # never pooled across them, so this qualifies every query rather than
+    # selecting a file, the same way study_id does in the repertoire schema.
     #
     # Stated by whoever builds the database, not derived. The run's own config
     # names a metadata file whose stem happens to carry the project, and reading
@@ -66,6 +72,7 @@ class Threshold(Base):
     """
     __tablename__ = 'qtl_threshold'
 
+    run_id = Column(Integer, ForeignKey('qtl_run.id'), nullable=False, index=True)
     id = Column(Integer, primary_key=True)
     analysis = Column(String(20), nullable=False)        # usage | pairing
     # pairing only: which side the scan was anchored on, and P(J|D) or P(D|J)
@@ -82,7 +89,7 @@ class Threshold(Base):
     n_independent_significant = Column(Integer)
 
     __table_args__ = (
-        UniqueConstraint('analysis', 'conditional', name='uq_threshold_analysis'),
+        UniqueConstraint('run_id', 'analysis', 'conditional', name='uq_threshold_analysis'),
     )
 
 
@@ -94,8 +101,9 @@ class Subject(Base):
     """
     __tablename__ = 'qtl_subject'
 
+    run_id = Column(Integer, ForeignKey('qtl_run.id'), nullable=False, index=True)
     id = Column(Integer, primary_key=True)
-    subject = Column(String(60), nullable=False, unique=True)
+    subject = Column(String(60), nullable=False)
     ancestry = Column(String(40))
 
 
@@ -106,8 +114,9 @@ class Variant(Base):
     """
     __tablename__ = 'qtl_variant'
 
+    run_id = Column(Integer, ForeignKey('qtl_run.id'), nullable=False, index=True)
     id = Column(Integer, primary_key=True)
-    variant = Column(String(60), nullable=False, unique=True)
+    variant = Column(String(60), nullable=False)
     contig = Column(String(20))
     pos = Column(Integer)
     maf = Column(Float)
@@ -130,7 +139,7 @@ class Variant(Base):
     # Null on a database built before these existed; the API notices and computes
     # the aggregate live rather than reporting a variant as untested.
     best_neglog10_p = Column(Float)
-    best_asc_id = Column(Integer)
+    best_asc_id = Column(Integer, ForeignKey('qtl_asc.id'))
     best_significant = Column(Boolean)
 
     __table_args__ = (
@@ -147,8 +156,9 @@ class Asc(Base):
     """
     __tablename__ = 'qtl_asc'
 
+    run_id = Column(Integer, ForeignKey('qtl_run.id'), nullable=False, index=True)
     id = Column(Integer, primary_key=True)
-    asc = Column(String(60), nullable=False, unique=True)
+    asc = Column(String(60), nullable=False)
     segment = Column(String(2))                          # V | D | J
 
     # empty for IGH, where gene coordinates were not resolved
@@ -167,8 +177,8 @@ class UsageAssociation(Base):
     __tablename__ = 'qtl_usage_association'
 
     id = Column(Integer, primary_key=True)
-    variant_id = Column(Integer, nullable=False)
-    asc_id = Column(Integer, nullable=False)
+    variant_id = Column(Integer, ForeignKey('qtl_variant.id'), nullable=False)
+    asc_id = Column(Integer, ForeignKey('qtl_asc.id'), nullable=False)
 
     n = Column(Integer)
     beta = Column(Float)
@@ -191,9 +201,10 @@ class UsageAssociation(Base):
     is_lead = Column(Boolean, default=False)
 
     __table_args__ = (
+        # variant_id needs no index of its own: it leads the unique constraint
+        # above, so SQLite uses that index for a lookup on it
         UniqueConstraint('variant_id', 'asc_id', name='uq_usage_variant_asc'),
         Index('ix_usage_asc_p', 'asc_id', 'neglog10_p'),
-        Index('ix_usage_variant', 'variant_id'),
         Index('ix_usage_significant', 'significant', 'neglog10_p'),
     )
 
@@ -209,8 +220,8 @@ class AscUsage(Base):
     __tablename__ = 'qtl_asc_usage'
 
     id = Column(Integer, primary_key=True)
-    subject_id = Column(Integer, nullable=False)
-    asc_id = Column(Integer, nullable=False)
+    subject_id = Column(Integer, ForeignKey('qtl_subject.id'), nullable=False)
+    asc_id = Column(Integer, ForeignKey('qtl_asc.id'), nullable=False)
 
     count = Column(Integer)
     total = Column(Integer)
@@ -235,15 +246,15 @@ class Dosage(Base):
     __tablename__ = 'qtl_dosage'
 
     id = Column(Integer, primary_key=True)
-    variant_id = Column(Integer, nullable=False)
-    subject_id = Column(Integer, nullable=False)
+    variant_id = Column(Integer, ForeignKey('qtl_variant.id'), nullable=False)
+    subject_id = Column(Integer, ForeignKey('qtl_subject.id'), nullable=False)
 
     dosage = Column(Float)
     genotype = Column(Integer)
 
     __table_args__ = (
+        # as above: variant_id leads the unique constraint, so it is covered
         UniqueConstraint('variant_id', 'subject_id', name='uq_dosage_variant_subject'),
-        Index('ix_dosage_variant', 'variant_id'),
     )
 
 
@@ -257,7 +268,7 @@ class PairingAssociation(Base):
 
     id = Column(Integer, primary_key=True)
     conditional = Column(String(20), nullable=False)
-    variant_id = Column(Integer, nullable=False)
+    variant_id = Column(Integer, ForeignKey('qtl_variant.id'), nullable=False)
     anchor_gene = Column(String(40), nullable=False)
 
     n = Column(Integer)
@@ -285,7 +296,7 @@ class CellTest(Base):
 
     id = Column(Integer, primary_key=True)
     conditional = Column(String(20), nullable=False)
-    variant_id = Column(Integer, nullable=False)
+    variant_id = Column(Integer, ForeignKey('qtl_variant.id'), nullable=False)
     d_gene = Column(String(40), nullable=False)
     j_gene = Column(String(40), nullable=False)
 
@@ -320,7 +331,7 @@ class DjEnrichment(Base):
     __tablename__ = 'qtl_dj_enrichment'
 
     id = Column(Integer, primary_key=True)
-    subject_id = Column(Integer, nullable=False)
+    subject_id = Column(Integer, ForeignKey('qtl_subject.id'), nullable=False)
     d_gene = Column(String(40), nullable=False)
     j_gene = Column(String(40), nullable=False)
 

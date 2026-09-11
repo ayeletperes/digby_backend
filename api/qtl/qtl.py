@@ -60,11 +60,11 @@ def _describe(key, provider):
     except Exception:
         locus = None
     try:
-        project = session.execute('select project from qtl_run limit 1').scalar()
+        projects = [r[0] for r in session.execute('select project from qtl_run order by id')]
     except Exception:
-        # built before the column existed; unknown, which is not the same as none
-        project = None
-    return (locus or key), project
+        # built before the table existed; unknown, which is not the same as none
+        projects = []
+    return (locus or key), (projects or [None])
 
 
 def datasets(species=None):
@@ -76,11 +76,13 @@ def datasets(species=None):
             found = []
             for key in sorted(qtl_dbs[name]):
                 provider = qtl_dbs[name][key]
-                locus, project = _describe(key, provider)
+                locus, projects = _describe(key, provider)
                 if locus in HIDDEN_LOCI:
                     continue
-                found.append({'locus': locus, 'project': project,
-                              'provider': provider})
+                # one entry per study the database holds, all sharing its provider
+                for project in projects:
+                    found.append({'locus': locus, 'project': project,
+                                  'provider': provider, 'studies': len(projects)})
             if found:
                 _catalogue[name] = found
     return _catalogue.get(species, []) if species else _catalogue
@@ -102,17 +104,23 @@ def loci_for(species, project=None):
 def qtl_session(species, locus, project=None):
     """Session for one guQTL dataset, or None if it is absent or ambiguous.
 
-    A project selects a database rather than filtering inside one: a scan is
-    computed within one cohort and never pooled across them, so two projects are
-    two builds. With none named and only one database holding this locus, that
-    one answers. With none named and several, this returns None rather than
-    picking - serving the wrong cohort's numbers under the right locus name is
-    the one outcome worth a hard failure.
+    A scan is computed within one cohort and never pooled across them, so a
+    study qualifies every query. The schema carries that as qtl_run, and the
+    dimension tables carry run_id, but the queries here do not filter on it yet.
+
+    So a database holding more than one study is refused rather than answered
+    from: every view would silently mix two cohorts whose p-values are on
+    different scales. Serving the wrong cohort's numbers under the right locus
+    name is the one outcome worth a hard failure. Until the run filter reaches
+    the queries, one study per database is the supported case.
     """
     if project is None:
         project = current_project()
 
     found = [d for d in datasets(species) if d['locus'] == locus]
+    if any(d.get('studies', 1) > 1 for d in found):
+        return None
+
     if project is not None:
         found = [d for d in found if d['project'] == project]
 
